@@ -1,49 +1,52 @@
 import React from 'react';
-import { Users, Building, Globe, Award, TrendingUp, Star } from 'lucide-react';
+// Only importing the icons used in the 'stats' array:
+// Replacing University with GraduationCap for better compatibility.
+import { Users, Building, Globe, TrendingUp, Clock, GraduationCap } from 'lucide-react'; 
 
 const StatsSection: React.FC = () => {
+  // New stats based on "Edvantage in Number" content from the document
   const stats = [
+    {
+      icon: Clock, // Used for 'Years of Excellence'
+      number: '5+',
+      label: 'Years of Excellence',
+      description: 'Building talent and driving progress since 2020'
+    },
     {
       icon: Users,
       number: '5000+',
       label: 'Professionals Trained',
-      description: 'Skilled experts ready for industry challenges'
+      description: 'Global network of skilled experts and alumni'
+    },
+    {
+      icon: GraduationCap, // Replaced University with GraduationCap
+      number: '10+',
+      label: 'University Collaborations',
+      description: 'Partnerships ensuring academic and industry relevance'
     },
     {
       icon: Building,
       number: '20+',
       label: 'Corporate Partners',
-      description: 'Leading oil & gas companies worldwide'
+      description: 'Trusted training provider for leading global companies'
     },
     {
       icon: Globe,
       number: '10+',
-      label: 'Countries Served',
-      description: 'Global reach and local expertise'
-    },
-    {
-      icon: Award,
-      number: '95%',
-      label: 'Job Placement Rate',
-      description: 'Successful career transitions'
+      label: 'Presence in Countries',
+      description: 'Expanding our reach across major energy regions'
     },
     {
       icon: TrendingUp,
-      number: '85%',
-      label: 'Salary Increase',
-      description: 'Average post-training growth'
-    },
-    {
-      icon: Star,
-      number: '4.9/5',
-      label: 'Student Rating',
-      description: 'Exceptional learning experience'
+      number: '95%',
+      label: 'Career Advancement Rate',
+      description: 'High success in post-training job and salary growth'
     }
   ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
-      {/* Background Pattern */}
+      {/* Background Pattern (Uses custom animation class 'twinkle') */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full">
           {[...Array(50)].map((_, i) => (
@@ -53,6 +56,7 @@ const StatsSection: React.FC = () => {
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
+                // Note: The 'twinkle' animation class will only work if added to global CSS
                 animation: `twinkle ${2 + Math.random() * 4}s infinite ${Math.random() * 2}s`
               }}
             />
@@ -79,14 +83,15 @@ const StatsSection: React.FC = () => {
               className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col items-center text-center">
-                {/* Icon */}
-                <div className="bg-gradient-to-r from-orange-500 to-yellow-500 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                {/* Icon - Orange gradient changed to Teal/Green */}
+                <div className="bg-gradient-to-r from-teal-500 to-green-500 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <stat.icon className="h-8 w-8 text-white" />
                 </div>
 
                 {/* Number */}
                 <div className="mb-4">
-                  <span className="text-4xl md:text-5xl font-bold text-white group-hover:text-orange-300 transition-colors duration-300">
+                  {/* Orange hover text changed to Teal */}
+                  <span className="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-300 transition-colors duration-300">
                     {stat.number}
                   </span>
                 </div>
@@ -105,9 +110,9 @@ const StatsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Achievement Highlights */}
+        {/* Achievement Highlights - Orange background changed to Teal/Green */}
         <div className="mt-20 grid md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 rounded-xl p-6 border border-orange-300/30">
+          <div className="bg-gradient-to-r from-teal-500/20 to-green-500/20 rounded-xl p-6 border border-teal-300/30">
             <h3 className="text-2xl font-bold text-white mb-3">Industry Recognition</h3>
             <p className="text-blue-100">Recognized by major oil & gas companies for excellence in professional training and development.</p>
           </div>
@@ -117,26 +122,13 @@ const StatsSection: React.FC = () => {
             <p className="text-blue-100">Training professionals across continents, contributing to safer and more efficient operations worldwide.</p>
           </div>
           
+          {/* Third box kept with its original colors as it wasn't orange/yellow */}
           <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-300/30">
             <h3 className="text-2xl font-bold text-white mb-3">Future Ready</h3>
             <p className="text-blue-100">Preparing the next generation of oil & gas professionals with cutting-edge skills and knowledge.</p>
           </div>
         </div>
       </div>
-
-      {/* Custom CSS for animations */}
-      <style jsx>{`
-        @keyframes twinkle {
-          0%, 100% {
-            opacity: 0;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.2);
-          }
-        }
-      `}</style>
     </section>
   );
 };

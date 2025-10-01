@@ -1,10 +1,29 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Clock, Users, Award, BookOpen } from 'lucide-react';
-import type { Program } from '../types';
+// Only import the icons that are actually used in this file
+import { ChevronLeft, ChevronRight, Clock, Users, Award, BookOpen, GraduationCap, Smartphone, Briefcase } from 'lucide-react';
+
+interface Program {
+  id: string;
+  title: string;
+  category: 'diploma' | 'instructor-led' | 'e-learning' | 'corporate';
+  duration: string;
+  format: string;
+  overview: string;
+  outcomes: string[];
+  curriculum: {
+    module: string;
+    topics: string[];
+  }[];
+  benefits: string[];
+  targetAudience: string[];
+  price?: string;
+  image: string;
+}
 
 const ProgramsSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // NOTE: Program data kept as is, focusing on structure and color/text updates
   const flagshipPrograms: Program[] = [
     {
       id: '1',
@@ -77,17 +96,35 @@ const ProgramsSection: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 + flagshipPrograms.length) % flagshipPrograms.length);
   };
 
+  // New descriptive text integrated from doc
+  const newProgramDescription = (
+    <>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+        [cite_start]Edvantage Learning is dedicated to advancing talent in the oil & gas sector through innovative and industry-focused education[cite: 9].
+      </p>
+      <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+        By combining academic excellence with practical expertise, we deliver specialized programs in areas such as Reservoir Management, Energy Economics, Drilling Technologies, and Digital Transformation. [cite_start]Our curriculum also integrates future-ready skills like AI, Python, Data Analytics, and Machine Learning—enabling professionals to tackle complex challenges, drive efficiency, and lead in a rapidly changing energy landscape[cite: 10, 11].
+      </p>
+    </>
+  );
+
+  // New categories integrated from doc
+  const categories = [
+    { name: 'Diploma Courses', icon: GraduationCap, description: 'Long-term, comprehensive certification programs.' },
+    { name: 'Placement Booster Program', icon: Users, description: 'Programs focused on career readiness and placement.' },
+    { name: 'E-Learning', icon: Smartphone, description: 'Flexible, self-paced online courses.' },
+    { name: 'Employability Development Program', icon: Briefcase, description: 'Skill enhancement for immediate job market readiness.' }
+  ];
+  
   return (
     <section id="programs" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header with Integrated Content */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Explore Our Flagship Programs
+            Advance with Our Programs
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive training programs designed by industry experts to advance your career in oil and gas
-          </p>
+          {newProgramDescription}
         </div>
 
         {/* Interactive Slider */}
@@ -109,8 +146,9 @@ const ProgramsSection: React.FC = () => {
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        {/* Orange changed to Teal */}
                         <div className="absolute top-4 right-4">
-                          <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                          <span className="bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                             {program.category.replace('-', ' ').toUpperCase()}
                           </span>
                         </div>
@@ -121,7 +159,7 @@ const ProgramsSection: React.FC = () => {
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
                         <p className="text-gray-600 mb-6">{program.overview}</p>
 
-                        {/* Program Details */}
+                        {/* Program Details (Icons remain blue) */}
                         <div className="grid grid-cols-2 gap-4 mb-6">
                           <div className="flex items-center space-x-2">
                             <Clock className="h-5 w-5 text-blue-600" />
@@ -147,7 +185,8 @@ const ProgramsSection: React.FC = () => {
                           <ul className="space-y-2">
                             {program.outcomes.map((outcome, idx) => (
                               <li key={idx} className="flex items-start space-x-2">
-                                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                                {/* Orange changed to Teal */}
+                                <div className="w-2 h-2 bg-teal-500 rounded-full mt-2"></div>
                                 <span className="text-gray-700">{outcome}</span>
                               </li>
                             ))}
@@ -164,9 +203,9 @@ const ProgramsSection: React.FC = () => {
                           </button>
                         </div>
 
-                        {/* Price */}
+                        {/* Price - Orange changed to Teal */}
                         <div className="mt-4 text-right">
-                          <span className="text-2xl font-bold text-orange-600">{program.price}</span>
+                          <span className="text-2xl font-bold text-teal-600">{program.price}</span>
                         </div>
                       </div>
                     </div>
@@ -204,16 +243,12 @@ const ProgramsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Program Categories */}
+        {/* Program Categories - Updated with specific categories from doc */}
         <div className="mt-20 grid md:grid-cols-4 gap-6">
-          {[
-            { name: 'Diploma Programs', icon: Award, description: 'Comprehensive certification programs' },
-            { name: 'Instructor-Led Training', icon: Users, description: 'Expert-guided learning sessions' },
-            { name: 'E-Learning', icon: BookOpen, description: 'Flexible online courses' },
-            { name: 'Corporate Training', icon: Users, description: 'Customized enterprise solutions' }
-          ].map((category, index) => (
+          {categories.map((category, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="mb-4">
+                {/* Icon color remains blue/secondary */}
                 <category.icon className="h-12 w-12 text-blue-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">{category.name}</h3>

@@ -14,6 +14,11 @@ export interface Program {
   targetAudience: string[];
   price?: string;
   image: string;
+  featured?: boolean;
+  level?: string;
+  language?: string;
+  certificate?: string;
+  prerequisites?: string;
 }
 
 export interface Webinar {
@@ -23,12 +28,15 @@ export interface Webinar {
     name: string;
     bio: string;
     image: string;
+    credentials: string[];
   };
   date: string;
   time: string;
   description: string;
   registrationUrl: string;
   isUpcoming: boolean;
+  duration: string;
+  topics: string[];
 }
 
 export interface TeamMember {
@@ -40,6 +48,7 @@ export interface TeamMember {
   image: string;
   bio: string;
   type: 'trainer' | 'advisor' | 'leadership';
+  specializations: string[];
 }
 
 export interface SuccessStory {
@@ -50,6 +59,9 @@ export interface SuccessStory {
   program: string;
   quote: string;
   image: string;
+  beforeRole?: string;
+  salaryIncrease?: string;
+  location: string;
 }
 
 export interface BlogPost {
@@ -61,6 +73,7 @@ export interface BlogPost {
   publishedDate: string;
   tags: string[];
   image: string;
+  readTime: string;
   comments: Comment[];
 }
 
@@ -70,4 +83,22 @@ export interface Comment {
   content: string;
   date: string;
   replies?: Comment[];
+}
+
+export interface Partnership {
+  id: string;
+  name: string;
+  type: 'university' | 'corporate';
+  logo: string;
+  description: string;
+  collaborationDetails: string[];
+}
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'student' | 'admin' | 'instructor';
+  enrolledPrograms: string[];
+  completedPrograms: string[];
 }

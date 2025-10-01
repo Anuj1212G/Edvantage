@@ -113,7 +113,7 @@ const TestimonialsSection: React.FC = () => {
                     <h4 className="text-xl font-bold text-gray-900">{currentData.name}</h4>
                     <p className="text-blue-600 font-semibold">{currentData.position}</p>
                     <p className="text-gray-600">{currentData.company}</p>
-                    <p className="text-sm text-orange-600 font-medium mt-1">{currentData.program}</p>
+                    <p className="text-sm text-teal-600 font-medium mt-1">{currentData.program}</p> {/* Orange changed to Teal */}
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ const TestimonialsSection: React.FC = () => {
               <p className="text-gray-700 text-sm leading-relaxed">
                 {testimonial.quote.substring(0, 120)}...
               </p>
-              <p className="text-xs text-orange-600 font-medium mt-2">{testimonial.program}</p>
+              <p className="text-xs text-teal-600 font-medium mt-2">{testimonial.program}</p> {/* Orange changed to Teal */}
             </div>
           ))}
         </div>
