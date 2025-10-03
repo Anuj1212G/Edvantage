@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-// Only import the icons that are actually used in this file
-import { ChevronLeft, ChevronRight, Clock, Users, Award, BookOpen, GraduationCap, Smartphone, Briefcase } from 'lucide-react';
+// ProgramsSection.tsx (Restructured for Side-by-Side Marquee Layout)
+
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { ChevronRight, GraduationCap, Smartphone, Briefcase, Users, Award, Clock } from 'lucide-react';
 
 interface Program {
   id: string;
@@ -10,258 +11,207 @@ interface Program {
   format: string;
   overview: string;
   outcomes: string[];
-  curriculum: {
-    module: string;
-    topics: string[];
-  }[];
+  curriculum: { module: string; topics: string[] }[];
   benefits: string[];
   targetAudience: string[];
   price?: string;
   image: string;
 }
 
-const ProgramsSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+// === Program Data (Used here as the source) ===
+const basePrograms: Program[] = [
+    { id: 'A', title: 'Integrated Field Development Planning', category: 'instructor-led', duration: '5 Day', format: 'Online', overview: '', outcomes: [], curriculum: [], benefits: [], targetAudience: [], price: '₹14,000', image: 'https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 'B', title: 'Machine Learning using Python', category: 'e-learning', duration: '3 Months', format: 'Online', overview: '', outcomes: [], curriculum: [], benefits: [], targetAudience: [], price: '₹17,000', image: 'https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 'C', title: 'Practical Reservoir Simulation', category: 'diploma', duration: '2 Weeks', format: 'Online', overview: '', outcomes: [], curriculum: [], benefits: [], targetAudience: [], price: '₹12,000', image: 'https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 'D', title: 'Python for Oil and Gas (Extended)', category: 'instructor-led', duration: '2 Months', format: 'Training', overview: '', outcomes: [], curriculum: [], benefits: [], targetAudience: [], price: '₹15,000', image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 'E', title: 'HSE Leadership Program', category: 'corporate', duration: '3 months', format: 'Hybrid', overview: '', outcomes: [], curriculum: [], benefits: [], targetAudience: [], price: '₹10,500', image: 'https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 'F', title: 'Geological Modeling with Petrel', category: 'diploma', duration: '1 Month', format: 'Workshop', overview: '', outcomes: [], curriculum: [], benefits: [], targetAudience: [], price: '₹20,000', image: 'https://images.pexels.com/photos/3861955/pexels-photo-3861955.jpeg?auto=compress&cs=tinysrgb&w=800' },
+];
 
-  // NOTE: Program data kept as is, focusing on structure and color/text updates
-  const flagshipPrograms: Program[] = [
-    {
-      id: '1',
-      title: 'Petroleum Engineering Excellence',
-      category: 'diploma',
-      duration: '6 months',
-      format: 'Hybrid',
-      overview: 'Comprehensive program covering reservoir engineering, drilling, and production optimization.',
-      outcomes: ['Advanced technical skills', 'Industry certification', 'Career advancement'],
-      curriculum: [
-        {
-          module: 'Reservoir Engineering',
-          topics: ['Fluid properties', 'Well testing', 'Enhanced oil recovery']
-        },
-        {
-          module: 'Drilling Operations',
-          topics: ['Drilling fluids', 'Wellbore stability', 'Completion techniques']
-        }
-      ],
-      benefits: ['Industry recognition', 'Hands-on experience', 'Global networking'],
-      targetAudience: ['Engineers', 'Technical professionals', 'Fresh graduates'],
-      price: '$2,999',
-      image: 'https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: '2',
-      title: 'HSE Leadership Program',
-      category: 'instructor-led',
-      duration: '3 months',
-      format: 'Online + Workshops',
-      overview: 'Advanced health, safety, and environmental management for oil & gas operations.',
-      outcomes: ['HSE leadership skills', 'Risk assessment expertise', 'Compliance management'],
-      curriculum: [
-        {
-          module: 'Risk Management',
-          topics: ['Hazard identification', 'Risk assessment', 'Control measures']
-        }
-      ],
-      benefits: ['Career growth', 'Industry certification', 'Global recognition'],
-      targetAudience: ['HSE managers', 'Operations supervisors', 'Safety professionals'],
-      price: '$1,899',
-      image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: '3',
-      title: 'Digital Oil Field Technologies',
-      category: 'e-learning',
-      duration: '4 months',
-      format: 'Self-paced Online',
-      overview: 'Cutting-edge technologies shaping the future of oil and gas operations.',
-      outcomes: ['Digital transformation skills', 'Technology implementation', 'Industry 4.0 expertise'],
-      curriculum: [
-        {
-          module: 'IoT in Oil & Gas',
-          topics: ['Sensor networks', 'Data analytics', 'Predictive maintenance']
-        }
-      ],
-      benefits: ['Future-ready skills', 'Technology expertise', 'Innovation leadership'],
-      targetAudience: ['Technical managers', 'IT professionals', 'Operations engineers'],
-      price: '$1,599',
-      image: 'https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=800'
-    }
-  ];
+const programsList = [...basePrograms, ...basePrograms, ...basePrograms, ...basePrograms]; // Duplicated list for marquee
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % flagshipPrograms.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + flagshipPrograms.length) % flagshipPrograms.length);
-  };
+// --- Program Card Component ---
+const ProgramCard: React.FC<{ program: Program, isDark: boolean }> = ({ program, isDark }) => {
+    const bgColor = isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900';
+    const titleColor = isDark ? 'text-teal-400' : 'text-blue-600';
+    const durationText = program.duration.toUpperCase();
 
-  // New descriptive text integrated from doc
-  const newProgramDescription = (
-    <>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-        [cite_start]Edvantage Learning is dedicated to advancing talent in the oil & gas sector through innovative and industry-focused education[cite: 9].
-      </p>
-      <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-        By combining academic excellence with practical expertise, we deliver specialized programs in areas such as Reservoir Management, Energy Economics, Drilling Technologies, and Digital Transformation. [cite_start]Our curriculum also integrates future-ready skills like AI, Python, Data Analytics, and Machine Learning—enabling professionals to tackle complex challenges, drive efficiency, and lead in a rapidly changing energy landscape[cite: 10, 11].
-      </p>
-    </>
-  );
+    return (
+        <div className={`relative ${bgColor} p-4 shadow-xl rounded-xl flex flex-col mx-auto w-full flex-shrink-0`} style={{ height: '280px' }}>
+            {/* Price and Register Button (Top Right Overlay) */}
+            <div className={`${isDark ? 'bg-black/70' : 'bg-gray-100/80'} absolute top-0 right-0 p-2 rounded-bl-xl flex items-center space-x-2`}>
+                <span className={`${isDark ? 'text-teal-400' : 'text-blue-600'} font-bold text-sm`}>{program.price}</span>
+                <button className={`flex items-center text-xs font-semibold ${isDark ? 'text-white' : 'text-gray-800'}`}>
+                    Register Now <ChevronRight className="h-3 w-3 ml-1" />
+                </button>
+            </div>
 
-  // New categories integrated from doc
-  const categories = [
-    { name: 'Diploma Courses', icon: GraduationCap, description: 'Long-term, comprehensive certification programs.' },
-    { name: 'Placement Booster Program', icon: Users, description: 'Programs focused on career readiness and placement.' },
-    { name: 'E-Learning', icon: Smartphone, description: 'Flexible, self-paced online courses.' },
-    { name: 'Employability Development Program', icon: Briefcase, description: 'Skill enhancement for immediate job market readiness.' }
-  ];
-  
-  return (
-    <section id="programs" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header with Integrated Content */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Advance with Our Programs
-          </h2>
-          {newProgramDescription}
+            {/* Visual Content (Image) */}
+            <div className="flex-shrink-0 relative h-40 w-full overflow-hidden rounded-md mb-3">
+                <img src={program.image} alt={program.title} className="w-full h-full object-cover" />
+            </div>
+
+            {/* Header/Title */}
+            <div className="flex-shrink-0 mt-auto pt-2">
+                <p className={`text-xs font-semibold ${titleColor} mb-1`}>{durationText} Online Training</p>
+                <h4 className="text-lg font-bold leading-snug">{program.title}</h4>
+            </div>
         </div>
+    );
+};
 
-        {/* Interactive Slider */}
-        <div className="relative">
-          <div className="overflow-hidden rounded-2xl">
+
+// --- Marquee Column Component with JS Animation ---
+const MarqueeColumn: React.FC<{ programs: Program[], direction: 'up' | 'down', isDark: boolean, speed: number }> = ({ programs, direction, isDark, speed }) => {
+    const columnRef = useRef<HTMLDivElement>(null);
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        let animationFrameId: number;
+        let listHeight = 0;
+        const scrollSpeed = speed;
+
+        const animateScroll = () => {
+            if (columnRef.current) {
+                const totalHeight = columnRef.current.offsetHeight;
+                // The loop point is 1/4 of the total height (since the list is quadrupled)
+                listHeight = totalHeight / 4; 
+
+                setOffset(prevOffset => {
+                    let newOffset = prevOffset + (direction === 'up' ? -scrollSpeed : scrollSpeed);
+
+                    if (direction === 'up') {
+                        if (newOffset < -listHeight) {
+                            newOffset = 0;
+                        }
+                    } else {
+                        if (newOffset > 0) {
+                            newOffset = -listHeight;
+                        }
+                    }
+                    return newOffset;
+                });
+            }
+            animationFrameId = requestAnimationFrame(animateScroll);
+        };
+
+        // Initialize position for scroll-down to start halfway through the duplicated list
+        if (direction === 'down' && columnRef.current) {
+            setOffset(-columnRef.current.offsetHeight / 4); 
+        }
+
+        animateScroll();
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [direction, speed]);
+
+
+    return (
+        <div className="flex flex-col space-y-8 flex-shrink-0 h-[400%]">
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                ref={columnRef} 
+                className="flex flex-col space-y-8"
+                style={{ transform: `translateY(${offset}px)` }}
             >
-              {flagshipPrograms.map((program, index) => (
-                <div key={program.id} className="w-full flex-shrink-0">
-                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                    <div className="grid md:grid-cols-2 gap-0">
-                      {/* Image Section */}
-                      <div className="relative h-64 md:h-auto">
-                        <img 
-                          src={program.image} 
-                          alt={program.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        {/* Orange changed to Teal */}
-                        <div className="absolute top-4 right-4">
-                          <span className="bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            {program.category.replace('-', ' ').toUpperCase()}
-                          </span>
-                        </div>
-                      </div>
+                {programs.map((program, index) => (
+                    <ProgramCard key={`${program.id}-${index}`} program={program} isDark={isDark} />
+                ))}
+            </div>
+        </div>
+    );
+};
 
-                      {/* Content Section */}
-                      <div className="p-8">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
-                        <p className="text-gray-600 mb-6">{program.overview}</p>
 
-                        {/* Program Details (Icons remain blue) */}
-                        <div className="grid grid-cols-2 gap-4 mb-6">
-                          <div className="flex items-center space-x-2">
-                            <Clock className="h-5 w-5 text-blue-600" />
-                            <span className="text-gray-700">{program.duration}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <BookOpen className="h-5 w-5 text-blue-600" />
-                            <span className="text-gray-700">{program.format}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <Users className="h-5 w-5 text-blue-600" />
-                            <span className="text-gray-700">Expert Instructors</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <Award className="h-5 w-5 text-blue-600" />
-                            <span className="text-gray-700">Certified</span>
-                          </div>
-                        </div>
+// === Main Programs Section Component (Restructured) ===
+const ProgramsSection: React.FC = () => {
+    // Prepare program lists for the two columns
+    const column1Programs = useMemo(() => programsList.filter((_, i) => i % 2 === 0), []);
+    const column2Programs = useMemo(() => programsList.filter((_, i) => i % 2 !== 0), []);
+    
+    const categories = [
+        { name: 'Diploma Courses', icon: GraduationCap, description: 'Long-term, comprehensive certification programs.' },
+        { name: 'Placement Booster Program', icon: Users, description: 'Programs focused on career readiness and placement.' },
+        { name: 'E-Learning', icon: Smartphone, description: 'Flexible, self-paced online courses.' },
+        { name: 'Employability Development Program', icon: Briefcase, description: 'Skill enhancement for immediate job market readiness.' }
+    ];
 
-                        {/* Key Outcomes */}
-                        <div className="mb-6">
-                          <h4 className="font-semibold text-gray-900 mb-3">Key Outcomes:</h4>
-                          <ul className="space-y-2">
-                            {program.outcomes.map((outcome, idx) => (
-                              <li key={idx} className="flex items-start space-x-2">
-                                {/* Orange changed to Teal */}
-                                <div className="w-2 h-2 bg-teal-500 rounded-full mt-2"></div>
-                                <span className="text-gray-700">{outcome}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex-1">
-                            Enroll Now
-                          </button>
-                          <button className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold transition-colors">
-                            Learn More
-                          </button>
-                        </div>
-
-                        {/* Price - Orange changed to Teal */}
-                        <div className="mt-4 text-right">
-                          <span className="text-2xl font-bold text-teal-600">{program.price}</span>
-                        </div>
-                      </div>
+    return (
+        <section id="programs" className="py-20 bg-gray-50 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                {/* --- TWO-COLUMN LAYOUT FOR HEADER & MARQUEE --- */}
+                <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                    
+                    {/* === LEFT SIDE: Text Header & Explore Button === */}
+                    <div className="text-left">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                            Our Dynamic Program Showcase 
+                        </h2>
+                        <p className="text-xl text-gray-600 mb-8">
+                            Witness our diverse range of certifications and training formats, constantly scrolling to bring you the latest opportunities in the energy sector.
+                        </p>
+                        
+                        {/* NEW: Explore Programs Button */}
+                       <a 
+                            href="/programs" // Correct path to the TrainingPrograms page
+                            className="inline-flex items-center bg-teal-500 hover:bg-teal-600 text-white text-lg font-semibold px-8 py-4 rounded-lg transition-colors shadow-lg"
+                        >
+                            Explore All Training Programs
+                            <ChevronRight className="h-5 w-5 ml-2" />
+                        </a>
                     </div>
-                  </div>
+
+                    {/* === RIGHT SIDE: Scrolling Program Marquee === */}
+                    <div className="relative h-[650px] w-full flex justify-center">
+                        <div className="absolute inset-0 flex justify-center space-x-8 overflow-hidden">
+                            
+                            {/* Column 1: Scrolls Up (Light cards) */}
+                            <div className="w-1/2 max-w-[300px] overflow-hidden">
+                                <MarqueeColumn 
+                                programs={column1Programs} 
+                                direction="up" 
+                                isDark={false} 
+                                speed={0.4} // Slightly slower speed
+                                />
+                            </div>
+
+                            {/* Column 2: Scrolls Down (Dark cards) */}
+                            <div className="w-1/2 max-w-[300px] mt-16 lg:mt-32 overflow-hidden"> 
+                                <MarqueeColumn 
+                                programs={column2Programs} 
+                                direction="down" 
+                                isDark={true} 
+                                speed={0.4} // Slightly slower speed
+                                />
+                            </div>
+                        </div>
+
+                        {/* Fades at the top and bottom */}
+                        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-gray-50 to-transparent pointer-events-none"></div>
+                        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none"></div>
+                    </div>
                 </div>
-              ))}
+
+                {/* --- Program Categories (Remains below the marquee) --- */}
+                <div className="mt-20 pt-10 border-t border-gray-300">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Training Formats</h3>
+                    <div className="grid md:grid-cols-4 gap-6">
+                        {categories.map((category, index) => (
+                            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                <div className="mb-4">
+                                    <category.icon className="h-12 w-12 text-blue-600" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">{category.name}</h3>
+                                <p className="text-gray-600 text-sm">{category.description}</p>
+                               
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-          </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200"
-          >
-            <ChevronLeft className="h-6 w-6 text-gray-700" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200"
-          >
-            <ChevronRight className="h-6 w-6 text-gray-700" />
-          </button>
-
-          {/* Slide Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {flagshipPrograms.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentSlide ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Program Categories - Updated with specific categories from doc */}
-        <div className="mt-20 grid md:grid-cols-4 gap-6">
-          {categories.map((category, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="mb-4">
-                {/* Icon color remains blue/secondary */}
-                <category.icon className="h-12 w-12 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{category.name}</h3>
-              <p className="text-gray-600 text-sm">{category.description}</p>
-              <button className="mt-4 text-blue-600 hover:text-blue-700 font-semibold text-sm">
-                Explore Programs →
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default ProgramsSection;
