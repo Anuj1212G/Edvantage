@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const TestimonialsSection: React.FC = () => {
+const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
@@ -12,8 +12,10 @@ const TestimonialsSection: React.FC = () => {
       company: 'ExxonMobil',
       program: 'Petroleum Engineering Excellence',
       rating: 5,
-      quote: "The comprehensive curriculum and expert instructors at Edvantage Learning transformed my understanding of reservoir engineering. The practical approach and real-world case studies prepared me for the challenges in my current role.",
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400'
+      quote:
+        'The comprehensive curriculum and expert instructors at Edvantage Learning transformed my understanding of reservoir engineering. The practical approach and real-world case studies prepared me for the challenges in my current role.',
+      image:
+        'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 2,
@@ -22,8 +24,10 @@ const TestimonialsSection: React.FC = () => {
       company: 'Shell',
       program: 'HSE Leadership Program',
       rating: 5,
-      quote: "Outstanding program that enhanced my leadership skills in health, safety, and environmental management. The interactive workshops and peer learning experiences were invaluable for my career growth.",
-      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400'
+      quote:
+        'Outstanding program that enhanced my leadership skills in health, safety, and environmental management. The interactive workshops and peer learning experiences were invaluable for my career growth.',
+      image:
+        'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 3,
@@ -32,8 +36,10 @@ const TestimonialsSection: React.FC = () => {
       company: 'Chevron',
       program: 'Digital Oil Field Technologies',
       rating: 5,
-      quote: "The future of oil and gas is digital, and Edvantage Learning prepared me perfectly for this transformation. The cutting-edge content and industry connections opened new opportunities in my career.",
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400'
+      quote:
+        'The future of oil and gas is digital, and Edvantage Learning prepared me perfectly for this transformation. The cutting-edge content and industry connections opened new opportunities in my career.',
+      image:
+        'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 4,
@@ -42,9 +48,11 @@ const TestimonialsSection: React.FC = () => {
       company: 'Saudi Aramco',
       program: 'Corporate Training Program',
       rating: 5,
-      quote: "The customized corporate training program addressed our specific operational challenges. The expert facilitators and practical solutions implementation made a significant impact on our team's performance.",
-      image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=400'
-    }
+      quote:
+        'The customized corporate training program addressed our specific operational challenges. The expert facilitators and practical solutions implementation made a significant impact on our team’s performance.',
+      image:
+        'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=400',
+    },
   ];
 
   useEffect(() => {
@@ -59,7 +67,9 @@ const TestimonialsSection: React.FC = () => {
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const currentData = testimonials[currentTestimonial];
@@ -110,10 +120,16 @@ const TestimonialsSection: React.FC = () => {
                     />
                   </div>
                   <div className="text-center">
-                    <h4 className="text-xl font-bold text-gray-900">{currentData.name}</h4>
-                    <p className="text-blue-600 font-semibold">{currentData.position}</p>
+                    <h4 className="text-xl font-bold text-gray-900">
+                      {currentData.name}
+                    </h4>
+                    <p className="text-blue-600 font-semibold">
+                      {currentData.position}
+                    </p>
                     <p className="text-gray-600">{currentData.company}</p>
-                    <p className="text-sm text-teal-600 font-medium mt-1">{currentData.program}</p> {/* Orange changed to Teal */}
+                    <p className="text-sm text-teal-600 font-medium mt-1">
+                      {currentData.program}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -152,8 +168,11 @@ const TestimonialsSection: React.FC = () => {
 
         {/* Additional Testimonials Grid */}
         <div className="mt-20 grid md:grid-cols-3 gap-8">
-          {testimonials.slice(0, 3).map((testimonial, index) => (
-            <div key={testimonial.id} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          {testimonials.slice(0, 3).map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
               <div className="flex items-center mb-4">
                 <img
                   src={testimonial.image}
@@ -173,7 +192,9 @@ const TestimonialsSection: React.FC = () => {
               <p className="text-gray-700 text-sm leading-relaxed">
                 {testimonial.quote.substring(0, 120)}...
               </p>
-              <p className="text-xs text-teal-600 font-medium mt-2">{testimonial.program}</p> {/* Orange changed to Teal */}
+              <p className="text-xs text-teal-600 font-medium mt-2">
+                {testimonial.program}
+              </p>
             </div>
           ))}
         </div>

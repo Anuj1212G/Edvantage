@@ -1,25 +1,14 @@
 import React, { useState } from 'react';
-import { X, Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
+import { X, Eye, EyeOff, Mail, Lock } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
-interface LoginModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSwitchToSignup: () => void;
-}
-
-interface LoginFormData {
-  email: string;
-  password: string;
-}
-
-const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSwitchToSignup }) => {
+const LoginModal = ({ isOpen, onClose, onSwitchToSignup }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>();
 
-  const onSubmit = async (data: LoginFormData) => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = async (data) => {
     setIsLoading(true);
     // Simulate API call
     setTimeout(() => {
@@ -66,8 +55,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSwitchToSign
                   }
                 })}
                 type="email"
-                // Blue focus ring changed to Teal for consistency with accent color
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" 
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Enter your email"
               />
             </div>
@@ -92,7 +80,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSwitchToSign
                   }
                 })}
                 type={showPassword ? 'text' : 'password'}
-                // Blue focus ring changed to Teal for consistency with accent color
                 className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Enter your password"
               />
@@ -112,7 +99,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSwitchToSign
           {/* Remember Me & Forgot Password */}
           <div className="flex items-center justify-between">
             <label className="flex items-center">
-              {/* Checkbox color kept blue as a secondary interactive color */}
               <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
               <span className="ml-2 text-sm text-gray-600">Remember me</span>
             </label>

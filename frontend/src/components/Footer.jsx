@@ -1,12 +1,11 @@
 import React from 'react';
 import { BookOpen, Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube, Send, MessageSquare } from 'lucide-react';
 
-const Footer: React.FC = () => {
-  // Contact details derived from the PEA screenshot in your document
+const Footer = () => {
   const contactDetails = {
     address: 'PETROLEUM ENGINEERS ASSOCIATION, JHARKHAND, INDIA',
     phone: '+91 6205464268',
-    email: 'info@peassociations.com', // Keeping this placeholder for demonstration, usually would be info@edvantagelearning.com
+    email: 'info@peassociations.com',
     whatsapp: '+91 6205464268'
   };
 
@@ -24,9 +23,9 @@ const Footer: React.FC = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-gray-900" // Orange changed to Teal
+                className="flex-1 px-4 py-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-gray-900"
               />
-              <button className="bg-teal-500 hover:bg-teal-600 px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"> {/* Orange changed to Teal */}
+              <button className="bg-teal-500 hover:bg-teal-600 px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2">
                 <Send className="h-4 w-4" />
                 <span>Subscribe</span>
               </button>
@@ -41,7 +40,6 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
-              {/* Orange changed to Teal */}
               <div className="bg-gradient-to-r from-blue-600 to-teal-500 p-2 rounded-lg">
                 <BookOpen className="h-8 w-8 text-white" />
               </div>
@@ -54,7 +52,6 @@ const Footer: React.FC = () => {
               Empowering oil & gas professionals with world-class training, consultancy, and industry connections for career advancement.
             </p>
             <div className="flex space-x-4">
-              {/* Social links use blue hover state */}
               <a href="#" className="bg-blue-800 hover:bg-blue-700 p-2 rounded-lg transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -84,7 +81,7 @@ const Footer: React.FC = () => {
                 'Blog & Articles'
               ].map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-teal-400 transition-colors"> {/* Orange changed to Teal */}
+                  <a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">
                     {link}
                   </a>
                 </li>
@@ -106,7 +103,7 @@ const Footer: React.FC = () => {
                 'Digital Oil Field'
               ].map((program, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-teal-400 transition-colors"> {/* Orange changed to Teal */}
+                  <a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">
                     {program}
                   </a>
                 </li>
@@ -114,29 +111,26 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Info - Integrated PEA data */}
+          {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-6">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-teal-400 mt-1 flex-shrink-0" /> {/* Orange changed to Teal */}
+                <MapPin className="h-5 w-5 text-teal-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">
-                    {contactDetails.address}
-                  </p>
+                  <p className="text-gray-300">{contactDetails.address}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-teal-400" /> {/* Orange changed to Teal */}
+                <Phone className="h-5 w-5 text-teal-400" />
                 <p className="text-gray-300">{contactDetails.phone}</p>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-teal-400" /> {/* Orange changed to Teal */}
+                <Mail className="h-5 w-5 text-teal-400" />
                 <p className="text-gray-300">{contactDetails.email}</p>
               </div>
             </div>
             
-            {/* WhatsApp CTA */}
             <div className="mt-6 p-4 bg-green-600 rounded-lg flex items-center justify-between">
               <div>
                 <h4 className="font-semibold mb-1">Need Quick Help?</h4>
@@ -150,23 +144,23 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Achievement Stats - Orange changed to Teal */}
+        {/* Achievement Stats */}
         <div className="border-t border-gray-800 mt-12 pt-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-teal-400 mb-2">5000+</div> {/* Orange changed to Teal */}
+              <div className="text-3xl font-bold text-teal-400 mb-2">5000+</div>
               <div className="text-gray-400">Professionals Trained</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-400 mb-2">20+</div> {/* Orange changed to Teal */}
+              <div className="text-3xl font-bold text-teal-400 mb-2">20+</div>
               <div className="text-gray-400">Corporate Partners</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-400 mb-2">10+</div> {/* Orange changed to Teal */}
+              <div className="text-3xl font-bold text-teal-400 mb-2">10+</div>
               <div className="text-gray-400">Countries Served</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-400 mb-2">95%</div> {/* Orange changed to Teal */}
+              <div className="text-3xl font-bold text-teal-400 mb-2">95%</div>
               <div className="text-gray-400">Job Placement Rate</div>
             </div>
           </div>

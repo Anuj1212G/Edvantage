@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Clock, Users, Award, BookOpen, ChevronDown, ChevronUp, Star, Play } from 'lucide-react';
-import type { Program } from '../types';
 
-const TrainingPrograms: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [expandedCurriculum, setExpandedCurriculum] = useState<string | null>(null);
+const TrainingPrograms = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [expandedCurriculum, setExpandedCurriculum] = useState(null);
 
-  const programs: Program[] = [
+  const programs = [
     {
       id: '1',
       title: 'Petroleum Engineering Excellence',
@@ -178,26 +177,25 @@ const TrainingPrograms: React.FC = () => {
     }
   ];
 
-  // Updated categories array to include 'corporate' for completeness based on document
   const categories = [
     { id: 'all', name: 'All Programs', count: programs.length },
     { id: 'diploma', name: 'Diploma Programs', count: programs.filter(p => p.category === 'diploma').length },
     { id: 'instructor-led', name: 'Instructor-Led Trainings', count: programs.filter(p => p.category === 'instructor-led').length },
     { id: 'e-learning', name: 'E-Learning', count: programs.filter(p => p.category === 'e-learning').length },
-    { id: 'corporate', name: 'Corporate Training', count: programs.filter(p => p.category === 'corporate').length } // Assuming one exists or placeholder
+    { id: 'corporate', name: 'Corporate Training', count: programs.filter(p => p.category === 'corporate').length }
   ];
 
   const filteredPrograms = selectedCategory === 'all' 
     ? programs 
     : programs.filter(program => program.category === selectedCategory);
 
-  const toggleCurriculum = (programId: string) => {
+  const toggleCurriculum = (programId) => {
     setExpandedCurriculum(expandedCurriculum === programId ? null : programId);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - Orange changed to Teal */}
+      {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -246,7 +244,6 @@ const TrainingPrograms: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <div className="absolute top-4 right-4">
-                      {/* Orange changed to Teal */}
                       <span className="bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                         {program.category.replace('-', ' ').toUpperCase()}
                       </span>
@@ -308,7 +305,6 @@ const TrainingPrograms: React.FC = () => {
                         <div className="grid md:grid-cols-2 gap-2">
                           {program.outcomes.map((outcome, idx) => (
                             <div key={idx} className="flex items-start space-x-2">
-                              {/* Orange changed to Teal */}
                               <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
                               <span className="text-gray-700 text-sm">{outcome}</span>
                             </div>
@@ -364,7 +360,6 @@ const TrainingPrograms: React.FC = () => {
                       {/* Footer */}
                       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-auto pt-6 border-t border-gray-200">
                         <div className="mb-4 sm:mb-0">
-                          {/* Orange changed to Teal */}
                           <div className="text-3xl font-bold text-teal-600">{program.price}</div>
                           <div className="text-sm text-gray-500">One-time payment</div>
                         </div>

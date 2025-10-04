@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, BookOpen, LogIn, UserPlus } from 'lucide-react';
-import LoginModal from './Auth/LoginModal';
-import SignupModal from './Auth/SignupModal';
+import LoginModal from './Auth/LoginModal'; // Assuming .tsx or .jsx extension in original import
+import SignupModal from './Auth/SignupModal'; // Assuming .tsx or .jsx extension in original import
 
-const Header: React.FC = () => {
+const Header = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,6 +47,8 @@ const Header: React.FC = () => {
               location.pathname === '/' ? 'text-teal-500' : 
               isScrolled ? 'text-gray-700' : 'text-white'
             }`}>Home</Link>
+            
+            {/* Programs Dropdown */}
             <div className="relative group">
               <button className={`flex items-center hover:text-teal-500 transition-colors ${
                 isScrolled ? 'text-gray-700' : 'text-white'
@@ -60,6 +62,7 @@ const Header: React.FC = () => {
                 <Link to="/programs?category=e-learning" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">E-Learning</Link>
               </div>
             </div>
+
             <Link to="/about" className={`hover:text-teal-500 transition-colors ${
               location.pathname === '/about' ? 'text-teal-500' : 
               isScrolled ? 'text-gray-700' : 'text-white'

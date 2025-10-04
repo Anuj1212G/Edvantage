@@ -1,13 +1,12 @@
 import React from 'react';
 // Only importing the icons used in the 'stats' array:
-// Replacing University with GraduationCap for better compatibility.
-import { Users, Building, Globe, TrendingUp, Clock, GraduationCap } from 'lucide-react'; 
+import { Users, Building, Globe, TrendingUp, Clock, GraduationCap } from 'lucide-react';
 
-const StatsSection: React.FC = () => {
-  // New stats based on "Edvantage in Number" content from the document
+const StatsSection = () => {
+  // Stats data
   const stats = [
     {
-      icon: Clock, // Used for 'Years of Excellence'
+      icon: Clock,
       number: '5+',
       label: 'Years of Excellence',
       description: 'Building talent and driving progress since 2020'
@@ -19,7 +18,7 @@ const StatsSection: React.FC = () => {
       description: 'Global network of skilled experts and alumni'
     },
     {
-      icon: GraduationCap, // Replaced University with GraduationCap
+      icon: GraduationCap,
       number: '10+',
       label: 'University Collaborations',
       description: 'Partnerships ensuring academic and industry relevance'
@@ -46,7 +45,7 @@ const StatsSection: React.FC = () => {
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
-      {/* Background Pattern (Uses custom animation class 'twinkle') */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full">
           {[...Array(50)].map((_, i) => (
@@ -56,7 +55,6 @@ const StatsSection: React.FC = () => {
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                // Note: The 'twinkle' animation class will only work if added to global CSS
                 animation: `twinkle ${2 + Math.random() * 4}s infinite ${Math.random() * 2}s`
               }}
             />
@@ -83,14 +81,13 @@ const StatsSection: React.FC = () => {
               className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col items-center text-center">
-                {/* Icon - Orange gradient changed to Teal/Green */}
+                {/* Icon */}
                 <div className="bg-gradient-to-r from-teal-500 to-green-500 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <stat.icon className="h-8 w-8 text-white" />
                 </div>
 
                 {/* Number */}
                 <div className="mb-4">
-                  {/* Orange hover text changed to Teal */}
                   <span className="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-300 transition-colors duration-300">
                     {stat.number}
                   </span>
@@ -110,22 +107,27 @@ const StatsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Achievement Highlights - Orange background changed to Teal/Green */}
+        {/* Achievement Highlights */}
         <div className="mt-20 grid md:grid-cols-3 gap-8">
           <div className="bg-gradient-to-r from-teal-500/20 to-green-500/20 rounded-xl p-6 border border-teal-300/30">
             <h3 className="text-2xl font-bold text-white mb-3">Industry Recognition</h3>
-            <p className="text-blue-100">Recognized by major oil & gas companies for excellence in professional training and development.</p>
+            <p className="text-blue-100">
+              Recognized by major oil & gas companies for excellence in professional training and development.
+            </p>
           </div>
-          
+
           <div className="bg-gradient-to-r from-green-500/20 to-teal-500/20 rounded-xl p-6 border border-green-300/30">
             <h3 className="text-2xl font-bold text-white mb-3">Global Impact</h3>
-            <p className="text-blue-100">Training professionals across continents, contributing to safer and more efficient operations worldwide.</p>
+            <p className="text-blue-100">
+              Training professionals across continents, contributing to safer and more efficient operations worldwide.
+            </p>
           </div>
-          
-          {/* Third box kept with its original colors as it wasn't orange/yellow */}
+
           <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-300/30">
             <h3 className="text-2xl font-bold text-white mb-3">Future Ready</h3>
-            <p className="text-blue-100">Preparing the next generation of oil & gas professionals with cutting-edge skills and knowledge.</p>
+            <p className="text-blue-100">
+              Preparing the next generation of oil & gas professionals with cutting-edge skills and knowledge.
+            </p>
           </div>
         </div>
       </div>

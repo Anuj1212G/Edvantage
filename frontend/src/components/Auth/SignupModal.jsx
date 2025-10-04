@@ -2,32 +2,19 @@ import React, { useState } from 'react';
 import { X, Eye, EyeOff, Mail, Lock, User, Phone, Building } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
-interface SignupModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSwitchToLogin: () => void;
-}
+// Note: In plain JavaScript, the interfaces are removed, and types are inferred or ignored.
 
-interface SignupFormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  company: string;
-  password: string;
-  confirmPassword: string;
-  agreeToTerms: boolean;
-}
-
-const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLogin }) => {
+const SignupModal = ({ isOpen, onClose, onSwitchToLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<SignupFormData>();
+  // useForm is called without the generic type argument
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const password = watch('password');
 
-  const onSubmit = async (data: SignupFormData) => {
+  // The 'data' parameter is now implicitly 'any' or 'object'
+  const onSubmit = async (data) => {
     setIsLoading(true);
     // Simulate API call
     setTimeout(() => {
@@ -42,6 +29,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative max-h-[90vh] overflow-y-auto">
+        
         {/* Header */}
         <div className="p-6 border-b border-gray-100 sticky top-0 bg-white rounded-t-2xl">
           <div className="flex items-center justify-between">
@@ -58,6 +46,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
+          
           {/* Name Fields */}
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -69,7 +58,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
                 <input
                   {...register('firstName', { required: 'First name is required' })}
                   type="text"
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" // Changed focus ring to Teal
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   placeholder="First name"
                 />
               </div>
@@ -85,7 +74,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
               <input
                 {...register('lastName', { required: 'Last name is required' })}
                 type="text"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" // Changed focus ring to Teal
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Last name"
               />
               {errors.lastName && (
@@ -110,7 +99,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
                   }
                 })}
                 type="email"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" // Changed focus ring to Teal
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Enter your email"
               />
             </div>
@@ -129,7 +118,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
               <input
                 {...register('phone', { required: 'Phone number is required' })}
                 type="tel"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" // Changed focus ring to Teal
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Enter your phone number"
               />
             </div>
@@ -148,7 +137,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
               <input
                 {...register('company')}
                 type="text"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" // Changed focus ring to Teal
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Your company name"
               />
             </div>
@@ -170,7 +159,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
                   }
                 })}
                 type={showPassword ? 'text' : 'password'}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" // Changed focus ring to Teal
+                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Create a password"
               />
               <button
@@ -198,7 +187,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
                   validate: value => value === password || 'Passwords do not match'
                 })}
                 type={showConfirmPassword ? 'text' : 'password'}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" // Changed focus ring to Teal
+                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Confirm your password"
               />
               <button
@@ -233,7 +222,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSwitchToLo
             <p className="text-red-500 text-sm">{errors.agreeToTerms.message}</p>
           )}
 
-          {/* Submit Button - Orange changed to Teal */}
+          {/* Submit Button - Teal */}
           <button
             type="submit"
             disabled={isLoading}

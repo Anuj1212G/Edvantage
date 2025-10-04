@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -11,11 +11,10 @@ import AboutUs from './pages/AboutUs';
 import TrainingPrograms from './pages/TrainingPrograms';
 import WebinarsEvents from './pages/WebinarsEvents';
 import PlacementsSuccess from './pages/PlacementsSuccess';
-import { useState } from 'react';
 import LoginModal from './components/Auth/LoginModal';
 import SignupModal from './components/Auth/SignupModal';
 
-const HomePage: React.FC<{ onSignupClick: () => void }> = ({ onSignupClick }) => (
+const HomePage = ({ onSignupClick }) => (
   <>
     <HeroSection onSignupClick={onSignupClick} />
     <ProgramsSection />
@@ -43,18 +42,18 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        
+
         {/* Auth Modals */}
-        <LoginModal 
-          isOpen={showLoginModal} 
+        <LoginModal
+          isOpen={showLoginModal}
           onClose={() => setShowLoginModal(false)}
           onSwitchToSignup={() => {
             setShowLoginModal(false);
             setShowSignupModal(true);
           }}
         />
-        <SignupModal 
-          isOpen={showSignupModal} 
+        <SignupModal
+          isOpen={showSignupModal}
           onClose={() => setShowSignupModal(false)}
           onSwitchToLogin={() => {
             setShowSignupModal(false);
