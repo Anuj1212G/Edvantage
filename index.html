@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Course Video</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    video {
+      width: 80%;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Secure Course Video</h1>
+  <video id="player" controls></video>
+  <p id="status">Loading video...</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    // Replace these with your values
+    const courseId = "68e2b22a287c8fa94bc84341";
+    const videoId = "68e3f18820b434de526d4ef0";
+    const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTJhZTExNzIzNjQ5YTc4NDcwYzQxMCIsImlhdCI6MTc1OTc2MjA5OCwiZXhwIjoxNzYwMzY2ODk4fQ.ULSAp4N2RhRW67W5RCjqRSkCpgiaRe2TedfpAQGUSkM"; // Example: from login/localStorage
+
+    const video = document.getElementById('player');
+    const status = document.getElementById('status');
+    let hls;
+
+    // Function to fetch signed URL from backend
+   async function fetchSignedUrl() {
+  try {
+     const uniqueCacheBuster = Date.now(); // Unique value to prevent caching
+     
+    const res = await fetch(`http://127.0.0.1:5000/api/courses/${courseId}/lectures/${videoId}?t=${uniqueCacheBuster}`, {
+      headers: { Authorization: `Bearer ${authToken}` }
+    });
+    
+    console.log("Raw response:", res);
+    const data = await res.json();
+    console.log("hi");
+    console.log("Response JSON:", data);
+
+    if (!data.success) {
+      status.textContent = data.message;
+      return null;
+    }
+    return data.url;
+  } catch (err) {
+    console.error("Error fetching signed URL:", err);
+    status.textContent = "Error fetching video";
+    return null;
+  }
+}
+
+
+    // Function to load video
+    async function loadVideo() {
+      const url = await fetchSignedUrl();
+      if (!url) return;
+
+      status.textContent = "Video loaded. Playing...";
+      if (Hls.isSupported()) {
+        if (hls) {
+          // Update source for Hls instance without breaking playback
+          hls.loadSource(url);
+          hls.attachMedia(video);
+        } else {
+          hls = new Hls();
+          hls.loadSource(url);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
+        }
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = url;
+        video.play();
+      } else {
+        status.textContent = "Your browser does not support HLS playback.";
+      }
+    }
+
+    // Initial load
+    loadVideo();
+
+    // Auto-refresh signed URL every 1 minutes (60000 ms)
+    setInterval(async () => {
+      const currentTime = video.currentTime;
+      await loadVideo();
+      video.currentTime = currentTime; // resume from where user left
+      video.play();
+      console.log("Signed URL refreshed");
+    }, 60000);
+  </script>
+</body>
+</html>
