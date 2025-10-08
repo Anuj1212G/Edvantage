@@ -97,7 +97,7 @@ function AppRoutes() {
            <Route path="/about" element={<AboutUs />} />
            <Route path="/programs" element={<TrainingPrograms />} />
            <Route path="/placements" element={<PlacementsSuccess />} />
-          <Route path="/events" element={<WebinarsEvents />} />
+          <Route path="/webinars" element={<WebinarsEvents />} />
           {/* E-Learning/LMS Routes */}
           <Route path="/courses" element={<Elearning />} /> {/* All Courses List */}
           <Route path="/courses/:courseId" element={<CourseDetail />} /> {/* Course Details */}

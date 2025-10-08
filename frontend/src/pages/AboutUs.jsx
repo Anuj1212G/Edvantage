@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Globe, Target, Eye, Heart, Linkedin, Clock, BookOpen } from 'lucide-react'; 
+import { Award, Users, Globe, Target, Eye, Heart, Linkedin, Clock, BookOpen } from 'lucide-react';
 
 const AboutUs = () => {
   const ourStoryText = (
@@ -62,26 +62,35 @@ const AboutUs = () => {
       name: 'Prof. Elena Vasquez',
       position: 'Senior Industry Advisor',
       company: 'Former BP Executive',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'With 35 years in upstream operations, Elena has guided major oilfield developments across Latin America.',
+      credentials: ['MSc Petroleum Engineering', 'Former BP VP Operations', 'Women in Energy Award']
     },
     {
       name: 'James Thompson',
       position: 'HSE Consultant',
       company: 'Safety Excellence Expert',
-      image: 'https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'James has trained over 200 organizations globally on workplace safety and compliance in hazardous environments.',
+      credentials: ['Certified HSE Auditor', 'NEBOSH IGC', '25+ Years Industry Experience']
     },
     {
       name: 'Dr. Raj Patel',
       position: 'Technology Advisor',
       company: 'Digital Innovation Specialist',
-      image: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Dr. Patel brings cutting-edge insights in AI, ML, and real-time data systems for energy operations.',
+      credentials: ['PhD in AI Systems', 'Ex-CTO at PetroTech', 'Author of “AI in Energy”']
     }
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white py-20 relative overflow-hidden">
+      <section 
+        className="text-white py-20 relative overflow-hidden"
+        style={{ backgroundColor: '#12489f' }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 relative inline-block">
             About Edvantage Learning
@@ -91,9 +100,7 @@ const AboutUs = () => {
             Empowering the next generation of oil & gas professionals through world-class education and industry connections
           </p>
         </div>
-        <span className="absolute top-0 left-10 w-72 h-72 bg-blue-500/30 rounded-full filter blur-3xl animate-blob animation-delay-2000"></span>
-        <span className="absolute top-20 right-20 w-72 h-72 bg-teal-400/30 rounded-full filter blur-3xl animate-blob animation-delay-4000"></span>
-        <span className="absolute bottom-10 left-1/2 w-72 h-72 bg-purple-500/30 rounded-full filter blur-3xl animate-blob"></span>
+
       </section>
 
       {/* Our Story */}
@@ -108,7 +115,7 @@ const AboutUs = () => {
             </div>
             <div className="relative animate-slide-right">
               <img 
-                src="https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/images/About.png"
                 alt="Oil and gas facility"
                 className="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-700 ease-out"
               />
@@ -129,9 +136,7 @@ const AboutUs = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                {missionStatement}
-              </p>
+              <p className="text-gray-600 leading-relaxed">{missionStatement}</p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-500 animate-fade-in-delay">
@@ -141,9 +146,7 @@ const AboutUs = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                {visionStatement}
-              </p>
+              <p className="text-gray-600 leading-relaxed">{visionStatement}</p>
             </div>
           </div>
         </div>
@@ -154,7 +157,6 @@ const AboutUs = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative z-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Leadership & Advisory Board</h2>
-            <p className="text-xl text-gray-600">Short bios of founder, CEO and leaders. Highlight credentials and expertise.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12 relative z-10">
@@ -202,27 +204,35 @@ const AboutUs = () => {
             <p className="text-xl text-gray-600">Industry veterans guiding our strategic direction</p>
           </div>
 
-          <div className="perspective w-full h-96 relative">
-            <div className="w-full h-full transform-style-3d animate-rotate-advisory flex justify-center items-center">
-              {advisors.map((advisor, index) => (
-                <div
-                  key={index}
-                  className="absolute w-64 bg-white rounded-xl p-6 shadow-lg text-center transition-transform duration-700 hover:scale-110 advisory-card"
-                  style={{
-                    transform: `rotateY(${index * 120}deg) translateZ(300px)`
-                  }}
-                >
-                  <img
-                    src={advisor.image}
-                    alt={advisor.name}
-                    className="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-4 border-blue-100 shadow-md"
-                  />
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{advisor.name}</h3>
-                  <p className="text-teal-600 font-semibold mb-1">{advisor.position}</p>
-                  <p className="text-sm text-gray-500">{advisor.company}</p>
+          <div className="grid md:grid-cols-3 gap-12 relative z-10">
+            {advisors.map((advisor, index) => (
+              <div key={index} className="perspective cursor-pointer">
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden tilt-card transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                  <div className="relative">
+                    <img 
+                      src={advisor.image} 
+                      alt={advisor.name}
+                      className="w-full h-64 object-cover transform transition-transform duration-700 tilt-img"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl"></div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{advisor.name}</h3>
+                    <p className="text-teal-600 font-semibold mb-2">{advisor.position}</p>
+                    <p className="text-sm text-gray-500 mb-4">{advisor.company}</p>
+                    <p className="text-gray-600 text-sm mb-4">{advisor.bio}</p>
+                    <div className="space-y-2">
+                      {advisor.credentials.map((cred, idx) => (
+                        <div key={idx} className="flex items-center space-x-2">
+                          <Award className="h-4 w-4 text-teal-500" />
+                          <span className="text-sm text-gray-600">{cred}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
