@@ -4,7 +4,7 @@ import { FaSearch, FaStar } from "react-icons/fa"; // Using react-icons for a pr
 
 // --- TEMPORARY COURSE DATA ---
 const allCourses = [
-  { id: 1, title: "React for Beginners", category: "Web Dev", price: 499, rating: 4.5 },
+  { id: "68e2b22a287c8fa94bc84341", title: "React for Beginners", category: "Web Dev", price: 499, rating: 4.5 },
   { id: 2, title: "Node.js Mastery", category: "Backend", price: 699, rating: 4.8 },
   { id: 3, title: "Data Structures in JS", category: "DSA", price: 399, rating: 4.2 },
   { id: 4, title: "Full-Stack MERN App", category: "Web Dev", price: 899, rating: 4.9 },

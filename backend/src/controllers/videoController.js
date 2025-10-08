@@ -7,6 +7,12 @@ import mongoose from "mongoose";
 import { v2 as cloudinary } from 'cloudinary'; // Re-import v2 directly as a safety measure
 import dotenv from 'dotenv';
 dotenv.config();
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET, // Make sure this is available
+    secure: true
+});
 export const addVideoToCourse = async (req, res) => {
   try {
     const { courseId } = req.params;
@@ -23,9 +29,16 @@ export const addVideoToCourse = async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path, {
       resource_type: "video",
       folder: "edvantage/videos",
-      type: "private",
+      type: "authenticated", // Ensure the video is uploaded as authenticated
 
     });
+
+//     const result = await cloudinary.uploader.upload(req.file.path, {
+//   resource_type: "video",
+//   folder: "edvantage/videos",
+//   type: "authenticated",      // must be authenticated
+//   overwrite: true,            // overwrite if file already exists
+// });
 
     // Save new video in DB
     console.log("Cloudinary upload result:", result);
@@ -83,12 +96,7 @@ export const getLectureVideo = async (req, res) => {
   console.log("Fetching video:", videoId, "for course:", courseId);
   const userId = req.user.id;
 console.log("Request made by user:", userId);
-cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY,
-    api_secret: process.env.API_SECRET, // Make sure this is available
-    secure: true
-});
+
 
   try {
   
@@ -117,12 +125,12 @@ console.log("Signed URL Expires At (seconds):", expirationTime);
 
 
 console.log("Video details:", video.public_id);
-    const signedUrl = cloudinary.url(video.public_id, {
+    const signedUrl = cloudinary.url("edvantage/videos/ewetmvak98lbf06gvc8w", {
       resource_type: "video",
-      type: "private",
+      type: "authenticated",
       sign_url: true,
       secure: true,
-     streaming_profile: "hls", 
+    //streaming_profile: "hls", 
       expires_at: expirationTime,
       format: "m3u8"
     });

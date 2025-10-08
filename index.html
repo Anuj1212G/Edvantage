@@ -32,7 +32,7 @@
   <script>
     // Replace these with your values
     const courseId = "68e2b22a287c8fa94bc84341";
-    const videoId = "68e3f18820b434de526d4ef0";
+    const videoId = "68e42f7be92f020bd60a55b9";
     const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTJhZTExNzIzNjQ5YTc4NDcwYzQxMCIsImlhdCI6MTc1OTc2MjA5OCwiZXhwIjoxNzYwMzY2ODk4fQ.ULSAp4N2RhRW67W5RCjqRSkCpgiaRe2TedfpAQGUSkM"; // Example: from login/localStorage
 
     const video = document.getElementById('player');
@@ -84,7 +84,7 @@
           hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
         }
       } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-        video.src = url;
+        video.src = "https://res.cloudinary.com/dn8wgku3s/video/authenticated/s--AJA4kwf3--/v1/edvantage/videos/ewetmvak98lbf06gvc8w.m3u8?_a=BAMAK+TG0";
         video.play();
       } else {
         status.textContent = "Your browser does not support HLS playback.";

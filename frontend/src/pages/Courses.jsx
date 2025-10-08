@@ -2,7 +2,7 @@ import CourseCard from "../components/course/CourseCard";
 import CourseFilter from "../components/course/CourseFilter";
 
 const sampleCourses = [
-  { id: 1, title: "React Basics", price: 499, description: "Learn React from scratch." },
+  { id: "68e2b22a287c8fa94bc84341", title: "React Basics", price: 499, description: "Learn React from scratch." },
   { id: 2, title: "Node.js Mastery", price: 699, description: "Backend development with Node.js." },
   { id: 3, title: "MongoDB Deep Dive", price: 399, description: "Master MongoDB NoSQL DB." }
 ];
