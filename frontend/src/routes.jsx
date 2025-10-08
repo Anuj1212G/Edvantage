@@ -3,14 +3,14 @@
 
 // // ✅ Pages
 // import Home from "./pages/Home"; 
-// import AboutUs from "./pages/AboutUs";
-// import TrainingPrograms from "./pages/TrainingPrograms";
-// import PlacementsSuccess from "./pages/PlacementsSuccess";
-// import WebinarsEvents from "./pages/WebinarsEvents";
+import AboutUs from "./pages/AboutUs";
+import TrainingPrograms from "./pages/TrainingPrograms";
+import PlacementsSuccess from "./pages/PlacementsSuccess";
+import WebinarsEvents from "./pages/WebinarsEvents";
 // import Elearning from "./pages/Elearning";
 
 // // ✅ LMS Pages
-// import Courses from "./pages/Courses";
+import Courses from "./pages/Courses";
 // import CourseDetail from "./pages/CourseDetail";
 // import Checkout from "./pages/Checkout";
 // import MyLearning from "./pages/MyLearning";
@@ -31,10 +31,7 @@
 //         {/* 🌍 Website Layout Routes */}
 //         <Route element={<WebsiteLayout />}>
 //           <Route path="/" element={<Home />} />
-//           <Route path="/about" element={<AboutUs />} />
-//           <Route path="/programs" element={<TrainingPrograms />} />
-//           <Route path="/placements" element={<PlacementsSuccess />} />
-//           <Route path="/events" element={<WebinarsEvents />} />
+//          
 //           <Route path="/elearning" element={<Elearning />} />
 //         </Route>
 
@@ -97,7 +94,10 @@ function AppRoutes() {
           {/* Website Routes */}
           <Route path="/" element={<Home />} />
           {/* ... other website pages */}
-          
+           <Route path="/about" element={<AboutUs />} />
+           <Route path="/programs" element={<TrainingPrograms />} />
+           <Route path="/placements" element={<PlacementsSuccess />} />
+          <Route path="/events" element={<WebinarsEvents />} />
           {/* E-Learning/LMS Routes */}
           <Route path="/courses" element={<Elearning />} /> {/* All Courses List */}
           <Route path="/courses/:courseId" element={<CourseDetail />} /> {/* Course Details */}
