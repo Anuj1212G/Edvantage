@@ -3,14 +3,11 @@
 
 // // ✅ Pages
 // import Home from "./pages/Home"; 
-import AboutUs from "./pages/AboutUs";
-import TrainingPrograms from "./pages/TrainingPrograms";
-import PlacementsSuccess from "./pages/PlacementsSuccess";
-import WebinarsEvents from "./pages/WebinarsEvents";
+
 // import Elearning from "./pages/Elearning";
 
 // // ✅ LMS Pages
-import Courses from "./pages/Courses";
+// import Courses from "./pages/Courses";
 // import CourseDetail from "./pages/CourseDetail";
 // import Checkout from "./pages/Checkout";
 // import MyLearning from "./pages/MyLearning";
@@ -68,6 +65,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // ✅ Pages
 import Home from "./pages/Home"; 
 // ... other pages
+import AboutUs from "./pages/AboutUs";
+import TrainingPrograms from "./pages/TrainingPrograms";
+import PlacementsSuccess from "./pages/PlacementsSuccess";
+import WebinarsEvents from "./pages/WebinarsEvents";
 import Elearning from "./pages/Elearning"; // This will be your 'All Courses' page
 
 // ✅ LMS Pages

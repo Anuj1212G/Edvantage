@@ -8,7 +8,7 @@ const courseSchema = new mongoose.Schema({
   videos: [
     { type: mongoose.Schema.Types.ObjectId, ref: "Video" }
   ],
-  studentsEnrolled: { type: Number, default: 0 } // 🔹 new field
+  // studentsEnrolled: { type: Number, default: 0 } // 🔹 new field
 }, { timestamps: true });
 
 export default mongoose.model("Course", courseSchema);
