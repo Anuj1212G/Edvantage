@@ -114,10 +114,7 @@ const WebsiteLinks = () => {
       >
         E-Learning
       </Link>
-  <a
-  href="#footer"
-  className="hover:text-blue-400 whitespace-nowrap"
->
+<a href="#contact" className="hover:text-blue-400 whitespace-nowrap">
   Contact Us
 </a>
       {/* More Dropdown */}
@@ -159,13 +156,13 @@ const WebsiteLinks = () => {
               Webinars & Workshops
             </Link>
             <Link
-              to="/success"
+              to="/placements"
               className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
             >
               Success Stories
             </Link>
             <Link
-              to="/WhyEdvantageSection"
+              to="/mediaArticles"
               className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
             >
               Blogs

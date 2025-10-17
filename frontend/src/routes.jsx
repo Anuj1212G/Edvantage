@@ -66,6 +66,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home"; 
 // ... other pages
 import AboutUs from "./pages/AboutUs";
+import StatsSection from "./components/StatsSection";
 import TrainingPrograms from "./pages/TrainingPrograms";
 import PlacementsSuccess from "./pages/PlacementsSuccess";
 import WebinarsEvents from "./pages/WebinarsEvents";
@@ -99,6 +100,7 @@ function AppRoutes() {
            <Route path="/programs" element={<TrainingPrograms />} />
            <Route path="/placements" element={<PlacementsSuccess />} />
           <Route path="/webinars" element={<WebinarsEvents />} />
+          <Route path="/mediaArticles" element={<StatsSection />} />
           {/* E-Learning/LMS Routes */}
           <Route path="/courses" element={<Elearning />} /> {/* All Courses List */}
           <Route path="/courses/:courseId" element={<CourseDetail />} /> {/* Course Details */}
