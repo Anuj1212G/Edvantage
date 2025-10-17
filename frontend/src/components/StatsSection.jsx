@@ -19,33 +19,34 @@ const ArrowRightIcon = ({ className }) => (
 
 const CombinedPartnersSection = () => {
   const statsData = [
-    { number: '300+', label: 'Workshops', Icon: WorkshopIcon },
-    { number: '25+', label: 'Software Training', Icon: SoftwareTrainingIcon },
-    { number: '10+', label: 'Virtual Internships', Icon: VirtualInternshipsIcon },
-    { number: '20000+', label: 'Delegates Sensitized', Icon: DelegatesSensitizedIcon },
+    { number: '5+', label: 'Years of Excellence', Icon: WorkshopIcon },
+    { number: '10+', label: 'Presence in countries', Icon: SoftwareTrainingIcon },
+    { number: '10+', label: 'Universities Collaboration', Icon: VirtualInternshipsIcon },
+    { number: '20+', label: 'Corporate Partners', Icon: DelegatesSensitizedIcon },
   ];
 
   const universityLogos = [
-    { name: "UT Austin", src: "https://placehold.co/200x60/d1d5db/374151?text=UT+Austin" },
-    { name: "Great Lakes", src: "https://placehold.co/200x60/d1d5db/374151?text=Great+Lakes" },
-    { name: "Northwestern", src: "https://placehold.co/200x60/d1d5db/374151?text=Northwestern" },
-    { name: "MIT IDSS", src: "https://placehold.co/200x60/d1d5db/374151?text=MIT+IDSS" },
-    { name: "Deakin", src: "https://placehold.co/200x60/d1d5db/374151?text=Deakin" },
-    { name: "IIT Bombay", src: "https://placehold.co/200x60/d1d5db/374151?text=IIT+Bombay" },
+    // For files in the public folder use an absolute path starting with '/'
+    // e.g. public/images/persian-gulf-university.png -> src: '/images/persian-gulf-university.png'
+    { name: "Persian Gulf University", src: "/images/persian.png" },
+    { name: "Lincoln Professional Academy", src: "/images/lincoln.png" },
+    { name: "IIT Dhanbad", src: "/images/iit.png" },
+    { name: "Petrodrill Well Control Institute", src: "/images/petrodrill.png" },
+    // { name: "Deakin", src: "https://placehold.co/200x60/d1d5db/374151?text=Deakin" },
+    // { name: "IIT Bombay", src: "https://placehold.co/200x60/d1d5db/374151?text=IIT+Bombay" },
   ];
 
   const corporateLogos = [
-    { name: "Dell", src: "https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg" },
-    { name: "HP", src: "https://cdn.simpleicons.org/hp/0096D6" },
-    { name: "IBM", src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" },
-    { name: "Microsoft", src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
-    { name: "Amazon", src: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-    { name: "Adobe", src: "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/24760594/Adobe_wordmark.jpg?quality=90&strip=all&crop=7.8125,0,84.375,100" },
-    { name: "Infosys", src: "https://cdn.simpleicons.org/infosys/0078B8" },
-    { name: "Accenture", src: "https://cdn.simpleicons.org/accenture/A100FF" },
-    { name: "Maersk", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Maersk_Group_Logo.svg/1280px-Maersk_Group_Logo.svg.png" },
-    { name: "Oracle", src: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" },
-    { name: "Intel", src: "https://cdn.simpleicons.org/intel/0071C5" },
+    { name: "Cvet", src: "/images/cvet.png" },
+    { name: "Datavedik", src: "/images/datavedik.png" },
+    { name: "Gein", src: "/images/gein.png" },
+    { name: "Gems", src: "/images/gems.png" },
+    { name: "Gots", src: "/images/gots.png" },
+    { name: "Kiwi", src: "/images/kiwi.png" },
+    { name: "OPXAI", src: "/images/opxai.png" },
+    { name: "Manan", src: "/images/manan.png" },
+    { name: "Rezlytix", src: "/images/rezlytix.png" },
+    { name: "TechWysh", src: "/images/techwysh.png" },
   ];
 
   const topRowLogos = corporateLogos.slice(0, Math.ceil(corporateLogos.length / 2));
@@ -67,8 +68,8 @@ const CombinedPartnersSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100">
             <div className="mb-10 text-center">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">20K+ Learners Have Reaped Benefits</h2>
-              <p className="mt-4 text-lg text-gray-600">Over 20,000 professionals from 100+ countries have benefited from our training programs.</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">10K+ Learners Have Reaped Benefits</h2>
+              <p className="mt-4 text-lg text-gray-600">Over 10,000 professionals from 10+ countries have benefited from our training programs.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {statsData.map(({ number, label, Icon }, index) => (
@@ -95,26 +96,29 @@ const CombinedPartnersSection = () => {
               <p className="text-sm font-semibold text-purple-600 tracking-wider uppercase">EARN CERTIFICATES FROM</p>
               <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">Prestigious universities</h2>
               <p className="mt-6 text-lg text-gray-600">We partner with world-renowned universities so you earn certificates recognised by organisations across the globe.</p>
-              {/* <button className="mt-8 group inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1">
-                View All Universities <ArrowRightIcon className="w-5 h-5 ml-3 transition-transform duration-300 group-hover:translate-x-1" />
-              </button> */}
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-12">
-              {universityLogos.map((uni, index) => (
-                <div key={uni.name} className="flex justify-center items-center fade-in-up" style={{ animationDelay: `${100 + index * 100}ms`, opacity: 0 }}>
-                  <img src={uni.src} alt={uni.name} className="max-h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" />
+              </div>
+              <div className="grid grid-cols-2 gap-8">
+                {universityLogos.map((uni, index) => (
+                <div
+                  key={uni.name}
+                  className="flex justify-center items-center fade-in-up"
+                  style={{ animationDelay: `${100 + index * 100}ms`, opacity: 0 }}
+                >
+                  <img
+                  src={uni.src}
+                  alt={uni.name}
+                  className="max-h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
+                  />
                 </div>
-              ))}
+                ))}
+              </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- Top-Tier Companies Section with NON-STOP Scroller --- */}
+            </section>
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center fade-in-up" style={{ opacity: 0 }}>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Join Great Learning graduates at top-tier companies</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Corporate Partners</h2>
           </div>
           <div className="mt-12 space-y-8">
             <div className="relative w-full overflow-hidden">
