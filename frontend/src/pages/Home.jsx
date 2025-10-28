@@ -26,7 +26,7 @@ export default function Home() {
       {/* ======================= */}
       <div className="text-center my-16">
         <Link
-          to="/elearning"
+          to="/courses"
           className="
             inline-flex items-center justify-center 
             bg-blue-600 text-white 
@@ -39,6 +39,7 @@ export default function Home() {
             hover:bg-blue-700 /* Slightly darker hover color */
             hover:shadow-xl hover:shadow-blue-500/70 /* Enhanced shadow on hover */
           "
+          
         >
           Go to E-Learning
         </Link>

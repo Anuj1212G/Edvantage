@@ -67,12 +67,12 @@ const successStories = [
 ];
 
 const hiringPartners = [
-    { name: 'Shell', logoUrl: 'https://i.imgur.com/7324d42.png' },
-    { name: 'Chevron', logoUrl: 'https://i.imgur.com/b2x52s1.png' },
-    { name: 'Baker Hughes', logoUrl: 'https://i.imgur.com/eNJs88d.png' },
-    { name: 'Schlumberger', logoUrl: 'https://i.imgur.com/xYYj7sM.png' },
-    { name: 'ExxonMobil', logoUrl: 'https://i.imgur.com/w8N785f.png' },
-    { name: 'Halliburton', logoUrl: 'https://i.imgur.com/7p4G23W.png' },
+    { name: 'Shell', logoUrl: '/images/opxai.png' },
+    { name: 'Chevron', logoUrl: '/images/persian.png' },
+    { name: 'Baker Hughes', logoUrl: '/images/petrodrill.png' },
+    { name: 'Schlumberger', logoUrl: '/images/kiwi.png' },
+    { name: 'ExxonMobil', logoUrl: '/images/gein.png' },
+    { name: 'Halliburton', logoUrl: '/images/gots.png' },
 ];
 
 const stats = [
@@ -160,23 +160,24 @@ const PlacementsSuccess = () => {
 
 
             {/* Hiring Partners Section */}
-            <section className="bg-gray-50 py-24">
-                <div className="max-w-5xl mx-auto px-6">
-                    <h2 className="text-3xl font-bold text-center text-gray-800 mb-16">
-                        Our Graduates Are Hired By Industry Leaders
-                    </h2>
-                    <div className="flex flex-wrap justify-center items-center gap-x-14 gap-y-10 md:gap-x-20">
-                        {hiringPartners.map((partner) => (
-                            <img
-                                key={partner.name}
-                                src={partner.logoUrl}
-                                alt={`${partner.name} logo`}
-                                className="h-10 object-contain transition-all duration-300 drop-shadow-sm"
-                            />
-                        ))}
-                    </div>
-                </div>
-            </section>
+          <section className="bg-gray-50 py-24">
+  <div className="max-w-5xl mx-auto px-6">
+    <h2 className="text-3xl font-bold text-center text-gray-800 mb-16">
+      Our Graduates Are Hired By Industry Leaders
+    </h2>
+    <div className="flex flex-wrap justify-center items-center gap-x-14 gap-y-10 md:gap-x-20">
+      {hiringPartners.map((partner) => (
+        <img
+          key={partner.name}
+          src={partner.logoUrl}
+          alt={`${partner.name} logo`}
+          className="h-20\ md:h-20 object-contain transition-all duration-300 drop-shadow-sm hover:scale-110"
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
 
         </div>
     );

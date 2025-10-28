@@ -102,6 +102,7 @@ function AppRoutes() {
           <Route path="/webinars" element={<WebinarsEvents />} />
           <Route path="/mediaArticles" element={<StatsSection />} />
          <Route path="/book-demo" element={<BookDemo />} />
+         
           {/* E-Learning/LMS Routes */}
           <Route path="/courses" element={<Elearning />} /> {/* All Courses List */}
           <Route path="/courses/:courseId" element={<CourseDetail />} /> {/* Course Details */}

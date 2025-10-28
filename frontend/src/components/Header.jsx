@@ -81,6 +81,7 @@
 // }
 
 // // NOTE: You can now delete your LMSHeader.jsx file and use this unified Header.jsx
+
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useState, useRef } from "react";
@@ -109,11 +110,11 @@ const WebsiteLinks = () => {
         Training Programs
       </Link>
       <Link
-        to="/courses"
-        className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 whitespace-nowrap"
-      >
-        E-Learning
-      </Link>
+  to="/courses"
+  className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 whitespace-nowrap"
+>
+  E-Learning
+</Link>
 <a href="#contact" className="hover:text-blue-400 whitespace-nowrap">
   Contact Us
 </a>
