@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-// --- SVG Icons ---
+// --- SVG Icon Components ---
 const WorkshopIcon = ({ className }) => (
   <svg
     className={className}
@@ -88,11 +89,13 @@ const DelegatesSensitizedIcon = ({ className }) => (
   </svg>
 );
 
+// --- Main Component ---
 const CombinedPartnersSection = () => {
+  const navigate = useNavigate();
   const statsData = [
     { number: "5+", label: "Years of Excellence", Icon: WorkshopIcon },
-    { number: "10+", label: "Presence in Countries", Icon: SoftwareTrainingIcon },
-    { number: "10+", label: "University Collaborations", Icon: VirtualInternshipsIcon },
+    { number: "10+", label: "Presence in countries", Icon: SoftwareTrainingIcon },
+    { number: "10+", label: "Universities Collaboration", Icon: VirtualInternshipsIcon },
     { number: "20+", label: "Corporate Partners", Icon: DelegatesSensitizedIcon },
   ];
 
@@ -116,12 +119,61 @@ const CombinedPartnersSection = () => {
     { name: "TechWysh", src: "/images/techwysh.png" },
   ];
 
-  const topRowLogos = corporateLogos.slice(0, 5);
-  const bottomRowLogos = corporateLogos.slice(5);
+  const experts = [
+    { name: "Yogashri Pradhan (Chief Growth Officer | POX Ai", img: "/images/Yogashri.png" },
+    { name: "Vinod Kumar Madem (Rservoir Engineering Expert)", img: "/images/Vinod.png" },
+    { name: "Yohanes Nuwara (Software Engineer at Whitson)", img: "/images/Yohanes.png" },
+    { name: "Mr. SivaKumar babu (over 45+ year of E&P experience)", img: "/images/SivaKumar.png" },
+    { name: "Sanjay Joshi (Drilling & Well Engineering Expert)", img: "/images/Sanjay.png" },
+    { name: "SamirKale (Well Completion & Intervention Expert)", img: "/images/SamirKale.png" },
+  ];
+
+  const topRowLogos = corporateLogos.slice(0, Math.ceil(corporateLogos.length / 2));
+  const bottomRowLogos = corporateLogos.slice(Math.ceil(corporateLogos.length / 2));
 
   return (
+    
     <div className="bg-white font-sans">
-      {/* --- Animations --- */}
+      {/* --- Learn From Industry Experts --- */}
+<section className="bg-gray-50 py-16 sm:py-24">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10">
+      Learn From Industry Experts
+    </h2>
+
+    {/* --- Auto-Scrolling Experts --- */}
+    <div className="relative overflow-hidden">
+      <div className="flex w-max animate-scroll-left space-x-6 pb-4">
+        {[...experts, ...experts].map((expert, i) => (
+          <div
+            key={i}
+            className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 border border-gray-200 hover:shadow-lg transition"
+          >
+            <img
+              src={expert.img}
+              alt={expert.name}
+              className="w-full h-56 object-cover rounded-lg mb-3"
+            />
+            <p className="font-semibold text-gray-900 text-sm">{expert.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* --- Button Below --- */}
+   <div className="mt-10">
+          <button
+          onClick={() => {
+  navigate("/about");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition">
+            VIEW ALL
+          </button>
+        </div>
+  </div>
+</section>
+{/* --- Animations --- */}
       <style>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
@@ -140,7 +192,6 @@ const CombinedPartnersSection = () => {
         .animate-scroll-left { animation: scroll-left 25s linear infinite; }
         .animate-scroll-right { animation: scroll-right 25s linear infinite; }
       `}</style>
-
       {/* --- Stats Section --- */}
       <section className="bg-gray-50 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -153,13 +204,11 @@ const CombinedPartnersSection = () => {
                 Over 10,000 professionals from 10+ countries have benefited from our training programs.
               </p>
             </div>
-
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {statsData.map(({ number, label, Icon }, index) => (
+              {statsData.map(({ number, label, Icon }) => (
                 <div
                   key={label}
-                  className="text-center p-6 border-2 border-blue-200 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue-500 hover:-translate-y-1 fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms`, opacity: 0 }}
+                  className="text-center p-6 border-2 border-blue-200 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue-500 hover:-translate-y-1"
                 >
                   <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
                   <p className="text-3xl font-extrabold text-gray-900">{number}</p>
@@ -171,40 +220,35 @@ const CombinedPartnersSection = () => {
         </div>
       </section>
 
-      {/* --- University Section --- */}
+      {/* --- Universities Section --- */}
       <section className="py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="fade-in-up" style={{ opacity: 0 }}>
-              <p className="text-sm font-semibold text-purple-600 tracking-wider uppercase">
-                Earn Certificates From
-              </p>
-              <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-                Prestigious Universities
-              </h2>
-              <p className="mt-6 text-lg text-gray-600">
-                We partner with world-renowned universities so you earn certificates recognised by organisations across the globe.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-8">
-              {universityLogos.map((uni, index) => (
-                <div
-                  key={uni.name}
-                  className="flex justify-center items-center fade-in-up"
-                  style={{ animationDelay: `${100 + index * 100}ms`, opacity: 0 }}
-                >
-                  <img
-                    src={uni.src}
-                    alt={uni.name}
-                    className="max-h-28 w-auto object-contain transition-transform duration-300 hover:scale-110"
-                  />
-                </div>
-              ))}
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-sm font-semibold text-purple-600 tracking-wider uppercase">
+              EARN CERTIFICATES FROM
+            </p>
+            <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
+              Prestigious universities
+            </h2>
+            <p className="mt-6 text-lg text-gray-600">
+              We partner with world-renowned universities so you earn certificates recognised globally.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-8">
+            {universityLogos.map((uni) => (
+              <div key={uni.name} className="flex justify-center items-center">
+                <img
+                  src={uni.src}
+                  alt={uni.name}
+                  className="max-h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* --- Corporate Partners --- */}
       {/* --- Corporate Partners Section --- */}
       <section className="bg-white py-20 sm:py-28 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
@@ -254,7 +298,10 @@ const CombinedPartnersSection = () => {
           </div>
         </div>
       </section>
-    </div>
+
+
+
+</div>
   );
 };
 
