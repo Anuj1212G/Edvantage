@@ -7,58 +7,82 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      position: 'Senior Reservoir Engineer',
-      company: 'ExxonMobil',
-      program: 'Petroleum Engineering Excellence',
+      name: 'Ali Haris',
+      position: 'Intern',
+      company: 'Rezlytix (MSc Applied Geology, AMU)',
+      program: 'Digitalization in Sequence Stratigraphy',
       rating: 5,
       quote:
-        'The comprehensive curriculum and expert instructors at Edvantage Learning transformed my understanding of reservoir engineering. The practical approach and real-world case studies prepared me for the challenges in my current role.',
+        'The course was very helpful for me. The instructors and the entire team of EDvantage India were very very helpful and the course was very informative for me and I encourage everyone to take a course from EDvantage India since the course structure and entire team is really helpful.',
       image:
-        'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
+        '/images/Suss1.png',
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      position: 'HSE Manager',
-      company: 'Shell',
-      program: 'HSE Leadership Program',
+      name: 'Sheily Mukherjee',
+      position: 'Intern',
+      company: 'Rezlytix (MSc Student, IIT ISM Dhanbad)',
+      program: 'Online Training in Sequence Stratigraphy',
       rating: 5,
       quote:
-        'Outstanding program that enhanced my leadership skills in health, safety, and environmental management. The interactive workshops and peer learning experiences were invaluable for my career growth.',
+        'The training program was very well conducted and some very important topics were taught very well to us which really help us to broaden our knowledge... I am really grateful to EDvantage India for providing this opportunity to us and I am really looking forward to this new learning experience.',
       image:
-        'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400',
+        '/images/Suss2.png',
     },
     {
       id: 3,
-      name: 'Elena Rodriguez',
-      position: 'Digital Transformation Lead',
-      company: 'Chevron',
-      program: 'Digital Oil Field Technologies',
+      name: 'Aakansha',
+      position: 'Intern',
+      company: 'Rezlytix (Masters in Applied Geology)',
+      program: 'Training in Sequence Stratigraphy',
       rating: 5,
       quote:
-        'The future of oil and gas is digital, and Edvantage Learning prepared me perfectly for this transformation. The cutting-edge content and industry connections opened new opportunities in my career.',
+        'I have done training in Sequence Stratigraphy which was very helpful for my future. The instructor of the course Mr Tapas Mitra helps me a lot and makes me understand the concept well. EDvantage India helps me to get the internship.',
       image:
-        'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400',
+        '/images/Suss3.png',
     },
     {
       id: 4,
-      name: 'Ahmed Al-Rashid',
-      position: 'Operations Manager',
-      company: 'Saudi Aramco',
-      program: 'Corporate Training Program',
+      name: 'Navan Kumar Sahu',
+      position: 'Intern',
+      company: 'Rezlytix (MSc Student, IIT ISM Dhanbad)',
+      program: 'Sequence Stratigraphy in the Era of Digitalization',
       rating: 5,
       quote:
-        'The customized corporate training program addressed our specific operational challenges. The expert facilitators and practical solutions implementation made a significant impact on our team’s performance.',
+        'I am happy to share that I have been selected for an internship with RezLytix... The course was really well structured... I have really enjoyed the course learning with an industry expert and a big thumbs up from my side for this course and a big thank you to the whole team of EDvantage India.',
       image:
-        'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=400',
+        '/images/Suss4.png',
+    },
+    {
+      id: 5,
+      name: 'Ashish',
+      position: 'Placed',
+      company: 'ONGC',
+      program: 'Internship Programme in Well Engineering',
+      rating: 5,
+      quote:
+        'EDvantage India has provided me with a number of training opportunities. The curriculum lasted three months and was practical in nature... The genuine casing design of our well based on the available real offset field data was the best aspect of this internship.',
+      image:
+        '/images/Suss5.png',
+    },
+    {
+      id: 6,
+      name: 'Soumya Krishna',
+      position: 'Placed',
+      company: 'Cairn Oil & Gas',
+      program: 'PVT Data tuning and Artificial Lift modelling',
+      rating: 5,
+      quote:
+        'During my training with Edvantage India... The faculty was a production technologist and he covered every content from basics till advanced. He was very responsive and cleared my doubts... This wonderful training experience enhanced my technical skills and also aided me during my campus placement.',
+      image:
+        '/images/Suss6.png',
     },
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 3000); // Changed from 5000 to 3000 (3 seconds)
     return () => clearInterval(timer);
   }, [testimonials.length]);
 
@@ -83,7 +107,8 @@ const TestimonialsSection = () => {
             What Our Students Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Success stories from professionals who advanced their careers through our programs
+            Success stories from professionals who advanced their careers through
+            our programs
           </p>
         </div>
 
@@ -101,7 +126,10 @@ const TestimonialsSection = () => {
                 {/* Stars */}
                 <div className="flex justify-center mb-6">
                   {[...Array(currentData.rating)].map((_, i) => (
-                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+                    <Star
+                      key={i}
+                      className="h-6 w-6 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
 
@@ -116,7 +144,7 @@ const TestimonialsSection = () => {
                     <img
                       src={currentData.image}
                       alt={currentData.name}
-                      className="h-16 w-16 rounded-full object-cover border-4 border-blue-200"
+                      className="h-24 w-24 rounded-full object-cover border-4 border-blue-200"
                     />
                   </div>
                   <div className="text-center">
@@ -168,10 +196,14 @@ const TestimonialsSection = () => {
 
         {/* Additional Testimonials Grid */}
         <div className="mt-20 grid md:grid-cols-3 gap-8">
-          {testimonials.slice(0, 3).map((testimonial) => (
+          {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                index === currentTestimonial
+                  ? 'border-2 border-blue-600 scale-105' // Highlighted state
+                  : 'border-2 border-transparent' // Default state
+              }`}
             >
               <div className="flex items-center mb-4">
                 <img
@@ -180,13 +212,18 @@ const TestimonialsSection = () => {
                   className="h-12 w-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                  <h4 className="font-semibold text-gray-900">
+                    {testimonial.name}
+                  </h4>
                   <p className="text-sm text-gray-600">{testimonial.company}</p>
                 </div>
               </div>
               <div className="flex mb-3">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                  <Star
+                    key={i}
+                    className="h-4 w-4 text-yellow-400 fill-current"
+                  />
                 ))}
               </div>
               <p className="text-gray-700 text-sm leading-relaxed">

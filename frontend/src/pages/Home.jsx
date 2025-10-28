@@ -21,7 +21,6 @@ export default function Home() {
       <StatsSection />
       <TestimonialsSection />
       <WhyEdvantageSection />
-
       {/* ======================= */}
       {/* Enhanced E-Learning Link */}
       {/* ======================= */}

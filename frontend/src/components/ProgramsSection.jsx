@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 
-// --- Program Data ---
 const programs = {
   upcoming: [
     { id: 1, title: 'Webinar on Oil & Gas Trends', duration: '2 Hours · Online', tag: '', image: 'https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800' },
@@ -35,32 +34,39 @@ const ProgramCard = ({ program }) => (
   </div>
 );
 
-// --- Main Section ---
 const ProgramsSection = () => {
   const sections = [
+    { id: 'all', title: 'All Programs' },
     { id: 'upcoming', title: 'Upcoming Courses & Webinars' },
     { id: 'diploma', title: 'Diploma' },
     { id: 'elearning', title: 'E-learning (best 7-8 courses)' },
     { id: 'placement', title: 'Placement Booster Program (some details to be added)' },
   ];
 
-  const [activeSection, setActiveSection] = useState('upcoming');
+  const [activeSection, setActiveSection] = useState('all');
+
+  const displayedPrograms =
+    activeSection === 'all'
+      ? Object.values(programs).flat()
+      : programs[activeSection] || [];
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* --- Write-up above menu --- */}
-        <div className="mb-6 text-center col-span-12">
-          <h2 className="text-3xl font-bold mb-2">Fuel Your Career with Our Specialized Programs</h2>
-          <p className="text-gray-700 text-lg">Explore programs curated to enhance your skills and career prospects.</p>
+        {/* --- Heading --- */}
+        <div className="mb-6 text-center">
+          <h2 className="text-3xl font-bold mb-2 text-blue-900">
+            Fuel Your Career with Our Specialized Programs
+          </h2>
+          <p className="text-gray-700 text-lg">
+            Explore programs curated to enhance your skills and career prospects.
+          </p>
         </div>
 
         <div className="grid grid-cols-12 gap-8">
-
-          {/* --- Left Vertical Tabs --- */}
+          {/* --- Left Tabs --- */}
           <div className="col-span-3 flex flex-col space-y-2">
-            {sections.map(section => (
+            {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
@@ -75,13 +81,28 @@ const ProgramsSection = () => {
             ))}
           </div>
 
-          {/* --- Right Program Cards --- */}
-          <div className="col-span-9 flex space-x-6 overflow-x-auto scrollbar-hide py-2">
-            {programs[activeSection]?.map(program => (
-              <ProgramCard key={program.id} program={program} />
-            ))}
+          {/* --- Right Programs --- */}
+          <div className="col-span-9">
+            {displayedPrograms.length > 0 ? (
+              activeSection === 'all' ? (
+                // 🟦 Grid layout for "All Programs"
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {displayedPrograms.map((program) => (
+                    <ProgramCard key={program.id} program={program} />
+                  ))}
+                </div>
+              ) : (
+                // 🟩 Horizontal scroll for others
+                <div className="flex space-x-6 overflow-x-auto scrollbar-hide py-2">
+                  {displayedPrograms.map((program) => (
+                    <ProgramCard key={program.id} program={program} />
+                  ))}
+                </div>
+              )
+            ) : (
+              <p className="text-gray-600">No programs available in this section.</p>
+            )}
           </div>
-
         </div>
       </div>
     </section>

@@ -278,3 +278,20 @@
     50% { transform: scale(1.03); }
 }
 .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 35s linear infinite;
+}
+
+/* Optional: Pause animation on hover */
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
