@@ -54,14 +54,16 @@ const ProgramsSection = () => {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* --- Heading --- */}
-        <div className="mb-6 text-center">
-          <h2 className="text-3xl font-bold mb-2 text-blue-900">
-            Fuel Your Career with Our Specialized Programs
-          </h2>
-          <p className="text-gray-700 text-lg">
-            Explore programs curated to enhance your skills and career prospects.
-          </p>
-        </div>
+   <div className="mb-6 text-center">
+  <h2 className="text-5xl font-semibold mb-3 text-black">
+    Fuel Your Career with Our Specialized Programs
+  </h2>
+  <p className="text-black text-xl font-medium">
+    Explore programs curated to enhance your skills and career prospects.
+  </p>
+</div>
+
+
 
         <div className="grid grid-cols-12 gap-8">
           {/* --- Left Tabs --- */}

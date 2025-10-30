@@ -137,12 +137,9 @@ const MediaSpotlightSection = () => {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: purpleColor }}>
-            FEATURED IN
-          </p>
-          <h2 className="text-5xl font-extrabold text-gray-900">
-            Media Spotlight
-          </h2>
+          <h2 className="text-6xl font-semibold text-black">
+Learning Corner 
+</h2>
         </div>
 
         {/* Carousel Container */}

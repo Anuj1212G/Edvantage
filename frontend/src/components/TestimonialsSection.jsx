@@ -103,14 +103,15 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            What Our Students Say
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Success stories from professionals who advanced their careers through
-            our programs
-          </p>
-        </div>
+  <h2 className="text-5xl font-semibold text-black mb-4">
+    What Our Students Say
+  </h2>
+  <p className="text-2xl text-black max-w-3xl mx-auto font-medium">
+    Success stories from professionals who advanced their careers through
+    our programs
+  </p>
+</div>
+
 
         {/* Main Testimonial */}
         <div className="relative max-w-4xl mx-auto">
@@ -134,7 +135,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-xl md:text-2xl text-gray-700 text-center leading-relaxed mb-8 italic">
+                <blockquote className="text-xl md:text-2xl text-black-700 text-center leading-relaxed mb-8 italic">
                   "{currentData.quote}"
                 </blockquote>
 

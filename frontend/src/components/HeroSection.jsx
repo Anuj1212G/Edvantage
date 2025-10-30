@@ -7,7 +7,7 @@ export default function HeroSection() {
       subtitle:
         "Master the oil & gas industry with our specialized programs. Gain practical skills to advance in this dynamic sector.",
       cta: "Explore Programs",
-      img: "/images/slide1.png", // replace with your image
+      img: "/images/slide1.png",
     },
     {
       title: "Earn Energy Diploma from World-Class Universities",
@@ -37,19 +37,24 @@ export default function HeroSection() {
   useEffect(() => {
     const t = setInterval(() => {
       setSlideIndex((i) => (i + 1) % heroSlides.length);
-    }, 2000);
+    }, 4000);
     return () => clearInterval(t);
-  }, []);
+  }, [heroSlides.length]);
 
   return (
     <section className="relative py-16">
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
         {/* Left Text Section */}
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold">
+          {/* IMPROVED SPACING: line-height + letter spacing */}
+          <h2 className="text-5xl md:text-6xl font-semibold leading-snug tracking-wide text-gray-900">
             {heroSlides[slideIndex].title}
           </h2>
-          <p className="text-gray-600">{heroSlides[slideIndex].subtitle}</p>
+
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
+            {heroSlides[slideIndex].subtitle}
+          </p>
+
           <div className="flex gap-4 mt-4">
             <button className="px-6 py-3 bg-indigo-600 text-white rounded shadow hover:bg-indigo-700 transition">
               {heroSlides[slideIndex].cta}
@@ -74,10 +79,14 @@ export default function HeroSection() {
         </div>
 
         {/* Right Image Section */}
-        <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-lg">
+        <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden shadow-lg">
           <img
             src={heroSlides[slideIndex].img}
             alt={heroSlides[slideIndex].title}
+            onError={(e) => {
+              e.target.src =
+                "https://placehold.co/600x500/e2e8f0/94a3b8?text=Image+Not+Found";
+            }}
             className="w-full h-full object-cover transition-all duration-700"
           />
         </div>

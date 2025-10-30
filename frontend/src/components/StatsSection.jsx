@@ -161,58 +161,62 @@ const CombinedPartnersSection = () => {
     { name: "TechWysh", src: "/images/techwysh.png" },
   ];
 
-  const experts = [
-    { name: "Yogashri Pradhan (Chief Growth Officer | POX Ai)", img: "/images/Yogashri.png" },
-    { name: "Vinod Kumar Madem (Reservoir Engineering Expert)", img: "/images/Vinod.png" },
-    { name: "Yohanes Nuwara (Software Engineer at Whitson)", img: "/images/Yohanes.png" },
-    { name: "Mr. SivaKumar Babu (45+ years of E&P Experience)", img: "/images/SivaKumar.png" },
-    { name: "Sanjay Joshi (Drilling & Well Engineering Expert)", img: "/images/Sanjay.png" },
-    { name: "Samir Kale (Well Completion & Intervention Expert)", img: "/images/SamirKale.png" },
-  ];
+ const experts = [
+  { name: "Yogashri Pradhan", designation: "Chief Growth Officer | POX Ai", img: "/images/Yogashri.png" },
+  { name: "Vinod Kumar Madem", designation: "Reservoir Engineering Expert", img: "/images/Vinod.png" },
+  { name: "Yohanes Nuwara", designation: "Software Engineer at Whitson", img: "/images/Yohanes.png" },
+  { name: "Mr. SivaKumar Babu", designation: "45+ years of E&P Experience", img: "/images/SivaKumar.png" },
+  { name: "Sanjay Joshi", designation: "Drilling & Well Engineering Expert", img: "/images/Sanjay.png" },
+  { name: "Samir Kale", designation: "Well Completion & Intervention Expert", img: "/images/SamirKale.png" },
+];
+
 
   const topRowLogos = corporateLogos.slice(0, Math.ceil(corporateLogos.length / 2));
   const bottomRowLogos = corporateLogos.slice(Math.ceil(corporateLogos.length / 2));
 
   return (
     <div className="bg-white font-sans">
-      {/* === Learn From Industry Experts === */}
-      <section className="bg-gray-50 py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10">
-            Learn From Industry Experts
-          </h2>
+      {/* === Learn From Industry Experts === */
 
-          <div className="relative overflow-hidden">
-            <div className="flex w-max animate-scroll-left space-x-6 pb-4">
-              {[...experts, ...experts].map((expert, i) => (
-                <div
-                  key={i}
-                  className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 border border-gray-200 hover:shadow-lg transition"
-                >
-                  <img
-                    src={expert.img}
-                    alt={expert.name}
-                    className="w-full h-56 object-cover rounded-lg mb-3"
-                  />
-                  <p className="font-semibold text-gray-900 text-sm">{expert.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+<section className="bg-gray-50 py-16 sm:py-24">
+  <div className="max-w-7xl mx-auto px-4 text-center">
+    <h2 className="text-5xl sm:text-6xl font-semibold text-black mb-10">
+      Learn From Industry Experts
+    </h2>
 
-          <div className="mt-10">
-            <button
-              onClick={() => {
-                navigate("/about");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition"
-            >
-              VIEW ALL
-            </button>
+    <div className="relative overflow-hidden">
+      <div className="flex w-max animate-scroll-left space-x-6 pb-4">
+        {[...experts, ...experts].map((expert, i) => (
+          <div
+            key={i}
+            className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 border border-gray-200 hover:shadow-lg transition"
+          >
+            <img
+              src={expert.img}
+              alt={expert.name}
+              className="w-full h-56 object-cover rounded-lg mb-3"
+            />
+            <p className="font-semibold text-black text-base">{expert.name}</p>
+            <p className="text-black-600 text-sm mt-1">{expert.designation}</p>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+
+    <div className="mt-10">
+      <button
+        onClick={() => {
+          navigate("/about");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition"
+      >
+        VIEW ALL
+      </button>
+    </div>
+  </div>
+</section>
+}
 
       {/* === Stats Section with Left Sidebar (Auto-Scrolling Horizontally) === */}
       <section className="bg-gray-50 py-16 sm:py-24">
@@ -256,13 +260,14 @@ const CombinedPartnersSection = () => {
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-sm font-semibold text-purple-600 tracking-wider uppercase">
+            <p className="text-sm font-semibold text-black-600 tracking-wider uppercase">
               EARN CERTIFICATES FROM
             </p>
-            <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-              Prestigious Universities
-            </h2>
-            <p className="mt-6 text-lg text-gray-600">
+        <h2 className="mt-4 text-5xl sm:text-6xl font-semibold text-black tracking-tight whitespace-nowrap">
+  Prestigious Universities
+</h2>
+
+            <p className="mt-6 text-lg text-black-600">
               We partner with world-renowned universities so you earn certificates recognised globally.
             </p>
           </div>
@@ -283,14 +288,15 @@ const CombinedPartnersSection = () => {
       {/* === Corporate Partners === */}
       <section className="bg-white py-20 sm:py-28 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
-              Our Corporate Partners
-            </h2>
-            <p className="text-gray-500 mt-3 text-lg">
-              Trusted by leading global companies and institutions
-            </p>
-          </div>
+         <div className="text-center mb-14">
+  <h2 className="text-5xl sm:text-6xl font-semibold text-black">
+    Our Corporate Partners
+  </h2>
+  <p className="text-black mt-4 text-xl font-medium">
+    Trusted by leading global companies and institutions
+  </p>
+</div>
+
 
           {/* Top Row */}
           <div className="relative overflow-hidden mb-12">
