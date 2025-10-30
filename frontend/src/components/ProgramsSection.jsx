@@ -36,14 +36,14 @@ const ProgramCard = ({ program }) => (
 
 const ProgramsSection = () => {
   const sections = [
-    { id: 'all', title: 'All Programs' },
     { id: 'upcoming', title: 'Upcoming Courses & Webinars' },
+    { id: 'all', title: 'All Programs' },
     { id: 'diploma', title: 'Diploma' },
-    { id: 'elearning', title: 'E-learning (best 7-8 courses)' },
-    { id: 'placement', title: 'Placement Booster Program (some details to be added)' },
+    { id: 'elearning', title: 'Certification Courses' },
+    { id: 'placement', title: 'Placement Booster Program' },
   ];
 
-  const [activeSection, setActiveSection] = useState('all');
+  const [activeSection, setActiveSection] = useState('upcoming');
 
   const displayedPrograms =
     activeSection === 'all'

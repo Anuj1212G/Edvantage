@@ -1,13 +1,73 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { PiUsersThreeBold } from "react-icons/pi";
 
-// --- SVG Icon Components ---
+/* ----------------- STACKED AUTO SCROLL SECTION ----------------- */
+const StackedAutoScroll = () => {
+  const cards = [
+    {
+      icon: <FaLinkedin className="text-[#0A66C2] text-4xl" />,
+      value: "180K+",
+      label: "LinkedIn Followers",
+    },
+    {
+      icon: <FaYoutube className="text-[#FF0000] text-4xl" />,
+      value: "25K+",
+      label: "YouTube Subscribers",
+    },
+    {
+      icon: <FaInstagram className="text-[#E1306C] text-4xl" />,
+      value: "7K+",
+      label: "Instagram Followers",
+    },
+    {
+      icon: <PiUsersThreeBold className="text-blue-600 text-4xl" />,
+      value: "20K+",
+      label: "Delegates Sensitized",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % cards.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [cards.length]);
+
+  return (
+    <div className="relative w-[250px] h-[160px] flex items-center justify-center overflow-hidden">
+      {cards.map((card, i) => {
+        const offset = (i - index + cards.length) % cards.length;
+        const visible = offset < 3;
+        return (
+          <div
+            key={i}
+            className={`absolute w-[230px] h-[110px] bg-white rounded-2xl border-2 border-gray-300 shadow-lg flex flex-col items-center justify-center transition-all duration-700 ease-in-out ${
+              visible ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              transform: `translateY(${offset * 22}px)`,
+              zIndex: cards.length - offset,
+            }}
+          >
+            {card.icon}
+            <h3 className="text-xl font-bold mt-1 text-gray-900">{card.value}</h3>
+            <p className="text-gray-600 text-sm">{card.label}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+/* ----------------- ICON COMPONENTS ----------------- */
 const WorkshopIcon = ({ className }) => (
   <svg
     className={className}
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -17,14 +77,7 @@ const WorkshopIcon = ({ className }) => (
   >
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
     <polyline points="14 2 14 8 20 8"></polyline>
-    <path d="M12 18h.01"></path>
-    <path d="M12 15h.01"></path>
-    <path d="M12 12h.01"></path>
-    <path d="M8 18h.01"></path>
-    <path d="M8 15h.01"></path>
-    <path d="M8 12h.01"></path>
-    <path d="M16 18h.01"></path>
-    <path d="M16 15h.01"></path>
+    <path d="M12 18h.01M12 15h.01M12 12h.01M8 18h.01M8 15h.01M8 12h.01M16 18h.01M16 15h.01" />
   </svg>
 );
 
@@ -32,8 +85,6 @@ const SoftwareTrainingIcon = ({ className }) => (
   <svg
     className={className}
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -42,9 +93,7 @@ const SoftwareTrainingIcon = ({ className }) => (
     strokeLinejoin="round"
   >
     <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-    <path d="M8 21h8"></path>
-    <path d="M12 17v4"></path>
-    <path d="m12 8-2 4h4l-2 4"></path>
+    <path d="M8 21h8M12 17v4m0-13-2 4h4l-2 4" />
   </svg>
 );
 
@@ -52,8 +101,6 @@ const VirtualInternshipsIcon = ({ className }) => (
   <svg
     className={className}
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -64,8 +111,6 @@ const VirtualInternshipsIcon = ({ className }) => (
     <path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v5"></path>
     <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
     <path d="M5.44 19.33a3.5 3.5 0 1 0 0-5.66 3.5 3.5 0 0 0 0 5.66z"></path>
-    <path d="M5.44 21a2 2 0 0 0 2.12-1.5"></path>
-    <path d="M3.5 14.5a2 2 0 0 1 2-2h.06"></path>
   </svg>
 );
 
@@ -73,8 +118,6 @@ const DelegatesSensitizedIcon = ({ className }) => (
   <svg
     className={className}
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -84,14 +127,13 @@ const DelegatesSensitizedIcon = ({ className }) => (
   >
     <circle cx="12" cy="8" r="5"></circle>
     <path d="M20 21a8 8 0 0 0-16 0"></path>
-    <path d="M21.5 14.5a2.5 2.5 0 0 0-2.5-2.5M19 14.5a2.5 2.5 0 0 1 2.5 2.5"></path>
-    <path d="m21.5 19.5-2-2.5"></path>
   </svg>
 );
 
-// --- Main Component ---
+/* ----------------- MAIN SECTION ----------------- */
 const CombinedPartnersSection = () => {
   const navigate = useNavigate();
+
   const statsData = [
     { number: "5+", label: "Years of Excellence", Icon: WorkshopIcon },
     { number: "10+", label: "Presence in countries", Icon: SoftwareTrainingIcon },
@@ -120,82 +162,69 @@ const CombinedPartnersSection = () => {
   ];
 
   const experts = [
-    { name: "Yogashri Pradhan (Chief Growth Officer | POX Ai", img: "/images/Yogashri.png" },
-    { name: "Vinod Kumar Madem (Rservoir Engineering Expert)", img: "/images/Vinod.png" },
+    { name: "Yogashri Pradhan (Chief Growth Officer | POX Ai)", img: "/images/Yogashri.png" },
+    { name: "Vinod Kumar Madem (Reservoir Engineering Expert)", img: "/images/Vinod.png" },
     { name: "Yohanes Nuwara (Software Engineer at Whitson)", img: "/images/Yohanes.png" },
-    { name: "Mr. SivaKumar babu (over 45+ year of E&P experience)", img: "/images/SivaKumar.png" },
+    { name: "Mr. SivaKumar Babu (45+ years of E&P Experience)", img: "/images/SivaKumar.png" },
     { name: "Sanjay Joshi (Drilling & Well Engineering Expert)", img: "/images/Sanjay.png" },
-    { name: "SamirKale (Well Completion & Intervention Expert)", img: "/images/SamirKale.png" },
+    { name: "Samir Kale (Well Completion & Intervention Expert)", img: "/images/SamirKale.png" },
   ];
 
   const topRowLogos = corporateLogos.slice(0, Math.ceil(corporateLogos.length / 2));
   const bottomRowLogos = corporateLogos.slice(Math.ceil(corporateLogos.length / 2));
 
   return (
-    
     <div className="bg-white font-sans">
-      {/* --- Learn From Industry Experts --- */}
-<section className="bg-gray-50 py-16 sm:py-24">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10">
-      Learn From Industry Experts
-    </h2>
-
-    {/* --- Auto-Scrolling Experts --- */}
-    <div className="relative overflow-hidden">
-      <div className="flex w-max animate-scroll-left space-x-6 pb-4">
-        {[...experts, ...experts].map((expert, i) => (
-          <div
-            key={i}
-            className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 border border-gray-200 hover:shadow-lg transition"
-          >
-            <img
-              src={expert.img}
-              alt={expert.name}
-              className="w-full h-56 object-cover rounded-lg mb-3"
-            />
-            <p className="font-semibold text-gray-900 text-sm">{expert.name}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* --- Button Below --- */}
-   <div className="mt-10">
-          <button
-          onClick={() => {
-  navigate("/about");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition">
-            VIEW ALL
-          </button>
-        </div>
-  </div>
-</section>
-{/* --- Animations --- */}
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
-
-        @keyframes scroll-left {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        @keyframes scroll-right {
-          from { transform: translateX(-50%); }
-          to { transform: translateX(0); }
-        }
-        .animate-scroll-left { animation: scroll-left 25s linear infinite; }
-        .animate-scroll-right { animation: scroll-right 25s linear infinite; }
-      `}</style>
-      {/* --- Stats Section --- */}
+      {/* === Learn From Industry Experts === */}
       <section className="bg-gray-50 py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10">
+            Learn From Industry Experts
+          </h2>
+
+          <div className="relative overflow-hidden">
+            <div className="flex w-max animate-scroll-left space-x-6 pb-4">
+              {[...experts, ...experts].map((expert, i) => (
+                <div
+                  key={i}
+                  className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 border border-gray-200 hover:shadow-lg transition"
+                >
+                  <img
+                    src={expert.img}
+                    alt={expert.name}
+                    className="w-full h-56 object-cover rounded-lg mb-3"
+                  />
+                  <p className="font-semibold text-gray-900 text-sm">{expert.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <button
+              onClick={() => {
+                navigate("/about");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition"
+            >
+              VIEW ALL
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* === Stats Section with Left Sidebar (Auto-Scrolling Horizontally) === */}
+      <section className="bg-gray-50 py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+          {/* Left Auto-scrolling Cards */}
+          <div className="flex flex-col gap-8 items-center">
+            <StackedAutoScroll />
+            <StackedAutoScroll />
+          </div>
+
+          {/* Main Stats Auto Scrolling */}
+          <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100 flex-1 overflow-hidden">
             <div className="mb-10 text-center">
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
                 10K+ Learners Have Reaped Benefits
@@ -204,31 +233,34 @@ const CombinedPartnersSection = () => {
                 Over 10,000 professionals from 10+ countries have benefited from our training programs.
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {statsData.map(({ number, label, Icon }) => (
-                <div
-                  key={label}
-                  className="text-center p-6 border-2 border-blue-200 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue-500 hover:-translate-y-1"
-                >
-                  <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                  <p className="text-3xl font-extrabold text-gray-900">{number}</p>
-                  <p className="text-sm text-gray-500 mt-1">{label}</p>
-                </div>
-              ))}
+
+            <div className="relative overflow-hidden">
+              <div className="flex w-max animate-scroll-left space-x-6">
+                {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
+                  <div
+                    key={i}
+                    className="text-center p-6 border-2 border-blue-200 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue-500 hover:-translate-y-1 flex-shrink-0 w-60"
+                  >
+                    <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+                    <p className="text-3xl font-extrabold text-gray-900">{number}</p>
+                    <p className="text-sm text-gray-500 mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- Universities Section --- */}
+      {/* === University Section === */}
       <section className="py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-sm font-semibold text-purple-600 tracking-wider uppercase">
               EARN CERTIFICATES FROM
             </p>
             <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-              Prestigious universities
+              Prestigious Universities
             </h2>
             <p className="mt-6 text-lg text-gray-600">
               We partner with world-renowned universities so you earn certificates recognised globally.
@@ -248,10 +280,9 @@ const CombinedPartnersSection = () => {
         </div>
       </section>
 
-      {/* --- Corporate Partners --- */}
-      {/* --- Corporate Partners Section --- */}
+      {/* === Corporate Partners === */}
       <section className="bg-white py-20 sm:py-28 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
               Our Corporate Partners
@@ -299,9 +330,23 @@ const CombinedPartnersSection = () => {
         </div>
       </section>
 
-
-
-</div>
+      {/* === Animation Styles === */}
+      <style>{`
+        @keyframes scroll-left {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @keyframes scroll-right {
+          from { transform: translateX(-50%); }
+          to { transform: translateX(0); }
+        }
+        .animate-scroll-left { animation: scroll-left 25s linear infinite; }
+        .animate-scroll-right { animation: scroll-right 25s linear infinite; }
+        /* Optional: Pause on hover */
+        .animate-scroll-left:hover,
+        .animate-scroll-right:hover { animation-play-state: paused; }
+      `}</style>
+    </div>
   );
 };
 
