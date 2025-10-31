@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaInstagram, FaYoutube, FaLinkedin, FaTelegram } from "react-icons/fa";
-import { PiUsersThreeBold } from "react-icons/pi";
 
-/* ----------------- ICON COMPONENTS ----------------- */
+/* ---------------- ICON COMPONENTS ---------------- */
 const WorkshopIcon = ({ className }) => (
   <svg
     className={className}
@@ -70,7 +69,7 @@ const DelegatesSensitizedIcon = ({ className }) => (
   </svg>
 );
 
-/* ----------------- DATA ARRAYS ----------------- */
+/* ---------------- DATA ---------------- */
 const Cards1 = [
   {
     icon: <FaLinkedin className="text-[#0A66C2] text-4xl" />,
@@ -117,7 +116,7 @@ const StatsCards = [
   },
 ];
 
-/* ----------------- MINI STACKED CARD COMPONENT ----------------- */
+/* ---------------- SMALL STACKED CARD ---------------- */
 const MiniStackedCard = ({ initialIndex, ALL_CARDS }) => {
   const [index, setIndex] = useState(initialIndex);
 
@@ -152,13 +151,6 @@ const MiniStackedCard = ({ initialIndex, ALL_CARDS }) => {
               </h3>
               <p className="text-gray-600 text-base mt-1">{card.label}</p>
             </div>
-
-            {offset === 0 && (
-              <>
-                <div className="absolute top-0.5 left-0.5 right-0.5 bottom-0.5 border border-black/10 rounded-xl -z-10 translate-y-0.5 bg-gray-50 shadow-inner"></div>
-                <div className="absolute top-1 left-1 right-1 bottom-1 border border-black/5 rounded-xl -z-20 translate-y-1 bg-gray-100"></div>
-              </>
-            )}
           </div>
         );
       })}
@@ -166,7 +158,7 @@ const MiniStackedCard = ({ initialIndex, ALL_CARDS }) => {
   );
 };
 
-/* ----------------- BIG STACKED BOX ----------------- */
+/* ---------------- BIG STACKED BOX ---------------- */
 const BigStackedBox = () => {
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-xl p-6 w-[320px] h-[390px] overflow-hidden">
@@ -178,7 +170,7 @@ const BigStackedBox = () => {
   );
 };
 
-/* ----------------- MAIN COMPONENT ----------------- */
+/* ---------------- MAIN COMPONENT ---------------- */
 const CombinedPartnersSection = () => {
   const navigate = useNavigate();
 
@@ -187,27 +179,6 @@ const CombinedPartnersSection = () => {
     { number: "40+", label: "Presence in countries", Icon: SoftwareTrainingIcon },
     { number: "10+", label: "Universities Collaboration", Icon: VirtualInternshipsIcon },
     { number: "20+", label: "Corporate Partners", Icon: DelegatesSensitizedIcon },
-  ];
-
-  const universityLogos = [
-    { name: "Persian Gulf University", src: "/images/persian.png" },
-    { name: "Lincoln Professional Academy", src: "/images/lincoln.png" },
-    { name: "IIT Dhanbad", src: "/images/iit.png" },
-    { name: "Petrodrill Well Control Institute", src: "/images/petrodrill.png" },
-    { name: "University of Wyoming", src: "/images/5.png" },
-  ];
-
-  const corporateLogos = [
-    { name: "Cvet", src: "/images/cvet.png" },
-    { name: "Datavedik", src: "/images/datavedik.png" },
-    { name: "Gein", src: "/images/gein.png" },
-    { name: "Gems", src: "/images/gems.png" },
-    { name: "Gots", src: "/images/gots.png" },
-    { name: "Kiwi", src: "/images/kiwi.png" },
-    { name: "OPXAI", src: "/images/opxai.png" },
-    { name: "Manan", src: "/images/manan.png" },
-    { name: "Rezlytix", src: "/images/rezlytix.png" },
-    { name: "TechWysh", src: "/images/techwysh.png" },
   ];
 
   const experts = [
@@ -219,13 +190,10 @@ const CombinedPartnersSection = () => {
     { name: "Samir Kale", designation: "Well Completion & Intervention Expert", img: "/images/SamirKale.png" },
   ];
 
-  const topRowLogos = corporateLogos.slice(0, corporateLogos.length / 2);
-  const bottomRowLogos = corporateLogos.slice(corporateLogos.length / 2);
-
   return (
     <div className="bg-white font-sans">
       {/* === Learn From Industry Experts === */}
-      <section className="bg-gray-50 py-12 sm:py-16">
+      <section className="bg-gray-50 py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-5xl sm:text-6xl font-semibold text-black mb-8">
             Learn From Industry Experts
@@ -250,13 +218,14 @@ const CombinedPartnersSection = () => {
             </div>
           </div>
 
+          {/* Slightly Smaller VIEW ALL Button */}
           <div className="mt-8">
             <button
               onClick={() => {
                 navigate("/about");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold px-12 py-5 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               VIEW ALL
             </button>
@@ -265,7 +234,7 @@ const CombinedPartnersSection = () => {
       </section>
 
       {/* === Stats Section === */}
-      <section className="bg-gray-50 py-10 sm:py-14">
+      <section className="bg-gray-50 pt-6 pb-8 sm:pt-6 sm:pb-10">
         <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
           <BigStackedBox />
           <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100 flex-1 overflow-hidden">
@@ -295,109 +264,18 @@ const CombinedPartnersSection = () => {
         </div>
       </section>
 
-      {/* === University Section === */}
-      <section className="py-10 sm:py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center space-y-10">
-          <div>
-            <p className="text-2xl sm:text-3xl font-semibold text-black tracking-wide uppercase">
-              EARN CERTIFICATES FROM
-            </p>
-            <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold text-gray-900">
-              Prestigious Universities
-            </h2>
-            <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
-              We collaborate with globally renowned universities to help you earn certificates recognized across industries worldwide.
-            </p>
-          </div>
-
-          <div className="relative overflow-hidden w-full">
-            <div className="flex w-max animate-scroll-left space-x-14">
-              {[...universityLogos, ...universityLogos].map((uni, i) => (
-                <div
-                  key={`${uni.name}-${i}`}
-                  className="flex flex-col justify-start items-center flex-shrink-0 w-72 text-center"
-                >
-                  <div className="h-40 flex items-center justify-center">
-                    <img
-                      src={uni.src}
-                      alt={uni.name}
-                      className="max-h-32 w-auto object-contain transition-transform duration-300 hover:scale-110"
-                    />
-                  </div>
-                  <p className="mt-4 text-lg font-medium text-gray-800 h-6 flex items-center justify-center">
-                    {uni.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* === Corporate Partners === */}
-      <section className="bg-white py-16 sm:py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-5xl sm:text-6xl font-semibold text-black">
-              Our Corporate Partners
-            </h2>
-            <p className="text-black mt-3 text-xl font-medium">
-              Trusted by leading global companies and institutions
-            </p>
-          </div>
-
-          {/* Top Row */}
-          <div className="relative overflow-hidden mb-10">
-            <div className="flex w-max animate-scroll-left">
-              {[...topRowLogos, ...topRowLogos].map((logo, i) => (
-                <div
-                  key={`${logo.name}-top-${i}`}
-                  className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom Row */}
-          <div className="relative overflow-hidden">
-            <div className="flex w-max animate-scroll-right">
-              {[...bottomRowLogos, ...bottomRowLogos].map((logo, i) => (
-                <div
-                  key={`${logo.name}-bottom-${i}`}
-                  className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* === Animations === */}
+      {/* === Animation CSS === */}
       <style>{`
         @keyframes scroll-left {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
-        @keyframes scroll-right {
-          from { transform: translateX(-50%); }
-          to { transform: translateX(0); }
+        .animate-scroll-left {
+          animation: scroll-left 25s linear infinite;
         }
-        .animate-scroll-left { animation: scroll-left 25s linear infinite; }
-        .animate-scroll-right { animation: scroll-right 25s linear infinite; }
-        .animate-scroll-left:hover,
-        .animate-scroll-right:hover { animation-play-state: paused; }
+        .animate-scroll-left:hover {
+          animation-play-state: paused;
+        }
       `}</style>
     </div>
   );
