@@ -142,7 +142,7 @@ const ProgramsSection = () => {
     { id: 'placement', title: 'Placement Booster Program' },
   ];
 
-  const [activeSection, setActiveSection] = useState('upcoming');
+  const [activeSection, setActiveSection] = useState('all');
 
   const displayedPrograms =
     activeSection === 'all'
@@ -154,10 +154,10 @@ const ProgramsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* --- Heading --- */}
         <div className="mb-6 text-center">
-          <h2 className="text-3xl font-bold mb-2 text-blue-900">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-2 text-gray-900">
             Fuel Your Career with Our Specialized Programs
           </h2>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 text-xl sm:text-2xl">
             Explore programs curated to enhance your skills and career prospects.
           </p>
         </div>
