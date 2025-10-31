@@ -18,7 +18,6 @@ const WebsiteLinks = () => {
 
   return (
     <div className="flex items-center gap-6 relative text-black font-bold">
-
       <Link to="/about" className="hover:text-blue-600 whitespace-nowrap">
         About Us
       </Link>
@@ -156,12 +155,22 @@ export default function Header() {
 
   return (
     <header className="bg-white text-black shadow px-6 py-4 flex justify-between items-center relative">
+      {/* The h1 styling will apply to 'E-Learning' text */}
       <h1 className="text-xl font-bold">
         <Link
           to={isLMSPath ? "/courses" : "/"}
-          className={isLMSPath ? "text-blue-600" : "text-black"}
+          className={isLMSPath ? "text-blue-600" : ""} // Only apply blue text if it's an LMS path
         >
-          {isLMSPath ? "E-Learning" : "Edvantage Learning Solution"}
+          {isLMSPath ? (
+            "E-Learning"
+          ) : (
+            // Replaced text with your image
+            <img
+              src="/images/LOGO.png"
+              
+              className="h-16 w-auto" // Set height to h-10 (2.5rem) and width to auto
+            />
+          )}
         </Link>
       </h1>
       <nav className="flex items-center gap-6">

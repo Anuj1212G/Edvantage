@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+// Removed 'Quote' as it's no longer used in the main testimonial
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -103,99 +104,94 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-  <h2 className="text-5xl font-semibold text-black mb-4">
-    What Our Students Say
-  </h2>
-  <p className="text-2xl text-black max-w-3xl mx-auto font-medium">
-    Success stories from professionals who advanced their careers through
-    our programs
-  </p>
-</div>
+          <h2 className="text-5xl font-semibold text-black mb-4">
+            What Our Participants Say
+          </h2>
+          <p className="text-2xl text-black max-w-3xl mx-auto font-medium">
+            Success stories from professionals who advanced their careers through
+            our programs
+          </p>
+        </div>
 
 
         {/* Main Testimonial */}
         <div className="relative max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="relative p-8 md:p-12">
-              {/* Quote Icon */}
-              <div className="absolute top-8 left-8 text-6xl text-blue-100">
-                <Quote className="h-16 w-16" />
-              </div>
+            {/* UPDATED: Added fixed height md:h-[450px] to grid container */}
+            <div className="md:grid md:grid-cols-2 md:items-stretch md:h-[450px]">
+              
+              {/* Left Column (Text) */}
+              {/* UPDATED: Added overflow-y-auto in case text is long */}
+              <div className="p-8 md:p-12 overflow-y-auto">
+                {/* Heading (Program Name) */}
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+                  {currentData.program}
+                </h3>
 
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Stars */}
-                <div className="flex justify-center mb-6">
-                  {[...Array(currentData.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-6 w-6 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <blockquote className="text-xl md:text-2xl text-black-700 text-center leading-relaxed mb-8 italic">
+                {/* Quote Text */}
+                <blockquote className="text-gray-700 leading-relaxed mb-6">
                   "{currentData.quote}"
                 </blockquote>
 
-                {/* Author Info */}
-                <div className="flex items-center justify-center space-x-6">
-                  <div className="flex-shrink-0">
-                    <img
-                      src={currentData.image}
-                      alt={currentData.name}
-                      className="h-24 w-24 rounded-full object-cover border-4 border-blue-200"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <h4 className="text-xl font-bold text-gray-900">
-                      {currentData.name}
-                    </h4>
-                    <p className="text-blue-600 font-semibold">
-                      {currentData.position}
-                    </p>
-                    <p className="text-gray-600">{currentData.company}</p>
-                    <p className="text-sm text-teal-600 font-medium mt-1">
-                      {currentData.program}
-                    </p>
-                  </div>
+                {/* Author Info (Text Only) */}
+                <div>
+                  <h4 className="text-lg font-bold text-gray-900">
+                    {currentData.name}
+                  </h4>
+                  <p className="text-gray-600">
+                    {currentData.position}, {currentData.company}
+                  </p>
                 </div>
               </div>
+
+              {/* Right Column (Image) */}
+              {/* UPDATED: Set h-80 for mobile, md:h-full for desktop, and relative */}
+              <div className="w-full h-80 md:h-full relative">
+                <img
+                  src={currentData.image}
+                  alt={currentData.name}
+                  // UPDATED: Use absolute positioning to fill the container perfectly
+                  className="absolute inset-0 w-full h-full object-cover" 
+                />
+              </div>
+
             </div>
           </div>
 
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons (Unchanged) */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors"
+            // UPDATED: Changed position and style
+            className="absolute left-0 md:left-[-2.5rem] top-1/2 transform -translate-y-1/2 bg-gray-100 shadow-md rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 z-10"
           >
-            <ChevronLeft className="h-6 w-6 text-gray-600" />
+            <ChevronLeft className="h-6 w-6 text-gray-700" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors"
+            // UPDATED: Changed position and style
+            className="absolute right-0 md:right-[-2.5rem] top-1/2 transform -translate-y-1/2 bg-gray-100 shadow-md rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 z-10"
           >
-            <ChevronRight className="h-6 w-6 text-gray-600" />
+            <ChevronRight className="h-6 w-6 text-gray-700" />
           </button>
         </div>
 
-        {/* Testimonial Indicators */}
-        <div className="flex justify-center mt-8 space-x-3">
+        {/* Testimonial Indicators (UPDATED) */}
+        <div className="flex justify-center mt-8 space-x-2">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentTestimonial(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              // UPDATED: Changed to pill-style indicators
+              className={`transition-all duration-300 ${
                 index === currentTestimonial
-                  ? 'bg-blue-600 scale-125'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  ? 'w-5 h-2 bg-blue-600 rounded-full' // Active state: wider pill
+                  : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400' // Inactive state: small dot
               }`}
             />
           ))}
         </div>
 
-        {/* Additional Testimonials Grid */}
+        {/* Additional Testimonials Grid (Unchanged) */}
         <div className="mt-20 grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
@@ -217,7 +213,7 @@ const TestimonialsSection = () => {
                     {testimonial.name}
                   </h4>
                   <p className="text-sm text-gray-600">{testimonial.company}</p>
-                </div>
+D                </div>
               </div>
               <div className="flex mb-3">
                 {[...Array(testimonial.rating)].map((_, i) => (

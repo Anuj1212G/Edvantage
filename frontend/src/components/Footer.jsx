@@ -1,23 +1,22 @@
 import React from 'react';
 import {
-  BookOpen,
+  // Re-added social icons
   Mail,
   Phone,
   MapPin,
   Linkedin,
-  Twitter,
-  Facebook,
+  Instagram,
   Youtube,
-  Send,
+  Send, // Using Send for Telegram
   MessageSquare
 } from 'lucide-react';
 
 const Footer = () => {
   const contactDetails = {
-    address: 'PETROLEUM ENGINEERS ASSOCIATION, JHARKHAND, INDIA',
-    phone: '+91 6205464268',
-    email: 'info@peassociations.com',
-    whatsapp: '+91 6205464268'
+    address: 'Edvantage Learning Solution, Delhi, INDIA',
+    phone: '+91 6200261265',
+    email: 'Edvantage@gmail.com',
+    whatsapp: '+91 6200261265'
   };
 
   return (
@@ -50,30 +49,55 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="bg-gradient-to-r from-blue-600 to-teal-500 p-2 rounded-lg">
-                <BookOpen className="h-8 w-8 text-white" />
-              </div>
+            <div className="flex items-center mb-6">
               <div>
-                <h2 className="text-xl font-bold">Edvantage Learning Solution</h2>
-                <p className="text-gray-400 text-sm">Oil & Gas Excellence</p>
+                <img
+                  src="/images/LOGO_Footer.png"
+                  alt="Edvantage Learning Solution Logo"
+                  className="h-10 w-auto"
+                />
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Empowering oil & gas professionals with world-class training, consultancy, and industry connections for career advancement.
             </p>
+            {/* UPDATED: Social Links with lucide icons + brand colors */}
             <div className="flex space-x-4">
-              <a href="#" className="bg-blue-800 hover:bg-blue-700 p-2 rounded-lg transition-colors">
-                <Linkedin className="h-5 w-5" />
+              <a
+                href="http://linkedin.com/company/edvantagelearning"
+                target="_blank"
+                rel="noopener noreferrer"
+                // LinkedIn blue
+                className="p-2 bg-[#0A66C2] hover:bg-[#004182] rounded-lg transition-all duration-300"
+              >
+                <Linkedin className="h-5 w-5 text-white" />
               </a>
-              <a href="#" className="bg-blue-800 hover:bg-blue-700 p-2 rounded-lg transition-colors">
-                <Twitter className="h-5 w-5" />
+              <a
+                href="https://youtube.com/@edvantagelearning3858?si=TLki2lnqssumN4-N"
+                target="_blank"
+                rel="noopener noreferrer"
+                // YouTube red
+                className="p-2 bg-[#FF0000] hover:bg-[#C00000] rounded-lg transition-all duration-300"
+              >
+                <Youtube className="h-5 w-5 text-white" />
               </a>
-              <a href="#" className="bg-blue-800 hover:bg-blue-700 p-2 rounded-lg transition-colors">
-                <Facebook className="h-5 w-5" />
+              <a
+                href="https://www.instagram.com/edvantage_learning?igsh=bnB2anRxdmt3emZk"
+                target="_blank"
+                rel="noopener noreferrer"
+                // Instagram pink/purple
+                className="p-2 bg-[#C13584] hover:bg-[#8F2762] rounded-lg transition-all duration-300"
+              >
+                <Instagram className="h-5 w-5 text-white" />
               </a>
-              <a href="#" className="bg-blue-800 hover:bg-blue-700 p-2 rounded-lg transition-colors">
-                <Youtube className="h-5 w-5" />
+              <a
+                href="httpsT.me/+1ak9gUgTZ44yZjll"
+                target="_blank"
+                rel="noopener noreferrer"
+                // Telegram blue
+                className="p-2 bg-[#2AABEE] hover:bg-[#1E88C6] rounded-lg transition-all duration-300"
+              >
+                <Send className="h-5 w-5 text-white" />
               </a>
             </div>
           </div>
@@ -87,8 +111,6 @@ const Footer = () => {
                 'Training Programs',
                 'Webinars & Events',
                 'Success Stories',
-                'Partnerships',
-                'Consultancy Services',
                 'Blog & Articles'
               ].map((link, index) => (
                 <li key={index}>
@@ -142,16 +164,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-green-600 rounded-lg flex items-center justify-between">
-              <div>
-                <h4 className="font-semibold mb-1">Need Quick Help?</h4>
-                <p className="text-sm text-white/80">{contactDetails.whatsapp}</p>
-              </div>
-              <button className="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2">
-                <MessageSquare className="h-5 w-5" />
-                <span>Chat</span>
-              </button>
-            </div>
+            
           </div>
         </div>
 
@@ -159,7 +172,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-teal-400 mb-2">5000+</div>
+              <div className="text-3xl font-bold text-teal-400 mb-2">10000+</div>
               <div className="text-gray-400">Professionals Trained</div>
             </div>
             <div>
@@ -167,7 +180,7 @@ const Footer = () => {
               <div className="text-gray-400">Corporate Partners</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-400 mb-2">10+</div>
+              <div className="text-3xl font-bold text-teal-400 mb-2">40+</div>
               <div className="text-gray-400">Countries Served</div>
             </div>
             <div>
@@ -180,22 +193,23 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="bg-gray-800 border-t border-gray-700">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                  <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <div className="text-gray-400 text-sm">
-                      © 2025 Edvantage Learning Solution. All rights reserved.
-                    </div>
-                    <div className="flex space-x-6 text-sm">
-                      <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                      <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-                      <a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </footer>
-          );
-        };
-        
-        export default Footer;
-          
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-gray-400 text-sm">
+              {/* Removed company name from copyright */}
+              © 2025. All rights reserved.
+            </div>
+            <div className="flex space-x-6 text-sm">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
