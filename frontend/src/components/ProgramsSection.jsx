@@ -4,9 +4,107 @@ import { ChevronRight } from 'lucide-react';
 const programs = {
   upcoming: [
     { id: 1, title: 'Webinar on Oil & Gas Trends', duration: '2 Hours · Online', tag: '', image: 'https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    {
+      id: 10,
+      title: 'Petroleum Geomechanics & CCUS: From Subsurface Principles to Field-Scale Applications',
+      duration: '5 Days · Online',
+      tag: 'Upcoming',
+      image: '/images/Petroleum Geomechanics & CCUS.png'
+    },
+    {
+      id: 11,
+      title: 'Machine Learning with Time Series Applications for Energy Industry',
+      duration: '4 Weeks · Online',
+      tag: 'Upcoming',
+      image: '/images/Machine Learning with Time Series Applications for Energy Industry.webp'
+    },
+    {
+      id: 12,
+      title: 'Diploma for HSE in Oil & Gas',
+      duration: '6 Months · Online',
+      tag: '',
+      image: '/images/Diploma for HSE in Oil & Gas.avif'
+    },
+    {
+      id: 13,
+      title: 'Diploma in ESG, Carbon Trading and Sustainable Finance',
+      duration: '6 Months · Online',
+      tag: '',
+      image: '/images/ESG, Carbon Trading and Sustainable Finance.webp'
+    },
+    {
+      id: 14,
+      title: 'Advanced Drilling Operations & Risk Mitigation',
+      duration: '5 Days · Online',
+      tag: 'Upcoming',
+      image: '/images/Advanced Drilling Operations & Risk Mitigation.webp'
+    },
+    {
+      id: 15,
+      title: 'Oil & Gas Forecasting & Predictions Using Python',
+      duration: '4 Weeks · Online',
+      tag: 'New',
+      image: '/images/Oil & Gas Forecasting & Predictions Using Python.jpg'
+    },
+    {
+      id: 16,
+      title: 'Power BI Analytics For Drilling Engineer',
+      duration: '3 Weeks · Online',
+      tag: '',
+      image: '/images/Power BI Analytics For Drilling Engineer.jpg'
+    },
+    {
+      id: 17,
+      title: 'AI Powered Excel Automation for Oil & Gas',
+      duration: '2 Weeks · Online',
+      tag: '',
+      image: '/images/AI Powered Excel Automation for  Oil & Gas.webp'
+    },
+    {
+      id: 18,
+      title: 'Big Data Analytics & Machine Learning for Smarter Production Facilities Operations',
+      duration: '5 Days · Online',
+      tag: 'New',
+      image: '/images/Big Data Analytics & Machine Learning for Smarter Production Facilities Operations.jpg'
+    },
+    {
+      id: 19,
+      title: 'Production and Nodal Analysis with Python & ML',
+      duration: '4 Weeks · Online',
+      tag: 'New',
+      image: '/images/Production and Nodal Analysis with Python & ML.webp'
+    },
   ],
   diploma: [
     { id: 2, title: 'Diploma in Energy Management', duration: '12 Months · Online', tag: '', image: 'https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    {
+      id: 6,
+      title: 'Diploma in Petroleum Project Management & Field Development Economics',
+      duration: '12 Months · Online',
+      tag: '',
+      image: '/images/Diploma in Petroleum Project Management & Field Development Economics.jpg'
+    },
+    {
+      id: 7,
+      title: 'Diploma in Well Engineering & Completion Engineering',
+      duration: '12 Months · Online',
+      tag: '',
+      image: '/images/Diploma in Well Engineering & Completion Engineering.jpg'
+    },
+    {
+      id: 8,
+      title: 'Diploma for Machine Learning in Oil & Gas',
+      duration: '9 Months · Online',
+      tag: 'New',
+      image: '/images/Diploma for Machine Learning in Oil & Gas.webp'
+    },
+    {
+      id: 9,
+      title: 'Diploma in Integrated Oil & Gas Analytics Using Big Data: A full well Lifecycle Approach',
+      duration: '12 Months · Online',
+      tag: '',
+      image: '/images/Diploma in Integrated Oil & Gas Analytics Using Big Data A full well Lifecycle Approach.jpg'
+    },
   ],
   elearning: [
     { id: 3, title: 'Top E-learning Course 1', duration: '6 Months · Online', tag: '', image: 'https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&w=800' },
@@ -19,7 +117,7 @@ const programs = {
 
 // --- Program Card ---
 const ProgramCard = ({ program }) => (
-  <div className="bg-white shadow-lg rounded-xl overflow-hidden w-72 flex-shrink-0">
+  <div className="bg-white shadow-lg rounded-xl overflow-hidden w-full">
     <img src={program.image} alt={program.title} className="w-full h-40 object-cover" />
     <div className="p-4">
       <h4 className="font-bold text-lg mb-1">{program.title}</h4>
@@ -36,8 +134,9 @@ const ProgramCard = ({ program }) => (
 
 const ProgramsSection = () => {
   const sections = [
-    { id: 'upcoming', title: 'Upcoming Courses & Webinars' },
     { id: 'all', title: 'All Programs' },
+    { id: 'upcoming', title: 'Upcoming Courses & Webinars' },
+    
     { id: 'diploma', title: 'Diploma' },
     { id: 'elearning', title: 'Certification Courses' },
     { id: 'placement', title: 'Placement Booster Program' },
@@ -54,16 +153,14 @@ const ProgramsSection = () => {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* --- Heading --- */}
-   <div className="mb-6 text-center">
-  <h2 className="text-5xl font-semibold mb-3 text-black">
-    Fuel Your Career with Our Specialized Programs
-  </h2>
-  <p className="text-black text-xl font-medium">
-    Explore programs curated to enhance your skills and career prospects.
-  </p>
-</div>
-
-
+        <div className="mb-6 text-center">
+          <h2 className="text-3xl font-bold mb-2 text-blue-900">
+            Fuel Your Career with Our Specialized Programs
+          </h2>
+          <p className="text-gray-700 text-lg">
+            Explore programs curated to enhance your skills and career prospects.
+          </p>
+        </div>
 
         <div className="grid grid-cols-12 gap-8">
           {/* --- Left Tabs --- */}
@@ -86,21 +183,11 @@ const ProgramsSection = () => {
           {/* --- Right Programs --- */}
           <div className="col-span-9">
             {displayedPrograms.length > 0 ? (
-              activeSection === 'all' ? (
-                // 🟦 Grid layout for "All Programs"
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {displayedPrograms.map((program) => (
-                    <ProgramCard key={program.id} program={program} />
-                  ))}
-                </div>
-              ) : (
-                // 🟩 Horizontal scroll for others
-                <div className="flex space-x-6 overflow-x-auto scrollbar-hide py-2">
-                  {displayedPrograms.map((program) => (
-                    <ProgramCard key={program.id} program={program} />
-                  ))}
-                </div>
-              )
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayedPrograms.map((program) => (
+                  <ProgramCard key={program.id} program={program} />
+                ))}
+              </div>
             ) : (
               <p className="text-gray-600">No programs available in this section.</p>
             )}
