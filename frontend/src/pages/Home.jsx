@@ -8,6 +8,7 @@ import StatsSection from "../components/StatsSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import WhyEdvantageSection from "../components/WhyEdvantageSection";
 import WhatsAppButton from "../components/WhatsAppButton";
+
 // NOTE: I did not include the 'MediaSpotlightSection' you were working on earlier,
 // as it was not present in the original import list.
 

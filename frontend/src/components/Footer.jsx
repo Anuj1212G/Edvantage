@@ -15,7 +15,7 @@ const Footer = () => {
   const contactDetails = {
     address: 'Edvantage Learning Solution, Delhi, INDIA',
     phone: '+91 6200261265',
-    email: 'Edvantage@gmail.com',
+    email: ' info@edvantage.org.in',
     whatsapp: '+91 6200261265'
   };
 

@@ -79,7 +79,7 @@ const WebsiteLinks = () => {
               Success Stories
             </Link>
             <Link
-              to="/mediaArticles"
+              to="/blogs"
               className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
             >
               Blogs
