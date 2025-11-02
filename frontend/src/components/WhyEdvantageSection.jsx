@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"; // Link is correctly imported here
 
 // ====================================================================
 // Dummy Data for the Blog Articles
@@ -192,6 +193,27 @@ const MediaSpotlightSection = () => {
           </button>
         </div>
       </div>
+           <div className="text-center mt-8 mb-4">
+        <Link
+          to="/courses"
+          className="
+            inline-flex items-center justify-center 
+            bg-blue-600 text-white 
+            font-semibold tracking-wide 
+            px-10 py-4 
+            text-lg
+            rounded-xl
+            shadow-lg shadow-blue-500/50
+            transition-all duration-200 
+            focus:outline-none focus:ring-4 focus:ring-blue-500/50 
+            hover:bg-blue-700
+            hover:shadow-xl hover:shadow-blue-500/70
+          "
+        >
+          Go to E-Learning
+        </Link>
+      </div>
+
 
       {/* Hide Scrollbar */}
       <style jsx global>{`
@@ -203,7 +225,9 @@ const MediaSpotlightSection = () => {
           scrollbar-width: none;
         }
       `}</style>
+      
     </section>
+    
   );
 };
 

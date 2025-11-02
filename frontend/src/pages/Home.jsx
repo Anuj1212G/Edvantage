@@ -27,26 +27,7 @@ export default function Home() {
       {/* ======================= */}
       {/* Enhanced E-Learning Link */}
       {/* ======================= */}
-<div className="text-center my-16">
-        <Link
-          to="/courses"
-          className="
-            inline-flex items-center justify-center 
-            bg-blue-600 text-white 
-            font-semibold tracking-wide 
-            px-10 py-4 
-            text-lg
-            rounded-xl
-            shadow-lg shadow-blue-500/50
-            transition-all duration-200 
-            focus:outline-none focus:ring-4 focus:ring-blue-500/50 
-            hover:bg-blue-700
-            hover:shadow-xl hover:shadow-blue-500/70
-          "
-        >
-          Go to E-Learning
-        </Link>
-      </div>
+
     </>
   );
 }
