@@ -74,22 +74,22 @@ const DelegatesSensitizedIcon = ({ className }) => (
 const Cards1 = [
   {
     icon: <FaLinkedin className="text-[#0A66C2] text-4xl" />,
-    value: "14K+",
+    value: "14000+",
     label: "LinkedIn Followers",
   },
   {
     icon: <FaYoutube className="text-[#FF0000] text-4xl" />,
-    value: "2K+",
+    value: "2000+",
     label: "YouTube Subscribers",
   },
   {
     icon: <FaInstagram className="text-[#E1306C] text-4xl" />,
-    value: "2K+",
+    value: "2000+",
     label: "Instagram Followers",
   },
   {
     icon: <FaTelegram className="text-blue-600 text-4xl" />,
-    value: "2K+",
+    value: "2000+",
     label: "Telegram Subscribers",
   },
 ];
@@ -118,61 +118,236 @@ const StatsCards = [
 ];
 
 /* ----------------- MINI STACKED CARD COMPONENT ----------------- */
-const MiniStackedCard = ({ initialIndex, ALL_CARDS }) => {
+/* CHANGED: behind cards now have reduced height, reduced vertical padding and smaller text */
+const MiniStackedCard = ({ initialIndex = 0, ALL_CARDS = [] }) => {
   const [index, setIndex] = useState(initialIndex);
+  const timerRef = React.useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % ALL_CARDS.length);
+    if (ALL_CARDS.length <= 1) return;
+    timerRef.current = setInterval(() => {
+      setIndex((i) => (i + 1) % ALL_CARDS.length);
     }, 3000);
-    return () => clearInterval(interval);
+    return () => clearInterval(timerRef.current);
   }, [ALL_CARDS.length]);
 
+  // Visual tuning constants
+  const COUNT = ALL_CARDS.length;
+  const BASE_CARD_WIDTH = 360; // front card width
+  const FRONT_CARD_HEIGHT = 110; // front card height
+  const HEIGHT_STEP = 80; // how much shorter each deeper card becomes
+  const VERTICAL_STEP = 36; // vertical offset between layers
+  const WIDTH_STEP = 0.14; // width reduction per layer
+  const SCALE_STEP = 0.01; // slight scale for depth
+  const RADIUS = 14;
+  const SHADOW = "0 14px 30px rgba(15,23,42,0.08)";
+
+  const maxShift = (COUNT > 0 ? COUNT - 1 : 0) * VERTICAL_STEP;
+  const containerHeight = maxShift + FRONT_CARD_HEIGHT + 24;
+  const BASE_TOP = 8;
+
   return (
-    <div className="relative w-[280px] h-[100px] flex items-center justify-center">
-      {ALL_CARDS.map((card, i) => {
-        const offset = (i - index + ALL_CARDS.length) % ALL_CARDS.length;
-        const visible = offset < 3;
+    <div
+      style={{
+        width: BASE_CARD_WIDTH + 80,
+        display: "flex",
+        justifyContent: "center",
+        padding: "12px 0",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: BASE_CARD_WIDTH,
+          height: containerHeight,
+          overflow: "visible",
+        }}
+      >
+        {ALL_CARDS.map((card, i) => {
+          const relative = (i - index + COUNT) % COUNT; // 0 = front
+          const isFront = relative === 0;
+          const isVisibleLayer = relative < 4;
 
-        return (
-          <div
-            key={i}
-            className={`absolute w-[260px] h-[90px] bg-white rounded-xl border border-gray-900/50 shadow-xl flex items-center justify-start px-5 transition-all duration-700 ease-in-out ${
-              visible ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              transform: `translateY(${offset * 6}px) scale(${1 - offset * 0.03})`,
-              zIndex: ALL_CARDS.length - offset,
-            }}
-          >
-            <div className="flex-shrink-0 mr-4">{card.icon}</div>
-            <div className="flex flex-col items-start justify-center">
-              <h3 className="text-3xl font-extrabold text-gray-900 leading-none">
-                {card.value}
-              </h3>
-              <p className="text-gray-600 text-base mt-1">{card.label}</p>
+          // compute height for this layer (front highest)
+          const cardHeight = Math.max(48, FRONT_CARD_HEIGHT - relative * HEIGHT_STEP);
+
+          // vertical stacking (back cards move up)
+          const top = BASE_TOP + maxShift - relative * VERTICAL_STEP;
+
+          // width progression
+          const width = Math.max(
+            140,
+            Math.round(BASE_CARD_WIDTH * (1 - relative * WIDTH_STEP))
+          );
+
+          // reduce padding top/bottom for deeper cards
+          const verticalPadding = Math.max(6, 18 - relative * 6); // px
+
+          // text sizes shrink for deeper layers
+          const titleSize = isFront ? 30 : Math.max(14, 30 - relative * 8);
+          const subtitleSize = isFront ? 16 : Math.max(11, 16 - relative * 3);
+
+          // icon shrink slightly for deeper cards
+          const iconScale = isFront ? 1 : Math.max(0.6, 1 - relative * 0.12);
+
+          const scale = 1 - relative * SCALE_STEP;
+          const zIndex = 1000 - relative;
+          const opacity = isVisibleLayer ? 1 : 0.32;
+
+          const defaultBorderColor = "rgba(0,0,0,0.08)";
+          const borderColor = isFront ? (card.color || "#0ea5e9") : defaultBorderColor;
+          const borderWidth = isFront ? 2 : 1;
+
+          const transition =
+            "top 480ms cubic-bezier(.2,.9,.25,1), transform 480ms, opacity 300ms, width 480ms, height 480ms, padding 300ms";
+
+          return (
+            <div
+              key={i}
+              style={{
+                position: "absolute",
+                left: `calc(50% - ${width / 2}px)`,
+                top: `${top}px`,
+                width: `${width}px`,
+                height: `${cardHeight}px`,
+                transform: `scale(${scale})`,
+                zIndex,
+                opacity,
+                transition,
+                pointerEvents: isFront ? "auto" : "none",
+                transformOrigin: "center center",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: RADIUS,
+                  background: "#fff",
+                  border: `${borderWidth}px solid ${borderColor}`,
+                  boxShadow: SHADOW,
+                  display: "flex",
+                  alignItems: "center",
+                  padding: `${verticalPadding}px 18px`, // vertical padding responsive to layer
+                  overflow: "hidden",
+                }}
+                className="rounded-xl"
+              >
+                {/* Icon area (scaled down on deeper layers) */}
+                <div
+                  className="flex-shrink-0 mr-4 flex items-center justify-center"
+                  style={{
+                    transform: `scale(${iconScale})`,
+                    transformOrigin: "center center",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 48,
+                    height: 48,
+                  }}
+                >
+                  {card.icon}
+                </div>
+
+                {/* Text */}
+                <div style={{ flex: 1, overflow: "hidden" }}>
+                  <div
+                    style={{
+                      fontSize: titleSize,
+                      fontWeight: 900,
+                      color: "#111827",
+                      lineHeight: 1,
+                      whiteSpace: "nowrap",
+                      textOverflow: "ellipsis",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {card.value || card.title}
+                  </div>
+                  <div
+                    style={{
+                      marginTop: 4,
+                      color: "#6b7280",
+                      fontSize: subtitleSize,
+                      lineHeight: 1,
+                      whiteSpace: "nowrap",
+                      textOverflow: "ellipsis",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {card.label || card.subtitle}
+                  </div>
+                </div>
+
+                {/* Decorative depth layers for front card */}
+                {isFront && (
+                  <>
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0.5,
+                        left: 0.5,
+                        right: 0.5,
+                        bottom: 0.5,
+                        borderRadius: RADIUS,
+                        border: "1px solid rgba(0,0,0,0.06)",
+                        zIndex: -10,
+                        transform: "translateY(0.5px)",
+                        background: "#f8fafc",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 1,
+                        left: 1,
+                        right: 1,
+                        bottom: 1,
+                        borderRadius: RADIUS,
+                        border: "1px solid rgba(0,0,0,0.03)",
+                        zIndex: -20,
+                        transform: "translateY(1px)",
+                        background: "#f1f5f9",
+                      }}
+                    />
+                  </>
+                )}
+              </div>
             </div>
-
-            {offset === 0 && (
-              <>
-                <div className="absolute top-0.5 left-0.5 right-0.5 bottom-0.5 border border-black/10 rounded-xl -z-10 translate-y-0.5 bg-gray-50 shadow-inner"></div>
-                <div className="absolute top-1 left-1 right-1 bottom-1 border border-black/5 rounded-xl -z-20 translate-y-1 bg-gray-100"></div>
-              </>
-            )}
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
 
 /* ----------------- BIG STACKED BOX ----------------- */
+/* Now returns two separate stacked boxes stacked vertically (one above the other),
+   with headings removed and reduced padding/margins */
 const BigStackedBox = () => {
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-xl p-6 w-[320px] h-[390px] overflow-hidden">
-      <div className="flex flex-col gap-8 items-center justify-center h-full">
-        <MiniStackedCard initialIndex={0} ALL_CARDS={Cards1} />
-        <MiniStackedCard initialIndex={1} ALL_CARDS={StatsCards} />
+    <div className="flex flex-col items-center gap-3"> {/* smaller gap */}
+      {/* Top small card box */}
+      <div
+        className="bg-white rounded-2xl border border-gray-200 shadow-xl p-4 overflow-hidden" // p-4 instead of p-6
+        style={{ width: 420, minHeight: 200 }} // reduced minHeight
+      >
+        <div className="flex flex-col gap-4 items-center justify-center h-full">
+          <MiniStackedCard initialIndex={0} ALL_CARDS={Cards1} />
+        </div>
+      </div>
+
+      {/* Bottom small card box */}
+      <div
+        className="bg-white rounded-2xl border border-gray-200 shadow-xl p-4 overflow-hidden" // p-4 instead of p-6
+        style={{ width: 420, minHeight: 320 }} // reduced minHeight
+      >
+        <div className="flex flex-col gap-4 items-center justify-center h-full">
+          <MiniStackedCard initialIndex={1} ALL_CARDS={StatsCards} />
+        </div>
       </div>
     </div>
   );
@@ -282,43 +457,36 @@ const CombinedPartnersSection = () => {
     </section>
 
 
-    {/* === Stats Section === */}
-    <section className="bg-gray-50 py-10 sm:py-14">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
-        
-        <BigStackedBox />
-
-        <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100 flex-1 overflow-hidden">
-          <div className="mb-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-              10K+ Learners Have Reaped Benefits
-            </h2>
-            <p className="mt-3 text-lg text-gray-600">
-              Over 10,000 participants from 40+ countries have benefited from our training programs.
-            </p>
-          </div>
-
-          <div className="relative overflow-hidden">
-            <div className="flex w-max animate-scroll-left space-x-6">
-              {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
-                <div
-                  key={i}
-                  className="text-center p-6 border-2 border-blue-200 rounded-lg 
-                  transition-all duration-300 hover:shadow-lg hover:border-blue-500 
-                  hover:-translate-y-1 flex-shrink-0 w-60"
-                >
-                  <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                  <p className="text-3xl font-extrabold text-gray-900">{number}</p>
-                  <p className="text-sm text-gray-500 mt-1">{label}</p>
-                </div>
-              ))}
+      {/* === Stats Section === */}
+      <section className="bg-gray-50 py-10 sm:py-14">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+          <BigStackedBox />
+          <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100 flex-1 overflow-hidden">
+            <div className="mb-8 text-center">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                10K+ Learners Have Reaped Benefits
+              </h2>
+              <p className="mt-3 text-lg text-gray-600">
+                Over 10,000 participants from 40+ countries have benefited from our training programs.
+              </p>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="flex w-max animate-scroll-left space-x-6">
+                {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
+                  <div
+                    key={i}
+                    className="text-center p-6 border-2 border-blue-200 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue-500 hover:-translate-y-1 flex-shrink-0 w-60"
+                  >
+                    <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+                    <p className="text-3xl font-extrabold text-gray-900">{number}</p>
+                    <p className="text-sm text-gray-500 mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
         </div>
-      </div>
-    </section>
-
+      </section>
 
     {/* === University Section === */}
     <section className="py-10 sm:py-14 bg-white">
