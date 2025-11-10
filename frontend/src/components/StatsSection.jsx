@@ -458,35 +458,40 @@ const CombinedPartnersSection = () => {
 
 
       {/* === Stats Section === */}
-      <section className="bg-gray-50 py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
-          <BigStackedBox />
-          <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100 flex-1 overflow-hidden">
-            <div className="mb-8 text-center">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-                10K+ Learners Have Reaped Benefits
-              </h2>
-              <p className="mt-3 text-lg text-gray-600">
-                Over 10,000 participants from 40+ countries have benefited from our training programs.
-              </p>
+       <section className="bg-gray-50 py-10 sm:py-14">
+  <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+    <BigStackedBox />
+
+    <div className="bg-white p-10 sm:p-14 rounded-2xl shadow-2xl border border-gray-100 flex-1 overflow-hidden h-[635px]">
+      <div className="mb-10 text-center">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+          Our Global Reach in Numbers
+        </h2>
+        <p className="mt-5 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <strong>10,000+ Professionals Empowered Worldwide</strong> <br />
+          Trusted by learners across <strong>40+ countries</strong>, our programs
+          have been shaping global talent for over <strong>5 years</strong> of
+          excellence.
+        </p>
+      </div>
+
+      <div className="relative overflow-hidden">
+        <div className="flex w-max animate-scroll-left space-x-10">
+          {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
+            <div
+              key={i}
+              className="text-center p-10 border-4 border-blue-300 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:border-blue-500 hover:-translate-y-2 flex-shrink-0 w-72"
+            >
+              <Icon className="w-16 h-16 text-blue-600 mx-auto mb-5" />
+              <p className="text-5xl font-extrabold text-gray-900">{number}</p>
+              <p className="text-lg text-gray-600 mt-2 font-medium">{label}</p>
             </div>
-            <div className="relative overflow-hidden">
-              <div className="flex w-max animate-scroll-left space-x-6">
-                {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
-                  <div
-                    key={i}
-                    className="text-center p-6 border-2 border-blue-200 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue-500 hover:-translate-y-1 flex-shrink-0 w-60"
-                  >
-                    <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                    <p className="text-3xl font-extrabold text-gray-900">{number}</p>
-                    <p className="text-sm text-gray-500 mt-1">{label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
     {/* === University Section === */}
     <section className="py-10 sm:py-14 bg-white">
