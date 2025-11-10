@@ -3,7 +3,12 @@ import { ChevronRight } from 'lucide-react';
 
 const programs = {
   upcoming: [
-    { id: 1, title: 'Webinar on Oil & Gas Trends', duration: '2 Hours · Online', tag: '', image: 'https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 1, 
+      title: 'Webinar on Oil & Gas Trends', 
+      duration: '2 Hours · Online', 
+      tag: 'Webinar',
+      image: 'https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800' 
+    },
     {
       id: 10,
       title: 'Petroleum Geomechanics & CCUS: From Subsurface Principles to Field-Scale Applications',
@@ -22,14 +27,14 @@ const programs = {
       id: 12,
       title: 'Diploma for HSE in Oil & Gas',
       duration: '6 Months · Online',
-      tag: '',
+      tag: 'Diploma',
       image: '/images/Diploma for HSE in Oil & Gas.avif'
     },
     {
       id: 13,
       title: 'Diploma in ESG, Carbon Trading and Sustainable Finance',
       duration: '6 Months · Online',
-      tag: '',
+      tag: 'Diploma',
       image: '/images/ESG, Carbon Trading and Sustainable Finance.webp'
     },
     {
@@ -43,7 +48,7 @@ const programs = {
       id: 15,
       title: 'Oil & Gas Forecasting & Predictions Using Python',
       duration: '4 Weeks · Online',
-      tag: 'New',
+      tag: 'Upcoming',
       image: '/images/Oil & Gas Forecasting & Predictions Using Python.jpg'
     },
     {
@@ -64,50 +69,53 @@ const programs = {
       id: 18,
       title: 'Big Data Analytics & Machine Learning for Smarter Production Facilities Operations',
       duration: '5 Days · Online',
-      tag: 'New',
+      tag: 'Upcoming',
       image: '/images/Big Data Analytics & Machine Learning for Smarter Production Facilities Operations.jpg'
     },
     {
       id: 19,
       title: 'Production and Nodal Analysis with Python & ML',
       duration: '4 Weeks · Online',
-      tag: 'New',
+      tag: 'Upcoming',
       image: '/images/Production and Nodal Analysis with Python & ML.webp'
     },
   ],
   diploma: [
-    { id: 2, title: 'Diploma in Energy Management', duration: '12 Months · Online', tag: '', image: 'https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 2, title: 'Diploma in Energy Management', duration: '12 Months · Online', tag: 'Diploma', image: 'https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=800' },
     {
       id: 6,
       title: 'Diploma in Petroleum Project Management & Field Development Economics',
       duration: '12 Months · Online',
-      tag: '',
+      tag: 'Diploma',
       image: '/images/Diploma in Petroleum Project Management & Field Development Economics.jpg'
     },
     {
       id: 7,
       title: 'Diploma in Well Engineering & Completion Engineering',
       duration: '12 Months · Online',
-      tag: '',
+      tag: 'Diploma',
       image: '/images/Diploma in Well Engineering & Completion Engineering.jpg'
     },
     {
       id: 8,
       title: 'Diploma for Machine Learning in Oil & Gas',
       duration: '9 Months · Online',
-      tag: 'New',
+      tag: 'Diploma',
       image: '/images/Diploma for Machine Learning in Oil & Gas.webp'
     },
     {
       id: 9,
       title: 'Diploma in Integrated Oil & Gas Analytics Using Big Data: A full well Lifecycle Approach',
       duration: '12 Months · Online',
-      tag: '',
+      tag: 'Diploma',
       image: '/images/Diploma in Integrated Oil & Gas Analytics Using Big Data A full well Lifecycle Approach.jpg'
     },
   ],
   elearning: [
-    { id: 3, title: 'Top E-learning Course 1', duration: '6 Months · Online', tag: '', image: 'https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { id: 3, title: 'Top E-learning Course 1',
+       duration: '6 Months · Online', tag: 'E-learning', 
+       image: 'https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&w=800' 
+      },
     { id: 4, title: 'Top E-learning Course 2', duration: '4 Months · Online', tag: '', image: 'https://images.pexels.com/photos/3861955/pexels-photo-3861955.jpeg?auto=compress&cs=tinysrgb&w=800' },
   ],
   placement: [

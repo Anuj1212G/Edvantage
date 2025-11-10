@@ -122,113 +122,119 @@ const MediaSpotlightSection = () => {
   }, [isHovering]);
 
   return (
-    <section className="bg-white py-20 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-semibold text-black">Learning Corner</h2>
-        </div>
-
-        {/* Carousel Container */}
-        <div
-          className="relative"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
-          {/* Scrollable Content */}
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-scroll scrollbar-hide space-x-6 pb-4 md:pb-6"
-          >
-            {loopedArticles.map((article, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-80 bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
-              >
-                {/* Article Image */}
-                <div className="h-48 w-full overflow-hidden">
-                  <img
-                    src={article.imgSrc}
-                    alt={article.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                {/* Article Details */}
-                <div className="p-6 flex flex-col justify-between h-[14rem]">
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 leading-normal mb-4 line-clamp-2">
-                      {article.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 mb-4">{article.date}</p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate(article.link)}
-                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-200"
-                  >
-                    Read Article →
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Left Arrow Button */}
-          <button
-            onClick={() => scrollToCard("left")}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-20 bg-gray-900 text-white hover:bg-gray-700"
-            aria-label="Scroll left"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={() => scrollToCard("right")}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-20 bg-gray-900 text-white hover:bg-gray-700"
-            aria-label="Scroll right"
-          >
-            <ArrowRight className="h-6 w-6" />
-          </button>
-        </div>
-      </div>
-           <div className="text-center mt-8 mb-4">
-        <Link
-          to="/courses"
-          className="
-            inline-flex items-center justify-center 
-            bg-blue-600 text-white 
-            font-semibold tracking-wide 
-            px-10 py-4 
-            text-lg
-            rounded-xl
-            shadow-lg shadow-blue-500/50
-            transition-all duration-200 
-            focus:outline-none focus:ring-4 focus:ring-blue-500/50 
-            hover:bg-blue-700
-            hover:shadow-xl hover:shadow-blue-500/70
-          "
-        >
-          Go to E-Learning
-        </Link>
-      </div>
-
-
-      {/* Hide Scrollbar */}
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+  <section className="bg-white py-20 sm:py-24">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-    </section>
-    
-  );
-};
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-semibold text-black">
+          Learning Corner
+        </h2>
 
+        {/* ✅ Added Subheading */}
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-4 leading-relaxed">
+          Explore our Learning Corner for expert insights, practical tips, and 
+          resources to boost your professional growth.
+        </p>
+      </div>
+
+      {/* Carousel Container */}
+      <div
+        className="relative"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        {/* Scrollable Content */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-scroll scrollbar-hide space-x-6 pb-4 md:pb-6"
+        >
+          {loopedArticles.map((article, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-80 bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
+            >
+              {/* Article Image */}
+              <div className="h-48 w-full overflow-hidden">
+                <img
+                  src={article.imgSrc}
+                  alt={article.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              {/* Article Details */}
+              <div className="p-6 flex flex-col justify-between h-[14rem]">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 leading-normal mb-4 line-clamp-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 mb-4">{article.date}</p>
+                </div>
+
+                <button
+                  onClick={() => navigate(article.link)}
+                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-200"
+                >
+                  Read Article →
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Left Arrow Button */}
+        <button
+          onClick={() => scrollToCard("left")}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-20 bg-gray-900 text-white hover:bg-gray-700"
+          aria-label="Scroll left"
+        >
+          <ArrowLeft className="h-6 w-6" />
+        </button>
+
+        {/* Right Arrow Button */}
+        <button
+          onClick={() => scrollToCard("right")}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-20 bg-gray-900 text-white hover:bg-gray-700"
+          aria-label="Scroll right"
+        >
+          <ArrowRight className="h-6 w-6" />
+        </button>
+      </div>
+    </div>
+
+    <div className="text-center mt-8 mb-4">
+      <Link
+        to="/courses"
+        className="
+          inline-flex items-center justify-center 
+          bg-blue-600 text-white 
+          font-semibold tracking-wide 
+          px-10 py-4 
+          text-lg
+          rounded-xl
+          shadow-lg shadow-blue-500/50
+          transition-all duration-200 
+          focus:outline-none focus:ring-4 focus:ring-blue-500/50 
+          hover:bg-blue-700
+          hover:shadow-xl hover:shadow-blue-500/70
+        "
+      >
+        Go to E-Learning
+      </Link>
+    </div>
+
+    {/* Hide Scrollbar */}
+    <style jsx global>{`
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    `}</style>
+  </section>
+);
+};
 export default MediaSpotlightSection;

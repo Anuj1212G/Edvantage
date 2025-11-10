@@ -223,186 +223,215 @@ const CombinedPartnersSection = () => {
   const bottomRowLogos = corporateLogos.slice(corporateLogos.length / 2);
 
   return (
-    <div className="bg-white font-sans">
-      {/* === Learn From Industry Experts === */}
-       <section className="bg-gray-50 py-8 sm:py-10">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-5xl sm:text-6xl font-semibold text-black mb-8">
-            Learn From Industry Experts
-          </h2>
+  <div className="bg-white font-sans">
+
+    {/* === Learn From Industry Experts === */}
+    <section className="bg-gray-50 py-8 sm:py-10">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        
+        <h2 className="text-5xl sm:text-6xl font-semibold text-black mb-6">
+          Learn From Industry Experts
+        </h2>
+
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed mt-2">
+          Every session is guided by mentors who turn knowledge into actionable success.
+        </p>
+
+        <div className="relative overflow-hidden mt-8">
+          <div className="flex w-max animate-scroll-left space-x-6 pb-4">
+            {[...experts, ...experts].map((expert, i) => (
+              <div
+                key={i}
+                className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 
+                border border-gray-200 hover:shadow-lg transition 
+                h-[330px] flex flex-col"
+              >
+                <img
+                  src={expert.img}
+                  alt={expert.name}
+                  className="w-full h-56 object-cover rounded-lg mb-3"
+                />
+
+                <p className="font-semibold text-black text-base text-center line-clamp-1">
+                  {expert.name}
+                </p>
+
+                <p className="text-gray-600 text-sm text-center mt-1 line-clamp-1">
+                  {expert.designation}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* VIEW ALL Button */}
+        <div className="mt-8">
+          <button
+            onClick={() => {
+              navigate("/about");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold 
+            px-12 py-5 rounded-full shadow-xl transition-all duration-300 
+            transform hover:scale-105"
+          >
+            VIEW ALL
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    {/* === Stats Section === */}
+    <section className="bg-gray-50 py-10 sm:py-14">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+        
+        <BigStackedBox />
+
+        <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100 flex-1 overflow-hidden">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+              10K+ Learners Have Reaped Benefits
+            </h2>
+            <p className="mt-3 text-lg text-gray-600">
+              Over 10,000 participants from 40+ countries have benefited from our training programs.
+            </p>
+          </div>
 
           <div className="relative overflow-hidden">
-            <div className="flex w-max animate-scroll-left space-x-6 pb-4">
-              {[...experts, ...experts].map((expert, i) => (
+            <div className="flex w-max animate-scroll-left space-x-6">
+              {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
                 <div
                   key={i}
-                  className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 border border-gray-200 hover:shadow-lg transition"
+                  className="text-center p-6 border-2 border-blue-200 rounded-lg 
+                  transition-all duration-300 hover:shadow-lg hover:border-blue-500 
+                  hover:-translate-y-1 flex-shrink-0 w-60"
                 >
-                  <img
-                    src={expert.img}
-                    alt={expert.name}
-                    className="w-full h-56 object-cover rounded-lg mb-3"
-                  />
-                  <p className="font-semibold text-black text-base">{expert.name}</p>
-                  <p className="text-black-600 text-sm mt-1">{expert.designation}</p>
+                  <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+                  <p className="text-3xl font-extrabold text-gray-900">{number}</p>
+                  <p className="text-sm text-gray-500 mt-1">{label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Slightly Smaller VIEW ALL Button */}
-          <div className="mt-8">
-            <button
-              onClick={() => {
-                navigate("/about");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className="bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold px-12 py-5 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              VIEW ALL
-            </button>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
 
-      {/* === Stats Section === */}
-      <section className="bg-gray-50 py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
-          <BigStackedBox />
-          <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-100 flex-1 overflow-hidden">
-            <div className="mb-8 text-center">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-                10K+ Learners Have Reaped Benefits
-              </h2>
-              <p className="mt-3 text-lg text-gray-600">
-                Over 10,000 participants from 40+ countries have benefited from our training programs.
-              </p>
-            </div>
-            <div className="relative overflow-hidden">
-              <div className="flex w-max animate-scroll-left space-x-6">
-                {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
-                  <div
-                    key={i}
-                    className="text-center p-6 border-2 border-blue-200 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue-500 hover:-translate-y-1 flex-shrink-0 w-60"
-                  >
-                    <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                    <p className="text-3xl font-extrabold text-gray-900">{number}</p>
-                    <p className="text-sm text-gray-500 mt-1">{label}</p>
-                  </div>
-                ))}
+    {/* === University Section === */}
+    <section className="py-10 sm:py-14 bg-white">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center space-y-10">
+        
+        <div>
+          <p className="text-2xl sm:text-3xl font-semibold text-black tracking-wide uppercase">
+            EARN CERTIFICATES FROM
+          </p>
+          <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold text-gray-900">
+            Prestigious Universities
+          </h2>
+          <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+            We collaborate with globally renowned universities to help you earn certificates recognized across industries worldwide.
+          </p>
+        </div>
+
+        <div className="relative overflow-hidden w-full">
+          <div className="flex w-max animate-scroll-left space-x-14">
+            {[...universityLogos, ...universityLogos].map((uni, i) => (
+              <div
+                key={`${uni.name}-${i}`}
+                className="flex flex-col justify-start items-center flex-shrink-0 w-72 text-center"
+              >
+                <div className="h-40 flex items-center justify-center">
+                  <img
+                    src={uni.src}
+                    alt={uni.name}
+                    className="max-h-32 w-auto object-contain transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <p className="mt-4 text-lg font-medium text-gray-800 h-6 flex items-center justify-center">
+                  {uni.name}
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* === University Section === */}
-      <section className="py-10 sm:py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center space-y-10">
-          <div>
-            <p className="text-2xl sm:text-3xl font-semibold text-black tracking-wide uppercase">
-              EARN CERTIFICATES FROM
-            </p>
-            <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold text-gray-900">
-              Prestigious Universities
-            </h2>
-            <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
-              We collaborate with globally renowned universities to help you earn certificates recognized across industries worldwide.
-            </p>
-          </div>
+      </div>
+    </section>
 
-          <div className="relative overflow-hidden w-full">
-            <div className="flex w-max animate-scroll-left space-x-14">
-              {[...universityLogos, ...universityLogos].map((uni, i) => (
-                <div
-                  key={`${uni.name}-${i}`}
-                  className="flex flex-col justify-start items-center flex-shrink-0 w-72 text-center"
-                >
-                  <div className="h-40 flex items-center justify-center">
-                    <img
-                      src={uni.src}
-                      alt={uni.name}
-                      className="max-h-32 w-auto object-contain transition-transform duration-300 hover:scale-110"
-                    />
-                  </div>
-                  <p className="mt-4 text-lg font-medium text-gray-800 h-6 flex items-center justify-center">
-                    {uni.name}
-                  </p>
-                </div>
-              ))}
-            </div>
+
+    {/* === Corporate Partners === */}
+    <section className="bg-white py-16 sm:py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+
+        <div className="text-center mb-10">
+          <h2 className="text-5xl sm:text-6xl font-semibold text-black">
+            Our Corporate Partners
+          </h2>
+          <p className="text-black mt-3 text-xl font-medium">
+            Trusted by leading global companies and institutions
+          </p>
+        </div>
+
+        {/* Top Row */}
+        <div className="relative overflow-hidden mb-10">
+          <div className="flex w-max animate-scroll-left">
+            {[...topRowLogos, ...topRowLogos].map((logo, i) => (
+              <div
+                key={`${logo.name}-top-${i}`}
+                className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
+                />
+              </div>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* === Corporate Partners === */}
-      <section className="bg-white py-16 sm:py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-5xl sm:text-6xl font-semibold text-black">
-              Our Corporate Partners
-            </h2>
-            <p className="text-black mt-3 text-xl font-medium">
-              Trusted by leading global companies and institutions
-            </p>
-          </div>
-
-          {/* Top Row */}
-          <div className="relative overflow-hidden mb-10">
-            <div className="flex w-max animate-scroll-left">
-              {[...topRowLogos, ...topRowLogos].map((logo, i) => (
-                <div
-                  key={`${logo.name}-top-${i}`}
-                  className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom Row */}
-          <div className="relative overflow-hidden">
-            <div className="flex w-max animate-scroll-right">
-              {[...bottomRowLogos, ...bottomRowLogos].map((logo, i) => (
-                <div
-                  key={`${logo.name}-bottom-${i}`}
-                  className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
-                  />
-                </div>
-              ))}
-            </div>
+        {/* Bottom Row */}
+        <div className="relative overflow-hidden">
+          <div className="flex w-max animate-scroll-right">
+            {[...bottomRowLogos, ...bottomRowLogos].map((logo, i) => (
+              <div
+                key={`${logo.name}-bottom-${i}`}
+                className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
+                />
+              </div>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* === Animations === */}
-      <style>{`
-        @keyframes scroll-left {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        @keyframes scroll-right {
-          from { transform: translateX(-50%); }
-          to { transform: translateX(0); }
-        }
-        .animate-scroll-left { animation: scroll-left 25s linear infinite; }
-        .animate-scroll-right { animation: scroll-right 25s linear infinite; }
-        .animate-scroll-left:hover,
-        .animate-scroll-right:hover { animation-play-state: paused; }
-      `}</style>
-    </div>
-  );
+      </div>
+    </section>
+
+
+    {/* === Animations CSS === */}
+    <style>{`
+      @keyframes scroll-left {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      @keyframes scroll-right {
+        from { transform: translateX(-50%); }
+        to { transform: translateX(0); }
+      }
+      .animate-scroll-left { animation: scroll-left 25s linear infinite; }
+      .animate-scroll-right { animation: scroll-right 25s linear infinite; }
+      .animate-scroll-left:hover,
+      .animate-scroll-right:hover { animation-play-state: paused; }
+    `}</style>
+
+  </div>
+);
 };
-
 export default CombinedPartnersSection;

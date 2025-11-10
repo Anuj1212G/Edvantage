@@ -133,81 +133,94 @@ const TestimonialsSection = () => {
     testimonials[(currentIndex + 1) % testimonials.length],
   ];
 
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-          Success Stories from Our Placed Participants
-        </h2>
+return (
+  <section className="py-20 bg-gray-50">
+    <div className="max-w-7xl mx-auto px-6">
 
-        <div className="relative">
-          <div className="grid md:grid-cols-2 gap-10 transition-transform duration-700 ease-in-out items-stretch">
-            {visibleTestimonials.map((t, index) => (
-              <div
-                key={`${t.id}-${index}`}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row min-h-[560px] max-h-[560px] h-full"
-              >
-                {/* Left Section (Text) */}
-                <div className="p-8 md:w-1/2 flex flex-col justify-between">
-                  <div>
-                    <p className="text-xl font-semibold text-blue-700 mb-4 leading-snug">
-                      “{t.quote}”
-                    </p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      {t.feedback}
-                    </p>
-                  </div>
+      {/* HEADING */}
+      <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
+        Success Stories from Our Placed Participants
+      </h2>
 
-                  <div className="flex items-center justify-between mt-auto">
-                    <div>
-                      <h4 className="font-bold text-gray-900">{t.name}</h4>
-                      <p className="text-sm text-gray-600">
-                        {t.position}, {t.company}
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-center bg-gray-50 rounded-md p-2 w-24 h-12">
-                      <img
-                        src={t.logo}
-                        alt={t.company}
-                        className="object-contain max-h-10 w-full"
-                        style={{
-                          filter: "none",
-                          mixBlendMode: "normal",
-                        }}
-                      />
-                    </div>
-                  </div>
+      {/* ✅ FIXED SUBHEADING ALIGNMENT */}
+      <p className="text-lg text-gray-700 max-w-2xl mx-auto text-center leading-relaxed mb-12">
+        Discover inspiring success stories of learners who transformed their careers
+        through our impactful programs.
+      </p>
+
+      <div className="relative">
+        <div className="grid md:grid-cols-2 gap-10 items-stretch transition-transform duration-700 ease-in-out">
+          {visibleTestimonials.map((t, index) => (
+            <div
+              key={`${t.id}-${index}`}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
+            >
+              
+              {/* LEFT + RIGHT CONTENT */}
+              <div className="flex flex-col md:flex-row min-h-[380px]">
+                
+                {/* LEFT SIDE */}
+                <div className="p-8 md:w-1/2 flex flex-col justify-center">
+                  <p className="text-xl font-semibold text-blue-700 mb-4 leading-snug">
+                    “{t.quote}”
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    {t.feedback}
+                  </p>
                 </div>
 
-                {/* Right Section (Image) */}
-                <div className="md:w-1/2 relative">
+                {/* RIGHT SIDE IMAGE */}
+                <div className="md:w-1/2 flex">
                   <img
                     src={t.image}
                     alt={t.name}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="w-full object-cover"
+                    style={{
+                      height: "360px",
+                      objectPosition: "top",
+                    }}
                   />
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={prev}
-            className="absolute left-[-2rem] top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
-          >
-            <ChevronLeft className="text-gray-700 h-6 w-6" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-[-2rem] top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
-          >
-            <ChevronRight className="text-gray-700 h-6 w-6" />
-          </button>
+              {/* CENTER NAME + COMPANY */}
+              <div className="flex flex-col items-center text-center py-6">
+                <h4 className="font-extrabold text-gray-900 text-3xl mb-1">
+                  {t.name}
+                </h4>
+
+                <p className="text-lg text-gray-600 mb-3">
+                  {t.position}, {t.company}
+                </p>
+
+                <img
+                  src={t.logo}
+                  alt={t.company}
+                  className="w-44 h-24 object-contain"
+                />
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
-  );
-};
 
+        {/* LEFT BUTTON */}
+        <button
+          onClick={prev}
+          className="absolute left-[-2rem] top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
+        >
+          <ChevronLeft className="text-gray-700 h-6 w-6" />
+        </button>
+
+        {/* RIGHT BUTTON */}
+        <button
+          onClick={next}
+          className="absolute right-[-2rem] top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
+        >
+          <ChevronRight className="text-gray-700 h-6 w-6" />
+        </button>
+      </div>
+    </div>
+  </section>
+);
+};
 export default TestimonialsSection;
