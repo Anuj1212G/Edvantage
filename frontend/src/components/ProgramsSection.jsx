@@ -249,12 +249,12 @@ const ProgramCard = ({ program }) => (
         </span>
       )}
 
-      <a
-        href="/programs"
-        className="text-blue-600 font-semibold flex items-center hover:underline mt-2"
-      >
-        View Program <ChevronRight className="w-4 h-4 ml-1" />
-      </a>
+   <Link
+  to="/programs"
+  className="text-blue-600 font-semibold flex items-center hover:underline mt-2"
+>
+  View Program <ChevronRight className="w-4 h-4 ml-1" />
+</Link>
     </div>
   </div>
 );
