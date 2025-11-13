@@ -124,7 +124,7 @@ export const AuthProvider = ({ children }) => {
     (async () => {
       try {
         // attempt to get /api/auth/me to detect server cookie session
-        const res = await fetch("/api/auth/me", {
+        const res = await fetch("https://edvantage-pryf.onrender.com/api/auth/me", {
           credentials: "include",
         });
         if (res.ok) {
@@ -160,7 +160,7 @@ export const AuthProvider = ({ children }) => {
 
   // login using your backend
   const login = async (email, password) => {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch("https://edvantage-pryf.onrender.com/api/auth/login", {
       method: "POST",
       credentials: "include", // keep for cookie-based
       headers: { "Content-Type": "application/json" },
@@ -189,7 +189,7 @@ export const AuthProvider = ({ children }) => {
 
   // signup using your backend
   const signup = async (name, email, password) => {
-    const res = await fetch("http://localhost:5000/api/auth/register", {
+    const res = await fetch("https://edvantage-pryf.onrender.com/api/auth/register", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -217,7 +217,7 @@ export const AuthProvider = ({ children }) => {
   // logout - clear frontend state and call server logout
   const logout = async () => {
     try {
-      await fetch("http://localhost:5000/api/auth/logout", {
+      await fetch("https://edvantage-pryf.onrender.com/api/auth/logout", {
         method: "POST",
         credentials: "include",
       });
