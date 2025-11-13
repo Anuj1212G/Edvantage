@@ -204,7 +204,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       // attempt to read /me if cookie-based
       try {
-        const me = await fetch("/api/auth/me", { credentials: "include" });
+        const me = await fetch("https://edvantage-pryf.onrender.com/api/auth/me", { credentials: "include" });
         if (me.ok) {
           const meData = await me.json();
           if (meData.user) setUser(meData.user);

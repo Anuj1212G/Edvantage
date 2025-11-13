@@ -77,12 +77,19 @@ const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 // --- Security and Middleware ---
 app.use(
   cors({
-    origin: CLIENT_ORIGIN,   // DO NOT use "*" when credentials needed
+    origin: [
+      "http://localhost:5173",
+      "https://edvantage-psi.vercel.app"
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 app.use(helmet());
 app.use(morgan("dev"));
