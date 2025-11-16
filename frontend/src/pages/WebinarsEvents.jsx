@@ -10,29 +10,39 @@ const WebinarsEvents = () => {
   const [activeCalendar, setActiveCalendar] = useState(null); // Tracks which calendar dropdown is open
 
   // Data
-  const webinars = [
-    {
-      id: '1',
-      title: 'The Future of Energy: AI & Sustainable Grids',
-      speaker: { name: 'Dr. Anya Sharma', image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400' },
-      date: '2025-11-25', time: '2:00 PM IST', duration: '90 minutes',
-      description: 'An in-depth exploration of how AI is revolutionizing grid management and promoting sustainability.',
-    },
-    {
-      id: '2',
-      title: 'Advanced HSE Protocols in Deepwater Drilling',
-      speaker: { name: 'Michael Chen', image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400' },
-      date: '2025-12-10', time: '4:30 PM IST', duration: '75 minutes',
-      description: 'Learn from industry leaders about implementing world-class HSE practices in challenging offshore environments.',
-    },
-    {
-      id: '3',
-      title: 'The Energy Transition: A Blueprint for Professionals',
-      speaker: { name: 'Dr. Elena Vasquez', image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400' },
-      date: '2025-09-15', time: '1:00 PM IST', duration: '60 minutes',
-      description: 'Discover career opportunities and the essential skills required as the energy industry moves toward a sustainable future.',
-    }
-  ];
+const webinars = [
+  {
+    id: '1',
+    title: 'The Future of Energy: AI & Sustainable Grids',
+    speaker: { name: 'Dr. Anya Sharma', image: '...' },
+    date: '2025-11-25',
+    time: '2:00 PM IST',
+    duration: '90 minutes',
+    description: '...',
+    recordingLink: "https://drive.google.com/file/d/xxxxxxx/view",   // 🔥 Add this
+  },
+  {
+    id: '2',
+    title: 'Advanced HSE Protocols in Deepwater Drilling',
+    speaker: { name: 'Michael Chen', image: '...' },
+    date: '2025-12-10',
+    time: '4:30 PM IST',
+    duration: '75 minutes',
+    description: '...',
+    recordingLink: "https://drive.google.com/file/d/yyyyyyy/view",   // 🔥 Add this
+  },
+  {
+    id: '3',
+    title: 'The Energy Transition: A Blueprint for Professionals',
+    speaker: { name: 'Dr. Elena Vasquez', image: '...' },
+    date: '2025-09-15',
+    time: '1:00 PM IST',
+    duration: '60 minutes',
+    description: '...',
+    recordingLink: "https://drive.google.com/file/d/zzzzzzz/view",   // 🔥 Add this
+  }
+];
+
  
   const testimonials = [
     { quote: "The insights were not just theoretical but immediately actionable. Truly exceptional!", author: "David Chen", title: "Operations Director, Apex Energy", image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400" },
@@ -217,9 +227,14 @@ const WebinarsEvents = () => {
                       </div>
                     ) : (
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <a href="#" className="flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-slate-700 hover:bg-slate-600 transform hover:scale-105 transition-all">
-                          <Play size={16} /> Watch Recording
-                        </a>
+                        <a 
+  href={webinar.recordingLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-slate-700 hover:bg-slate-600 transform hover:scale-105 transition-all"
+>
+  <Play size={16} /> Watch Recording
+</a>
                         <a href="#" className="flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all">
                           <Download size={16} /> Download Materials
                         </a>
