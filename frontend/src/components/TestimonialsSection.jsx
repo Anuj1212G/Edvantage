@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [feedbackIndex, setFeedbackIndex] = useState(0);
 
+  /* --------------------- TOP TESTIMONIALS (REWRITTEN CONTENT) --------------------- */
   const testimonials = [
     {
       id: 1,
       name: "Rajveer Singh Choudhary",
       quote:
-        "This training enhanced my technical expertise and opened new career opportunities.",
+        "This training expanded my technical understanding and strengthened my career foundation.",
       feedback:
-        ". I comprehensively felt that I always found new something useful in data science analysis using python in every session. Then, I was very joyful during entire sessions with the speakers. I will recommend this course to my friends and colleagues. Thanks, Edvantage..",
+        "Every session introduced valuable new insights. The instructors explained concepts clearly, and the experience consistently exceeded expectations.",
       position: "Senior Associate Consultant",
       company: "Infosys",
       logo: "/images/Infosys.png",
-      image: "/images/Rajveer.png",
+      image: "/images/Suss8.png",
       rating: 5,
     },
     {
       id: 2,
       name: "Ashish",
-      
-      quote:
-        "The Well Engineering internship shaped my technical foundation for a strong career start.",
+      quote: "The Well Engineering internship laid the groundwork for my technical growth.",
       feedback:
-        "The curriculum lasted three months and was practical in nature, requiring ex- tensive effort and study. The genuine casing design of our well based on the available real offset field data was the best aspect of this internship. My inter- est in deepwater well design was piqued during this assignment.",
+        "The curriculum was thorough and industry-focused. Designing a real casing program using offset well data was especially impactful.",
       position: "Placed at",
       company: "ONGC",
       logo: "/images/ongc.png",
@@ -36,9 +36,9 @@ const TestimonialsSection = () => {
       id: 3,
       name: "Navan Kumar Sahu",
       quote:
-        "Digital tools in stratigraphy gave me a new perspective on subsurface interpretation.",
+        "Digital tools in stratigraphy opened a new dimension in subsurface interpretation.",
       feedback:
-        "I will say the course was really well structured and the topic of the course was Sequence Stratigraphy in the Era of Digitalization.I have really enjoyed the course learning with an industry expert and a big thumbs up from my side for this course and a big thank you to the whole team of EDvantage India for introducing an amazing course to us.",
+        "The course was well-structured and delivered by an industry expert. Practical demonstrations made the concepts easy to understand and apply.",
       position: "Placed at",
       company: "ONGC",
       logo: "/images/ongc.png",
@@ -48,10 +48,9 @@ const TestimonialsSection = () => {
     {
       id: 4,
       name: "Aakansha",
-      quote:
-        "This training gave me the confidence to connect geology with digital innovation.",
+      quote: "This training helped me bridge geology with modern digital tools.",
       feedback:
-        "I have done training in Sequence Stratigraphy which was very helpful for my future. The instructor of the course Mr Tapas Mitra helps me a lot and makes me understand the concept well. EDvanatage India helps me to get the internship.",
+        "The Sequence Stratigraphy program was very helpful. The instructor explained each concept with clarity and patience.",
       position: "Placed at",
       company: "Lepton Software",
       logo: "/images/lepton.png",
@@ -61,10 +60,9 @@ const TestimonialsSection = () => {
     {
       id: 5,
       name: "Saksham Vats",
-      quote:
-        "Reservoir training transformed my understanding of field development and analysis.",
+      quote: "The reservoir course reshaped my understanding of subsurface development.",
       feedback:
-        "The course provided practical exposure to reservoir concepts and helped me understand real-time production optimization. It played a vital role in helping me join Enverus.",
+        "It provided hands-on exposure to reservoir workflows and production insights. It strongly supported my journey to Enverus.",
       position: "Placed at",
       company: "Enverus",
       logo: "/images/enverus.png",
@@ -75,10 +73,10 @@ const TestimonialsSection = () => {
       id: 6,
       name: "Mohammed Ishtiyaq",
       quote:
-        "The Data Analytics diploma opened doors to my career in digital oilfield operations.",
+        "The Data Analytics diploma helped me enter the digital oilfield domain with confidence.",
       feedback:
-        "Through the Diploma in Oil & Gas Data Analytics, I developed strong analytical and data interpretation skills for well operations. The practical modules and mentorship helped me secure my role at SLB as a Data Analyst.",
-      position: "Digital Well Operations Data Analyst / Data Logger",
+        "I built strong analytical and problem-solving skills. The training played a major role in helping me join SLB.",
+      position: "Digital Well Operations Analyst",
       company: "SLB",
       logo: "/images/slb.png",
       image: "/images/Mohammed.png",
@@ -88,9 +86,9 @@ const TestimonialsSection = () => {
       id: 7,
       name: "Rumana Akther",
       quote:
-        "This program built my technical depth and confidence to enter global oilfield services.",
+        "This program strengthened my technical foundation for global oilfield services.",
       feedback:
-        "The Comprehensive Development Program with emphasis on Drilling and Well Engineering helped me connect classroom learning to field applications. It gave me the solid foundation I needed for my position at Halliburton.",
+        "It connected theoretical knowledge with field operations. The training prepared me well for my role at Halliburton.",
       position: "Associate Technical Professional",
       company: "Halliburton",
       logo: "/images/Halliburton.png",
@@ -100,10 +98,9 @@ const TestimonialsSection = () => {
     {
       id: 8,
       name: "Varshita Solanki",
-      quote:
-        "Industry-focused training that prepared me for success in oilfield operations.",
+      quote: "Industry-aligned learning prepared me for growth in oilfield operations.",
       feedback:
-        "The Comprehensive Oil & Gas Development Program gave me exposure to drilling, reservoir, and production concepts with real-time case studies. The learning experience helped me earn my position at SLB.",
+        "The course covered drilling, reservoir, and production concepts with real project examples. It helped me earn a role at SLB.",
       position: "Reservoir Engineer",
       company: "SLB",
       logo: "/images/slb.png",
@@ -113,10 +110,9 @@ const TestimonialsSection = () => {
     {
       id: 9,
       name: "Ali Haris",
-      quote:
-        "Learning digital stratigraphy gave me the industry-ready skills I was looking for.",
+      quote: "Digital stratigraphy training provided me with relevant industry-ready skills.",
       feedback:
-        "The course was very helpful for me. The instructors and the entire team of EDvantage were very very helpful and the course was very informative for me and I encourage everyone to take a course from EDvntage since the course structure and entire team is really helpful.",
+        "The course was informative, and the faculty was extremely supportive. I highly recommend it to aspiring professionals.",
       position: "Placed at",
       company: "Rezlytics",
       logo: "/images/rezlytix.png",
@@ -125,130 +121,178 @@ const TestimonialsSection = () => {
     },
   ];
 
+  /* --------------------- BOTTOM FEEDBACK (UPDATED 3–5 LINES) --------------------- */
+  const learnerFeedback = [
+    {
+      name: "Imtiaz Ahmed",
+      position: "MS Petroleum Engineering, Khazar University, Azerbaijan",
+      text: "The training covered Python, ML, and DL with strong petroleum-focused applications. The instructors demonstrated excellent command over each concept and maintained a positive learning environment. A highly valuable program for anyone entering petroleum data science.",
+    },
+    {
+      name: "Prashant Kumar",
+      position: "Geophysicist, Lagos (E&P Company)",
+      text: "The three-month data science program was detailed and professionally structured. It covered Python, ML, DL, databases, and analytics comprehensively. The tutors were excellent, making this course extremely helpful for career growth in oil and gas.",
+    },
+    {
+      name: "Syed Suhail Ahmed",
+      position: "Student, Presidency University",
+      text: "As a fresher, I gained a strong understanding of data science through real industry examples. The faculty shared practical insights and live project workflows, making learning easier. Perfect for students entering data analysis roles.",
+    },
+    {
+      name: "Sahil Vora",
+      position: "B.Tech, PDEU Gandhinagar",
+      text: "A comprehensive and easy-to-follow program covering Python, Pandas, ML, DL, and visualization. The instructors explained complex concepts clearly, and the hands-on approach made learning highly effective. Great for academic and professional growth.",
+    },
+    {
+      name: "Hossein Rashidi",
+      position: "CMMS Engineer, Major Gas Refinery, Iran",
+      text: "A very useful course for understanding data science applications in refinery and maintenance operations. It motivated me to integrate data mining into my job. I gladly recommend it to engineers seeking modern analytical skills.",
+    },
+    {
+      name: "Muhammad Yunus",
+      position: "MS Geoscience, National Dong Hwa University, Taiwan",
+      text: "Insightful, beginner-friendly, and well delivered. I consistently learned something new in every session. Training quality and Edvantage’s support were excellent. Highly recommended for geoscience learners.",
+    },
+    {
+      name: "Mahdi",
+      position: "Senior Petroleum Engineering Student, University of Basrah",
+      text: "An outstanding program full of real industry assignments and problem-solving exercises. It helped me grow from a beginner to a confident learner without requiring prior experience. I will definitely recommend it to my network.",
+    },
+  ];
+
+  /* --------------------- AUTO ROTATIONS --------------------- */
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 2) % testimonials.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [testimonials.length]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFeedbackIndex((prev) => (prev + 2) % learnerFeedback.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [learnerFeedback.length]);
+
+  /* --------------------- MANUAL CONTROLS --------------------- */
   const next = () => setCurrentIndex((prev) => (prev + 2) % testimonials.length);
   const prev = () =>
     setCurrentIndex((prev) => (prev - 2 + testimonials.length) % testimonials.length);
 
-  const visibleTestimonials = [
-    testimonials[currentIndex],
-    testimonials[(currentIndex + 1) % testimonials.length],
-  ];
+  const nextFeedback = () =>
+    setFeedbackIndex((prev) => (prev + 2) % learnerFeedback.length);
+
+  const prevFeedback = () =>
+    setFeedbackIndex((prev) => (prev - 2 + learnerFeedback.length) % learnerFeedback.length);
 
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        {/* HEADING */}
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
+
+        {/* --------------------- TITLE --------------------- */}
+        <h2 className="text-4xl font-bold text-center mb-12">
           Success Stories from Our Placed Participants
         </h2>
 
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto text-center leading-relaxed mb-12">
-          Discover inspiring success stories of learners who transformed their careers
-          through our impactful programs.
-        </p>
-
-        {/* TOP TWO TESTIMONIALS */}
+        {/* --------------------- TOP SLIDER --------------------- */}
         <div className="relative">
-          <div className="grid md:grid-cols-2 gap-10 items-stretch transition-transform duration-700 ease-in-out">
-            {visibleTestimonials.map((t, index) => (
-              <div
-                key={`${t.id}-${index}`}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
-              >
-                <div className="flex flex-col md:flex-row min-h-[380px]">
-                  <div className="p-8 md:w-1/2 flex flex-col justify-center">
-                    <p className="text-xl font-semibold text-blue-700 mb-4 leading-snug">
-                      “{t.quote}”
-                    </p>
-                    <p className="text-gray-700 leading-relaxed">{t.feedback}</p>
-                  </div>
+          <div className="grid md:grid-cols-2 gap-10">
 
-                  <div className="md:w-1/2 flex">
+            {[testimonials[currentIndex], testimonials[(currentIndex + 1) % testimonials.length]].map(
+              (t, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden h-[650px] flex flex-col"
+                >
+                  <div className="flex flex-col md:flex-row h-[380px]">
+                    <div className="p-8 md:w-1/2 flex flex-col justify-center">
+                      <p className="text-xl text-blue-700 mb-4">“{t.quote}”</p>
+                      <p className="text-gray-700">{t.feedback}</p>
+                    </div>
+
                     <img
                       src={t.image}
+                      className="md:w-1/2 h-full object-cover object-top"
                       alt={t.name}
-                      className="w-full object-cover"
-                      style={{ height: "360px", objectPosition: "top" }}
+                    />
+                  </div>
+
+                  <div className="text-center py-6 h-[200px] flex flex-col justify-center">
+                    <h4 className="text-3xl font-extrabold">{t.name}</h4>
+                    <p className="text-gray-600">
+                      {t.position}, {t.company}
+                    </p>
+                    <img
+                      src={t.logo}
+                      className="w-40 h-20 object-contain mx-auto mt-2"
                     />
                   </div>
                 </div>
-
-                <div className="flex flex-col items-center text-center py-6">
-                  <h4 className="font-extrabold text-gray-900 text-3xl mb-1">{t.name}</h4>
-                  <p className="text-lg text-gray-600 mb-3">
-                    {t.position}, {t.company}
-                  </p>
-                  <img
-                    src={t.logo}
-                    alt={t.company}
-                    className="w-44 h-24 object-contain"
-                  />
-                </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
 
-          {/* BUTTONS */}
+          {/* --------------------- TOP ARROWS --------------------- */}
           <button
             onClick={prev}
-            className="absolute left-[-2rem] top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
+            className="absolute left-[-2rem] top-1/2 -translate-y-1/2 
+            bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
           >
-            <ChevronLeft className="text-gray-700 h-6 w-6" />
+            <ChevronLeft className="h-6 w-6 text-gray-700" />
           </button>
+
           <button
             onClick={next}
-            className="absolute right-[-2rem] top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
+            className="absolute right-[-2rem] top-1/2 -translate-y-1/2 
+            bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
           >
-            <ChevronRight className="text-gray-700 h-6 w-6" />
+            <ChevronRight className="h-6 w-6 text-gray-700" />
           </button>
         </div>
 
-        {/* ⭐ NEW FEEDBACK BOX SECTION BELOW */}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 transition-all duration-700 ease-in-out">
-          <h3 className="text-3xl font-bold text-center text-blue-800 mb-10">
+        {/* --------------------- BOTTOM FEEDBACK SLIDER --------------------- */}
+        <div className="mt-20 bg-white rounded-3xl shadow-2xl p-10 relative">
+          <h3 className="text-3xl font-bold text-center text-black mb-10">
             What Our Learners Say
           </h3>
 
           <div className="grid md:grid-cols-2 gap-10">
-            {visibleTestimonials.map((t) => (
-              <div
-                key={t.id}
-                className="bg-blue-50 p-6 rounded-2xl shadow-inner border border-blue-100 transition hover:shadow-lg"
-              >
-                {/* Stars */}
-                <div className="flex mb-4">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-5 w-5 text-yellow-400 fill-yellow-400"
-                    />
-                  ))}
-                </div>
+            {[learnerFeedback[feedbackIndex], learnerFeedback[(feedbackIndex + 1) % learnerFeedback.length]].map(
+              (fb, i) => (
+                <div
+                  key={i}
+                  className="bg-blue-50 p-6 rounded-2xl shadow-inner border h-[250px] flex flex-col justify-between"
+                >
+                  <p className="italic text-gray-800">“{fb.text}”</p>
 
-                {/* Feedback Text */}
-                <p className="text-gray-800 italic mb-4 leading-relaxed">
-                  “{t.feedback}”
-                </p>
-
-                {/* Name and Company */}
-                <div className="mt-3">
-                  <h4 className="font-bold text-gray-900 text-lg">{t.name}</h4>
-                  <p className="text-blue-700 font-medium">
-                    {t.position}, {t.company}
-                  </p>
+                  <div>
+                    <h4 className="font-bold text-lg text-gray-900">{fb.name}</h4>
+                    <p className="text-blue-700 font-medium">{fb.position}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
+
+          {/* --------------------- BOTTOM ARROWS --------------------- */}
+          <button
+            onClick={prevFeedback}
+            className="absolute left-[-2rem] top-1/2 -translate-y-1/2 
+            bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
+          >
+            <ChevronLeft className="h-6 w-6 text-gray-700" />
+          </button>
+
+          <button
+            onClick={nextFeedback}
+            className="absolute right-[-2rem] top-1/2 -translate-y-1/2 
+            bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md"
+          >
+            <ChevronRight className="h-6 w-6 text-gray-700" />
+          </button>
         </div>
-        {/* END FEEDBACK BOX */}
+
       </div>
     </section>
   );
