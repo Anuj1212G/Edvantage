@@ -1,28 +1,24 @@
-// src/components/TrainingPrograms.jsx
-import React, { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  Clock, Users, Award, BookOpen,
-  ChevronDown, ChevronUp, Star, Play, ArrowLeft
-} from "lucide-react";
+// src/pages/CourseDetails.jsx
+import React, { useMemo, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Clock, Users, Award, BookOpen, Play, ArrowLeft, Download } from "lucide-react";
 import AuthModal from "./AuthModal.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
-/**
- * NOTE:
- * - payment: { stripe, razorpay } added to every program (placeholders)
- * - safe fallbacks for missing fields (category, curriculum, targetAudience, outcomes)
- * - View Details -> /course/:id
- * - Two payment buttons shown side-by-side
- */
+// ----------------------------
+// PROGRAM DATA (same as before)
+// ----------------------------
+//  🔥 KEEP YOUR CURRENT PROGRAM ARRAYS EXACTLY AS THEY ARE.
+//  Add this one extra field inside every course object:
+//  brochure: "https://your-brochure-link.com/brochure.pdf"
+// ----------------------------
 
-/* -----------------------------
-   Program Data (DEFAULT_PROGRAMS)
-   ----------------------------- */
+/* Your DEFAULT_PROGRAMS + PROGRAMS_PART_2 remain unchanged */
 const DEFAULT_PROGRAMS = [
   {
     id: "1",
     title: "Directional Drilling",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -61,6 +57,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "2",
     title: "Evaluating Unconventional Resources Using Decline Curve Analysis & Horizontal Well Fracturing",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -97,6 +94,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "3",
     title: "Reserves Estimation & Classification",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "—",
     format: "Self-Paced",
@@ -131,6 +129,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "4",
     title: "Sequence Stratigraphy in the Era of Digitalization",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "hybrid",
     duration: "35+ Hours",
     format: "Hybrid (Virtual + Practical Workshops)",
@@ -169,6 +168,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "5",
     title: "Well Intervention, Fishing & Smart Completions",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -205,6 +205,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "6",
     title: "Advance Well Engineering",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "10+ Hours",
     format: "Self-Paced",
@@ -245,6 +246,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "7",
     title: "Reservoir Surveillance & Tight Reservoir Management",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -279,6 +281,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "8",
     title: "Learn Energy Data Analytics From Scratch",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "35+ Hours",
     format: "Self-Paced",
@@ -316,6 +319,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "9",
     title: "Well Planning, Deepwater Design & Engineering",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -352,6 +356,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "10",
     title: "Drilling Analytics from Scratch",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self-Paced",
@@ -393,6 +398,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "11",
     title: "Deep Learning for Oil & Gas Applications",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -429,6 +435,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "12",
     title: "Oil & Gas Software Development Using Python",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "28+ Hours",
     format: "Self Paced",
@@ -464,6 +471,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "13",
     title: "Mastering Reservoir Engineering: From Basics to Software-Driven Solutions",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -500,6 +508,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "14",
     title: "Master Oil & Gas Production Optimization with AI & Machine Learning",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -534,6 +543,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "15",
     title: "Oil & Gas Forecasting & Predictions Using Time Series Analysis",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "28+ Hours",
     format: "Self Paced",
@@ -569,6 +579,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "16",
     title: "PVT Modelling and Advanced Fluid Characterization",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "12+ Hours",
     format: "Self Paced",
@@ -604,6 +615,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "17",
     title: "Data Analytics & Visualisation Using Power BI for Oil & Gas",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "15+ Hours",
     format: "Self-Paced",
@@ -639,6 +651,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "18",
     title: "Electric Submersible Pump (ESP) Training",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "10+ Hours",
     format: "Self-Paced",
@@ -672,6 +685,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "19",
     title: "Python in Oil & Gas",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "self-paced",
     duration: "35+ Hours",
     format: "Self-Paced",
@@ -707,6 +721,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "20",
     title: "Well Completion Training",
+    brochure: "https://your-brochure-link.com/file.pdf",
     category: "instructor-led",
     duration: "20+ Hours",
     format: "Live Online",
@@ -740,243 +755,164 @@ const PROGRAMS_PART_2 = [
   },
 ];
 
-/* -----------------------------
-   TrainingPrograms Component
-   ----------------------------- */
 
-const TrainingPrograms = ({ programs }) => {
+const CourseDetails = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
-
-  // Merge programs (if prop supplied, use it - otherwise combine default sets)
-  const allPrograms = useMemo(() => {
-    const combined = [...DEFAULT_PROGRAMS, ...PROGRAMS_PART_2];
-    return programs && programs.length ? programs : combined;
-  }, [programs]);
-
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [expandedCurriculum, setExpandedCurriculum] = useState(null);
   const [authOpen, setAuthOpen] = useState(false);
   const [redirectTo, setRedirectTo] = useState(null);
-  const [programToPay, setProgramToPay] = useState(null);
 
-  // categories
-  const categories = useMemo(() => {
-    const byCategory = {};
-    allPrograms.forEach((p) => {
-      const cat = p.category || "self-paced";
-      byCategory[cat] = (byCategory[cat] || 0) + 1;
-    });
-    return [
-      { id: "all", name: "All Programs", count: allPrograms.length },
-      { id: "diploma", name: "Diploma Programs", count: byCategory["diploma"] || 0 },
-      { id: "instructor-led", name: "Instructor-Led Trainings", count: byCategory["instructor-led"] || 0 },
-      { id: "e-learning", name: "E-Learning", count: byCategory["e-learning"] || 0 },
-      { id: "self-paced", name: "Self-Paced", count: byCategory["self-paced"] || 0 },
-      { id: "hybrid", name: "Hybrid", count: byCategory["hybrid"] || 0 },
-      { id: "corporate", name: "Corporate Training", count: byCategory["corporate"] || 0 },
-    ];
-  }, [allPrograms]);
+  const allPrograms = useMemo(() => {
+    return [...DEFAULT_PROGRAMS, ...PROGRAMS_PART_2];
+  }, []);
 
-  const filteredPrograms = selectedCategory === "all"
-    ? allPrograms
-    : allPrograms.filter((program) => (program.category || "self-paced") === selectedCategory);
+  const program = allPrograms.find((p) => p.id === id);
 
-  const toggleCurriculum = (e, programId) => {
-    e.stopPropagation();   // Prevent bubbling
-    setExpandedCurriculum(expandedCurriculum === programId ? null : programId);
-  };
+  if (!program) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-8">
+        <div className="max-w-3xl text-center">
+          <h2 className="text-2xl font-bold mb-4">Course not found</h2>
+          <p className="text-gray-600 mb-6">Please go back and try again.</p>
+          <button onClick={() => navigate(-1)} className="bg-blue-600 text-white px-4 py-2 rounded">
+            Go Back
+          </button>
+        </div>
+      </div>
+    );
+  }
 
-  // When user clicks a payment button
-  const handlePayClick = (program, method) => {
-    const link = (program.payment && (program.payment[method])) || null;
-    if (!link) return alert("Payment link not configured for this program.");
-    setProgramToPay(program);
+  const handlePay = (method) => {
+    const link = program.payment?.[method];
+    if (!link) return alert("Payment link missing.");
+    if (user) return window.open(link, "_blank");
+
     setRedirectTo(link);
-    if (user) {
-      // If user logged in - open payment in new tab
-      window.open(link, "_blank");
-      return;
-    }
-    // Not logged in -> open auth modal; when login completes your AuthModal should use redirectTo
     setAuthOpen(true);
   };
 
-  const handleEnrollClick = (program) => {
-    // legacy support - default to stripe
-    handlePayClick(program, "stripe");
-  };
-
-  const handleViewDetails = (program) => {
-    navigate(`/course/${program.id}`);
-    // scroll to top behavior if needed
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* HERO */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-600 text-white py-20">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Training Programs</h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-            Comprehensive training solutions designed by industry experts to advance your career in oil and gas.
-          </p>
+    <div className="bg-gray-50 min-h-screen">
+
+      {/* -----------------------------
+          HERO IMAGE BANNER SECTION
+      ------------------------------*/}
+      <div className="relative w-full h-[320px] md:h-[420px] overflow-hidden">
+        <img
+          src={program.image}
+          alt={program.title}
+          className="w-full h-full object-cover"
+        />
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
+
+        {/* Title inside hero */}
+        <div className="absolute bottom-6 left-6 text-white max-w-4xl">
+          <h1 className="text-3xl md:text-4xl font-bold">{program.title}</h1>
+          <p className="text-gray-200 mt-2 max-w-2xl">{program.overview}</p>
+
+          {/* Download Brochure */}
+          <a
+            href={program.brochure || "#"}
+            target="_blank"
+            className="inline-flex items-center gap-2 mt-4 bg-white/90 hover:bg-white text-black px-5 py-2 rounded-lg text-sm font-semibold shadow"
+          >
+            <Download size={18} />
+            Download Brochure
+          </a>
         </div>
-      </section>
+      </div>
 
-      {/* CATEGORY FILTER */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4 mb-10">
-          {categories.map((c) => (
-            <button key={c.id} onClick={() => setSelectedCategory(c.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                selectedCategory === c.id ? "bg-blue-600 text-white" : "bg-white text-gray-700 hover:bg-blue-50"
-              }`}>
-              {c.name} ({c.count})
-            </button>
-          ))}
+      {/* PAGE CONTENT */}
+      <div className="max-w-6xl mx-auto px-6 py-10">
+
+        {/* Back Button */}
+        <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-gray-700 mb-6">
+          <ArrowLeft size={18} /> Back
+        </button>
+
+        {/* Course Info Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <Stat icon={Clock} label="Duration" value={program.duration} />
+          <Stat icon={BookOpen} label="Format" value={program.format} />
+          <Stat icon={Award} label="Level" value={program.level} />
+          <Stat icon={Users} label="Certificate" value={program.certificate} />
         </div>
-      </section>
 
-      {/* PROGRAM LIST */}
-      <section className="pb-20 max-w-7xl mx-auto space-y-12 px-4">
-        {filteredPrograms.map((program) => (
-          <div key={program.id} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        {/* WHAT YOU WILL LEARN */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-semibold mb-4">What you'll learn</h2>
+          <ul className="grid md:grid-cols-2 gap-3">
+            {program.outcomes.map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="w-2 h-2 bg-teal-600 rounded-full mt-2"></span>
+                <span className="text-gray-700 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-            <div className="grid lg:grid-cols-3">
-              
-              {/* IMAGE */}
-              <div className="relative">
-                <img src={program.image || "/images/course-placeholder.jpg"} alt={program.title} className="w-full h-64 lg:h-full object-cover" />
-                <span className="absolute top-4 right-4 bg-teal-500 text-white px-3 py-1 rounded-full text-sm">
-                  {(program.category || "self-paced").replace("-", " ").toUpperCase()}
-                </span>
-                {program.featured && (
-                  <span className="absolute top-4 left-4 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm flex items-center">
-                    <Star className="h-3 w-3 mr-1" /> Featured
-                  </span>
-                )}
+        {/* CURRICULUM */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-semibold mb-4">Curriculum</h2>
+          <div className="space-y-3">
+            {program.curriculum.map((c, i) => (
+              <div key={i} className="bg-white shadow-sm border p-4 rounded-xl">
+                <strong>{c}</strong>
               </div>
-
-              {/* CONTENT */}
-              <div className="p-8 flex flex-col lg:col-span-2">
-
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">{program.title}</h2>
-                <p className="text-gray-600 text-lg mb-6">{program.overview}</p>
-
-                {/* STATS */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                  <Info icon={Clock} label="Duration" value={program.duration || "—"} />
-                  <Info icon={BookOpen} label="Format" value={program.format || "—"} />
-                  <Info icon={Award} label="Level" value={program.level || "—"} />
-                  <Info icon={Users} label="Certificate" value={program.certificate || "—"} />
-                </div>
-
-                {/* OUTCOMES */}
-                <h3 className="text-lg font-semibold mb-2">Key Learning Outcomes</h3>
-                <ul className="grid md:grid-cols-2 gap-2 mb-6">
-                  {(program.outcomes || []).map((o, i) => (
-                    <li key={i} className="flex items-start space-x-2 text-sm">
-                      <span className="w-2 h-2 rounded-full bg-teal-500 mt-2"></span>
-                      <span>{o}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CURRICULUM - togglable */}
-                <button
-                  onClick={(e) => toggleCurriculum(e, program.id)}
-                  className="flex justify-between w-full font-semibold text-left"
-                >
-                  Course Curriculum
-                  {expandedCurriculum === program.id ? <ChevronUp /> : <ChevronDown />}
-                </button>
-
-                {expandedCurriculum === program.id && (
-                  <div className="mt-4 space-y-4 max-h-64 overflow-y-auto pr-2 custom-scroll">
-                    {(program.curriculum || []).map((item, idx) => (
-                      <div key={idx} className="bg-gray-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          {typeof item === "string" ? item : item.module}
-                        </h4>
-
-                        {typeof item === "object" && item.topics && (
-                          <ul className="space-y-1">
-                            {item.topics.map((t, ti) => (
-                              <li key={ti} className="flex items-center text-sm text-gray-600">
-                                <Play className="h-3 w-3 mr-2" /> {t}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    ))}
-                    {(!program.curriculum || program.curriculum.length === 0) && (
-                      <div className="text-sm text-gray-500">Curriculum will be updated soon.</div>
-                    )}
-                  </div>
-                )}
-
-                {/* AUDIENCE */}
-                <h3 className="text-lg font-semibold mt-6 mb-3">Who Should Enroll</h3>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {(program.targetAudience && program.targetAudience.length ? program.targetAudience : ["Open for All Learners"]).map((a, i) => (
-                    <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">{a}</span>
-                  ))}
-                </div>
-
-                {/* FOOTER */}
-                <div className="flex flex-col sm:flex-row justify-between items-center border-t pt-6 mt-auto gap-4">
-                  <div>
-                    <div className="text-3xl font-bold text-teal-600">{program.price}</div>
-                    <div className="text-sm text-gray-500">One-time payment</div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <button
-                      onClick={() => handleViewDetails(program)}
-                      className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 px-4 py-2 rounded-lg font-semibold"
-                    >
-                      View Details
-                    </button>
-
-                    {/* Two payment buttons side-by-side */}
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => handlePayClick(program, "stripe")}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold"
-                      >
-                        Pay with Stripe
-                      </button>
-                      <button
-                        onClick={() => handlePayClick(program, "razorpay")}
-                        className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 px-4 py-2 rounded-lg font-semibold"
-                      >
-                        Pay with Razorpay
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </section>
+        </section>
 
-      {/* AUTH MODAL */}
-      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} redirectTo={redirectTo} program={programToPay} />
+        {/* TARGET AUDIENCE */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-semibold mb-4">Who should attend</h2>
+          <div className="flex flex-wrap gap-2">
+            {program.targetAudience.map((a, i) => (
+              <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                {a}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* PAYMENT SECTION */}
+        <section className="bg-white shadow-md rounded-2xl p-6 flex flex-col md:flex-row justify-between items-center">
+          <div>
+            <div className="text-3xl font-bold text-teal-600">{program.price}</div>
+            <div className="text-sm text-gray-500">One-time payment</div>
+          </div>
+
+          <div className="flex gap-3 mt-4 md:mt-0">
+            <button
+              onClick={() => handlePay("stripe")}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold"
+            >
+              Pay with Stripe
+            </button>
+            <button
+              onClick={() => handlePay("razorpay")}
+              className="bg-white border px-5 py-2 rounded-lg font-semibold hover:bg-gray-50"
+            >
+              Pay with Razorpay
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} redirectTo={redirectTo} program={program} />
     </div>
   );
 };
 
-export default TrainingPrograms;
+export default CourseDetails;
 
-/* Info small component */
-const Info = ({ icon: Icon, label, value }) => (
-  <div className="flex items-center space-x-2">
-    <Icon className="h-5 w-5 text-blue-600" />
+// -----------------------------------
+const Stat = ({ icon: Icon, label, value }) => (
+  <div className="bg-white shadow-sm border rounded-xl p-4 flex items-center gap-3">
+    <Icon className="text-blue-600" size={22} />
     <div>
       <div className="text-sm text-gray-500">{label}</div>
       <div className="font-semibold">{value}</div>
