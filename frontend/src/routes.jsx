@@ -12,7 +12,7 @@ import BookDemo from "./pages/BookDemo";
 import BlogsPage from "./pages/BlogsPage";
 import BlogPage from "./pages/BlogPage";
 import CourseDetails from "./pages/CourseDetails.jsx";   // ✅ FIXED
-
+import RequestInfo from "./pages/RequestInfo.jsx";
 // LMS Pages
 import CourseDetail from "./pages/CourseDetail.jsx";      // ✅ LMS Page
 import Checkout from "./pages/Checkout";
@@ -49,7 +49,7 @@ function AppRoutes() {
 
           {/* Training Program Detail Page */}
           <Route path="/course/:id" element={<CourseDetails />} />   {/* ✅ FIXED */}
-
+          <Route path="/request-info" element={<RequestInfo />} />
           {/* LMS Routes */}
           <Route path="/courses" element={<Elearning />} />
           <Route path="/courses/:courseId" element={<CourseDetail />} />
