@@ -1,26 +1,15 @@
-// src/components/TrainingPrograms.jsx
+// export default TrainingPrograms;
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Clock, Users, Award, BookOpen,
-  ChevronDown, ChevronUp, Star, Play, ArrowLeft
+  ChevronDown, ChevronUp, Star, Play,
 } from "lucide-react";
 import AuthModal from "./AuthModal.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
-/**
- * NOTE:
- * - payment: { stripe, razorpay } added to every program (placeholders)
- * - safe fallbacks for missing fields (category, curriculum, targetAudience, outcomes)
- * - View Details -> /course/:id
- * - Two payment buttons shown side-by-side
- */
-
-/* -----------------------------
-   Program Data (DEFAULT_PROGRAMS)
-   ----------------------------- */
-const DEFAULT_PROGRAMS = [
-  {
+// PROGRAM ARRAYS (unchanged)
+const DEFAULT_PROGRAMS = [ {
     id: "1",
     title: "Directional Drilling",
     category: "self-paced",
@@ -40,24 +29,27 @@ const DEFAULT_PROGRAMS = [
       "Work on real-world case studies and a practical directional well planning project",
     ],
     curriculum: [
-      "Directional Drilling Fundamentals",
-      "Well Types & Survey Calculations",
-      "Deflection Tools – Motors & RSS",
-      "BHA Design & Optimization",
-      "Trajectory Planning & Anti-Collision",
-      "Stuck Pipe & Hole Cleaning",
-      "MWD/LWD Applications",
-      "Directional Drilling Case Studies",
+      "Petroleum production system fundamentals",
+      "Reservoir deliverability & well performance (IPR & flow regimes)",
+      "Overview and selection of artificial lift methods",
+      "ESP design: components, calculations & optimization",
+      "SRP system design, troubleshooting & performance analysis",
+      "Gas lift design, mechanism & limitations",
+      "Plunger lift operations & performance evaluation",
+      "Economic analysis and lift selection case study",
     ],
-    targetAudience: ["Drilling engineers", "Petroleum students", "Well planning engineers"],
-    price: "$70 / ₹2,500",
-    image: "/images/directional-drilling.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/1`,
-      razorpay: `https://razorpay.example.com/pay/1`,
-    },
+    targetAudience: [
+      "Petroleum engineers",
+      "Production and field engineers",
+      "Energy professionals seeking upskilling",
+      "Students entering upstream oil & gas",
+    ],
+    price: "$45",
+    image: "/images/Artificial Lift Modeling, Reservoir Deliverability & Well performance.jpg",
+    level: "Intermediate",
+    certificate: "Yes",
+    prerequisites: "None",
   },
-
   {
     id: "2",
     title: "Evaluating Unconventional Resources Using Decline Curve Analysis & Horizontal Well Fracturing",
@@ -77,21 +69,21 @@ const DEFAULT_PROGRAMS = [
       "Perform production forecasting for unconventional assets",
     ],
     curriculum: [
-      "Unconventional Reservoir Geology",
-      "TOC, Logs & Petrophysics",
-      "Hydraulic Fracturing Principles",
-      "Horizontal Well Design",
-      "Advanced DCA Models",
-      "Forecasting Techniques",
-      "Case Studies",
+      "3D Dynamic Simulation (6hrs)",
+      "Input Data",
+      "Tools - Software",
+      "Model Preparation",
+      "Forecast / Prediction",
+      "Uncertainty Analysis & optimization",
+      "Automatic History Match",
+      "Understanding through DCA and 3D slim diagrams",
     ],
-    targetAudience: ["Reservoir engineers", "Completion engineers", "Analysts"],
-    price: "$200 / ₹15,000",
-    image: "/images/unconventional-resources.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/2`,
-      razorpay: `https://razorpay.example.com/pay/2`,
-    },
+    targetAudience: ["Reservoir engineers", "Modelers", "Students"],
+    price: "$40 / ₹2500",
+    image: "/images/Reservoir Engineering, Modeling & flow Simulation.webp",
+    level: "Intermediate",
+    certificate: "Yes",
+    prerequisites: "Basic reservoir knowledge",
   },
 
   {
@@ -112,22 +104,27 @@ const DEFAULT_PROGRAMS = [
       "Strengthen skills required for reservoir evaluation and upstream planning",
     ],
     curriculum: [
-      "PRMS, SEC & UNFC Standards",
-      "Volumetric Calculations",
-      "Decline Curve Methods",
-      "Material Balance Calculations",
-      "Regulatory & Commercial Evaluation",
-      "Excel-Based Reserve Estimation",
+      "Introduction to drilling performance metrics",
+      "Designing a drilling efficiency dashboard",
+      "Visualizing drilling KPIs (ROP, NPT, Wellbore trajectory)",
+      "Hands-on: Building a complete drilling optimization dashboard",
+      "Incorporating time-series analysis for drilling progress",
+      "Data importing techniques",
+      "Data transformation with Power Query Editor",
+      "Designing visualization for reservoir pressure, production rate & well status",
     ],
-    targetAudience: ["Reservoir engineers", "Analysts", "Students"],
-    price: "$35 / ₹2,500",
-    image: "/images/reserves-estimation.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/3`,
-      razorpay: `https://razorpay.example.com/pay/3`,
-    },
+    targetAudience: [
+      "Oil & gas drilling, reservoir, or production professionals",
+      "Petroleum engineers",
+      "Data analysts",
+      "Managers seeking operational monitoring",
+    ],
+    price: "$150 / ₹10,000",
+    image: "/images/Power BI Essentials for Oil & Gas.png",
+    level: "Intermediate",
+    certificate: "Yes",
+    prerequisites: "Basic Excel",
   },
-
   {
     id: "4",
     title: "Sequence Stratigraphy in the Era of Digitalization",
@@ -148,24 +145,21 @@ const DEFAULT_PROGRAMS = [
       "Build industry-ready skills for facies modelling and geomodel development",
     ],
     curriculum: [
-      "Sequence Stratigraphy Basics",
-      "Depositional Systems",
-      "Electrolog Interpretation",
-      "Systems Tracts",
-      "Seismic Interpretation",
-      "ML for Geoscience",
-      "Geomodeling Workshop",
-      "Internship Project",
+      "Wellbore stresses",
+      "Drilling applications",
+      "Drilling fluid applications",
+      "Wellbore strengthening and cementing",
+      "Fracturing technology applications",
+      "Fracturing background",
+      "Job sequence",
     ],
-    targetAudience: ["Geologists", "Geophysicists", "Students"],
-    price: "$60 / ₹4,000",
-    image: "/images/sequence-stratigraphy.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/4`,
-      razorpay: `https://razorpay.example.com/pay/4`,
-    },
+    targetAudience: ["Petroleum engineers", "Geologists", "Consultants", "Supervisors"],
+    price: "$100 / ₹7,500",
+    image: "/images/Geomechanics and its application in Drilling & Completion.webp",
+    level: "Intermediate",
+    certificate: "Yes",
+    prerequisites: "Basic geology",
   },
-
   {
     id: "5",
     title: "Well Intervention, Fishing & Smart Completions",
@@ -186,22 +180,28 @@ const DEFAULT_PROGRAMS = [
       "Strengthen readiness for field roles through real-life scenarios and examples",
     ],
     curriculum: [
-      "Intervention Operations",
-      "Fishing & Milling",
-      "Workover Planning",
-      "Stimulation Techniques",
-      "Smart Completions",
-      "Operational Case Studies",
+      "Introduction to SQL",
+      "Oilfield data wrangling, aggregation & operations in SQL",
+      "Data exploration, transformation & analysis with Power BI",
+      "Production dashboards & reporting",
+      "Drilling data visualization with Tableau",
+      "Oilfield geospatial analysis",
+      "Maps & filled maps in Tableau",
+      "Creating dynamic field report dashboards",
     ],
-    targetAudience: ["Completion engineers", "Well intervention engineers", "Students"],
-    price: "$100 / ₹7,500",
-    image: "/images/well-intervention.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/5`,
-      razorpay: `https://razorpay.example.com/pay/5`,
-    },
+    targetAudience: [
+      "Oil & gas engineers",
+      "Data & BI analysts",
+      "Technical managers",
+      "Energy professionals",
+      "Students",
+    ],
+    price: "$200 / ₹15,000",
+    image: "/images/Integrated Insights SL power BI and Tableau for Oil & Gas analytics.jpg",
+    level: "Beginner–Intermediate",
+    certificate: "Yes",
+    prerequisites: "Basic SQL recommended",
   },
-
   {
     id: "6",
     title: "Advance Well Engineering",
@@ -224,22 +224,27 @@ const DEFAULT_PROGRAMS = [
       "Apply knowledge through simulations, case studies & a well-design project",
     ],
     curriculum: [
-      "Well Design Fundamentals",
-      "Casing & Cementing",
-      "Directional Drilling",
-      "Drilling Hydraulics",
-      "Wellbore Stability",
-      "Well Control Basics",
-      "AFE & Cost Estimation",
-      "Engineering Software Demos",
+      "Introduction to reservoir engineering & PVT analysis",
+      "Material balance & reservoir performance",
+      "Production data analysis (Decline curves)",
+      "Pressure transient analysis (Well test interpretation)",
+      "Production optimization",
+      "Optimization tools & monitoring techniques",
+      "Enhanced technical skills",
+      "Improved decision making",
     ],
-    targetAudience: ["Drilling engineers", "Well engineers", "Advanced students"],
-    price: "—",
-    image: "/images/advanced-well-engineering.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/6`,
-      razorpay: `https://razorpay.example.com/pay/6`,
-    },
+    targetAudience: [
+      "Reservoir engineers",
+      "Production engineers",
+      "Petroleum analysts",
+      "Technicians",
+      "Students",
+    ],
+    price: "$100 / ₹8,000",
+    image: "/images/Well Test Analysis & Reservoir Modeling Using MS Excel.jpeg",
+    level: "Beginner–Intermediate",
+    certificate: "Yes",
+    prerequisites: "Excel skills",
   },
 
   {
@@ -261,21 +266,22 @@ const DEFAULT_PROGRAMS = [
       "Conduct economic evaluation & risk analysis for tight oil assets",
     ],
     curriculum: [
-      "Surveillance Fundamentals",
-      "Tight Reservoir Characterization",
-      "Dynamic Modeling",
-      "Field Development Optimization",
-      "Risk & Economic Analysis",
+      "Python fundamentals & data structures",
+      "Regression, classification & clustering",
+      "Statistics & ML model evaluation",
+      "Deep learning (ANN, CNN, RNN)",
+      "Production forecasting & anomaly detection",
+      "Data analytics with NumPy, Pandas, Matplotlib",
+      "Power BI dashboards & field data",
+      "End-to-end ML deployment projects",
     ],
-    targetAudience: ["Reservoir engineers", "Asset teams", "Students"],
-    price: "$100 / ₹7,500",
-    image: "/images/reservoir-surveillance.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/7`,
-      razorpay: `https://razorpay.example.com/pay/7`,
-    },
+    targetAudience: ["Students", "Engineers", "Professionals"],
+    price: "₹22,500",
+    image: "/images/Diploma for Machine Learning in Oil & Gas.webp",
+    level: "Beginner–Intermediate",
+    certificate: "Yes (Persian Gulf University)",
+    prerequisites: "Basic Python recommended",
   },
-
   {
     id: "8",
     title: "Learn Energy Data Analytics From Scratch",
@@ -297,22 +303,21 @@ const DEFAULT_PROGRAMS = [
       "Complete end-to-end O&G data science projects",
     ],
     curriculum: [
-      "Python Fundamentals",
-      "Statistics for Energy Data",
-      "Reservoir & Production Data Analytics",
-      "Power BI Dashboards",
-      "Machine Learning Models",
-      "Energy Sector Case Studies",
+      "Data science foundations for O&G",
+      "Upstream analytics (well logs, forecasting)",
+      "Midstream analytics (gas storage)",
+      "Downstream analytics (ML/DL consumption forecasts)",
+      "Market analytics (gas price modeling)",
+      "Capstone project",
+      "Advanced analytics topics & real-time systems",
     ],
-    targetAudience: ["Data analysts", "Engineers", "Beginners"],
-    price: "$150 / ₹11,000",
-    image: "/images/energy-data-analytics.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/8`,
-      razorpay: `https://razorpay.example.com/pay/8`,
-    },
+    targetAudience: ["Petroleum engineers", "Production engineers", "Data scientists"],
+    price: "$300 / ₹17,500",
+    image: "/images/Integrated Insights SL power BI and Tableau for Oil & Gas analytics.jpg",
+    level: "Advanced",
+    certificate: "Yes (Lincoln Professional University)",
+    prerequisites: "Data fundamentals",
   },
-
   {
     id: "9",
     title: "Well Planning, Deepwater Design & Engineering",
@@ -333,99 +338,116 @@ const DEFAULT_PROGRAMS = [
       "Learn regulatory requirements & offshore best practices",
     ],
     curriculum: [
-      "Deepwater Well Planning",
-      "Subsea Systems",
-      "Hydraulics & Casing",
-      "Well Control",
-      "Deepwater Risk Management",
-      "Simulations & Case Studies",
+      "Project management fundamentals",
+      "Petroleum project lifecycle",
+      "Field development planning",
+      "WBS, scheduling & CPM",
+      "Petroleum economics (CAPEX/OPEX)",
+      "Sensitivity analysis",
+      "Risk management",
+      "Procurement & contract management",
+      "HSE compliance",
+      "Project execution & dashboards",
+      "Final project presentation",
     ],
-    targetAudience: ["Offshore engineers", "Drilling engineers", "Students"],
-    price: "$150 / ₹10,500",
-    image: "/images/deepwater-engineering.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/9`,
-      razorpay: `https://razorpay.example.com/pay/9`,
-    },
+    targetAudience: ["Petroleum engineers", "Project managers", "Graduates"],
+    price: "$300",
+    image: "images/Diploma in Petroleum Project Management & Field Development Economics.jpg",
+    level: "Beginner–Professional",
+    certificate: "Yes (Lincoln Professional Academy)",
+    prerequisites: "Bachelor’s degree recommended",
   },
-
   {
     id: "10",
-    title: "Drilling Analytics from Scratch",
-    category: "self-paced",
-    duration: "20+ Hours",
-    format: "Self-Paced",
-    level: "Beginner to Intermediate",
-    certificate: "Yes",
+    title: "Diploma in Well Engineering & Completion Engineering",
+    category: "diploma",
+    duration: "3 Months",
+    format: "Instructor-led",
+    overview: "Covers well engineering, completions, stimulation and artificial lift.",
+    outcomes: ["Design completions", "Understand stimulation technologies", "Evaluate artificial lift systems"],
+    curriculum: [
+      "Introduction to petroleum production",
+      "Reservoir deliverability & IPR analysis",
+      "Artificial lift overview",
+      "ESP fundamentals",
+      "SRP fundamentals",
+      "Gas lift mechanisms",
+      "Plunger lift operations",
+      "Completion operations",
+      "Economic comparison of lift systems",
+    ],
+    targetAudience: ["Petroleum engineers", "Production engineers", "Field operators"],
+    price: "$300 / ₹22,500",
+    image: "images/Diploma in Well Engineering & Completion Engineering.jpg",
+    level: "Beginner–Advanced",
+    certificate: "Yes (Persian Gulf University)",
+    prerequisites: "Engineering background",
+  }, ];
+const PROGRAMS_PART_2 = [  {
+    id: "11",
+    title: "Machine Learning & Python Applications for Petrophysics",
+    category: "instructor-led",
+    duration: "5 Weeks",
+    format: "Live Online Sessions + Hands-on Case Studies",
     overview:
       "A practical program introducing real-time drilling data analytics, ML workflows, vibration analysis, and time-series interpretation for drilling optimization.",
     outcomes: [
-      "Perform real-time drilling analytics and anomaly detection",
-      "Visualize drilling parameters using heatmaps, 3D trajectories & radar charts",
-      "Apply ML models for optimizing ROP, WOB & detecting tool failures",
-      "Analyze drilling time-series data for borehole cleaning, instability & formation changes",
-      "Conduct stuck pipe analysis & NPT evaluation",
-      "Interpret drill string dynamics through vibration & frequency analysis",
-      "Build workflows to reduce drilling risks and increase efficiency",
+      "Preprocess and analyze petrophysical data using Python (Lasio, Welly)",
+      "Build ML models to predict reservoir properties (permeability, saturation)",
+      "Perform lithofacies classification using SVM & Random Forest",
+      "Apply clustering methods to evaluate reservoir heterogeneity",
+      "Conduct data quality control and log reconstruction",
+      "Visualize, interpret, and integrate well log, core, and reservoir data",
     ],
     curriculum: [
-      "Real-Time Drilling Analytics",
-      "ML for Drilling Optimization",
-      "Time-Series Interpretation",
-      "Stuck Pipe Diagnosis",
-      "Vibration & Dynamic Analysis",
-      "Performance Enhancement Workflows",
+      {
+        module: "Petrophysical Data Analysis with Python",
+        topics: [
+          "Loading & exploring LAS files (Lasio, Welly)",
+          "Log–core integration & formation tops merging",
+          "Well log visualization & preprocessing",
+        ],
+      },
+      {
+        module: "ML Prediction of Reservoir Properties",
+        topics: [
+          "Regression models (Linear, Gradient Boosting)",
+          "Feature engineering & hyperparameter tuning",
+          "Case study: Predicting permeability & water saturation",
+        ],
+      },
+      {
+        module: "Lithofacies Classification",
+        topics: [
+          "SVM & Random Forest classification",
+          "Handling imbalanced datasets",
+          "Case study: Rock type & flow zone identification",
+        ],
+      },
+      {
+        module: "ML-Assisted Log Data Quality Control",
+        topics: [
+          "Outlier detection & log reconstruction",
+          "ML-based imputation for missing properties",
+          "Case study: Synthetic sonic log generation",
+        ],
+      },
+      {
+        module: "Reservoir Characterization with Clustering",
+        topics: [
+          "K-Means, Hierarchical, DBSCAN",
+          "Dimensionality reduction & model building",
+          "Case study: Reservoir heterogeneity clustering",
+        ],
+      },
     ],
-    targetAudience: ["Drilling engineers", "Data analysts", "Students"],
-    price: "$140 / ₹12,000",
-    image: "/images/drilling-analytics.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/10`,
-      razorpay: `https://razorpay.example.com/pay/10`,
-    },
-  },
-];
-
-/* -----------------------------
-   Program Data (PROGRAMS_PART_2)
-   ----------------------------- */
-const PROGRAMS_PART_2 = [
-  {
-    id: "11",
-    title: "Deep Learning for Oil & Gas Applications",
-    category: "self-paced",
-    duration: "20+ Hours",
-    format: "Self Paced",
-    level: "Beginner",
+    targetAudience: ["Petrophysicists", "Geoscientists", "Reservoir engineers", "Data scientists"],
+    price: "₹12,000 / $150",
+    image: "images/Machine Learning & Python Applications for Petrophysics.jpg",
+    level: "Beginner–Intermediate",
     certificate: "Yes",
-    overview:
-      "A practical program teaching deep learning fundamentals with real oil & gas applications using neural networks, CNNs, RNNs, and TensorFlow/Keras.",
-    outcomes: [
-      "Understand neural networks, deep neural networks & learning mechanisms",
-      "Work with TensorFlow and Keras for building deep learning models",
-      "Apply CNNs for image-based reservoir/core analysis",
-      "Use RNNs for time-series production & operational forecasting",
-      "Perform transfer learning for energy datasets",
-      "Implement deep learning case studies in drilling, production & image classification",
-      "Gain confidence handling large industry datasets",
-    ],
-    curriculum: [
-      "Deep Learning Basics",
-      "CNNs for Core/Seismic Images",
-      "RNNs & Time-Series",
-      "Transfer Learning",
-      "TensorFlow/Keras Workflows",
-      "Case Studies & Projects",
-    ],
-    targetAudience: ["Data scientists", "Engineers", "Students"],
-    price: "$250 / ₹15,000",
-    image: "/images/deep-learning-oil-gas.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/11`,
-      razorpay: `https://razorpay.example.com/pay/11`,
-    },
+    prerequisites: "Basic Python & log interpretation",
   },
-
   {
     id: "12",
     title: "Oil & Gas Software Development Using Python",
@@ -446,21 +468,40 @@ const PROGRAMS_PART_2 = [
       "Automate petroleum workflows and solve engineering challenges",
     ],
     curriculum: [
-      "Python Fundamentals",
-      "Data Analysis with NumPy/Pandas",
-      "Engineering Calculators & MBAL/IPR",
-      "Web App Deployment",
-      "Project Work",
+      {
+        module: "Production Forecasting & ML Applications",
+        topics: [
+          "Production forecasting fundamentals",
+          "PCP, SRP & ESP system overview",
+          "Production data collection & preprocessing",
+          "Feature engineering for production datasets",
+          "Regression, Random Forest, Gradient Boosting & Neural Networks",
+          "Model performance evaluation",
+          "Time series forecasting (ARIMA, SARIMA, Prophet)",
+          "ML-based optimization for PCP, SRP & ESP",
+        ],
+      },
+      {
+        module: "Reservoir Analytics",
+        topics: [
+          "Introduction to reservoir analytics",
+          "Reservoir engineering fundamentals",
+          "Data preparation & preprocessing",
+          "Feature engineering for reservoir properties",
+          "ML models for reservoir characterization & forecasting",
+          "Evaluation metrics for reservoir ML models",
+          "Advanced methods: Ensemble, Bayesian techniques",
+          "Real-world case studies",
+        ],
+      },
     ],
-    targetAudience: ["Engineers", "Developers", "Students"],
-    price: "$200 / ₹15,000",
-    image: "/images/python-oil-gas-software.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/12`,
-      razorpay: `https://razorpay.example.com/pay/12`,
-    },
+    targetAudience: ["Petroleum engineers", "Reservoir engineers", "Production engineers"],
+    price: "₹16,000 / $200",
+    image: "images/Mastering Machine Learning for Enhanced Production and Reservoir Forecasting Analytics.jpg",
+    level: "Beginner–Intermediate",
+    certificate: "Yes",
+    prerequisites: "Python & ML basics",
   },
-
   {
     id: "13",
     title: "Mastering Reservoir Engineering: From Basics to Software-Driven Solutions",
@@ -482,21 +523,32 @@ const PROGRAMS_PART_2 = [
       "Conduct hands-on advanced reservoir modeling exercises",
     ],
     curriculum: [
-      "Reservoir Fundamentals",
-      "Material Balance & DCA",
-      "EOR Intro",
-      "Simulation Workflows",
-      "Hands-on Modeling",
+      {
+        module: "Core Python Foundations",
+        topics: [
+          "Python basics & programming workflow",
+          "Lists, dictionaries & control flow",
+          "NumPy for numerical operations",
+          "Pandas for data analysis",
+          "Matplotlib for visualization",
+        ],
+      },
+      {
+        module: "Petroleum Engineering Applications",
+        topics: ["Material balance calculations in Python", "IPR curve creation & analysis", "Working with petroleum datasets"],
+      },
+      {
+        module: "Web Application Deployment",
+        topics: ["Introduction to web frameworks", "Building a user-friendly application", "Deploying oil & gas data apps"],
+      },
     ],
-    targetAudience: ["Reservoir engineers", "Students", "Analysts"],
-    price: "$75 / ₹5,000",
-    image: "/images/mastering-reservoir-engineering.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/13`,
-      razorpay: `https://razorpay.example.com/pay/13`,
-    },
+    targetAudience: ["Petroleum engineers", "Students", "Beginners"],
+    price: "₹6,000 / $80 (Students) | $250 (Professionals)",
+    image: "images/Petro Python - Mastering Core Concepts & Real World Applications.png",
+    level: "Beginner",
+    certificate: "Yes",
+    prerequisites: "None",
   },
-
   {
     id: "14",
     title: "Master Oil & Gas Production Optimization with AI & Machine Learning",
@@ -517,20 +569,61 @@ const PROGRAMS_PART_2 = [
       "Apply ML best practices for deployment",
     ],
     curriculum: [
-      "ML Fundamentals for Production",
-      "Time-Series Forecasting",
-      "Optimization Workflows",
-      "Case Studies",
+      {
+        module: "Fundamentals of Field Development Planning",
+        topics: [
+          "Upstream lifecycle & FDP stages (DG0–DG3)",
+          "G&G, reservoir, production & cost data",
+          "Multidisciplinary team workflows",
+          "Regulatory frameworks & approvals",
+          "Practical: FDP data requirement mapping",
+        ],
+      },
+      {
+        module: "Subsurface Characterization & Reserves Estimation",
+        topics: [
+          "Seismic basics: faults, structures, traps",
+          "Well logs, porosity & saturation analysis",
+          "Drive mechanisms & fluid behavior",
+          "STOIIP/GIIP volumetrics",
+          "Decline curve analysis",
+          "Practical: Log interpretation & STOIIP",
+        ],
+      },
+      {
+        module: "Development Strategy, Well Planning & Drilling",
+        topics: [
+          "Greenfield & brownfield options",
+          "Vertical/horizontal/multilateral wells",
+          "Well spacing & pattern design",
+          "Rig scheduling & drilling sequence",
+          "Intro to completions & artificial lift",
+          "Practical: Well placement exercise",
+        ],
+      },
+      {
+        module: "Surface Facilities & Economic Evaluation",
+        topics: [
+          "Separators, flowlines & export systems",
+          "Matching deliverability & capacity",
+          "Infrastructure & utilities",
+          "Economics: Capex, Opex, NPV, IRR",
+          "Risk & sensitivity analysis",
+          "Practical: Excel economics",
+        ],
+      },
+      {
+        module: "FDP Integration & Case Study",
+        topics: ["FDP structure & documentation", "Risk & uncertainty mapping", "Full FDP case review", "Practical: Mini-FDP presentation"],
+      },
     ],
-    targetAudience: ["Engineers", "Data analysts", "Operations"],
-    price: "$200 / ₹15,000",
-    image: "/images/production-optimization-ml.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/14`,
-      razorpay: `https://razorpay.example.com/pay/14`,
-    },
+    targetAudience: ["Petroleum engineers", "Geoscientists", "Energy students"],
+    price: "₹9,000 / $150",
+    image: "images/Petroleum Field Development Planning from Concept to Execution.jpg",
+    level: "Beginner–Intermediate",
+    certificate: "Yes",
+    prerequisites: "None",
   },
-
   {
     id: "15",
     title: "Oil & Gas Forecasting & Predictions Using Time Series Analysis",
@@ -552,20 +645,38 @@ const PROGRAMS_PART_2 = [
       "Apply regression-based forecasting methods",
     ],
     curriculum: [
-      "Time-Series Fundamentals",
-      "ARIMA & Statistical Models",
-      "Deep Learning for Forecasting",
-      "Anomaly Detection",
+      {
+        module: "ML Fundamentals & Time-Series Basics",
+        topics: ["ML applications in oil & gas", "Supervised vs. unsupervised learning", "Time-series structure (trend, seasonality, noise)", "Real-world forecasting examples"],
+      },
+      {
+        module: "Math & Statistics for Forecasting",
+        topics: ["Algebra & calculus basics", "Hypothesis testing", "Differencing & lag features", "Seasonality & periodicity"],
+      },
+      {
+        module: "Visualization & Signal Analysis",
+        topics: ["Time-series visualization", "Smoothing & trend extraction", "Fourier transforms", "Frequency analysis", "Recurrence plots", "Signal-based anomaly detection"],
+      },
+      {
+        module: "Statistical & ML Forecasting Models",
+        topics: ["AR & MA models", "Decline curve analysis (DCA)", "ARIMA & ARIMAX forecasting", "LSTM models for rate & pressure prediction"],
+      },
+      {
+        module: "Production Optimization with ML",
+        topics: ["Well performance optimization", "Gas-lift optimization", "Choke optimization", "Sand production prediction", "Production allocation", "Failure prediction"],
+      },
+      {
+        module: "Advanced ML & Case Studies",
+        topics: ["Hydraulic fracture optimization", "Ensemble forecasting methods", "Re-frac feasibility analysis", "Autoencoders vs Isolation Forests", "Real-world ML case studies"],
+      },
     ],
-    targetAudience: ["Data analysts", "Engineers", "Students"],
-    price: "$200 / ₹14,000",
-    image: "/images/time-series-oil-gas.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/15`,
-      razorpay: `https://razorpay.example.com/pay/15`,
-    },
+    targetAudience: ["Engineers", "Data analysts", "Energy professionals"],
+    price: "₹15,000 / $200",
+    image: "images/Production Forecasting & Well Performance Optimization with Python & Machine Learning.png",
+    level: "Beginner–Intermediate",
+    certificate: "Yes",
+    prerequisites: "Python basics",
   },
-
   {
     id: "16",
     title: "PVT Modelling and Advanced Fluid Characterization",
@@ -587,20 +698,30 @@ const PROGRAMS_PART_2 = [
       "Perform case studies using PVT modelling software",
     ],
     curriculum: [
-      "PVT Fundamentals",
-      "EOS Modelling",
-      "Lab Data Interpretation",
-      "Case Studies & Software",
+      {
+        module: "Production Analytics & Machine Learning",
+        topics: ["Multi-well production handling", "Time-series visualization", "Regression for DCA", "ML models for production prediction"],
+      },
+      {
+        module: "Formation Evaluation & ML Applications",
+        topics: ["LAS/DLIS log handling", "Well log interpretation", "CT-scan data visualization", "Facies classification using ML"],
+      },
+      {
+        module: "Permeability Prediction (Neural Networks)",
+        topics: ["Core analysis data cleansing", "Correlation studies", "Neural network modelling", "Uncertainty quantification"],
+      },
+      {
+        module: "Reservoir Simulation & Well Placement Optimization",
+        topics: ["PyMRST introduction", "Waterflooding simulation", "Well placement optimization", "Bayesian optimization & simulated annealing"],
+      },
     ],
-    targetAudience: ["Reservoir engineers", "Laboratory engineers", "Students"],
-    price: "$100 / ₹7,500",
-    image: "/images/pvt-modelling.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/16`,
-      razorpay: `https://razorpay.example.com/pay/16`,
-    },
+    targetAudience: ["Petroleum engineers", "Reservoir engineers", "Petrophysicists", "Researchers"],
+    price: "₹11,000 / $150",
+    image: "images/Advanced Python for Reservoir, Production and Petrophysics.jpeg",
+    level: "Beginner–Intermediate",
+    certificate: "Yes",
+    prerequisites: "Python basics",
   },
-
   {
     id: "17",
     title: "Data Analytics & Visualisation Using Power BI for Oil & Gas",
@@ -622,20 +743,58 @@ const PROGRAMS_PART_2 = [
       "Integrate Power BI with Excel & SharePoint",
     ],
     curriculum: [
-      "Power BI Basics",
-      "Data Modeling & DAX",
-      "Dashboard Design",
-      "Field Data Use-Cases",
+      {
+        module: "Introduction to Oil & Gas Industry",
+        topics: ["Industry structure & operations", "Facilities overview", "Major stakeholders"],
+      },
+      {
+        module: "Fundamentals of HSE",
+        topics: ["Health, safety & environment basics", "Hazard identification", "Risk assessment frameworks"],
+      },
+      {
+        module: "Operations & Major Hazards",
+        topics: ["Exploration, drilling & production hazards", "Transportation risks", "Major hazard management"],
+      },
+      {
+        module: "Occupational Health & Industrial Hygiene",
+        topics: ["Exposure control", "Emergency health response", "Workplace hazard mitigation"],
+      },
+      {
+        module: "Safety Management & Incident Handling",
+        topics: ["Safety systems & procedures", "Incident investigation", "Reporting & continuous improvement"],
+      },
+      {
+        module: "Environmental Management",
+        topics: ["Impact assessment", "Pollution control", "Sustainability principles", "Regulatory compliance"],
+      },
+      {
+        module: "Emergency Response & Crisis Management",
+        topics: ["Emergency planning", "Crisis communication", "Scenario-based drills"],
+      },
+      {
+        module: "HSE Audits & Inspections",
+        topics: ["Audit principles", "Inspection techniques", "Corrective actions"],
+      },
+      {
+        module: "Human Factors & Workplace Behavior",
+        topics: ["Human error management", "Behavioral safety", "Competency development"],
+      },
+      {
+        module: "Advanced HSE Applications",
+        topics: ["Process safety", "Offshore HSE", "Cybersecurity for safety systems"],
+      },
+      {
+        module: "Capstone Project",
+        topics: ["Complete HSE plan development", "Case study analysis"],
+      },
     ],
-    targetAudience: ["Data analysts", "Engineers", "Managers"],
-    price: "$200 / ₹17,000",
-    image: "/images/power-bi-oil-gas.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/17`,
-      razorpay: `https://razorpay.example.com/pay/17`,
-    },
+    targetAudience: ["Students", "HSE professionals", "Engineers", "Technicians"],
+    price: "₹24,000 / $300",
+    image: "/images/Diploma for HSE in Oil & Gas.avif",
+    level: "Beginner–Intermediate",
+    certificate: "Yes (Lincoln Professional Academy)",
+    prerequisites: "None",
   },
-
   {
     id: "18",
     title: "Electric Submersible Pump (ESP) Training",
@@ -655,97 +814,50 @@ const PROGRAMS_PART_2 = [
       "Improve production efficiency through ESP optimization",
     ],
     curriculum: [
-      "ESP Basics",
-      "Installation & Commissioning",
-      "Performance Monitoring",
-      "Troubleshooting & Case Studies",
+      {
+        module: "ESG Foundations & Sustainability",
+        topics: ["ESG pillars & frameworks (GRI, SASB, TCFD, SDGs)", "Sustainability trends", "Climate risks", "Regulatory landscape"],
+      },
+      {
+        module: "ESG Reporting & Practical Evaluation",
+        topics: ["ESG disclosure standards", "Scoring methods", "Sustainability assessments", "Hands-on ESG analysis"],
+      },
+      {
+        module: "Carbon Markets & Trading",
+        topics: ["Cap-and-trade systems", "Carbon taxes", "Offsets & credits", "Verification standards (VCS, Gold Standard, CDM)", "Carbon exchanges & trading simulations"],
+      },
+      {
+        module: "Emissions Reduction & Climate Strategy",
+        topics: ["Decarbonization pathways", "Carbon footprint analysis", "Evaluating corporate climate action plans"],
+      },
+      {
+        module: "Sustainable Finance & Green Investment",
+        topics: ["Impact investing & SRI", "Green/blue bonds", "Climate finance tools", "Sustainable lending practices"],
+      },
+      {
+        module: "ESG Risk Management & Governance",
+        topics: ["Climate risk integration", "Enterprise risk management", "Responsible leadership", "Corporate governance frameworks"],
+      },
+      {
+        module: "Practical ESG & Sustainability Applications",
+        topics: ["Developing ESG policies", "Evaluating corporate sustainability performance", "Reporting workflows", "Real-world case studies"],
+      },
+      {
+        module: "Capstone Project",
+        topics: ["Complete ESG strategy design", "Carbon footprint analysis report"],
+      },
     ],
-    targetAudience: ["Production engineers", "Field operators", "Students"],
-    price: "$100 / ₹7,500",
-    image: "/images/esp-training.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/18`,
-      razorpay: `https://razorpay.example.com/pay/18`,
-    },
-  },
-
-  {
-    id: "19",
-    title: "Python in Oil & Gas",
-    category: "self-paced",
-    duration: "35+ Hours",
-    format: "Self-Paced",
-    level: "Beginner",
-    certificate: "Yes",
-    overview:
-      "A practical Python program teaching fundamentals through petroleum engineering datasets, analytics, MBAL, IPR, and simulation-related projects.",
-    outcomes: [
-      "Learn Python fundamentals: loops, functions, data structures",
-      "Understand modules, packages & debugging",
-      "Perform computing with NumPy & data manipulation with Pandas",
-      "Create visualizations using Matplotlib",
-      "Analyze reservoir & well log datasets",
-      "Perform exploratory data analysis for petroleum datasets",
-      "Work on MBAL, IPR & simulation-related Python projects",
-      "Apply Python for real engineering workflows",
-    ],
-    curriculum: [
-      "Python Basics",
-      "Data Analysis with Pandas",
-      "Visualization & Projects",
-      "MBAL/IPR Tools",
-    ],
-    targetAudience: ["Engineers", "Students", "Data enthusiasts"],
-    price: "$200 / ₹15,000",
-    image: "/images/python-in-oil-gas.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/19`,
-      razorpay: `https://razorpay.example.com/pay/19`,
-    },
-  },
-
-  {
-    id: "20",
-    title: "Well Completion Training",
-    category: "instructor-led",
-    duration: "20+ Hours",
-    format: "Live Online",
-    level: "Beginner to Intermediate",
-    certificate: "Yes",
-    overview:
-      "A comprehensive training on well completion equipment, wellheads, tubing, packers, safety valves, intelligent completions and real-field case studies.",
-    outcomes: [
-      "Understand fundamentals of well completions",
-      "Learn completion components & intervention strategies",
-      "Analyze tubing selection, packers & safety valves",
-      "Interpret wellhead & Christmas tree configurations",
-      "Evaluate reservoir/fluid data for completion design",
-      "Gain exposure to intelligent completions",
-      "Learn from case-based field examples",
-    ],
-    curriculum: [
-      "Completion Fundamentals",
-      "Downhole Components",
-      "Completion Design",
-      "Intelligent Completions",
-      "Case Studies",
-    ],
-    targetAudience: ["Petroleum engineers", "Completions engineers", "Students"],
-    price: "$100 / ₹8,500",
-    image: "/images/well-completion-training.jpg",
-    payment: {
-      stripe: `https://stripe.example.com/pay/20`,
-      razorpay: `https://razorpay.example.com/pay/20`,
-    },
-  },
-];
-
-/* -----------------------------
-   TrainingPrograms Component
-   ----------------------------- */
+    targetAudience: ["Finance professionals", "Sustainability managers", "Analysts", "Students", "Policy advisors"],
+    price: "₹24,000 / $300",
+    image: "/images/ESG, Carbon Trading and Sustainable Finance.webp",
+    level: "Beginner–Intermediate",
+    certificate: "Yes (Lincoln Professional University)",
+    prerequisites: "None",
+  }, ];
 
 const TrainingPrograms = ({ programs }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
 
   // Merge programs (if prop supplied, use it - otherwise combine default sets)
@@ -754,36 +866,45 @@ const TrainingPrograms = ({ programs }) => {
     return programs && programs.length ? programs : combined;
   }, [programs]);
 
+  // --- CHANGED: only three categories: all, self-paced, diploma
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [expandedCurriculum, setExpandedCurriculum] = useState(null);
   const [authOpen, setAuthOpen] = useState(false);
   const [redirectTo, setRedirectTo] = useState(null);
   const [programToPay, setProgramToPay] = useState(null);
+
+  // reflect URL ?category= on load / when URL changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const cat = params.get("category");
+    if (cat && ["all", "self-paced", "diploma"].includes(cat)) {
+      setSelectedCategory(cat);
+    } else {
+      // default to all if invalid or missing
+      setSelectedCategory("all");
+    }
+  }, [location.search]);
 
   // categories
   const categories = useMemo(() => {
     const byCategory = {};
     allPrograms.forEach((p) => {
-      const cat = p.category || "self-paced";
-      byCategory[cat] = (byCategory[cat] || 0) + 1;
+      byCategory[p.category] = (byCategory[p.category] || 0) + 1;
     });
     return [
       { id: "all", name: "All Programs", count: allPrograms.length },
       { id: "diploma", name: "Diploma Programs", count: byCategory["diploma"] || 0 },
       { id: "instructor-led", name: "Instructor-Led Trainings", count: byCategory["instructor-led"] || 0 },
       { id: "e-learning", name: "E-Learning", count: byCategory["e-learning"] || 0 },
-      { id: "self-paced", name: "Self-Paced", count: byCategory["self-paced"] || 0 },
-      { id: "hybrid", name: "Hybrid", count: byCategory["hybrid"] || 0 },
       { id: "corporate", name: "Corporate Training", count: byCategory["corporate"] || 0 },
     ];
   }, [allPrograms]);
 
   const filteredPrograms = selectedCategory === "all"
     ? allPrograms
-    : allPrograms.filter((program) => (program.category || "self-paced") === selectedCategory);
+    : allPrograms.filter((program) => program.category === selectedCategory);
 
   const toggleCurriculum = (e, programId) => {
-    e.stopPropagation();   // Prevent bubbling
+    e.stopPropagation();   // ✔ Prevent redirection / bubbling
     setExpandedCurriculum(expandedCurriculum === programId ? null : programId);
   };
 
@@ -825,14 +946,17 @@ const TrainingPrograms = ({ programs }) => {
         </div>
       </section>
 
-      {/* CATEGORY FILTER */}
+      {/* CATEGORY FILTER (UPDATED to 3 categories) */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4 mb-10">
           {categories.map((c) => (
-            <button key={c.id} onClick={() => setSelectedCategory(c.id)}
+            <button
+              key={c.id}
+              onClick={() => handleSetCategory(c.id)}
               className={`px-6 py-3 rounded-full font-semibold transition-all ${
                 selectedCategory === c.id ? "bg-blue-600 text-white" : "bg-white text-gray-700 hover:bg-blue-50"
-              }`}>
+              }`}
+            >
               {c.name} ({c.count})
             </button>
           ))}
@@ -843,7 +967,6 @@ const TrainingPrograms = ({ programs }) => {
       <section className="pb-20 max-w-7xl mx-auto space-y-12 px-4">
         {filteredPrograms.map((program) => (
           <div key={program.id} className="bg-white rounded-2xl shadow-xl overflow-hidden">
-
             <div className="grid lg:grid-cols-3">
               
               {/* IMAGE */}
@@ -861,7 +984,6 @@ const TrainingPrograms = ({ programs }) => {
 
               {/* CONTENT */}
               <div className="p-8 flex flex-col lg:col-span-2">
-
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">{program.title}</h2>
                 <p className="text-gray-600 text-lg mb-6">{program.overview}</p>
 
@@ -884,7 +1006,7 @@ const TrainingPrograms = ({ programs }) => {
                   ))}
                 </ul>
 
-                {/* CURRICULUM - togglable */}
+                {/* CURRICULUM - FIXED */}
                 <button
                   onClick={(e) => toggleCurriculum(e, program.id)}
                   className="flex justify-between w-full font-semibold text-left"
@@ -895,7 +1017,8 @@ const TrainingPrograms = ({ programs }) => {
 
                 {expandedCurriculum === program.id && (
                   <div className="mt-4 space-y-4 max-h-64 overflow-y-auto pr-2 custom-scroll">
-                    {(program.curriculum || []).map((item, idx) => (
+
+                    {program.curriculum.map((item, idx) => (
                       <div key={idx} className="bg-gray-50 rounded-lg p-4">
                         <h4 className="font-semibold text-gray-900 mb-2">
                           {typeof item === "string" ? item : item.module}
@@ -912,16 +1035,13 @@ const TrainingPrograms = ({ programs }) => {
                         )}
                       </div>
                     ))}
-                    {(!program.curriculum || program.curriculum.length === 0) && (
-                      <div className="text-sm text-gray-500">Curriculum will be updated soon.</div>
-                    )}
                   </div>
                 )}
 
                 {/* AUDIENCE */}
                 <h3 className="text-lg font-semibold mt-6 mb-3">Who Should Enroll</h3>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {(program.targetAudience && program.targetAudience.length ? program.targetAudience : ["Open for All Learners"]).map((a, i) => (
+                  {program.targetAudience.map((a, i) => (
                     <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">{a}</span>
                   ))}
                 </div>
@@ -958,7 +1078,6 @@ const TrainingPrograms = ({ programs }) => {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -972,6 +1091,8 @@ const TrainingPrograms = ({ programs }) => {
 };
 
 export default TrainingPrograms;
+
+
 
 /* Info small component */
 const Info = ({ icon: Icon, label, value }) => (
