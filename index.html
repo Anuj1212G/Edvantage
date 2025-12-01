@@ -1,107 +1,1041 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Course Video</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 50px;
-    }
-    video {
-      width: 80%;
-      max-width: 900px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Secure Course Video</h1>
-  <video id="player" controls></video>
-  <p id="status">Loading video...</p>
-
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    // Replace these with your values
-    const courseId = "68e2b22a287c8fa94bc84341";
-    const videoId = "68e42f7be92f020bd60a55b9";
-    const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTJhZTExNzIzNjQ5YTc4NDcwYzQxMCIsImlhdCI6MTc1OTc2MjA5OCwiZXhwIjoxNzYwMzY2ODk4fQ.ULSAp4N2RhRW67W5RCjqRSkCpgiaRe2TedfpAQGUSkM"; // Example: from login/localStorage
-
-    const video = document.getElementById('player');
-    const status = document.getElementById('status');
-    let hls;
-
-    // Function to fetch signed URL from backend
-   async function fetchSignedUrl() {
-  try {
-     const uniqueCacheBuster = Date.now(); // Unique value to prevent caching
-     
-    const res = await fetch(`http://127.0.0.1:5000/api/courses/${courseId}/lectures/${videoId}?t=${uniqueCacheBuster}`, {
-      headers: { Authorization: `Bearer ${authToken}` }
-    });
-    
-    console.log("Raw response:", res);
-    const data = await res.json();
-    console.log("hi");
-    console.log("Response JSON:", data);
-
-    if (!data.success) {
-      status.textContent = data.message;
-      return null;
-    }
-    return data.url;
-  } catch (err) {
-    console.error("Error fetching signed URL:", err);
-    status.textContent = "Error fetching video";
-    return null;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India's Foreign Policy - Deep Dive</title>
+    <!-- Google Fonts: Merriweather for titles, Arimo for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* 1. THE SETUP */
+* {
+    box-sizing: border-box;
 }
 
+body {
+    background-color: #e2e8f0; /* Light gray background for the page */
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px 0;
+    place-items: center;
+}
 
-    // Function to load video
-    async function loadVideo() {
-      const url = await fetchSignedUrl();
-      if (!url) return;
+.slide-container {
+    align-items: center;
+    /* Using a warm, off-white background as per the theme */
+    background-color: #FFFDF5; 
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 720px;
+    justify-content: flex-start; /* Aligned to start for content flow */
+    overflow: hidden;
+    padding: 60px;
+    position: relative;
+    width: 1280px;
+}
 
-      status.textContent = "Video loaded. Playing...";
-      if (Hls.isSupported()) {
-        if (hls) {
-          // Update source for Hls instance without breaking playback
-          hls.loadSource(url);
-          hls.attachMedia(video);
-        } else {
-          hls = new Hls();
-          hls.loadSource(url);
-          hls.attachMedia(video);
-          hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
-        }
-      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-        video.src = "https://res.cloudinary.com/dn8wgku3s/video/authenticated/s--AJA4kwf3--/v1/edvantage/videos/ewetmvak98lbf06gvc8w.m3u8?_a=BAMAK+TG0";
-        video.play();
-      } else {
-        status.textContent = "Your browser does not support HLS playback.";
-      }
-    }
+.slide-container::before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+    /* Subtle background design: Abstract Shapes */
+    background-image: radial-gradient(circle at 10% 10%, rgba(26, 61, 109, 0.02), transparent 30%),
+                      radial-gradient(circle at 90% 80%, rgba(217, 83, 79, 0.02), transparent 30%);
+}
 
-    // Initial load
-    loadVideo();
+.slide-container>* {
+    position: relative;
+    z-index: 1;
+}
 
-    // Auto-refresh signed URL every 1 minutes (60000 ms)
-    setInterval(async () => {
-      const currentTime = video.currentTime;
-      await loadVideo();
-      video.currentTime = currentTime; // resume from where user left
-      video.play();
-      console.log("Signed URL refreshed");
-    }, 60000);
-  </script>
+/* 2. CONSISTENT TYPOGRAPHY */
+/* Headings Font: Merriweather (Serif, Authoritative) */
+.slide-container h1,
+.slide-container h2,
+.slide-container h3 {
+    color: #1A3D6D; /* Deep Blue */
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+    margin: 0;
+}
+
+/* Body Text Font: Arimo (Sans-serif, Clear) */
+.slide-container p,
+.slide-container li,
+.slide-container .subtitle,
+.slide-container .number-label,
+.slide-container .legend li,
+.slide-container .chart-summary,
+.slide-container .bar .label,
+.slide-container th,
+.slide-container td,
+.slide-container .alternating-text-tile p,
+.slide-container .bleed-text-side p {
+    color: #333333; /* Dark Gray for readability */
+    font-family: 'Arimo', sans-serif;
+}
+
+/* Consistent Font Sizes */
+.slide-container h1 {
+    font-size: 64px;
+    line-height: 1.2;
+}
+
+.slide-container .slide-title {
+    /* This is an h2 */
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: left;
+    width: 100%;
+    border-bottom: 2px solid #D9534F; /* Accent line under title */
+    padding-bottom: 10px;
+}
+
+.slide-container h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #D9534F; /* Soft Red Accent for section titles */
+}
+
+/* Unified body text size */
+.slide-container p,
+.slide-container li {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.slide-container .subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    margin: 20px auto;
+    color: #475569;
+}
+
+.slide-container .content-area {
+    align-items: flex-start;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    width: 100%;
+    /* Added alignment for content flow */
+    align-content: flex-start; 
+}
+
+/* 3. LAYOUT DEFINITIONS */
+
+/* Title_Slide Layout */
+.title-layout {
+  text-align: center;
+  width: 90%;
+  padding: 40px 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.title-layout h1 {
+    font-size: 80px;
+}
+.title-layout .subtitle {
+    font-size: 32px;
+    color: #1A3D6D;
+    font-weight: 400;
+}
+
+/* Two_Column Layout (Base for multiple layouts) */
+.two-column {
+  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+}
+
+.two-column ul {
+  list-style: disc;
+  margin: 0;
+  padding-left: 25px;
+}
+
+.two-column li {
+  margin-bottom: 15px;
+}
+
+/* Tiled_Text_With_Icons Layout */
+.tiled-content {
+  align-items: stretch;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.tile {
+  align-items: flex-start;
+  background-color: #F9F6EE; /* Lighter beige tile */
+  border-radius: 12px;
+  border: 1px solid #EAE6D7;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  padding: 30px;
+  text-align: left;
+}
+
+.tile .icon {
+  color: #FFFFFF; /* White icon */
+  background-color: #1A3D6D; /* Deep Blue */
+  font-size: 30px;
+  margin-bottom: 15px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tile h3 {
+    color: #D9534F;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.tile p {
+    font-size: 18px;
+}
+
+/* Styled_Bullet_Points Layout (Key takeaways) */
+.key-takeaways-layout {
+  width: 100%;
+}
+.key-takeaways-layout ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.key-takeaways-layout li {
+    background-color: #F9F6EE;
+    padding: 20px;
+    border-left: 5px solid #D9534F;
+    border-radius: 5px;
+    font-weight: 700;
+    color: #1A3D6D;
+    position: relative;
+    font-size: 22px;
+}
+.key-takeaways-layout li i {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1A3D6D;
+}
+.key-takeaways-layout li strong {
+    color: #D9534F;
+}
+
+/* Timeline Layout */
+.timeline-layout {
+  align-items: stretch;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 400px; /* Increased height for more points */
+}
+
+.timeline-layout .timeline-line {
+  background-color: #1A3D6D; /* Deep Blue line */
+  height: 4px;
+  left: 5%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-2px);
+  width: 90%;
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  text-align: center;
+  width: calc(100% / 6); /* Adjusted for 6 items */
+  padding: 0 5px;
+}
+
+.timeline-item::after {
+  background-color: #FFFDF5; /* Slide background color */
+  border-radius: 50%;
+  border: 4px solid #D9534F; /* Soft Red Accent dot */
+  content: '';
+  height: 20px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  z-index: 1;
+}
+
+.timeline-item .content-wrapper {
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.timeline-item:nth-child(2n) .content-wrapper {
+  bottom: 50%;
+  margin-bottom: 25px;
+}
+
+.timeline-item:nth-child(2n+1) .content-wrapper {
+  margin-top: 25px;
+  top: 50%;
+}
+/* Adjusting positions for 6 items */
+.timeline-item:nth-child(1) { left: 0%; }
+.timeline-item:nth-child(2) { left: 18%; }
+.timeline-item:nth-child(3) { left: 36%; }
+.timeline-item:nth-child(4) { left: 54%; }
+.timeline-item:nth-child(5) { left: 72%; }
+.timeline-item:nth-child(6) { left: 90%; }
+
+
+.timeline-item h3 {
+  color: #D9534F; /* Soft Red Accent */
+  font-size: 24px;
+}
+.timeline-item p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* Table Layout */
+.table-layout {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table-layout table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-layout th,
+.table-layout td {
+  border-bottom: 1px solid #EAE6D7;
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.table-layout th {
+  background-color: #1A3D6D; /* Deep Blue header */
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+}
+
+.table-layout tr:last-child td {
+  border-bottom: none;
+}
+.table-layout tr:nth-child(even) {
+    background-color: #F9F6EE; /* Light beige alternating row */
+}
+.table-layout td strong {
+    color: #D9534F;
+}
+
+/* Q&A Layout */
+.qa-layout {
+  text-align: center;
+  width: 100%;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.qa-layout h2 {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.qa-layout p {
+  font-size: 22px;
+  color: #475569;
+}
+
+/* Quote Layout */
+.quote-layout {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 90%;
+}
+.quote-layout blockquote {
+    font-size: 48px;
+    font-style: italic;
+    color: #1A3D6D;
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    line-height: 1.4;
+}
+.quote-layout blockquote::before {
+    content: "\201C"; /* Left double quote */
+    font-size: 100px;
+    position: absolute;
+    top: -20px;
+    left: -50px;
+    color: #D9534F;
+    opacity: 0.5;
+}
+.quote-layout p.source {
+    font-size: 28px;
+    color: #475569;
+    margin-top: 30px;
+    font-weight: 700;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title Slide -->
+<div class="slide-container" id="slide1">
+    <div class="title-layout">
+        <h1>India's Foreign Policy</h1>
+        <p class="subtitle">Evolution, Approaches, and Global Role</p>
+        <p class="subtitle" style="font-size: 20px; color: #1A3D6D; margin-top: 50px;">A Strategic Deep Dive</p>
+    </div>
+</div>
+
+<!-- Slide 2: Definition and Context (Introduction) -->
+<div class="slide-container" id="slide2">
+    <h2 class="slide-title">What is Foreign Policy? The Indian Context</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Definition and Scope</h3>
+                <p>Foreign policy is the sum of **strategies and decisions** a country adopts to safeguard its national interests while interacting with the world.</p>
+                <ul>
+                    <li><strong>National Interests:</strong> Security, economic development, and cultural projection.</li>
+                    <li><strong>Strategic Tools:</strong> Diplomacy, trade agreements, alliances, and global forums.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>The Indian Perspective</h3>
+                <p>For India, policy blends hard realism with **civilizational values** (peace, tolerance, cooperation, equality).</p>
+                <ul>
+                    <li>**1947 Context:** Economically weak, but politically visionary.</li>
+                    <li>**Initial Goal:** To achieve strategic independence and assert sovereignty amidst Cold War pressures.</li>
+                    <li>**Core Value:** Global peace and anti-colonialism.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 3: Evolution Overview (6-Point Timeline) -->
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">Evolution of India’s Foreign Policy: A Six-Phase Journey</h2>
+    <div class="content-area">
+        <div class="timeline-layout">
+            <div class="timeline-line"></div>
+            <!-- Item 1: The Moral Era -->
+            <div class="timeline-item" style="left: 0;">
+                <div class="content-wrapper">
+                    <h3>1947–1962</h3>
+                    <p><strong>The Moral Era:</strong> Nehruvian Idealism, NAM, Anti-colonialism.</p>
+                </div>
+            </div>
+            <!-- Item 2: The Security Turn -->
+            <div class="timeline-item" style="left: 20%;">
+                <div class="content-wrapper">
+                    <h3>1962–1971</h3>
+                    <p><strong>The Security Turn:</strong> China War, Shift to realism, Defense focus.</p>
+                </div>
+            </div>
+            <!-- Item 3: Regional Assertion -->
+            <div class="timeline-item" style="left: 40%;">
+                <div class="content-wrapper">
+                    <h3>1971–1991</h3>
+                    <p><strong>Regional Assertion:</strong> Indo-Soviet Treaty, 1971 victory, Limited global reach.</p>
+                </div>
+            </div>
+            <!-- Item 4: The Economic Pivot -->
+            <div class="timeline-item" style="left: 60%;">
+                <div class="content-wrapper">
+                    <h3>1991–1998</h3>
+                    <p><strong>The Economic Pivot:</strong> Liberalization, Look East Policy, Normalizing US ties.</p>
+                </div>
+            </div>
+            <!-- Item 5: Nuclear & Global Deals -->
+            <div class="timeline-item" style="left: 80%;">
+                <div class="content-wrapper">
+                    <h3>1998–2014</h3>
+                    <p><strong>Nuclear & Global Deals:</strong> Assertive strategic autonomy, Civil nuclear agreement.</p>
+                </div>
+            </div>
+            <!-- Item 6: Assertive Multi-Alignment -->
+            <div class="timeline-item" style="left: 100%;">
+                <div class="content-wrapper">
+                    <h3>2014–Present</h3>
+                    <p><strong>Assertive Multi-Alignment:</strong> QUAD, G20 Leadership, Neighbourhood First.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 4: Foundation: Sovereignty & Panchsheel -->
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">Core Principle 1: Sovereign Equality & Panchsheel</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Sovereign Equality</h3>
+                <p>India’s foundational belief that every nation, regardless of size or power, deserves **equal right to independence and decision-making**.</p>
+                <ul>
+                    <li>Rooted in India's anti-colonial struggle.</li>
+                    <li>Strong advocacy for **decolonization** and self-determination worldwide.</li>
+                    <li>Ensures non-discrimination in global forums.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>The Panchsheel Principles (1954)</h3>
+                <p>The **Five Principles of Peaceful Coexistence**, initially agreed upon with China, remain central to India’s diplomatic conduct.</p>
+                <ol>
+                    <li>Mutual respect for sovereignty and territorial integrity.</li>
+                    <li>Mutual **non-aggression**.</li>
+                    <li>**Non-interference** in internal affairs.</li>
+                    <li>Equality and mutual benefit.</li>
+                    <li>Peaceful coexistence.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: Non-Alignment Movement (NAM) -->
+<div class="slide-container" id="slide5">
+    <h2 class="slide-title">Core Principle 2: Non-Alignment - The Moral Compass</h2>
+    <div class="content-area">
+        <div class="key-takeaways-layout">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-peace"></i>
+                    <strong>Context:</strong> Born during the Cold War (US vs. USSR), India refused to join either military bloc.
+                </li>
+                <li>
+                    <i class="fa-solid fa-flag"></i>
+                    <strong>Goal:</strong> To maintain an **independent foreign policy**, focusing on global peace and cooperation rather than military alliances.
+                </li>
+                <li>
+                    <i class="fa-solid fa-users"></i>
+                    <strong>Leadership:</strong> Co-founded with leaders like Tito (Yugoslavia), Nasser (Egypt), and Sukarno (Indonesia), establishing India as a **global leader** of developing countries.
+                </li>
+                <li>
+                    <i class="fa-solid fa-shield-alt"></i>
+                    <strong>Impact:</strong> Provided a **moral stand** and diplomatic space for newly independent nations to focus on national development, not superpower rivalry.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: Strategic Autonomy vs. Multi-Alignment -->
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">Core Principle 3: Strategic Autonomy and Multi-Alignment</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Strategic Autonomy</h3>
+                <p>The principle of choosing **partnerships and policies based solely on India's national interests**, independent of external pressure.</p>
+                <ul>
+                    <li>Allows India to cooperate with the U.S. (QUAD) while maintaining close defense ties with Russia.</li>
+                    <li>Essential for maintaining credibility across the Global South.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Multi-Alignment (Modern Adaptation)</h3>
+                <p>Engaging simultaneously with **multiple, often competing, power centers** (e.g., QUAD, BRICS, SCO) to maximize diplomatic and economic gains.</p>
+                <ul>
+                    <li><strong>Example:</strong> Buying defense systems from Russia while conducting joint naval exercises with the U.S.</li>
+                    <li>Reflects the shift from a bipolar world (NAM) to a multipolar world (Multi-Alignment).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: Vasudhaiva Kutumbakam -->
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">Core Principle 4: Vasudhaiva Kutumbakam - The Global Ethos</h2>
+    <div class="content-area">
+        <div class="quote-layout">
+            <blockquote>"The World is One Family."</blockquote>
+            <p class="source">Mahopanishad (Ancient Indian Text)</p>
+        </div>
+        <div class="content-area" style="margin-top: 50px; flex-grow: 0;">
+            <div class="tiled-content">
+                <div class="tile" style="align-items: center;">
+                    <div class="icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+                    <h3>Global Outlook</h3>
+                    <p>Emphasizes cooperation over competition, and compassion over conflict, giving India a distinct moral identity.</p>
+                </div>
+                <div class="tile" style="align-items: center;">
+                    <div class="icon"><i class="fa-solid fa-hospital"></i></div>
+                    <h3>Practical Application</h3>
+                    <p>Seen in initiatives like **Vaccine Maitri** (delivering COVID vaccines globally) and disaster relief operations in neighboring countries.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 8: Approaches to Study (Condensed) -->
+<div class="slide-container" id="slide8">
+    <h2 class="slide-title">Approaches to Study: The Multi-Dimensional Analysis</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Approach</th>
+                        <th>Core Focus</th>
+                        <th>Dominant Era</th>
+                        <th>Key Drivers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Idealist / Moral</strong></td>
+                        <td>International Law, Cooperation, Peace.</td>
+                        <td>Nehruvian Era.</td>
+                        <td>Gandhian values, Anti-colonial solidarity.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Realist / Security</strong></td>
+                        <td>Power, Military Preparedness, National Interest.</td>
+                        <td>Post-1962 to Present.</td>
+                        <td>China War, Nuclear capability, Border defense.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Institutional</strong></td>
+                        <td>Government structure, Decision-making processes.</td>
+                        <td>All Eras.</td>
+                        <td>PMO, MEA, NSC coordination and execution.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Constructivist</strong></td>
+                        <td>Identity, Culture, Civilizational Heritage.</td>
+                        <td>Present Day.</td>
+                        <td>"Soft Power," Vasudhaiva Kutumbakam, Democracy model.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Economic / Globalization</strong></td>
+                        <td>Trade, Technology, Global Market Integration.</td>
+                        <td>Post-1991.</td>
+                        <td>"Look East" Policy, FTA negotiations, Energy security.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 9: The Diplomatic Journey: Timeline Overview -->
+<div class="slide-container" id="slide9">
+    <h2 class="slide-title">The Diplomatic Journey: A Six-Phase Timeline</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Phase 1: 1947–1962</h3>
+                <p><strong>The Moral Era:</strong> Idealism, NAM, Panchsheel, championing decolonization.</p>
+                
+                <h3>Phase 2: 1962–1971</h3>
+                <p><strong>The Security Turn:</strong> Sino-Indian War impact, focus on defense, non-Western alignment (initial USSR ties).</p>
+                
+                <h3>Phase 3: 1971–1991</h3>
+                <p><strong>Regional Assertion:</strong> Indo-Soviet Treaty, 1971 victory, limited global reach due to Cold War blocs.</p>
+            </div>
+            <div>
+                <h3>Phase 4: 1991–1998</h3>
+                <p><strong>The Economic Pivot:</strong> Liberalization, beginning of "Look East," normalizing relations with the US.</p>
+                
+                <h3>Phase 5: 1998–2014</h3>
+                <p><strong>Nuclear and Global Deals:</strong> Nuclear weaponization, strategic autonomy, US Civil Nuclear Deal.</p>
+                
+                <h3>Phase 6: 2014–Present</h3>
+                <p><strong>Assertive Multi-Alignment:</strong> Neighbourhood First, QUAD, G20 leadership, proactive global shaping.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 10: Phase 1 & 2: Moralism to The Security Turn (1947–1971) -->
+<div class="slide-container" id="slide10">
+    <h2 class="slide-title">Phase 1 & 2: Moralism to The Security Turn (1947–1971)</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Phase 1: The Moral Era (1947–1962)</h3>
+                <p>Driven by the vision of PM Jawaharlal Nehru, policy was rooted in **moral advocacy** and the principles of non-violence and self-determination.</p>
+                <ul>
+                    <li>**Key Doctrine:** Non-Alignment (NAM).</li>
+                    <li>**Global Outreach:** Leadership at Bandung Conference (1955), voice of the newly independent world.</li>
+                    <li>**Foundational Text:** Panchsheel Principles (1954).</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Phase 2: The Security Turn (1962–1971)</h3>
+                <p>The **1962 War with China** served as a harsh lesson, forcing a pivot from idealism to pragmatic military preparedness and **security alliances**.</p>
+                <ul>
+                    <li>**Key Shift:** Focus moved to defense modernization and military capacity building.</li>
+                    <li>**Diplomatic Realignment:** Deepening ties with the Soviet Union for defense equipment and diplomatic support (non-Western dependency).</li>
+                    <li>**Doctrine:** Security-driven realism dominated strategic thought.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 11: Phase 3: Regional Assertion (1971–1991) -->
+<div class="slide-container" id="slide11">
+    <h2 class="slide-title">Phase 3: Regional Assertion and Cold War Dynamics (1971–1991)</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>The 1971 Watershed</h3>
+                <p>India's decisive victory in the 1971 War leading to the creation of Bangladesh established India as the **dominant regional power** in South Asia.</p>
+                <ul>
+                    <li>**Key Alliance:** Signing of the **Indo-Soviet Treaty of Peace, Friendship, and Cooperation (1971)** provided a vital security umbrella.</li>
+                    <li>**Policy Goal:** Preventing external powers (US/China) from destabilizing South Asia.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Economic Constraints</h3>
+                <p>Despite military strength, this period was characterized by **economic isolation** and limitations on global market access.</p>
+                <ul>
+                    <li>**Global Role:** Limited to Cold War dynamics; highly dependent on state-controlled trade and finance.</li>
+                    <li>**Nuclear Status:** Peaceful Nuclear Explosion (1974) asserted capability but led to sanctions.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 12: Phase 4 & 5: Economic Pivot & Nuclear Power (1991–2014) -->
+<div class="slide-container" id="slide12">
+    <h2 class="slide-title">Phase 4 & 5: Economic Pivot and Nuclear Power (1991–2014)</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Phase 4: The Economic Pivot (1991–1998)</h3>
+                <p>The collapse of the USSR and the Balance of Payments crisis forced a drastic shift toward **economic liberalization** and global market integration.</p>
+                <ul>
+                    <li>**Key Initiative:** Launch of the **"Look East Policy"** to forge economic and strategic ties with Southeast Asia.</li>
+                    <li>**New Partners:** Normalizing relations with the US and Israel.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Phase 5: Nuclear Assertion (1998–2014)</h3>
+                <p>India's overt nuclear weaponization (Pokhran II) and subsequent diplomacy confirmed its status as a major global power.</p>
+                <ul>
+                    <li>**Strategic Autonomy:** Managing sanctions while pursuing its own defense and energy interests.</li>
+                    <li>**Diplomatic Breakthrough:** Signing of the **Indo-US Civil Nuclear Agreement** (2008), ending three decades of nuclear isolation.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 13: Phase 6: Assertive Multi-Alignment (2014–Present) -->
+<div class="slide-container" id="slide13">
+    <h2 class="slide-title">Phase 6: Assertive Multi-Alignment (2014–Present)</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Proactive Diplomacy</h3>
+                <p>New doctrines: **"Neighbourhood First,"** Act East Policy (upgraded from Look East), and increased focus on the diaspora.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Global Leadership</h3>
+                <p>Active participation and leadership in the **QUAD, BRICS, and SCO**. Used the G20 Presidency (2023) to lead the Global South agenda.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                <h3>The Indo-Pacific Vision</h3>
+                <p>Positioning India as a key player in ensuring a **"free, open, and inclusive"** Indo-Pacific region, balancing Chinese assertiveness.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 14: The New World Order and India -->
+<div class="slide-container" id="slide14">
+    <h2 class="slide-title">The New World Order: Navigating Multipolarity</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Post-Cold War Transformation</h3>
+                <p>The global system shifted from bipolarity to a complex multipolar order driven by globalization and technology.</p>
+                <ul>
+                    <li>**Challenges:** Power rivalries (US-China), trade wars, and transnational threats (cyber, climate).</li>
+                    <li>**Opportunity:** Flexibility to practice **Multi-Alignment** without being tied to a single bloc.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>India’s Strategic Response</h3>
+                <p>Using its economic growth and demographic dividend to assert its place as a responsible global shaper.</p>
+                <ul>
+                    <li>**The Bridge:** Acting as a diplomatic bridge between the developed West and the developing Global South.</li>
+                    <li>**New Diplomacy:** Focusing on practical issues like climate action (ISA) and digital governance.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 15: Multi-Alignment in Practice (Case Study Table) -->
+<div class="slide-container" id="slide15">
+    <h2 class="slide-title">Case Study: Multi-Alignment in Practice</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Partner</th>
+                        <th>Engagement</th>
+                        <th>Strategic Rationale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>United States (QUAD)</strong></td>
+                        <td>Major Defence Partner, Technology transfer, Indo-Pacific stability.</td>
+                        <td>Balancing China's influence and accessing cutting-edge technology.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Russia (BRICS/SCO)</strong></td>
+                        <td>Historical defense supplier (S-400), Energy security (oil/gas), Multilateralism.</td>
+                        <td>Securing strategic defense needs and preserving autonomy from Western pressure.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>China</strong></td>
+                        <td>Significant trading partner, Global manufacturing supply chains.</td>
+                        <td>Managing economic interdependence despite geopolitical rivalry (LAC tensions).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 16: Leading the Global South -->
+<div class="slide-container" id="slide16">
+    <h2 class="slide-title">Case Study: Leading the Global South</h2>
+    <div class="content-area">
+        <div class="key-takeaways-layout">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-star"></i>
+                    <strong>G20 Presidency (2023):</strong> A major diplomatic success, focusing the global agenda on development and climate justice.
+                </li>
+                <li>
+                    <i class="fa-solid fa-hand-holding-box"></i>
+                    <strong>African Union (AU) Membership:</strong> India successfully championed the inclusion of the AU as a permanent member of the G20.
+                </li>
+                <li>
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <strong>Digital Public Infrastructure:</strong> Exporting the model of UPI, Aadhaar, and CoWIN as a template for inclusive growth.
+                </li>
+                <li>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <strong>Climate Leadership:</strong> Leading the International Solar Alliance (ISA) to mobilize affordable clean energy solutions globally.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 17: Making of Policy: Institutions, Actors, and Influence (Condensed) -->
+<div class="slide-container" id="slide17">
+    <h2 class="slide-title">Making of Policy: Institutions, Actors, and Influence</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Key Institutional Actors</h3>
+                <ul>
+                    <li><strong>PMO:</strong> Chief architect, setting the strategic vision.</li>
+                    <li><strong>MEA:</strong> Institutional backbone, executing diplomacy and negotiations.</li>
+                    <li><strong>NSC:</strong> Provides high-level strategic, defense, and intelligence advice.</li>
+                    <li><strong>Inter-Ministerial:</strong> Commerce, Finance, and Defense Ministries influence economic and security agreements.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Supporting and External Actors</h3>
+                <ul>
+                    <li>**Think Tanks:** (ORF, IDSA) Provide research and feed policy recommendations.</li>
+                    <li>**Parliament:** Ensures accountability and bipartisan consensus.</li>
+                    <li>**Public Opinion/Media:** Shapes government action on sensitive border and diaspora issues.</li>
+                    <li>**The Diaspora:** Acts as a powerful cultural, economic, and political bridge globally.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 18: Non-State Actors: Diaspora and CSOs (Condensed) -->
+<div class="slide-container" id="slide18">
+    <h2 class="slide-title">Non-State Actors: The Diaspora and Civil Society</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>The Indian Diaspora</h3>
+                <p>Over 32 million Indians abroad act as cultural and political ambassadors, generating investment and facilitating diplomatic access.</p>
+                <ul>
+                    <li><strong>Economic:</strong> Highest global remittances (>$100B).</li>
+                    <li><strong>Soft Power:</strong> Promoting Indian culture (Yoga, festivals) globally.</li>
+                    <li><strong>Political:</strong> Leaders of Indian origin in key governments (UK, US, Canada).</li>
+                </ul>
+            </div>
+            <div>
+                <h3>CSOs and Track II Diplomacy</h3>
+                <p>Civil Society Organizations (CSOs) and NGOs enhance India's soft power and humanitarian reach.</p>
+                <ul>
+                    <li>**Track II:** Informal dialogues and exchanges that build trust between nations (e.g., India-Pakistan peace groups).</li>
+                    <li>**Humanitarian Aid:** Providing disaster relief and working on global health/climate campaigns (e.g., SEWA, Pratham).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 19: Key Challenge 1: Geopolitical Hotspots -->
+<div class="slide-container" id="slide19">
+    <h2 class="slide-title">Key Challenge 1: Geopolitical Hotspots and Power Rivalry</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Regional Instability</h3>
+                <p>The complex neighborhood consumes significant diplomatic and military bandwidth, diverting focus from global ambitions.</p>
+                <ul>
+                    <li>**China:** Unresolved border disputes (LAC) and increasing military competition in the Indian Ocean.</li>
+                    <li>**Pakistan:** Persistent cross-border terrorism and security challenges (Kashmir issue).</li>
+                    <li>**Ocean Strategy:** Countering China's "String of Pearls" with regional connectivity projects (e.g., Chabahar Port).</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Balancing Major Power Relations</h3>
+                <p>India walks a strategic tightrope to maintain autonomy amidst competing global interests.</p>
+                <ul>
+                    <li>**US vs. Russia:** Balancing growing strategic partnership with the US against critical defense dependency on Russia.</li>
+                    <li>**Neutrality:** Maintaining constructive engagement on global conflicts (e.g., Ukraine) while defending national economic interests.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 20: Key Challenge 2: Global and Internal Constraints -->
+<div class="slide-container" id="slide20">
+    <h2 class="slide-title">Key Challenge 2: Global and Internal Constraints</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Global Institutional Hurdles</h3>
+                <p>India’s global influence is often limited by structural barriers in international organizations.</p>
+                <ul>
+                    <li>**UNSC Reform:** The persistent diplomatic challenge of securing a permanent seat in the UN Security Council.</li>
+                    <li>**Climate & Energy:** Balancing the need for rapid industrialization and energy security with ambitious global emission reduction commitments.</li>
+                    <li>**Cyber Security:** Addressing sophisticated cross-border cyber threats and managing digital sovereignty.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Domestic Linkages and Pressures</h3>
+                <p>Sustaining diplomatic credibility abroad requires a resilient and stable internal foundation.</p>
+                <ul>
+                    <li>**Economic Growth:** Ensuring high, inclusive GDP growth to fund diplomatic and defense capacity.</li>
+                    <li>**Technological Readiness:** Competing in emerging sectors like AI, semiconductors, and green energy.</li>
+                    <li>**Internal Harmony:** Domestic stability and social cohesion are vital for maintaining India's image as a stable democracy.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 21: India’s Future Foreign Policy Outlook -->
+<div class="slide-container" id="slide21">
+    <h2 class="slide-title">India’s Future Foreign Policy Outlook (2025 Onwards)</h2>
+    <div class="content-area">
+        <div class="key-takeaways-layout">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-earth-asia"></i>
+                    <strong>Strategic Foundation:</strong> Deepening role in the **Indo-Pacific** as a security guarantor and counter-balance.
+                </li>
+                <li>
+                    <i class="fa-solid fa-rocket"></i>
+                    <strong>Technological Diplomacy:</strong> Prioritizing partnerships to secure strategic technologies in **AI, Space, and Semiconductors.**
+                </li>
+                <li>
+                    <i class="fa-solid fa-leaf"></i>
+                    <strong>Climate Leadership:</strong> Driving initiatives like the **Global Biofuel Alliance** and promoting green hydrogen as a key foreign policy pillar.
+                </li>
+                <li>
+                    <i class="fa-solid fa-gavel"></i>
+                    <strong>Multilateralism:</strong> Continuing to push for a **more democratic and equitable global governance** system, especially at the UN and IMF.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 22: Conclusion: India’s Role in the Emerging Global Order -->
+<div class="slide-container" id="slide22">
+    <h2 class="slide-title">Conclusion: India’s Role in the Emerging Global Order</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>The Synthesis: Power Meets Principle</h3>
+                <p>India is emerging as a global influencer, uniquely positioned to blend ancient wisdom with modern strategic agility.</p>
+                <ul>
+                    <li>**Balancing Power:** Maintaining autonomy while engaging with all major competing blocs.</li>
+                    <li>**Global South Voice:** Championing fair trade, climate justice, and inclusive growth for developing nations.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>The Vision of 'Vishwa Guru'</h3>
+                <p>India projects itself not as a dominant power, but as a guide promoting harmony, development, and shared progress for the entire world.</p>
+                <ul>
+                    <li><strong>Legacy:</strong> From idealism (NAM) to confident pragmatism (Multi-Alignment).</li>
+                    <li>**Future:** Its voice is indispensable in shaping global debates on technology, trade, and sustainability.</li>
+                </ul>
+                <p style="text-align: center; margin-top: 30px; font-size: 24px; font-weight: bold; color: #D9534F;">Thank you.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

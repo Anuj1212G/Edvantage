@@ -11,6 +11,8 @@ import Elearning from "./pages/Elearning";
 import BookDemo from "./pages/BookDemo";
 import BlogsPage from "./pages/BlogsPage";
 import BlogPage from "./pages/BlogPage";
+import RequestInfo from "./pages/RequestInfo"; // or RequestInfoMailto.jsx if you named it that
+
 
 // ✅ LMS Pages
 import CourseDetail from "./pages/CourseDetail";
@@ -33,13 +35,11 @@ import ScrollToTop from "./components/ScrollToTop"; // 👈 Added this line
 function AppRoutes() {
   return (
     <Router>
-      {/* 👇 Add this to ensure page always scrolls to top on navigation */}
       <ScrollToTop />
 
       <Routes>
-        {/* 🌐 Unified Layout Routes */}
         <Route element={<Layout />}>
-          {/* Website Routes */}
+
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/programs" element={<TrainingPrograms />} />
@@ -50,12 +50,15 @@ function AppRoutes() {
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
 
-          {/* E-Learning/LMS Routes */}
+          {/* ⭐ NEW ROUTE ADDED */}
+          <Route path="/request-info" element={<RequestInfo />} />
+
+          {/* LMS */}
           <Route path="/courses" element={<Elearning />} />
           <Route path="/courses/:courseId" element={<CourseDetail />} />
           <Route path="/checkout/:courseId" element={<Checkout />} />
 
-          {/* Protected LMS Routes */}
+          {/* Protected */}
           <Route element={<ProtectedRoute />}>
             <Route path="/my-learning" element={<MyLearning />} />
             <Route path="/profile" element={<Profile />} />
@@ -63,15 +66,15 @@ function AppRoutes() {
           </Route>
         </Route>
 
-        {/* 🔑 Auth Routes (no layout) */}
+        {/* Auth */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
-        {/* 404 Fallback */}
         <Route path="*" element={<h2>404 Page Not Found</h2>} />
       </Routes>
     </Router>
   );
 }
+
 
 export default AppRoutes;
