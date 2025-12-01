@@ -575,7 +575,7 @@ const TestimonialsSection = () => {
                   </p>
                   <img
                     src={t.logo}
-                    className="h-8 mx-auto object-contain opacity-80"
+                    className="h-12 md:h-14 mx-auto object-contain opacity-90"
                     alt={t.company}
                   />
                 </div>
