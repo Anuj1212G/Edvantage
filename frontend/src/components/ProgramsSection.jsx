@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+
 /* ------------------------------------
-   📘 Programs Data
+   📘 Programs Data (Durations Converted to Hours)
 ------------------------------------ */
 const programs = {
   upcoming: [
@@ -18,56 +19,56 @@ const programs = {
       id: 10,
       title:
         "Petroleum Geomechanics & CCUS: From Subsurface Principles to Field-Scale Applications",
-      duration: "5 Days · Online",
+      duration: "40 Hours · Online",
       tag: "Upcoming",
       image: "/images/Petroleum Geomechanics & CCUS.png",
     },
     {
       id: 11,
       title: "Machine Learning with Time Series Applications for Energy Industry",
-      duration: "4 Weeks · Online",
+      duration: "40 Hours · Online",
       tag: "Upcoming",
       image: "/images/Machine Learning with Time Series Applications for Energy Industry.webp",
     },
     {
       id: 12,
       title: "Diploma for HSE in Oil & Gas",
-      duration: "6 Months · Online",
+      duration: "60 Hours · Online",
       tag: "Upcoming",
       image: "/images/Diploma for HSE in Oil & Gas.avif",
     },
     {
       id: 13,
       title: "Diploma in ESG, Carbon Trading and Sustainable Finance",
-      duration: "6 Months · Online",
+      duration: "60 Hours · Online",
       tag: "Upcoming",
       image: "/images/ESG, Carbon Trading and Sustainable Finance.webp",
     },
     {
       id: 14,
       title: "Advanced Drilling Operations & Risk Mitigation",
-      duration: "5 Days · Online",
+      duration: "40 Hours · Online",
       tag: "Upcoming",
       image: "/images/Advanced Drilling Operations & Risk Mitigation.webp",
     },
     {
       id: 15,
       title: "Oil & Gas Forecasting & Predictions Using Python",
-      duration: "4 Weeks · Online",
+      duration: "40 Hours · Online",
       tag: "Upcoming",
       image: "/images/Oil & Gas Forecasting & Predictions Using Python.jpg",
     },
     {
       id: 16,
       title: "Power BI Analytics For Drilling Engineer",
-      duration: "3 Weeks · Online",
+      duration: "40 Hours · Online",
       tag: "Upcoming",
       image: "/images/Power BI Analytics For Drilling Engineer.jpg",
     },
     {
       id: 17,
       title: "AI Powered Excel Automation for Oil & Gas",
-      duration: "2 Weeks · Online",
+      duration: "20 Hours · Online",
       tag: "Upcoming",
       image: "/images/AI Powered Excel Automation for  Oil & Gas.webp",
     },
@@ -75,7 +76,7 @@ const programs = {
       id: 18,
       title:
         "Big Data Analytics & Machine Learning for Smarter Production Facilities Operations",
-      duration: "5 Days · Online",
+      duration: "40 Hours · Online",
       tag: "Upcoming",
       image:
         "/images/Big Data Analytics & Machine Learning for Smarter Production Facilities Operations.jpg",
@@ -83,7 +84,7 @@ const programs = {
     {
       id: 19,
       title: "Production and Nodal Analysis with Python & ML",
-      duration: "4 Weeks · Online",
+      duration: "40 Hours · Online",
       tag: "Upcoming",
       image: "/images/Production and Nodal Analysis with Python & ML.webp",
     },
@@ -93,21 +94,21 @@ const programs = {
     {
       id: 6,
       title: "Diploma in Petroleum Project Management & Field Development Economics",
-      duration: "12 Months · Online",
+      duration: "60+ Hours · Online",
       tag: "Diploma",
       image: "/images/Diploma in Petroleum Project Management & Field Development Economics.jpg",
     },
     {
       id: 7,
       title: "Diploma in Well Engineering & Completion Engineering",
-      duration: "12 Months · Online",
+      duration: "60 Hours · Online",
       tag: "Diploma",
       image: "/images/Diploma in Well Engineering & Completion Engineering.jpg",
     },
     {
       id: 8,
       title: "Diploma for Machine Learning in Oil & Gas",
-      duration: "9 Months · Online",
+      duration: "40 Hours · Online",
       tag: "Diploma",
       image: "/images/Diploma for Machine Learning in Oil & Gas.webp",
     },
@@ -115,7 +116,7 @@ const programs = {
       id: 9,
       title:
         "Diploma in Integrated Oil & Gas Analytics Using Big Data: A full well Lifecycle Approach",
-      duration: "12 Months · Online",
+      duration: "80 Hours · Online",
       tag: "Diploma",
       image:
         "/images/Diploma in Integrated Oil & Gas Analytics Using Big Data A full well Lifecycle Approach.jpg",
@@ -126,7 +127,7 @@ const programs = {
     {
       id: 3,
       title: "Artificial Lift Modeling, Reservoir Deliverability & Well performance",
-      duration: "6 Months · Online",
+      duration: "40 Hours · Online",
       tag: "E-learning",
       image:
         "https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -134,7 +135,7 @@ const programs = {
     {
       id: 20,
       title: "Reservoir Engineering, Modeling & Flow Simulation",
-      duration: "6 Months · Online",
+      duration: "60 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Reservoir Engineering, Modeling & flow Simulation.webp",
@@ -143,7 +144,7 @@ const programs = {
       id: 21,
       title:
         "Power BI Essentials for Oil & Gas: Optimizing Drilling, Production, and Reservoir Management",
-      duration: "6 Months · Online",
+      duration: "40 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Power BI Essentials for Oil & Gas.png",
@@ -151,7 +152,7 @@ const programs = {
     {
       id: 22,
       title: "Geomechanics and its Application in Drilling & Completion",
-      duration: "4 Months · Online",
+      duration: "40 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Geomechanics and its application in Drilling & Completion.webp",
@@ -160,7 +161,7 @@ const programs = {
       id: 23,
       title:
         "Integrated Insights: SQL, Power BI, and Tableau for Oil & Gas Analytics",
-      duration: "4 Months · Online",
+      duration: "40 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Integrated Insights SL power BI and Tableau for Oil & Gas analytics.jpg",
@@ -168,7 +169,7 @@ const programs = {
     {
       id: 24,
       title: "Well Test Analysis & Reservoir Modeling Using MS Excel",
-      duration: "4 Months · Online",
+      duration: "10+ Hours · Online",
       tag: "E-learning",
       image:
         "/images/Well Test Analysis & Reservoir Modeling Using MS Excel.jpeg",
@@ -176,7 +177,7 @@ const programs = {
     {
       id: 25,
       title: "Machine Learning & Python Applications for Petrophysics",
-      duration: "4 Months · Online",
+      duration: "50 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Machine Learning & Python Applications for Petrophysics.jpg",
@@ -185,7 +186,7 @@ const programs = {
       id: 26,
       title:
         "Mastering Machine Learning for Enhanced Production and Reservoir Forecasting Analytics",
-      duration: "4 Months · Online",
+      duration: "20 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Mastering Machine Learning for Enhanced Production and Reservoir Forecasting Analytics.jpg",
@@ -193,7 +194,7 @@ const programs = {
     {
       id: 27,
       title: "Petroleum Field Development Planning from Concept to Execution",
-      duration: "4 Months · Online",
+      duration: "40 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Petroleum Field Development Planning from Concept to Execution.jpg",
@@ -202,7 +203,7 @@ const programs = {
       id: 28,
       title:
         "Production Forecasting & Well Performance Optimization with Python & Machine Learning",
-      duration: "4 Months · Online",
+      duration: "40 Hours · Online",
       tag: "E-learning",
       image:
         "/images/Production Forecasting & Well Performance Optimization with Python & Machine Learning.png",
@@ -210,7 +211,7 @@ const programs = {
     {
       id: 29,
       title: "Advanced Python for Reservoir, Production and Petrophysics",
-      duration: "4 Months · Online",
+      duration: "16+ Hours · Online",
       tag: "E-learning",
       image:
         "/images/Advanced Python for Reservoir, Production and Petrophysics.jpeg",
@@ -221,7 +222,7 @@ const programs = {
     {
       id: 5,
       title: "Placement Booster Program",
-      duration: "3 Months · Online",
+      duration: "60 Hours · Online",
       tag: "Placement Booster Program",
       image:
         "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -249,12 +250,12 @@ const ProgramCard = ({ program }) => (
         </span>
       )}
 
-   <Link
-  to="/programs"
-  className="text-blue-600 font-semibold flex items-center hover:underline mt-2"
->
-  View Program <ChevronRight className="w-4 h-4 ml-1" />
-</Link>
+      <Link
+        to="/programs"
+        className="text-blue-600 font-semibold flex items-center hover:underline mt-2"
+      >
+        View Program <ChevronRight className="w-4 h-4 ml-1" />
+      </Link>
     </div>
   </div>
 );
