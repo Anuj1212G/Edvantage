@@ -48,7 +48,7 @@ const successStories = [
         name: 'Navan Kumar Sahu',
         position: 'Intern at Rezlytix',
         quote: "I am happy to share that I have been selected for an internship with RezLytix, and this was possible because of the course that I have undergone with EDvantage India. A big thumbs up from my side!",
-        image: '/images/Suss7.png',
+        image: '/images/Suss4.png',
     },
     {
         id: '8',

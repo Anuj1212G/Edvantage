@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// ✅ Pages
+// Website Pages
 import Home from "./pages/Home"; 
 import AboutUs from "./pages/AboutUs";
 import StatsSection from "./components/StatsSection";
@@ -11,35 +11,32 @@ import Elearning from "./pages/Elearning";
 import BookDemo from "./pages/BookDemo";
 import BlogsPage from "./pages/BlogsPage";
 import BlogPage from "./pages/BlogPage";
-
-// ✅ LMS Pages
-import CourseDetail from "./pages/CourseDetail";
+import CourseDetails from "./pages/CourseDetails.jsx";   // ✅ FIXED
+import RequestInfo from "./pages/RequestInfo.jsx";
+// LMS Pages
+import CourseDetail from "./pages/CourseDetail.jsx";      // ✅ LMS Page
 import Checkout from "./pages/Checkout";
 import MyLearning from "./pages/MyLearning";
 import Profile from "./pages/Profile";
 import CoursePlayer from "./pages/CoursePlayer";
 
-// ✅ Auth Pages
+// Auth Pages
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 
-// ✅ Layouts
+// Layout & Utils
 import Layout from "./layouts/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
-
-// ✅ Utility
-import ScrollToTop from "./components/ScrollToTop"; // 👈 Added this line
+import ScrollToTop from "./components/ScrollToTop";
 
 function AppRoutes() {
   return (
     <Router>
-      {/* 👇 Add this to ensure page always scrolls to top on navigation */}
       <ScrollToTop />
 
       <Routes>
-        {/* 🌐 Unified Layout Routes */}
         <Route element={<Layout />}>
-          {/* Website Routes */}
+
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/programs" element={<TrainingPrograms />} />
@@ -50,12 +47,14 @@ function AppRoutes() {
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
 
-          {/* E-Learning/LMS Routes */}
+          {/* Training Program Detail Page */}
+          <Route path="/course/:id" element={<CourseDetails />} />   {/* ✅ FIXED */}
+          <Route path="/request-info" element={<RequestInfo />} />
+          {/* LMS Routes */}
           <Route path="/courses" element={<Elearning />} />
           <Route path="/courses/:courseId" element={<CourseDetail />} />
           <Route path="/checkout/:courseId" element={<Checkout />} />
 
-          {/* Protected LMS Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/my-learning" element={<MyLearning />} />
             <Route path="/profile" element={<Profile />} />
@@ -63,15 +62,16 @@ function AppRoutes() {
           </Route>
         </Route>
 
-        {/* 🔑 Auth Routes (no layout) */}
+        {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
-        {/* 404 Fallback */}
+        {/* 404 Page */}
         <Route path="*" element={<h2>404 Page Not Found</h2>} />
       </Routes>
     </Router>
   );
 }
+
 
 export default AppRoutes;
