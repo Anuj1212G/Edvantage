@@ -1,37 +1,33 @@
 import RequestInfo from "../models/RequestInfo.js";
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
-});
+import { resend } from "../utils/email.js";
 
 export const submitRequestInfo = async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
 
+    // save to DB
     const entry = new RequestInfo({ name, email, phone, message });
     await entry.save();
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+    // send email using resend
+    await resend.emails.send({
+      from: "Edvantage <no-reply@edvantage.org.in>",
       to: process.env.EMAIL_USER,
       subject: `New Request Info – ${name}`,
       html: `
         <h3>New Request Info Submission</h3>
-        <p>Name: ${name}</p>
-        <p>Email: ${email}</p>
-        <p>Phone: ${phone}</p>
-        <p>Message: ${message}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
       `
     });
 
-    res.json({ success: true, message: "Request received!" });
+    return res.json({ success: true, message: "Request received!" });
+
   } catch (err) {
     console.error("Request info error:", err);
-    res.status(500).json({ success: false, message: "Error submitting form" });
+    return res.status(500).json({ success: false, message: "Error submitting form" });
   }
 };
