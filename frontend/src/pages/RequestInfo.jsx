@@ -47,26 +47,34 @@ export default function RequestInfo() {
   if (!validate()) return;
 
   setSending(true);
-  setInfo('Sending...');
+  setInfo("Sending...");
 
   try {
-    const res = await fetch('https://edvantage-pryf.onrender.com/api/request-info/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
+    const res = await fetch(
+      "https://edvantage-pryf.onrender.com/api/request-info/submit",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+        signal: controller.signal
+      }
+    );
+
+    clearTimeout(timeout);
 
     const data = await res.json();
 
     if (res.ok && data.success) {
-      setInfo('Your request has been sent successfully!');
-      setForm({ name: '', phone: '', email: '', message: '' });
-      setErrors({});
+      setInfo("Your request has been sent successfully!");
+      setForm({ name: "", phone: "", email: "", message: "" });
     } else {
-      setInfo(data.message || 'Failed to send. Please try again.');
+      setInfo(data.message || "Failed to send. Please try again.");
     }
   } catch (err) {
-    setInfo('Network error! Please try again later.');
+    setInfo("Server not responding. Please try again.");
   }
 
   setSending(false);
