@@ -7,14 +7,7 @@ import { Link } from "react-router-dom";
 ------------------------------------ */
 const programs = {
   upcoming: [
-    {
-      id: 1,
-      title: "Webinar on Oil & Gas Trends",
-      duration: "2 Hours · Online",
-      tag: "Webinar",
-      image:
-        "https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
+  
     {
       id: 10,
       title:
@@ -245,9 +238,10 @@ const ProgramCard = ({ program }) => (
       <p className="text-gray-600 text-sm mb-2">{program.duration}</p>
 
       {program.tag && (
-        <span className="text-blue-600 text-xs font-semibold mb-2 inline-block">
-          {program.tag}
-        </span>
+    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-base font-semibold rounded-full mb-2 inline-block">
+  {program.tag}
+</span>
+
       )}
 
       <Link

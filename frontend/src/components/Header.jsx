@@ -68,6 +68,12 @@ const WebsiteLinks = () => {
           >
             {/* these now include a category query param */}
             <Link
+  to="/programs?category=all"
+  className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
+>
+  All Programs
+</Link>
+            <Link
               to="/programs?category=self-paced"
               className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
             >
@@ -79,6 +85,13 @@ const WebsiteLinks = () => {
             >
               Diploma
             </Link>
+            
+<Link
+  to="/programs?category=upcoming"
+  className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
+>
+  Uplcoming Programs 
+</Link>
             <Link
               to="/webinars"
               className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"

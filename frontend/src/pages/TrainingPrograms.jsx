@@ -1,78 +1,56 @@
 // src/pages/TrainingPrograms.jsx
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-
-import {
-  Clock,
-  Users,
-  Award,
-  BookOpen,
-  Star,
-} from "lucide-react";
+import { Clock, Users, Award, BookOpen } from "lucide-react";
 
 import AuthModal from "./AuthModal.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
-/* ------------------------------------------------------------------
-   ALL PROGRAM ARRAYS (Your FULL data)
------------------------------------------------------------------- */
 import DEFAULT_PROGRAMS from "../data/programs_part1.js";
 import PROGRAMS_PART_2 from "../data/programs_part2.js";
 
-/* ------------------------------------------------------------------
-   MAIN COMPONENT
------------------------------------------------------------------- */
 const TrainingPrograms = ({ programs }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
 
   const [selectedCategory, setSelectedCategory] = useState("all");
-
   const [authOpen, setAuthOpen] = useState(false);
   const [redirectTo, setRedirectTo] = useState(null);
   const [programToPay, setProgramToPay] = useState(null);
 
-  // 🔥 Combine all programs
+  /* COMBINE ALL PROGRAMS */
   const allPrograms = useMemo(() => {
-    const combined = [...DEFAULT_PROGRAMS, ...PROGRAMS_PART_2];
-    return programs?.length ? programs : combined;
+    return programs?.length ? programs : [...DEFAULT_PROGRAMS, ...PROGRAMS_PART_2];
   }, [programs]);
 
-  /* ------------------------------------------------------------------
-     CATEGORY FILTER → ONLY 3 categories (Option B)
-  ------------------------------------------------------------------ */
-  const categories = [
-    { id: "all", name: "All Programs" },
-    { id: "self-paced", name: "Self-Paced Courses" },
-    { id: "diploma", name: "Diploma Programs" },
-  ];
-
-  // When URL ?category= changes → update filter
+  /* SYNC CATEGORY FROM URL */
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const cat = params.get("category");
-    if (cat && ["all", "self-paced", "diploma"].includes(cat)) {
-      setSelectedCategory(cat);
-    }
+    if (cat) setSelectedCategory(cat);
   }, [location.search]);
 
-  // Filter programs
-  const filteredPrograms =
-    selectedCategory === "all"
-      ? allPrograms
-      : allPrograms.filter((p) => p.category === selectedCategory);
+  /* PROGRAM FILTERING */
+  const filteredPrograms = useMemo(() => {
+    if (selectedCategory === "all") return allPrograms;
+    if (selectedCategory === "upcoming") return allPrograms.filter((p) => p.upcoming === true);
+    return allPrograms.filter((p) => p.category === selectedCategory);
+  }, [selectedCategory, allPrograms]);
 
-  /* ------------------------------------------------------------------
-     HANDLERS
-  ------------------------------------------------------------------ */
+  /* FUNCTIONS */
   const handleSetCategory = (cat) => {
     setSelectedCategory(cat);
     navigate(`?category=${cat}`);
   };
 
-  const handlePayClick = (program, method) => {
-    const link = program.payment?.[method];
+  const handleViewDetails = (program) => {
+    navigate(`/course/${program.id}`);
+    window.scrollTo(0, 0);
+  };
+
+  const handlePayClick = (program) => {
+    const link = program.payment?.stripe;
     if (!link) return alert("Payment link not configured.");
 
     setRedirectTo(link);
@@ -86,14 +64,6 @@ const TrainingPrograms = ({ programs }) => {
     setAuthOpen(true);
   };
 
-  const handleViewDetails = (program) => {
-    navigate(`/course/${program.id}`);
-    window.scrollTo(0, 0);
-  };
-
-  /* ------------------------------------------------------------------
-     UI RENDER
-  ------------------------------------------------------------------ */
   return (
     <div className="min-h-screen bg-gray-50">
 
@@ -107,10 +77,56 @@ const TrainingPrograms = ({ programs }) => {
         </div>
       </section>
 
-      {/* CATEGORY FILTER */}
+      {/* CATEGORY SECTION */}
       <section className="py-10">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
-          {categories.map((c) => (
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-3 relative">
+
+          {/* ALL PROGRAMS DROPDOWN */}
+          <div className="relative group">
+            <button
+              onClick={() => handleSetCategory("all")}
+              className={`px-6 py-3 rounded-full font-semibold transition-all ${
+                selectedCategory === "all"
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-gray-700 hover:bg-blue-50"
+              }`}
+            >
+              All Programs
+            </button>
+
+            {/* DROPDOWN MENU */}
+            <div
+              className="
+              absolute left-0 mt-2 w-64 bg-white text-gray-800 border border-gray-200 
+              rounded-xl shadow-lg py-2 opacity-0 invisible
+              group-hover:opacity-100 group-hover:visible transform -translate-y-2
+              group-hover:translate-y-0 transition-all duration-200 ease-out z-50
+            "
+            >
+              {[
+                { id: "digital-oil-gas", name: "Digital Oil & Gas" },
+                { id: "reservoir-engineering", name: "Reservoir Engineering" },
+                { id: "petroleum-economics", name: "Petroleum Economics" },
+                { id: "drilling-completion", name: "Drilling & Well Completion" },
+                { id: "production-engineering", name: "Production Engineering" },
+              ].map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => handleSetCategory(cat.id)}
+                  className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600 transition"
+                >
+                  {cat.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* OTHER CATEGORY BUTTONS */}
+          {[
+            { id: "upcoming", name: "Upcoming Programs" },
+            { id: "self-paced", name: "Self-Paced Courses" },
+            { id: "diploma", name: "Diploma Programs" },
+          ].map((c) => (
             <button
               key={c.id}
               onClick={() => handleSetCategory(c.id)}
@@ -130,94 +146,87 @@ const TrainingPrograms = ({ programs }) => {
       <section className="pb-20 max-w-7xl mx-auto px-4 space-y-12">
 
         {filteredPrograms.map((program) => (
-          <div
-            key={program.id}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition"
-          >
-            <div className="grid lg:grid-cols-3">
+          <div key={program.id} className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition overflow-hidden">
 
-              {/* IMAGE */}
-              <div className="relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+
+              {/* IMAGE SECTION — FULL HEIGHT PERFECT FIT */}
+              <div className="relative w-full h-full lg:h-auto">
                 <img
-                  src={program.image || "/images/course-placeholder.jpg"}
+                  src={program.image}
                   alt={program.title}
-                  className="w-full h-64 lg:h-full object-cover"
+                  className="
+                    w-full 
+                    h-full 
+                    object-cover 
+                    lg:rounded-l-3xl 
+                    rounded-t-3xl
+                  "
                 />
-
-                <span className="absolute top-4 right-4 bg-teal-600 text-white px-3 py-1 rounded-full text-sm">
-                  {(program.category || "").replace("-", " ").toUpperCase()}
-                </span>
-
-                {program.featured && (
-                  <span className="absolute top-4 left-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm flex items-center">
-                    <Star className="h-4 w-4 mr-1" /> Featured
-                  </span>
-                )}
               </div>
 
-              {/* CONTENT */}
-              <div className="p-8 flex flex-col lg:col-span-2">
-                <h2 className="text-3xl font-bold text-gray-900">{program.title}</h2>
-                <p className="text-gray-600 mt-3 mb-6">{program.overview}</p>
+              {/* RIGHT CONTENT */}
+              <div className="p-10 flex flex-col">
 
-                {/* PROGRAM STATS */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <span className="bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full font-semibold text-sm">
+                  {program.category?.replace("-", " ").toUpperCase()}
+                </span>
+
+                <h2 className="text-4xl font-bold text-gray-900 mt-4">{program.title}</h2>
+
+                <p className="text-gray-600 mt-3 mb-6 text-lg leading-relaxed">
+                  {program.overview}
+                </p>
+
+                {/* INFO GRID */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10">
                   <Info icon={Clock} label="Duration" value={program.duration} />
                   <Info icon={BookOpen} label="Format" value={program.format} />
                   <Info icon={Award} label="Level" value={program.level} />
                   <Info icon={Users} label="Certificate" value={program.certificate} />
                 </div>
 
-                {/* LEARNING OUTCOMES */}
-                <h3 className="text-lg font-semibold mb-2">Key Learning Outcomes</h3>
-                <ul className="grid md:grid-cols-2 gap-2 mb-6">
+                {/* OUTCOMES */}
+                <h3 className="text-xl font-semibold mb-3">Key Learning Outcomes</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
                   {program.outcomes?.map((o, i) => (
-                    <li key={i} className="flex gap-2 text-sm">
+                    <li key={i} className="flex gap-3 text-gray-700">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mt-2" />
                       {o}
                     </li>
                   ))}
                 </ul>
 
-                {/* TARGET AUDIENCE */}
-                <h3 className="text-lg font-semibold mt-6 mb-3">Who Should Enroll</h3>
-                <div className="flex flex-wrap gap-2 mb-6">
+                {/* AUDIENCE */}
+                <h3 className="text-xl font-semibold mb-3">Who Should Enroll</h3>
+                <div className="flex flex-wrap gap-3 mb-10">
                   {program.targetAudience?.map((a, i) => (
-                    <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    <span key={i} className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
                       {a}
                     </span>
                   ))}
                 </div>
 
-                {/* FOOTER → PRICE + BUTTONS */}
-                <div className="flex flex-col sm:flex-row justify-between items-center border-t pt-6 mt-auto gap-4">
+                {/* PRICE + BUTTONS */}
+                <div className="flex flex-col sm:flex-row justify-between items-center border-t pt-6 mt-auto gap-6">
                   <div>
-                    <div className="text-3xl font-bold text-teal-600">
-                      {program.price}
-                    </div>
-                    <p className="text-sm text-gray-500">One-time payment</p>
+                    <div className="text-4xl font-bold text-teal-600">{program.price}</div>
+                    <p className="text-gray-500 text-sm">One-time payment</p>
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-4">
                     <button
                       onClick={() => handleViewDetails(program)}
-                      className="border px-4 py-2 rounded-lg hover:bg-gray-100 font-semibold"
+                      className="px-6 py-3 min-w-[150px] border rounded-xl font-semibold hover:bg-gray-100 text-center"
                     >
                       View Details
                     </button>
 
                     <button
-                      onClick={() => handlePayClick(program, "stripe")}
-                      className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700"
+                      onClick={() => handlePayClick(program)}
+                      className="px-6 py-3 min-w-[150px] bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 text-center"
                     >
-                      Pay with Stripe
-                    </button>
-
-                    <button
-                      onClick={() => handlePayClick(program, "razorpay")}
-                      className="bg-white border px-4 py-2 rounded-lg font-semibold hover:bg-gray-50"
-                    >
-                      Pay with Razorpay
+                      Enroll Now
                     </button>
                   </div>
                 </div>
@@ -241,7 +250,7 @@ const TrainingPrograms = ({ programs }) => {
 
 export default TrainingPrograms;
 
-/* Small info card component */
+/* INFO ITEM COMPONENT */
 const Info = ({ icon: Icon, label, value }) => (
   <div className="flex items-center gap-2">
     <Icon className="h-5 w-5 text-blue-600" />
