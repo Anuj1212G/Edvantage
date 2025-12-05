@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Mail,
   Phone,
@@ -12,6 +12,42 @@ import {
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+
+  // ------------------------------
+  // ADDED ONLY FOR SUBSCRIBE LOGIC
+  // ------------------------------
+  const [subscriberEmail, setSubscriberEmail] = useState("");
+  const [subMsg, setSubMsg] = useState("");
+
+  const handleSubscribe = async () => {
+    if (!subscriberEmail.trim()) {
+      setSubMsg("Please enter a valid email.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5000/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: subscriberEmail }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setSubMsg("Subscribed successfully!");
+        setSubscriberEmail("");
+      } else {
+        setSubMsg(data.message || "Subscription failed. Try again.");
+      }
+    } catch (err) {
+      setSubMsg("Network error. Try again.");
+    }
+  };
+
+  // ------------------------------
+
+
   const contactDetails = {
     address: 'Edvantage Learning Solution, Delhi, INDIA',
     phone: '+91 6200261265',
@@ -35,16 +71,31 @@ const Footer = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+
+              {/* EMAIL INPUT (unchanged visually) */}
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={subscriberEmail}
+                onChange={(e) => setSubscriberEmail(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-gray-900"
               />
-              <button className="bg-teal-500 hover:bg-teal-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 transform hover:-translate-y-0.5">
+
+              {/* SUBSCRIBE BUTTON */}
+              <button
+                onClick={handleSubscribe}
+                className="bg-teal-500 hover:bg-teal-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 transform hover:-translate-y-0.5"
+              >
                 <Send className="h-4 w-4" />
                 <span>Subscribe</span>
               </button>
             </div>
+
+            {subMsg && (
+              <p className="text-center text-sm text-white mt-2">
+                {subMsg}
+              </p>
+            )}
 
           </div>
         </div>
@@ -67,7 +118,7 @@ const Footer = () => {
               Empowering oil & gas professionals with world-class training, consultancy, and industry connections for career advancement.
             </p>
 
-            {/* Social Icons - external links (remain as <a>) */}
+            {/* Social Icons */}
             <div className="flex space-x-4">
               <a href="http://linkedin.com/company/edvantagelearning" target="_blank" rel="noopener noreferrer"
                 className="p-2 bg-[#0A66C2] hover:bg-[#004182] rounded-lg transition-all duration-300 hover:-translate-y-1">
@@ -156,6 +207,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
         </div>
 
         {/* Stats Section */}

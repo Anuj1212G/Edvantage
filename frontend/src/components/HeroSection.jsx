@@ -80,8 +80,9 @@ export default function HeroSection() {
 
   // Secondary button (Request Info)
   const handleRequestInfo = () => {
-    window.location.href = "/request-info";
+    navigate("/request-info");
   };
+
 
   return (
     <section className="relative py-16 px-8 md:px-16 lg:px-24">
@@ -134,9 +135,8 @@ export default function HeroSection() {
                 key={i}
                 onClick={() => setSlideIndex(i)}
                 aria-label={`Go to slide ${i + 1}`}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  i === slideIndex ? "bg-indigo-600 scale-110" : "bg-gray-300"
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${i === slideIndex ? "bg-indigo-600 scale-110" : "bg-gray-300"
+                  }`}
               />
             ))}
           </div>

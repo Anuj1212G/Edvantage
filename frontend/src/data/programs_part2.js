@@ -326,7 +326,7 @@ const PROGRAMS_PART_2 = [
     id: "20",
     title: "Well Completion Training",
     brochure: "https://your-brochure-link.com/file.pdf",
-    category: "instructor-led",
+    category: "self-paced",
     duration: "20+ Hours",
     format: "Live Online",
     level: "Beginner to Intermediate",

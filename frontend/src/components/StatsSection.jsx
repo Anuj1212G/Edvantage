@@ -385,14 +385,70 @@ const CombinedPartnersSection = () => {
     { name: "TechWysh", src: "/images/techwysh.png" },
   ];
 
-  const experts = [
-    { name: "Yogashri Pradhan", designation: "Chief Growth Officer | POX Ai", img: "/images/Yogashri.png" },
-    { name: "Vinod Kumar Madem", designation: "Reservoir Engineering Expert", img: "/images/Vinod.png" },
-    { name: "Yohanes Nuwara", designation: "Software Engineer at Whitson", img: "/images/Yohanes.png" },
-    { name: "Mr. SivaKumar Babu", designation: "45+ years of E&P Experience", img: "/images/SivaKumar.png" },
-    { name: "Sanjay Joshi", designation: "Drilling & Well Engineering Expert", img: "/images/Sanjay.png" },
-    { name: "Samir Kale", designation: "Well Completion & Intervention Expert", img: "/images/SamirKale.png" },
-  ];
+ const experts = [
+  {
+    name: "Yogashri Pradhan",
+    designation: "Chief Growth Officer | POX Ai",
+    experience: "10+ years in Production, Completions & Reservoir Engineering",
+    points: [
+      "Optimizing unconventional reservoirs using data-driven insights",
+      "Technical leadership across Permian Basin assets"
+    ],
+    img: "/images/Yogashri.png",
+  },
+  {
+    name: "Vinod Kumar Madem",
+    designation: "Reservoir Engineering Expert",
+    experience: "MTech – IIT(ISM) Dhanbad",
+    points: [
+      "Specializes in modelling, simulation & surveillance",
+      "Expertise in CCUS and hydrogen storage projects"
+    ],
+    img: "/images/Vinod.png",
+  },
+  {
+    name: "Yohanes Nuwara",
+    designation: "Software Engineer at Whitson",
+    experience: "5+ years in Data Science, CV & LLMs",
+    points: [
+      "AI/ML solutions for subsurface engineering",
+      "Experience across oil & gas, pulp & paper and tech"
+    ],
+    img: "/images/Yohanes.png",
+  },
+  {
+    name: "Mr. SivaKumar Babu",
+    designation: "Petroleum Engineer | Digital Transformation Leader",
+    experience: "32+ years in Global E&P (ONGC, BAPCO, PETRONAS)",
+    points: [
+      "Expert in production technology & reservoir surveillance",
+      "Led digital transformation in major global energy companies"
+    ],
+    img: "/images/SivaKumar.png",
+  },
+  {
+    name: "Sanjay Joshi",
+    designation: "Drilling & Well Engineering Expert",
+    experience: "30+ years Industry Experience",
+    points: [
+      "Trained 200+ global organizations on drilling & safety",
+      "Strong expertise in HSE and operational compliance"
+    ],
+    img: "/images/Sanjay.png",
+  },
+  {
+    name: "Samir Kale",
+    designation: "Completion and Well Intervention Expert",
+    experience: "30+ years in Well Intervention & Stimulation",
+    points: [
+      "Lift optimization & cost-efficient intervention planning",
+      "HSSE leadership + strong project/contract management"
+    ],
+    img: "/images/SamirKale.png",
+  },
+];
+
+
 
   const topRowLogos = corporateLogos.slice(0, corporateLogos.length / 2);
   const bottomRowLogos = corporateLogos.slice(corporateLogos.length / 2);
@@ -401,41 +457,52 @@ const CombinedPartnersSection = () => {
   <div className="bg-white font-sans">
 
     {/* === Learn From Industry Experts === */}
-    <section className="bg-gray-50 py-8 sm:py-10">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        
-        <h2 className="text-5xl sm:text-6xl font-semibold text-black mb-6">
-          Learn From Industry Experts
-        </h2>
+{/* === Learn From Industry Experts === */}
+      <section className="bg-gray-50 py-10">
+        <div className="max-w-7xl mx-auto px-4 text-center">
 
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed mt-2">
-          Every session is guided by mentors who turn knowledge into actionable success.
-        </p>
+          <h2 className="text-5xl font-semibold text-black mb-6">
+            Learn From Industry Experts
+          </h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Every session is guided by mentors who turn knowledge into actionable success.
+          </p>
 
-        <div className="relative overflow-hidden mt-8">
-          <div className="flex w-max animate-scroll-left space-x-6 pb-4">
-            {[...experts, ...experts].map((expert, i) => (
-              <div
-                key={i}
-                className="bg-white shadow-md rounded-xl p-4 w-52 flex-shrink-0 
-                border border-gray-200 hover:shadow-lg transition 
-                h-[330px] flex flex-col"
-              >
-                <img
-                  src={expert.img}
-                  alt={expert.name}
-                  className="w-full h-56 object-cover rounded-lg mb-3"
-                />
+          <div className="relative overflow-hidden mt-10">
+            <div className="flex w-max animate-scroll-left space-x-6 pb-4">
 
-                <p className="font-semibold text-black text-base text-center line-clamp-1">
-                  {expert.name}
-                </p>
+              {[...experts, ...experts].map((expert, i) => (
+                <div
+                  key={i}
+                  className="bg-white shadow-md rounded-xl p-4 w-64 flex-shrink-0 
+                  border border-gray-200 hover:shadow-xl transition h-[380px] flex flex-col"
+                >
+                  <img
+                    src={expert.img}
+                    alt={expert.name}
+                    className="w-full h-44 object-cover rounded-lg mb-3"
+                  />
 
-                <p className="text-gray-600 text-sm text-center mt-1 line-clamp-1">
-                  {expert.designation}
-                </p>
-              </div>
-            ))}
+                  <p className="font-semibold text-black text-lg text-center">
+                    {expert.name}
+                  </p>
+                  <p className="text-gray-600 text-sm text-center line-clamp-1">
+                    {expert.designation}
+                  </p>
+
+                  <p className="text-gray-500 text-sm text-center mt-1 line-clamp-1">
+                    {expert.experience}
+                  </p>
+
+                  {/* Two bullet points */}
+                  <ul className="mt-2 text-left text-gray-700 text-xs space-y-1 px-2">
+                    {expert.points.slice(0, 2).map((pt, idx) => (
+                      <li key={idx}>• {pt}</li>
+                    ))}
+                  </ul>
+
+                </div>
+              ))}
           </div>
         </div>
 
