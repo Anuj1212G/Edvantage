@@ -1,17 +1,17 @@
 import RequestInfo from "../models/RequestInfo.js";
-import { resend } from "../utils/email.js";
+import { transporter } from "../utils/email.js";
 
 export const submitRequestInfo = async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
 
-    // save to DB
+    // Save to DB
     const entry = new RequestInfo({ name, email, phone, message });
     await entry.save();
 
-    // send email using resend
-    await resend.emails.send({
-      from: "Edvantage <no-reply@edvantage.org.in>",
+    // Send Email using Nodemailer
+    await transporter.sendMail({
+      from: `"Edvantage" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       subject: `New Request Info – ${name}`,
       html: `
@@ -21,13 +21,15 @@ export const submitRequestInfo = async (req, res) => {
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
-      `
+      `,
     });
 
     return res.json({ success: true, message: "Request received!" });
 
   } catch (err) {
     console.error("Request info error:", err);
-    return res.status(500).json({ success: false, message: "Error submitting form" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Error submitting form" });
   }
 };

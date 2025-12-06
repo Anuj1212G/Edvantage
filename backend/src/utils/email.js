@@ -1,3 +1,12 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-export const resend = new Resend(process.env.RESEND_API_KEY);
+export const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",   // or smtp.office365.com / smtp.zoho.com etc.
+  port: 587,
+  secure: false, // TLS
+
+  auth: {
+    user: process.env.EMAIL_USER, // your email
+    pass: process.env.EMAIL_PASS, // app password
+  },
+});

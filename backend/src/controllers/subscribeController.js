@@ -1,4 +1,4 @@
-import { resend } from "../utils/email.js";
+import { transporter } from "../utils/email.js";
 
 export const subscribeUser = async (req, res) => {
   try {
@@ -8,13 +8,14 @@ export const subscribeUser = async (req, res) => {
       return res.status(400).json({ success: false, message: "Email is required" });
     }
 
-    await resend.emails.send({
-      from: "Edvantage <no-reply@edvantage.org.in>",
-      to: process.env.EMAIL_USER,
+    // Send email using Nodemailer
+    await transporter.sendMail({
+      from: `"Edvantage" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,  // your inbox
       subject: "New Newsletter Subscriber",
       html: `
         <h3>New Subscriber</h3>
-        <p>Email: ${email}</p>
+        <p><strong>Email:</strong> ${email}</p>
       `
     });
 
