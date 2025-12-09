@@ -1396,7 +1396,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Students", "Analysts", "Engineers"],
   price: "$300 / ₹22,500",
-  image: "/images/Diploma ML Oil Gas.png",
+  image: "/images/Diploma for Machine Learning in Oil & Gas.webp",
   payment: {
     stripe: `https://buy.stripe.com/fZucN7azXeOZgjA54ZaR518`,
     razorpay: `https://rzp.io/rzp/k0lOLYXh`,
@@ -1428,7 +1428,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Data scientists", "Energy analysts", "Managers"],
   price: "$300 / ₹17,500",
-  image: "/images/Big Data Oil Gas.png",
+  image: "/images/Diploma in Integrated Oil & Gas Analytics Using Big Data A full well Lifecycle Approach.jpg",
   payment: {
     stripe: `https://buy.stripe.com/28E00l37v36h2sKfJDaR519`,
     razorpay: `https://rzp.io/rzp/ZVF76Sai`,
@@ -1460,7 +1460,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Project engineers", "Analysts", "Students"],
   price: "$300 / ₹22,500",
-  image: "/images/Petroleum Project Management Diploma.png",
+  image: "/images/Diploma in Petroleum Project Management & Field Development Economics.jpg",
   payment: {
       stripe: `https://buy.stripe.com/6oUeVf7nL0Y9gjAapjaR51a`,
       razorpay: `https://rzp.io/rzp/2ep8Kki`,
@@ -1492,7 +1492,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Petrophysicists", "Students", "Analysts"],
   price: "$150 / ₹12,000",
-  image: "/images/ML Petrophysics Python.png",
+  image: "/images/Machine Learning & Python Applications for Petrophysics.jpg",
   payment: {
       stripe: `https://buy.stripe.com/8x29AVdM95ep4AS2WRaR51b`,
       razorpay: `https://rzp.io/rzp/BxIDiV8`,
@@ -1524,7 +1524,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Production engineers", "Analysts"],
   price: "$150 / ₹12,000",
-  image: "/images/ML Production Reservoir Forecasting.png",
+  image: "/images/Mastering Machine Learning for Enhanced Production and Reservoir Forecasting Analytics.jpg",
   payment: {
       stripe: `https://buy.stripe.com/8x228teQdbCNgjAcxraR51c`,
       razorpay: `https://rzp.io/rzp/zAZ4a5Y`,
@@ -1556,7 +1556,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Reservoir engineers", "Students", "Planning teams"],
   price: "$150 / ₹10,000",
-  image: "/images/Petroleum Field Development Planning.png",
+  image: "/images/Petroleum Field Development Planning from Concept to Execution.jpg",
   payment: {
       stripe: `https://buy.stripe.com/fZu4gBfUh5epc3keFzaR51d`,
       razorpay: `https://rzp.io/rzp/NlG3vYz`,
@@ -1588,7 +1588,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Students", "Data analysts", "Engineers"],
   price: "$150 / ₹12,000",
-  image: "/images/Production Forecasting Python ML.png",
+  image: "/images/Production Forecasting & Well Performance Optimization with Python & Machine Learning.png",
   payment: {
       stripe: `https://buy.stripe.com/5kQ14p9vT4alaZgfJDaR51e`,
       razorpay: `https://rzp.io/rzp/0d7ulzd`,
@@ -1620,7 +1620,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Reservoir engineers", "Petrophysicists", "Students"],
   price: "$150 / ₹11,000",
-  image: "/images/Advanced Python Reservoir Petrophysics.png",
+  image: "/images/Advanced Python for Reservoir, Production and Petrophysics.jpeg",
   payment: {
       stripe: `https://buy.stripe.com/4gM14p0ZnfT3aZg40VaR51f`,
       razorpay: `https://rzp.io/rzp/f1nUjX7V`,
