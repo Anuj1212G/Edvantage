@@ -358,4 +358,5 @@ const PROGRAMS_PART_2 = [
     },
   },
 ];
+
 export default PROGRAMS_PART_2;

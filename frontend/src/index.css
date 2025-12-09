@@ -295,3 +295,293 @@
 .animate-scroll-left:hover {
   animation-play-state: paused;
 }
+
+
+
+
+/* ===========================
+   LIGHT THEME / BASE
+   =========================== */
+
+.ts-section {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5rem 1.5rem 4.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.ts-heading-wrapper {
+  position: relative;
+  text-align: center;
+  margin-bottom: 4rem;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.ts-heading {
+  font-size: clamp(3.4rem, 5.8vw, 4.8rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #0f172a;
+}
+
+/* ===========================
+   HANGER – triangle style
+   =========================== */
+
+.ts-hanger {
+  position: absolute;
+  left: 16%;                 /* left side of heading */
+  top: -0.5rem;
+  z-index: 50;               /* above cards */
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* whole triangle swings as one piece */
+  transform-origin: top center;
+  animation: ts-swing 3.6s ease-in-out infinite;
+}
+
+/* pivot circle at top of triangle */
+.ts-hanger-pivot {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  border: 2px solid #cbd5e1;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.35);
+  position: relative;
+}
+
+/* both lines start from the pivot */
+.ts-hanger-line {
+  position: absolute;
+  top: 13px;                 /* just below pivot */
+  left: 50%;
+  width: 2px;
+  height: 7.8rem;            /* a bit longer strings */
+  background: linear-gradient(to bottom, #94a3b8, #0f172a);
+  border-radius: 999px;
+  transform-origin: top center;
+}
+
+/* left side of triangle */
+.ts-hanger-line-left {
+  transform: translateX(-26px) rotate(28deg);
+}
+
+/* right side of triangle */
+.ts-hanger-line-right {
+  transform: translateX(26px) rotate(-28deg);
+}
+
+/* tag hangs below the triangle */
+.ts-hanger-tag {
+  margin-top: 8.1rem;        /* should visually attach near string ends */
+  background: #2563eb;
+  padding: 1.1rem 3.1rem;
+  border-radius: 1rem;
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.35);
+}
+
+.ts-hanger-tag span {
+  display: inline-block;
+  padding: 0.5rem 0.3rem;
+  border: 2px solid #bfdbfe;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.4rem;
+  white-space: nowrap;
+}
+
+/* smooth continuous swing – same as before */
+@keyframes ts-swing {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .ts-hanger {
+    left: 8%;
+    top: 0.2rem;
+  }
+
+  .ts-hanger-tag {
+    padding: 0.9rem 2.2rem;
+  }
+
+  .ts-hanger-tag span {
+    font-size: 1.15rem;
+  }
+}
+
+
+/* ===========================
+   COLUMNS PANEL (big + not-white)
+   =========================== */
+
+.ts-columns-wrapper {
+  display: flex;
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 1300px;
+
+  padding: 2.7rem 2.3rem 3.2rem;
+  border-radius: 2.5rem;
+  background: radial-gradient(circle at top, #e0ecff 0, #f3f4ff 50%, #ffffff 100%);
+  box-shadow: 0 35px 90px rgba(15, 23, 42, 0.12);
+  border: 3px solid #c0c0f6ff;
+}
+
+@media (max-width: 900px) {
+  .ts-columns-wrapper {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ts-columns-wrapper {
+    flex-direction: column;
+    padding: 2.2rem 1.6rem 2.8rem;
+  }
+}
+
+/* each column */
+
+.ts-column {
+  position: relative;
+  flex: 1;
+  height: 520px; /* bigger so it fills the page */
+  overflow: hidden;
+  border-radius: 1.6rem;
+  padding: 0.4rem;
+  background: linear-gradient(to bottom, #f8fafc, #e5e7f5);
+  border: 1px solid #cbd5f5;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* ===========================
+   SCROLLING
+   =========================== */
+
+.ts-column-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.ts-scroll-up {
+  animation: ts-scroll-up 28s linear infinite;
+}
+
+.ts-scroll-down {
+  animation: ts-scroll-down 28s linear infinite;
+}
+
+@keyframes ts-scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes ts-scroll-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   CARDS
+   =========================== */
+
+.ts-card {
+  background: #ffffff;
+  border-radius: 1.4rem;
+  padding: 1.6rem 1.6rem 1.35rem;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  border: 1px solid #cbd5e1;
+}
+
+.ts-card-text {
+  font-size: 1rem;        /* bigger text */
+  line-height: 1.6;
+  color: #1f2937;
+  margin-bottom: 1.3rem;
+}
+
+.ts-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.ts-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.ts-card-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ts-card-handle {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Continuous left-to-right marquee for hiring partner logos */
+.logo-marquee {
+  width: max-content;              /* shrink to content width */
+  animation: marquee-ltr 22s linear infinite;
+}
+
+/* Move from left to right in a seamless loop */
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
