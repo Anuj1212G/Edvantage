@@ -748,7 +748,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Drilling engineers", "Field supervisors", "Students"],
   price: "$150 / ₹11,000",
-  image: "/images/Advanced Drilling Operations & Risk Mitigation.png",
+  image: "/images/Advanced Drilling Operations & Risk Mitigation.webp",
   payment: {
     stripe: `https://buy.stripe.com/9B63cx6jH9uF5EW40VaR50I`,
     razorpay: `https://rzp.io/rzp/eOv5Ggb`,
@@ -782,7 +782,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Reservoir engineers", "Analysts", "Students"],
   price: "$130 / ₹10,000",
-  image: "/images/Well Test Analysis & Reservoir Modelling.png",
+  image: "/images/Well Test Analysis & Reservoir Modeling Using MS Excel.jpeg",
   payment: {
     stripe: `https://buy.stripe.com/00waEZ23r6it2sK0OJaR50P`,
     razorpay: `https://rzp.io/rzp/7nmMx0a`,
@@ -816,7 +816,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Data analysts", "Energy engineers", "Students"],
   price: "$300 / ₹22,500",
-  image: "/images/Data Science for Oil & Gas.png",
+  image: "/images/Data Science & Its Application for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/8x28wReQd36hd7o40VaR50Q`,
     razorpay: `https://rzp.io/rzp/Nl6YWPi`,
@@ -849,7 +849,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Data analysts", "Energy engineers", "Students"],
   price: "$200 / ₹14,000",
-  image: "/images/Machine Learning Time Series for Energy Industry.png",
+  image: "/images/Machine Learning with Time Series Applications for Energy Industry.webp",
   payment: {
     stripe: `https://buy.stripe.com/5kQ28teQd6it9Vc7d7aR50R`,
     razorpay: `https://rzp.io/rzp/xViy6Nla`,
@@ -882,7 +882,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Drilling engineers", "Data analysts", "Students"],
   price: "$150 / ₹9,000",
-  image: "/images/Power BI for Drilling Engineers.png",
+  image: "/images/Power BI Analytics For Drilling Engineer.jpg",
   payment: {
     stripe: `https://buy.stripe.com/28E4gBgYlfT36J0fJDaR50S`,
     razorpay: `https://rzp.io/rzp/DTl79Ij`,
@@ -915,7 +915,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Engineers", "Excel analysts", "Students"],
   price: "$150 / ₹11,000",
-  image: "/images/AI Excel Automation Oil & Gas.png",
+  image: "/images/AI Powered Excel Automation for  Oil & Gas.webp",
   payment: {
     stripe: `https://buy.stripe.com/5kQ00l23r8qBebs2WRaR50T`,
     razorpay: `https://rzp.io/rzp/VUuZhIl`,
@@ -947,7 +947,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Analysts", "Production teams", "Students"],
   price: "$150 / ₹11,000",
-  image: "/images/Spotfire Analytics Oil & Gas.png",
+  image: "/images/Spotfire Analytics for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/cNiaEZbE1cGR4AS7d7aR50U`,
     razorpay: `https://rzp.io/rzp/tP1DNcu`,
@@ -980,7 +980,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Geoscientists", "Drilling engineers", "Students"],
   price: "$100 / ₹8,000",
-  image: "/images/Petroleum Geomechanics CCUS.png",
+  image: "/images/Petroleum Geomechanics & CCUS.png",
   payment: {
     stripe: `https://buy.stripe.com/4gM4gBazX6itffwapjaR50V`,
     razorpay: `https://rzp.io/rzp/dM7Hkm2e`,
@@ -1012,7 +1012,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Geophysicists", "Python learners", "Students"],
   price: "$150 / ₹11,000",
-  image: "/images/Python Geophysics Data Processing.png",
+  image: "/images/Python for Geophysics Data Processing.webp",
   payment: {
     stripe: `https://buy.stripe.com/4gMdRbcI5eOZc3k0OJaR50W`,
     razorpay: `https://rzp.io/rzp/aYcbqrkq`,
@@ -1044,7 +1044,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Students", "Engineers", "Data analysts"],
   price: "$200 / ₹14,000",
-  image: "/images/Oil & Gas Forecasting Python.png",
+  image: "/images/Oil and Gas Software Development Using Python.jpg",
   payment: {
     stripe: `https://buy.stripe.com/28EbJ3fUhbCN4AS54ZaR50X`,
     razorpay: `https://rzp.io/rzp/1uLWuXP`,
@@ -1076,7 +1076,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Production engineers", "Analysts", "Students"],
   price: "$250 / ₹20,000",
-  image: "/images/Production Nodal Analysis Python ML.png",
+  image: "/images/Production and Nodal Analysis with Python & ML.webp",
   payment: {
     stripe: `https://buy.stripe.com/4gM6oJ37v4algjA40VaR50Y`,
     razorpay: `https://rzp.io/rzp/1HyI5k5`,
@@ -1108,7 +1108,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["HSE engineers", "Supervisors", "Students"],
   price: "$300 / ₹24,000",
-  image: "/images/Diploma HSE Oil Gas.png",
+  image: "/images/Diploma for HSE in Oil & Gas.avif",
   payment: {
     stripe: `https://buy.stripe.com/cNidRb8rP6it0kCeFzaR50Z`,
     razorpay: `https://rzp.io/rzp/55gplkKz`,
@@ -1140,7 +1140,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Drilling engineers", "Toolpushers", "Students"],
   price: "$150 / ₹10,500",
-  image: "/images/Advanced Well Control Training.png",
+  image: "/images/Fundamental to Advance Well Control.png",
   payment: {
     stripe: `https://buy.stripe.com/3cI14p37vbCN5EW0OJaR510`,
     razorpay: `https://rzp.io/rzp/vuEqzOe2`,
@@ -1172,7 +1172,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Drilling engineers", "Students"],
   price: "$150 / ₹10,500",
-  image: "/images/Extended Reach Drilling Training.png",
+  image: "/images/Extended Reach Drilling.jpg",
   payment: {
     stripe: `https://buy.stripe.com/cNicN7bE16itc3kcxraR511`,
     razorpay: `https://rzp.io/rzp/FCgqej5`,
@@ -1204,7 +1204,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Engineers", "Analysts", "Managers"],
   price: "$200 / ₹15,000",
-  image: "/images/Oil & Gas Analytics Course.png",
+  image: "/images/Analytics for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/fZu00l23r7mx6J02WRaR512`,
     razorpay: `https://rzp.io/rzp/Bmf3HWN`,
@@ -1236,7 +1236,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Production engineers", "Students"],
   price: "$45 / ₹4,000",
-  image: "/images/Artificial Lift Deliverability Performance.png",
+  image: "/images/Artificial Lift Modeling, Reservoir Deliverability & Well performance.jpg",
   payment: {
     stripe: `https://buy.stripe.com/dRm4gB6jH22d0kC54ZaR513`,
     razorpay: `https://rzp.io/rzp/vDKmPtL`,
@@ -1268,7 +1268,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Reservoir engineers", "Students"],
   price: "$40 / ₹2,500",
-  image: "/images/Reservoir Modelling Flow Simulation.png",
+  image: "/images/Reservoir Engineering, Modeling & flow Simulation.webp",
   payment: {
     stripe: `https://buy.stripe.com/7sY7sNdM9dKV0kCfJDaR514`,
     razorpay: `https://rzp.io/rzp/0XdSJcp`,
@@ -1300,7 +1300,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Data analysts", "Engineers", "Students"],
   price: "$150 / ₹10,000",
-  image: "/images/Power BI Essentials Oil Gas.png",
+  image: "/images/Power BI Essentials for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/8x26oJcI5fT3aZg7d7aR515`,
     razorpay: `https://rzp.io/rzp/jNCAZZMX`,
@@ -1332,7 +1332,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Drilling engineers", "Geoscientists", "Students"],
   price: "$100 / ₹7,500",
-  image: "/images/Geomechanics Drilling Completion.png",
+  image: "/images/Geomechanics and its application in Drilling & Completion.webp",
   payment: {
     stripe: `https://buy.stripe.com/8x2cN78rPeOZ5EW0OJaR516`,
     razorpay: `https://rzp.io/rzp/NU8mAzk`,
@@ -1364,7 +1364,7 @@ const PROGRAMS_PART_2 = [
   ],
   targetAudience: ["Analysts", "Students", "Managers"],
   price: "$150 / ₹12,000",
-  image: "/images/SQL PowerBI Tableau OilGas.png",
+  image: "/images/Integrated Insights SL power BI and Tableau for Oil & Gas analytics.jpg",
   payment: {
     stripe: `https://buy.stripe.com/dRm8wRazX6it7N4eFzaR517`,
     razorpay: `https://rzp.io/rzp/7Sqvi2YU`,
