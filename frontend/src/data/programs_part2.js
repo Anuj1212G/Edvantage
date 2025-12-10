@@ -3,7 +3,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "11",
     title: "Deep Learning for Oil & Gas Applications",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1qAfjtkQreYLHFen_tJEpSrVcHgRl1IL-/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -40,7 +40,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "12",
     title: "Oil & Gas Software Development Using Python",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1MQ2_BiStdELEt1OlxkehGOOVZJzw2R0Y/view?usp=drive_link",
     category: "self-paced",
     duration: "28+ Hours",
     format: "Self Pacced",
@@ -65,7 +65,7 @@ const PROGRAMS_PART_2 = [
       "Project Work",
     ],
     targetAudience: ["Engineers", "Developers", "Students"],
-    price: "$200 / ₹15,000",
+    price: "$150 / ₹12,000",
     image: "/images/Oil and Gas Software Development Using Python.jpg",
     payment: {
       stripe: `https://buy.stripe.com/28E6oJ0ZncGRgjAgNHaR50O`,
@@ -76,7 +76,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "13",
     title: "Mastering Reservoir Engineering: From Basics to Software-Driven Solutions",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1uWjxoD9xCy7c_TjgseDW1p8AZ8lEk1VT/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -113,7 +113,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "14",
     title: "Master Oil & Gas Production Optimization with AI & Machine Learning",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1l6cctqldVyVo-k7dLeCgBDhD__xRjA5l/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -137,7 +137,7 @@ const PROGRAMS_PART_2 = [
       "Case Studies",
     ],
     targetAudience: ["Engineers", "Data analysts", "Operations"],
-    price: "$200 / ₹15,000",
+    price: "$150 / ₹12,000",
     image: "/images/Master Oil & Gas Production Optimization with AI and ML.jpg",
     payment: {
       stripe: `https://buy.stripe.com/28EbJ3dM9eOZc3k7d7aR51h`,
@@ -148,7 +148,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "15",
     title: "Oil & Gas Forecasting & Predictions Using Time Series Analysis",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1D_FAxB6sDTgIzs0Hx-E4oJtemTuJ8WT-/view?usp=drive_link",
     category: "self-paced",
     duration: "28+ Hours",
     format: "Self Paced",
@@ -173,7 +173,7 @@ const PROGRAMS_PART_2 = [
       "Anomaly Detection",
     ],
     targetAudience: ["Data analysts", "Engineers", "Students"],
-    price: "$200 / ₹14,000",
+    price: "$150 / ₹12,000",
     image: "/images/Oil & Gas Forecasting & Predictions using time series analysis.jpeg",
     payment: {
       stripe: `https://buy.stripe.com/14AdRb9vT22d6J0cxraR51i`,
@@ -184,7 +184,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "16",
     title: "PVT Modelling and Advanced Fluid Characterization",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/16wN1I2maQuWCatOg6RIFIQwlBhRBV-PB/view?usp=drive_link",
     category: "self-paced",
     duration: "12+ Hours",
     format: "Self Paced",
@@ -220,7 +220,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "17",
     title: "Data Analytics & Visualisation Using Power BI for Oil & Gas",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1ZQ0zNnE4FI4q2Zi6BQgTEpVh-9l2pwaB/view?usp=drive_link",
     category: "self-paced",
     duration: "15+ Hours",
     format: "Self-Paced",
@@ -245,7 +245,7 @@ const PROGRAMS_PART_2 = [
       "Field Data Use-Cases",
     ],
     targetAudience: ["Data analysts", "Engineers", "Managers"],
-    price: "$200 / ₹17,000",
+    price: "$150 / ₹12,000",
     image: "/images/Data Analytics & Visualization using Power BI for Oil & Gas.png",
     payment: {
       stripe: `https://buy.stripe.com/5kQ3cx0ZneOZ2sK40VaR51k`,
@@ -256,7 +256,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "18",
     title: "Electric Submersible Pump (ESP) Training",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1scytw08Y51JDKz-1R5_2YZrDfbIC3uhJ/view?usp=drive_link",
     category: "self-paced",
     duration: "10+ Hours",
     format: "Self-Paced",
@@ -290,7 +290,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "19",
     title: "Python in Oil & Gas",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1ulKfYO9M-3dt77SsMDo9U8PbZpIaGSDY/view?usp=drive_link",
     category: "self-paced",
     duration: "35+ Hours",
     format: "Self-Paced",
@@ -326,7 +326,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "20",
     title: "Well Completion Training",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1MfeqXE_CkSnx1A-dT49MGDuVbr4Gju0-/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Live Online",
@@ -351,17 +351,18 @@ const PROGRAMS_PART_2 = [
       "Case Studies",
     ],
     targetAudience: ["Petroleum engineers", "Completions engineers", "Students"],
-    price: "$100 / ₹8,500",
+    price: "$100 / ₹7,500",
     image: "/images/Well Completion.jpg",
     payment: {
       stripe: `https://buy.stripe.com/fZu28t5fD36hebs1SNaR51n`,
       razorpay: `https://rzp.io/rzp/a2nOPMUc`,
     },
   },
+  /////////////////////////////////////////////////////////////////////////////////////////////////
  {
   id: "21",
   title: "Advanced Drilling Operations & Risk Mitigation",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1BLrUYOHU6hV4C53Ll2mGwexc1yIzd0XV/view?usp=drive_link",
   category: "self-paced",
   duration: "5+ Hours",
   format: "Self-Paced",
@@ -397,7 +398,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "22",
   title: "Well Test Analysis & Reservoir Modelling using MS Excel",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1h1b8aF4yDPkPYjshxCBMxSrTVQJMThwv/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -431,7 +432,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "23",
   title: "Data Science and Its Application for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1aiB2wHKnSxsZXHgiLhY5wwkn0FTdpULF/view?usp=drive_link",
   category: "self-paced",
   duration: "80+ Hours",
   format: "Self-Paced",
@@ -465,7 +466,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "24",
   title: "Machine Learning with Time Series Application for Energy Industry",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1XCT0jO3gFF9-Mivt0_2l4HAvTlevU53j/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -498,7 +499,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "25",
   title: "Power BI Analytics for Drilling Engineer",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1b4GGGjrwD91rpp8JZ2Ts0eL9o0cD7fTx/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -531,7 +532,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "26",
   title: "AI-Powered Excel Automation for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1rfCMIA2-yCnXDBzB6YHeetA3u3yDZKhc/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -548,7 +549,7 @@ const PROGRAMS_PART_2 = [
   curriculum: [
     "Excel Automation Essentials",
     "AI Tools & Macros",
-    "Predictive Modelling",
+    "Predictive Modelling", 
     "Real-Time Dashboards",
     "Case Workflows"
   ],
@@ -564,7 +565,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "27",
   title: "Spotfire Analytics for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1ET4sHRQKD_e1ivWEx06ibHXf4PqHzuTU/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -596,7 +597,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "28",
   title: "Petroleum Geomechanics & CCUS",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1mZV9smy7_Ay5-ILaHFXnXgDrl_3D7_2H/view?usp=drive_link",
   category: "self-paced",
   duration: "5+ Hours",
   format: "Self-Paced",
@@ -629,7 +630,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "29",
   title: "Python for Geophysics Data Processing",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/10UmJRxPTKc7x_3pjZRhdQbFWphUQURUG/view?usp=drive_link",
   category: "self-paced",
   duration: "3+ Hours",
   format: "Self-Paced",
@@ -661,7 +662,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "30",
   title: "Oil & Gas Forecasting & Predictions using Python",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1JIcyun75L7o0gc1rl1uh8dzMGiLRuc0K/view?usp=drive_link",
   category: "self-paced",
   duration: "35+ Hours",
   format: "Self-Paced",
@@ -693,7 +694,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "31",
   title: "Production & Nodal Analysis with Python and ML",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1tUKOFlM-iArYjr5NXbQ4cI_ypbaZhSSU/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -725,10 +726,10 @@ const PROGRAMS_PART_2 = [
 {
   id: "32",
   title: "Diploma for HSE in Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
-  category: "self-paced",
+  brochure: "https://drive.google.com/file/d/1c0L2gU99uqQii07oHYBb2zGh_-J6ANjj/view?usp=drive_link",
+  category: "diploma",
   duration: "80+ Hours",
-  format: "Self-Paced",
+  format: "Diploma",
   level: "Intermediate",
   certificate: "Yes",
   overview:
@@ -757,7 +758,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "33",
   title: "Fundamentals to Advance Well Control",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1Y-WI_cz4iIpvltpFkYc7YB5ydE4No2z9/view?usp=drive_link",
   category: "self-paced",
   duration: "15+ Hours",
   format: "Self-Paced",
@@ -789,7 +790,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "34",
   title: "Extended Reach Drilling (ERD)",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1CRuKgr1GnESBRWO7qG8OAy9_QojyGRbN/view?usp=drive_link",
   category: "self-paced",
   duration: "5+ Hours",
   format: "Self-Paced",
@@ -821,7 +822,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "35",
   title: "Analytics for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1yKkUiGPJLaRddg1Lfik1SdBiRDEa8oS8/view?usp=drive_link",
   category: "self-paced",
   duration: "35+ Hours",
   format: "Self-Paced",
@@ -853,7 +854,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "36",
   title: "Artificial Lift Modelling, Reservoir Deliverability & Well Performance",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1_buWD-kGdg8CxiyotEuRJVatz5eJ9dlh/view?usp=drive_link",
   category: "self-paced",
   duration: "7+ Hours",
   format: "Self-Paced",
@@ -885,7 +886,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "37",
   title: "Reservoir Engineering Modelling & Flow Simulation",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1NeKkOyAy7wG_Qlbb93k8MjCXLBKenZZs/view?usp=drive_link",
   category: "self-paced",
   duration: "7+ Hours",
   format: "Self-Paced",
@@ -917,7 +918,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "38",
   title: "Power BI Essentials for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1JDiSLvKjjez0kOR2IgVaJtHCbNR0Xi-S/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -949,7 +950,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "39",
   title: "Geomechanics & Its Application in Drilling and Completion",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1dSaAZ-0cq-m6dCNpF9UjddB9Pm9WR6X7/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -981,7 +982,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "40",
   title: "Integrated Insights: SQL, Power BI & Tableau for Oil & Gas Analytics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1Tz_ouda5XEAk80PpMkstV6nv9mloOXus/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -1013,10 +1014,10 @@ const PROGRAMS_PART_2 = [
 {
   id: "41",
   title: "Diploma in Machine Learning for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
-  category: "self-paced",
+  brochure: "https://drive.google.com/file/d/1inu-OU7XNX_rBfjwmG8vv9wR5bzpx2Cj/view?usp=drive_link",
+  category: "diploma",
   duration: "20+ Hours",
-  format: "Self-Paced",
+  format: "Diploma",
   level: "Beginner to Intermediate",
   certificate: "Yes",
   overview:
@@ -1045,7 +1046,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "42",
   title: "Integrated Oil & Gas Analytics Using Big Data",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1mDRVv13ZUwlucjmsLu5ODz9qTcjLjTR-/view?usp=drive_link",
   category: "self-paced",
   duration: "50+ Hours",
   format: "Self-Paced",
@@ -1077,10 +1078,10 @@ const PROGRAMS_PART_2 = [
 {
   id: "43",
   title: "Diploma in Petroleum Project Management & Field Development Economics",
-  brochure: "https://your-brochure-link.com/file.pdf",
-  category: "self-paced",
+  brochure: "https://drive.google.com/file/d/1xo_-1DH_u-wbpOjQjsRB5WLuKgZrND1B/view?usp=drive_link",
+  category: "diploma",
   duration: "60+ Hours",
-  format: "Self-Paced",
+  format: "Diploma",
   level: "Beginner to Professional",
   certificate: "Yes",
   overview:
@@ -1109,7 +1110,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "44",
   title: "Machine Learning & Python Applications for Petrophysics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1Q1IV3JUZHF1me91b4jiaaJbbWmXYHlA3/view?usp=drive_link",
   category: "self-paced",
   duration: "28+ Hours",
   format: "Self-Paced",
@@ -1141,7 +1142,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "45",
   title: "Mastering Machine Learning for Enhanced Production & Reservoir Forecasting Analytics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1khKRwmRbAhCeJGR2JkI7m2olgyuVIq8h/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -1173,7 +1174,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "46",
   title: "Petroleum Field Development Planning from Concept to Execution",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1pHkU23Au0SNWcnN2bgIQLJA9Ok-uITfs/view?usp=drive_link",
   category: "self-paced",
   duration: "7+ Hours",
   format: "Self-Paced",
@@ -1205,7 +1206,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "47",
   title: "Production Forecasting & Well Performance Optimization Using Python & Machine Learning",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1nvljWrdUmN2AOr0368WDKs2tsAh_Nvjl/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -1237,7 +1238,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "48",
   title: "Advanced Python for Reservoir, Production & Petrophysics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/12M1hceDY517U94DPEFd6509LAALH2iqY/view?usp=drive_link",
   category: "self-paced",
   duration: "16+ Hours",
   format: "Self-Paced",

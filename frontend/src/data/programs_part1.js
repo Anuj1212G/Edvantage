@@ -382,7 +382,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "1",
     title: "Directional Drilling",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1nVygUvzUnF2WOHcmuIeNIxTh_b-QKOLw/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -421,7 +421,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "2",
     title: "Evaluating Unconventional Resources Using Decline Curve Analysis & Horizontal Well Fracturing",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/13MF1q-CU9s_Ujo7u6YDsqtDK_ANIfzAX/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -447,7 +447,7 @@ const DEFAULT_PROGRAMS = [
       "Case Studies",
     ],
     targetAudience: ["Reservoir engineers", "Completion engineers", "Analysts"],
-    price: "$200 / ₹15,000",
+    price: "$100 / ₹8,000",
     image: "/images/Evaluating Unconventional Resources Using Decline Curves Analysis, Optimizing Production Using Horizontal Well Fracturing.png",
     payment: {
       stripe: `https://buy.stripe.com/4gMfZj6jH8qBc3k0OJaR50E`,
@@ -458,7 +458,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "3",
     title: "Reserves Estimation & Classification",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1_I2t7h6Ztb07g1iu3U9ZmDKz9v7HFzFw/view?usp=drive_link",
     category: "self-paced",
     duration: "—",
     format: "Self-Paced",
@@ -482,7 +482,7 @@ const DEFAULT_PROGRAMS = [
       "Excel-Based Reserve Estimation",
     ],
     targetAudience: ["Reservoir engineers", "Analysts", "Students"],
-    price: "$35 / ₹2,500",
+    price: "$50 / ₹3,500",
     image: "/images/Reserve Estimation & Classification.jpg",
     payment: {
       stripe: `https://buy.stripe.com/3cIdRb9vT9uF1oG0OJaR50F`,
@@ -493,7 +493,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "4",
     title: "Sequence Stratigraphy in the Era of Digitalization",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1_RZnIlLklEQulDByJhYT5aAKlqzOyuP8/view?usp=drive_link",
     category: "hybrid",
     duration: "35+ Hours",
     format: "Hybrid (Virtual + Practical Workshops)",
@@ -532,7 +532,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "5",
     title: "Well Intervention, Fishing & Smart Completions",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/17gS6s80wT6odieVgYLlPdMTX63O-GpE8/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -569,7 +569,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "6",
     title: "Advance Well Engineering",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1a4W8zNIyL1dkHI-YeAP_gsQWkJNVFKXJ/view?usp=drive_link",
     category: "self-paced",
     duration: "10+ Hours",
     format: "Self-Paced",
@@ -610,7 +610,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "7",
     title: "Reservoir Surveillance & Tight Reservoir Management",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/14tk2LFIneWO8of7Z-gOt67DrNSJmf68_/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -645,7 +645,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "8",
     title: "Learn Energy Data Analytics From Scratch",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1vR6-Q-qQgNwgsiQ8TwCSO4bhqa6MKT9B/view?usp=drive_link",
     category: "self-paced",
     duration: "35+ Hours",
     format: "Self-Paced",
@@ -683,7 +683,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "9",
     title: "Well Planning, Deepwater Design & Engineering",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1ZllJqbXMqREzJLzqe7o20Qj9LCvZ1ysi/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -709,7 +709,7 @@ const DEFAULT_PROGRAMS = [
       "Simulations & Case Studies",
     ],
     targetAudience: ["Offshore engineers", "Drilling engineers", "Students"],
-    price: "$150 / ₹10,500",
+    price: "$100 / ₹7,500",
     image: "/images/Well planning, deepwater Design and engineering.jpg",
     payment: {
       stripe: `https://buy.stripe.com/aFa3cx0ZneOZ6J0dBvaR50L`,
@@ -720,7 +720,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "10",
     title: "Drilling Analytics from Scratch",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1yJ0Vu71JQ3IXeIaLdWU8S4ayO8Mj6WfL/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self-Paced",
@@ -746,7 +746,7 @@ const DEFAULT_PROGRAMS = [
       "Performance Enhancement Workflows",
     ],
     targetAudience: ["Drilling engineers", "Data analysts", "Students"],
-    price: "$140 / ₹12,000",
+    price: "$150 / ₹12,000",
     image: "/images/Drilling Analytics From Scratch.jpg",
     payment: {
       stripe: `https://buy.stripe.com/9B6dRbbE10Y91oG693aR50M`,
