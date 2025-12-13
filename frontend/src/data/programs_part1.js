@@ -84,7 +84,7 @@ const DEFAULT_PROGRAMS = [
     brochure: "https://drive.google.com/file/d/1_I2t7h6Ztb07g1iu3U9ZmDKz9v7HFzFw/view?usp=drive_link",
     category: "self-paced",
     domain: "Petroleum economics",
-    duration: "—",
+    duration: "$100 / ₹7,500",
     format: "Self-Paced",
     level: "Intermediate",
     certificate: "Yes",
