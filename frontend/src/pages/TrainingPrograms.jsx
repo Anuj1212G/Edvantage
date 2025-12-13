@@ -1,4 +1,9 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, {
+  useState,
+  useMemo,
+  useEffect,
+  useRef
+} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Clock, Award, BookOpen } from "lucide-react";
 
@@ -30,6 +35,7 @@ const TrainingPrograms = ({ programs }) => {
   const [programToPay, setProgramToPay] = useState(null);
 
   const [openDropdown, setOpenDropdown] = useState(false);
+  const closeTimeoutRef = useRef(null);
 
   /* COMBINE PROGRAMS */
   const allPrograms = useMemo(() => {
@@ -43,13 +49,6 @@ const TrainingPrograms = ({ programs }) => {
     const params = new URLSearchParams(location.search);
     setSelectedCategory(params.get("category") || "all");
   }, [location.search]);
-
-  /* CLOSE DROPDOWN ON OUTSIDE CLICK */
-  useEffect(() => {
-    const close = () => setOpenDropdown(false);
-    window.addEventListener("click", close);
-    return () => window.removeEventListener("click", close);
-  }, []);
 
   /* FILTER LOGIC */
   const filteredPrograms = useMemo(() => {
@@ -108,12 +107,26 @@ const TrainingPrograms = ({ programs }) => {
       <section className="py-10">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-3">
 
-          {/* ALL PROGRAMS DROPDOWN */}
-          <div className="relative">
+          {/* ✅ ALL PROGRAMS – HOVER SAFE */}
+          <div
+            className="relative"
+            onMouseEnter={() => {
+              if (closeTimeoutRef.current) {
+                clearTimeout(closeTimeoutRef.current);
+                closeTimeoutRef.current = null;
+              }
+              setOpenDropdown(true);
+            }}
+            onMouseLeave={() => {
+              closeTimeoutRef.current = setTimeout(() => {
+                setOpenDropdown(false);
+              }, 200);
+            }}
+          >
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setOpenDropdown((prev) => !prev);
+                handleSetCategory("all"); // RESET
               }}
               className={`px-6 py-3 rounded-full font-semibold transition ${
                 selectedCategory === "all"
@@ -125,7 +138,20 @@ const TrainingPrograms = ({ programs }) => {
             </button>
 
             {openDropdown && (
-              <div className="absolute left-0 mt-2 w-64 bg-white border rounded-xl shadow-lg z-50">
+              <div
+                className="absolute left-0 mt-2 w-64 bg-white border rounded-xl shadow-lg z-50"
+                onMouseEnter={() => {
+                  if (closeTimeoutRef.current) {
+                    clearTimeout(closeTimeoutRef.current);
+                    closeTimeoutRef.current = null;
+                  }
+                }}
+                onMouseLeave={() => {
+                  closeTimeoutRef.current = setTimeout(() => {
+                    setOpenDropdown(false);
+                  }, 200);
+                }}
+              >
                 {[
                   { id: "digital", name: "Digital Oil & Gas" },
                   { id: "reservoir", name: "Reservoir Engineering" },
@@ -145,7 +171,7 @@ const TrainingPrograms = ({ programs }) => {
             )}
           </div>
 
-          {/* OTHER FILTER BUTTONS */}
+          {/* OTHER FILTERS */}
           {[
             { id: "upcoming", name: "Upcoming Programs" },
             { id: "self-paced", name: "Self-Paced Courses" },
@@ -166,18 +192,15 @@ const TrainingPrograms = ({ programs }) => {
         </div>
       </section>
 
-      {/* PROGRAM LIST — ONE CARD PER ROW */}
+      {/* PROGRAM LIST */}
       <section className="max-w-7xl mx-auto px-4 pb-20 space-y-10">
-
         {filteredPrograms.map((program) => (
           <div
             key={program.id}
             className="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
           >
             <div className="flex flex-col md:flex-row">
-
-              {/* IMAGE */}
-              <div className="md:w-1/3 w-full">
+              <div className="md:w-1/3">
                 <img
                   src={program.image}
                   alt={program.title}
@@ -185,10 +208,8 @@ const TrainingPrograms = ({ programs }) => {
                 />
               </div>
 
-              {/* CONTENT */}
               <div className="md:w-2/3 p-8 flex flex-col">
-
-                <span className="text-blue-600 font-semibold text-sm mb-1">
+                <span className="text-blue-600 font-semibold text-sm">
                   {program.domain}
                 </span>
 
@@ -196,7 +217,7 @@ const TrainingPrograms = ({ programs }) => {
                   {program.title}
                 </h2>
 
-                <div className="flex flex-wrap gap-6 text-sm text-gray-600 mb-4">
+                <div className="flex gap-6 text-sm text-gray-600 mb-4">
                   <span className="flex items-center gap-2">
                     <Clock className="w-4 h-4" /> {program.duration}
                   </span>
@@ -208,48 +229,38 @@ const TrainingPrograms = ({ programs }) => {
                   </span>
                 </div>
 
-                <p className="text-gray-700 mb-4">
-                  {program.overview}
-                </p>
+                <p className="text-gray-700 mb-4">{program.overview}</p>
 
-                <h4 className="font-semibold mb-2">Key Learning Outcomes</h4>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1 mb-6">
+                <ul className="list-disc pl-5 text-gray-700 mb-6">
                   {program.outcomes?.slice(0, 3).map((o, i) => (
                     <li key={i}>{o}</li>
                   ))}
                 </ul>
 
                 <div className="mt-auto flex justify-between items-center border-t pt-4">
-                  <div>
-                    <p className="text-xl font-bold text-teal-600">
-                      {program.price}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Certificate: {program.certificate}
-                    </p>
-                  </div>
+                  <p className="text-xl font-bold text-teal-600">
+                    {program.price}
+                  </p>
 
                   <div className="flex gap-3">
                     <button
                       onClick={() => handleViewDetails(program)}
-                      className="px-4 py-2 border rounded-lg font-semibold hover:bg-gray-100"
+                      className="px-4 py-2 border rounded-lg hover:bg-gray-100"
                     >
                       View
                     </button>
                     <button
                       onClick={() => handlePayClick(program)}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                     >
                       Enroll
                     </button>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         ))}
-
       </section>
 
       <AuthModal
