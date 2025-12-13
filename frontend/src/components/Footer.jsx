@@ -26,7 +26,7 @@ const Footer = () => {
     }
 
     try {
-      const res = fetch("https://edvantage-pryf.onrender.com/api/subscribe", {
+      const res = await fetch("http://localhost:5000/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: subscriberEmail }),

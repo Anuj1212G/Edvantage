@@ -1,28 +1,39 @@
-import { transporter } from "../utils/email.js";
+import Subscriber from "../models/Subscriber.js";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER, 
+    pass: process.env.EMAIL_PASS
+  }
+});
 
 export const subscribeUser = async (req, res) => {
   try {
     const { email } = req.body;
 
-    if (!email) {
-      return res.status(400).json({ success: false, message: "Email is required" });
-    }
+    if (!email || !email.includes("@"))
+      return res.status(400).json({ success: false, message: "Invalid email" });
 
-    // Send email using Nodemailer
+    // Save to DB (ignore duplicates)
+    const exists = await Subscriber.findOne({ email });
+    if (!exists) await Subscriber.create({ email });
+
+    // Send email to you
     await transporter.sendMail({
-      from: `"Edvantage" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,  // your inbox
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
       subject: "New Newsletter Subscriber",
-      html: `
-        <h3>New Subscriber</h3>
-        <p><strong>Email:</strong> ${email}</p>
-      `
+      html: `<h3>New subscriber:</h3><p>${email}</p>`
     });
 
-    res.json({ success: true, message: "Subscribed successfully!" });
+    return res.json({ success: true, message: "Subscribed successfully!" });
 
   } catch (error) {
-    console.error("Subscribe error:", error);
-    res.status(500).json({ success: false, message: "Subscription failed" });
+    console.log("Subscribe Error:", error);
+    return res.status(500).json({ success: false, message: "Server error" });
   }
 };
