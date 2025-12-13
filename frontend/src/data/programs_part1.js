@@ -226,7 +226,7 @@ const DEFAULT_PROGRAMS = [
       "Engineering Software Demos",
     ],
     targetAudience: ["Drilling engineers", "Well engineers", "Advanced students"],
-    price: "—",
+    price: "$100 / ₹7,500",
     image: "/images/Advance Well Engineering.jpg",
     payment: {
       stripe: `https://buy.stripe.com/9B63cx6jH9uF5EW40VaR50I`,

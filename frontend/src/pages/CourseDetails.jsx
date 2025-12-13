@@ -1308,30 +1308,6 @@ targetAudience: [
   "Data analysts & data enthusiasts",
   "Engineers wanting forecasting skills",
   "Beginners in Python-based time series analysis"
-],curriculum: [
-  "Introduction to Oil & Gas Forecasting: Scope, Data & Use-Cases",
-  "Time Series Fundamentals for Energy Data (Trend, Seasonality, Stationarity)",
-  "Data Preparation & Feature Engineering for Energy Time Series",
-  "Exploratory Data Analysis & Visualization with Python (Pandas, Matplotlib)",
-  "Statistical Forecasting Models: AR, MA, ARIMA & SARIMA",
-  "Advanced Statistical Tools: ACF, PACF, Differencing & Unit-Root Tests",
-  "Machine Learning for Time Series: Regression, Tree-Based Models & Ensembles",
-  "Deep Learning Approaches: RNNs, LSTM, GRU Architectures for Forecasting",
-  "Evaluation Metrics, Backtesting & Cross-Validation Strategies for Time Series",
-  "Anomaly Detection & Event Identification (Autoencoders, Isolation Forest)",
-  "Signal Processing & Frequency Domain Analysis (FFT) for Energy Signals",
-  "Forecasting Energy Prices, Production & Consumption Case Studies",
-  "Model Deployment Basics: Pipelines, Scheduling & Simple APIs",
-  "Model Explainability & Uncertainty Quantification for Decision Support",
-  "End-to-End Capstone Project: Build, Validate & Present an Oil & Gas Forecasting Model"
-],
-
-  targetAudience: [
-  "Petroleum & energy sector students",
-  "Oil & gas professionals",
-  "Data analysts & data enthusiasts",
-  "Engineers wanting forecasting skills",
-  "Beginners in Python-based time series analysis"
 ],
   price: "$200 / ₹14,000",
   image: "/images/Oil and Gas Software Development Using Python.jpg",
