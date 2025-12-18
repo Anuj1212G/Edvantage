@@ -153,7 +153,7 @@ export default function CoursePlayer() {
 
             try {
                 // 1. Check Access
-                const accessRes = await fetch(`http://localhost:5000/api/auth/${user.id}/courses/${courseId}/access`, {
+                const accessRes = await fetch(`https://edvantage-pryf.onrender.com/api/auth/${user.id}/courses/${courseId}/access`, {
                     headers: { 'Authorization': `Bearer ${token}` } 
                 });
                 const { hasAccess } = await accessRes.json();

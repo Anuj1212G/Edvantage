@@ -8,7 +8,7 @@ export default function LMSHeader() {
 
   const handleLogout = () => {
     logout();          // clear user & token
-    navigate("/");     // redirect to home page
+    navigate("/courses");     // redirect to home page
   };
 
   return (

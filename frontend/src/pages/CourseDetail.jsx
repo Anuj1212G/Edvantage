@@ -10,7 +10,7 @@ const CourseDetail = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/courses/${courseId}`); // ✅ query param instead of route param
+        const res = await fetch(`https://edvantage-pryf.onrender.com/api/courses/${courseId}`); // ✅ query param instead of route param
         console.log(res);
         if (!res.ok) throw new Error("Failed to fetch course details");
         

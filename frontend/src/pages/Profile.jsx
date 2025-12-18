@@ -12,7 +12,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/users/profile", {
+        const res = await fetch("https://edvantage-pryf.onrender.com/api/users/profile", {
           headers: { "Authorization": `Bearer ${token}` }
         });
 
