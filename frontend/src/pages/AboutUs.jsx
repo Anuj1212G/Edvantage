@@ -7,6 +7,7 @@ const AboutUs = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const mentorsRef = useRef(null);
+  const videoRef = useRef(null); // Reference for the video element
   const [highlight, setHighlight] = useState(false);
 
   const ourStoryText = (
@@ -53,7 +54,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/yogashripradhan",
     },
-
     {
       name: "Sivakumar Babu",
       position: "Petroleum Engineer",
@@ -68,7 +68,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/sivakumar-babu-571a6311",
     },
-
     {
       name: "Dr. Rajesh Kumar Mittal",
       position: "Upstream Oil & Gas Consultant",
@@ -83,7 +82,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/dr-rajesh-kumar-mittal-3034222a",
     },
-
     {
       name: "Milind Gokhale",
       position: "Drilling Superintendent",
@@ -93,7 +91,6 @@ const AboutUs = () => {
       credentials: ["Well Engineering", "Drilling Operations", "Project Planning", "Rig Management"],
       linkedin: "https://www.linkedin.com/in/milind-gokhale-34499714",
     },
-
     {
       name: "Yohanes Nuwara",
       position: "Senior Data Scientist",
@@ -103,7 +100,6 @@ const AboutUs = () => {
       credentials: ["Data Science & AI", "Computer Vision & LLMs", "Technical Leadership", "Cross-Industry Data Solutions"],
       linkedin: "https://www.linkedin.com/in/yohanesnuwara",
     },
-
     {
       name: "Mr. Samir Kale",
       position: "Completion & Well Intervention Expert",
@@ -113,7 +109,6 @@ const AboutUs = () => {
       credentials: ["Well Intervention & Stimulation", "Lift Optimization", "HSSE Leadership", "Contract & Project Management"],
       linkedin: "https://www.linkedin.com/in/samir-kale-296b3410",
     },
-
     {
       name: "Mr. Vinod Kumar Madem",
       position: "Reservoir Engineering Expert",
@@ -128,7 +123,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/vinod-kumar-madem-b60145179",
     },
-
     {
       name: "Ms. Neha Chugh Dwivedi",
       position: "Technology Leader",
@@ -143,7 +137,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/neha-chugh-dwivedi-3054947",
     },
-
     {
       name: "Mr. Rajkumar Srivastava",
       position: "Economic & Investment Advisor",
@@ -158,7 +151,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/rajsrivastava1",
     },
-
     {
       name: "Mr. Jaiyesh Chahar",
       position: "Machine Learning Specialist",
@@ -168,7 +160,6 @@ const AboutUs = () => {
       credentials: ["AI/ML & Deep Learning", "Computer Vision & MLOps", "AI Product Development", "Research & Community Leadership"],
       linkedin: "https://www.linkedin.com/in/jaiyesh-chahar-9b3642107",
     },
-
     {
       name: "Dr. Nitesh Kumar",
       position: "Advance Well Engineering Expert",
@@ -178,7 +169,6 @@ const AboutUs = () => {
       credentials: ["Petroleum Engineering Research", "Reservoir & Production Studies", "Advanced Technical Analysis"],
       linkedin: "https://www.linkedin.com/in/dr-nitesh-kumar-a1298234?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BWrw7y5kMSpabeTqgX%2BxqbA%3D%3D",
     },
-
     {
       name: "Dr. Destiny Otto",
       position: "AI/ML Visualization Expert",
@@ -188,7 +178,6 @@ const AboutUs = () => {
       credentials: ["AI/ML Solution Development", "Workflow Automation", "LLMs, Python & APIs", "Systems Thinking & Scalability"],
       linkedin: "https://www.linkedin.com/in/destiny-otto",
     },
-
     {
       name: "Mr. Oscar Daniel Hernández Mendoza",
       position: "Reservoir Engineer & AI Prototype Developer",
@@ -198,7 +187,6 @@ const AboutUs = () => {
       credentials: ["Reservoir Characterization", "Production Optimization", "Digital Oilfield & 3D Digital Twins", "AI/ML Prototype Development"],
       linkedin: "https://www.linkedin.com/in/odhm86",
     },
-
     {
       name: "Mr. Ishan Appu",
       position: "Oil & Gas Professional",
@@ -213,7 +201,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/ishan-appu-pet-eng-7b698349",
     },
-
     {
       name: "Mr. Sanjay Kumar Singh",
       position: "Reservoir Engineer",
@@ -228,7 +215,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/sanjay-kumar-singh-7172748",
     },
-
     {
       name: "Mr. Mehdi Tadayoni",
       position: "Energy Data Scientist",
@@ -243,7 +229,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/mehdi-tadayoni-phd-2611673a",
     },
-
     {
       name: "Mr. Marco Carboni",
       position: "Oil & Gas Leader",
@@ -258,7 +243,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/marco-carboni-53b5488",
     },
-
     {
       name: "Mr. Mohamed Elshehabi",
       position: "Reservoir Engineering Expert",
@@ -273,7 +257,6 @@ const AboutUs = () => {
       ],
       linkedin: "https://www.linkedin.com/in/mohamed-elshehabi-a0336a72",
     },
-
     {
       name: "Dr. B. V. Bhusan",
       position: "Reservoir Engineering Expert",
@@ -302,6 +285,46 @@ const AboutUs = () => {
       return () => clearTimeout(id);
     }
   }, [location.hash]);
+
+  // Autoplay video on scroll logic
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    
+    if (!videoElement) return;
+
+
+    videoElement.volume = 0.8;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const playPromise = videoElement.play();
+            if (playPromise !== undefined) {
+              playPromise.catch((error) => {
+                // Autoplay prevented (usually because user hasn't interacted with page yet)
+                console.log("Autoplay prevented:", error);
+              });
+            }
+          } else {
+            // Optional: Pause video when scrolled out of view
+            videoElement.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the video is visible
+      }
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      if (videoElement) {
+        observer.unobserve(videoElement);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -337,6 +360,52 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+
+      {/* ============================================== */}
+      {/* CEO'S DESK / VIDEO SECTION START               */}
+      {/* ============================================== */}
+      {/* Decreased 'py-24' to 'py-12' for less vertical spacing */}
+      <section className="relative py-12 bg-white overflow-hidden">
+        {/* Top Decorative Gradient Line */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-60"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Header Block - Removed Icon & Reduced Margin */}
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-2">
+              From the CEO’s Desk
+            </h2>
+            <p className="text-xl text-gray-500 font-light max-w-2xl mx-auto">
+              The journey, purpose, and passion behind Edvantage Learning
+            </p>
+          </div>
+
+          {/* Video Container Block - Removed Zoom/Hover effects */}
+          <div className="max-w-5xl mx-auto relative">
+            
+            {/* Ambient Glow Effect (Static, no longer changes on hover) */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-600 rounded-2xl blur opacity-20"></div>
+            
+            {/* Actual Video Wrapper */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-black aspect-video">
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover"
+                controls
+                playsInline
+                src="/videos/ceo-message.mp4" 
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      {/* ============================================== */}
+      {/* CEO'S DESK / VIDEO SECTION END                 */}
+      {/* ============================================== */}
 
       {/* Mission & Vision */}
       <section className="py-20 bg-blue-50">
@@ -399,17 +468,14 @@ const AboutUs = () => {
                   ))}
                 </ul>
 
-                {/* UPDATED LINKEDIN BUTTON */}
-               <button
-  onClick={() => window.open(mentor.linkedin, "_blank")}
-  className="flex items-center justify-center w-10 h-10 
-             bg-[#0A66C2] rounded-lg 
-             hover:bg-[#004182] transition duration-300 shadow-md hover:shadow-lg"
->
-  <Linkedin className="h-5 w-5 text-white" />
-</button>
-               
-
+                <button
+                  onClick={() => window.open(mentor.linkedin, "_blank")}
+                  className="flex items-center justify-center w-10 h-10 mx-auto 
+                             bg-[#0A66C2] rounded-lg 
+                             hover:bg-[#004182] transition duration-300 shadow-md hover:shadow-lg"
+                >
+                  <Linkedin className="h-5 w-5 text-white" />
+                </button>
               </div>
             ))}
           </div>

@@ -18,7 +18,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "1",
     title: "Directional Drilling",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1nVygUvzUnF2WOHcmuIeNIxTh_b-QKOLw/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -47,7 +47,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Drilling engineers", "Petroleum students", "Well planning engineers"],
     price: "$70 / ₹2,500",
-    image: "/images/directional-drilling.jpg",
+    image: "/images/Directional Drilling.jpg",
     payment: {
       stripe: `https://buy.stripe.com/bJe8wRfUh9uF0kC8hbaR50C`,
       razorpay: `https://rzp.io/rzp/dw3i8KWL`,
@@ -57,7 +57,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "2",
     title: "Evaluating Unconventional Resources Using Decline Curve Analysis & Horizontal Well Fracturing",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/13MF1q-CU9s_Ujo7u6YDsqtDK_ANIfzAX/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -84,18 +84,17 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Reservoir engineers", "Completion engineers", "Analysts"],
     price: "$200 / ₹15,000",
-    image: "/images/unconventional-resources.jpg",
+    image: "/images/Evaluating Unconventional Resources Using Decline Curves Analysis, Optimizing Production Using Horizontal Well Fracturing.png",
     payment: {
       stripe: `https://buy.stripe.com/4gMfZj6jH8qBc3k0OJaR50E`,
-      razorpay: `https://rzp.io/rzp/YMzgvy7
-`,
+      razorpay: `https://rzp.io/rzp/YMzgvy7`,
     },
   },
 
   {
     id: "3",
     title: "Reserves Estimation & Classification",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1_I2t7h6Ztb07g1iu3U9ZmDKz9v7HFzFw/view?usp=drive_link",
     category: "self-paced",
     duration: "—",
     format: "Self-Paced",
@@ -120,7 +119,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Reservoir engineers", "Analysts", "Students"],
     price: "$35 / ₹2,500",
-    image: "/images/reserves-estimation.jpg",
+    image: "/images/Reserve Estimation & Classification.jpg",
     payment: {
       stripe: `https://buy.stripe.com/3cIdRb9vT9uF1oG0OJaR50F`,
       razorpay: `https://rzp.io/rzp/MKrRo2R`,
@@ -130,7 +129,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "4",
     title: "Sequence Stratigraphy in the Era of Digitalization",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1_RZnIlLklEQulDByJhYT5aAKlqzOyuP8/view?usp=drive_link",
     category: "hybrid",
     duration: "35+ Hours",
     format: "Hybrid (Virtual + Practical Workshops)",
@@ -159,7 +158,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Geologists", "Geophysicists", "Students"],
     price: "$60 / ₹4,000",
-    image: "/images/sequence-stratigraphy.jpg",
+    image: "/images/Sequence Stratigraphy in the era of Digitalization.png",
     payment: {
       stripe: `https://buy.stripe.com/5kQ9AVgYlgX7ebsdBvaR50G`,
       razorpay: `https://rzp.io/rzp/9tBFwWG`,
@@ -169,7 +168,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "5",
     title: "Well Intervention, Fishing & Smart Completions",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/17gS6s80wT6odieVgYLlPdMTX63O-GpE8/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -196,7 +195,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Completion engineers", "Well intervention engineers", "Students"],
     price: "$100 / ₹7,500",
-    image: "/images/well-intervention.jpg",
+    image: "/images/Well Intervention, Fishing & Smart Completions.jpg",
     payment: {
       stripe: `https://buy.stripe.com/4gM5kF23rgX70kC40VaR50H`,
       razorpay: `https://rzp.io/rzp/2OB3XZSk`,
@@ -206,7 +205,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "6",
     title: "Advance Well Engineering",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1a4W8zNIyL1dkHI-YeAP_gsQWkJNVFKXJ/view?usp=drive_link",
     category: "self-paced",
     duration: "10+ Hours",
     format: "Self-Paced",
@@ -237,7 +236,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Drilling engineers", "Well engineers", "Advanced students"],
     price: "—",
-    image: "/images/advanced-well-engineering.jpg",
+    image: "/images/Advance Well Engineering.jpg",
     payment: {
       stripe: `https://buy.stripe.com/9B63cx6jH9uF5EW40VaR50I`,
       razorpay: `https://rzp.io/rzp/eOv5Ggb`,
@@ -247,7 +246,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "7",
     title: "Reservoir Surveillance & Tight Reservoir Management",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/14tk2LFIneWO8of7Z-gOt67DrNSJmf68_/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -272,7 +271,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Reservoir engineers", "Asset teams", "Students"],
     price: "$100 / ₹7,500",
-    image: "/images/reservoir-surveillance.jpg",
+    image: "/images/Reservoir Surveillance & Tight Reservoir.jpg",
     payment: {
       stripe: `https://buy.stripe.com/eVq00lgYl0Y92sK9lfaR50J`,
       razorpay: `https://rzp.io/rzp/VTsA8qwE`,
@@ -282,7 +281,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "8",
     title: "Learn Energy Data Analytics From Scratch",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1vR6-Q-qQgNwgsiQ8TwCSO4bhqa6MKT9B/view?usp=drive_link",
     category: "self-paced",
     duration: "35+ Hours",
     format: "Self-Paced",
@@ -310,7 +309,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Data analysts", "Engineers", "Beginners"],
     price: "$150 / ₹11,000",
-    image: "/images/energy-data-analytics.jpg",
+    image: "/images/Learn Energy Data Analytics from Scratch.png",
     payment: {
       stripe: `https://buy.stripe.com/6oU9AVdM9gX75EW7d7aR50K`,
       razorpay: `https://rzp.io/rzp/pjv1YOrZ`,
@@ -320,7 +319,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "9",
     title: "Well Planning, Deepwater Design & Engineering",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1ZllJqbXMqREzJLzqe7o20Qj9LCvZ1ysi/view?usp=drive_link",
     category: "self-paced",
     duration: "5+ Hours",
     format: "Self-Paced",
@@ -347,7 +346,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Offshore engineers", "Drilling engineers", "Students"],
     price: "$150 / ₹10,500",
-    image: "/images/deepwater-engineering.jpg",
+    image: "/images/Well planning, deepwater Design and engineering.jpg",
     payment: {
       stripe: `https://buy.stripe.com/aFa3cx0ZneOZ6J0dBvaR50L`,
       razorpay: `https://rzp.io/rzp/ZQ58xzh`,
@@ -357,7 +356,7 @@ const DEFAULT_PROGRAMS = [
   {
     id: "10",
     title: "Drilling Analytics from Scratch",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1yJ0Vu71JQ3IXeIaLdWU8S4ayO8Mj6WfL/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self-Paced",
@@ -384,7 +383,7 @@ const DEFAULT_PROGRAMS = [
     ],
     targetAudience: ["Drilling engineers", "Data analysts", "Students"],
     price: "$140 / ₹12,000",
-    image: "/images/drilling-analytics.jpg",
+    image: "/images/Drilling Analytics From Scratch.jpg",
     payment: {
       stripe: `https://buy.stripe.com/9B6dRbbE10Y91oG693aR50M`,
       razorpay: `https://rzp.io/rzp/lcANZ6Uf`,
@@ -399,7 +398,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "11",
     title: "Deep Learning for Oil & Gas Applications",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1qAfjtkQreYLHFen_tJEpSrVcHgRl1IL-/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -426,7 +425,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Data scientists", "Engineers", "Students"],
     price: "$250 / ₹15,000",
-    image: "/images/deep-learning-oil-gas.jpg",
+    image: "/images/Deep Learning For Oil and Gas Applications.webp",
     payment: {
       stripe: `https://buy.stripe.com/8x2cN723rgX72sKgNHaR50N`,
       razorpay: `https://rzp.io/rzp/jsQQEt7`,
@@ -436,10 +435,10 @@ const PROGRAMS_PART_2 = [
   {
     id: "12",
     title: "Oil & Gas Software Development Using Python",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1MQ2_BiStdELEt1OlxkehGOOVZJzw2R0Y/view?usp=drive_link",
     category: "self-paced",
     duration: "28+ Hours",
-    format: "Self Paced",
+    format: "Self Pacced",
     level: "Beginner",
     certificate: "Yes",
     overview:
@@ -462,7 +461,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Engineers", "Developers", "Students"],
     price: "$200 / ₹15,000",
-    image: "/images/python-oil-gas-software.jpg",
+    image: "/images/Oil and Gas Software Development Using Python.jpg",
     payment: {
       stripe: `https://buy.stripe.com/28E6oJ0ZncGRgjAgNHaR50O`,
       razorpay: `https://rzp.io/rzp/Nign9Y28`,
@@ -472,7 +471,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "13",
     title: "Mastering Reservoir Engineering: From Basics to Software-Driven Solutions",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1uWjxoD9xCy7c_TjgseDW1p8AZ8lEk1VT/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -499,7 +498,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Reservoir engineers", "Students", "Analysts"],
     price: "$75 / ₹5,000",
-    image: "/images/mastering-reservoir-engineering.jpg",
+    image: "/images/Mastering Reservoir Engineering from Basics to Software-Driven Solutions.jpg",
     payment: {
       stripe: `https://buy.stripe.com/aFa5kF37vbCNd7o0OJaR51g`,
       razorpay: `https://rzp.io/rzp/xTxrIbQ`,
@@ -509,7 +508,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "14",
     title: "Master Oil & Gas Production Optimization with AI & Machine Learning",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1l6cctqldVyVo-k7dLeCgBDhD__xRjA5l/view?usp=drive_link",
     category: "self-paced",
     duration: "20+ Hours",
     format: "Self Paced",
@@ -534,7 +533,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Engineers", "Data analysts", "Operations"],
     price: "$200 / ₹15,000",
-    image: "/images/production-optimization-ml.jpg",
+    image: "/images/Master Oil & Gas Production Optimization with AI and ML.jpg",
     payment: {
       stripe: `https://buy.stripe.com/28EbJ3dM9eOZc3k7d7aR51h`,
       razorpay: `https://rzp.io/rzp/8LpGoT6W`,
@@ -544,7 +543,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "15",
     title: "Oil & Gas Forecasting & Predictions Using Time Series Analysis",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1D_FAxB6sDTgIzs0Hx-E4oJtemTuJ8WT-/view?usp=drive_link",
     category: "self-paced",
     duration: "28+ Hours",
     format: "Self Paced",
@@ -570,7 +569,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Data analysts", "Engineers", "Students"],
     price: "$200 / ₹14,000",
-    image: "/images/time-series-oil-gas.jpg",
+    image: "/images/Oil & Gas Forecasting & Predictions using time series analysis.jpeg",
     payment: {
       stripe: `https://buy.stripe.com/14AdRb9vT22d6J0cxraR51i`,
       razorpay: `https://rzp.io/rzp/3OmwE9e`,
@@ -580,7 +579,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "16",
     title: "PVT Modelling and Advanced Fluid Characterization",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/16wN1I2maQuWCatOg6RIFIQwlBhRBV-PB/view?usp=drive_link",
     category: "self-paced",
     duration: "12+ Hours",
     format: "Self Paced",
@@ -606,7 +605,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Reservoir engineers", "Laboratory engineers", "Students"],
     price: "$100 / ₹7,500",
-    image: "/images/pvt-modelling.jpg",
+    image: "/images/PVT Modeling & Advanced Fluid Characterization.png",
     payment: {
       stripe: `https://buy.stripe.com/8x2cN74bz8qB8R854ZaR51j`,
       razorpay: `https://rzp.io/rzp/edTLw7i`,
@@ -616,7 +615,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "17",
     title: "Data Analytics & Visualisation Using Power BI for Oil & Gas",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1ZQ0zNnE4FI4q2Zi6BQgTEpVh-9l2pwaB/view?usp=drive_link",
     category: "self-paced",
     duration: "15+ Hours",
     format: "Self-Paced",
@@ -642,7 +641,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Data analysts", "Engineers", "Managers"],
     price: "$200 / ₹17,000",
-    image: "/images/power-bi-oil-gas.jpg",
+    image: "/images/Data Analytics & Visualization using Power BI for Oil & Gas.png",
     payment: {
       stripe: `https://buy.stripe.com/5kQ3cx0ZneOZ2sK40VaR51k`,
       razorpay: `https://rzp.io/rzp/B30hGumz`,
@@ -652,7 +651,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "18",
     title: "Electric Submersible Pump (ESP) Training",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1scytw08Y51JDKz-1R5_2YZrDfbIC3uhJ/view?usp=drive_link",
     category: "self-paced",
     duration: "10+ Hours",
     format: "Self-Paced",
@@ -676,7 +675,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Production engineers", "Field operators", "Students"],
     price: "$100 / ₹7,500",
-    image: "/images/esp-training.jpg",
+    image: "/images/Electric Submersible Pump (ESP) Fundamental.webp",
     payment: {
       stripe: `https://buy.stripe.com/bJeaEZeQd8qB9Vc54ZaR51l`,
       razorpay: `https://rzp.io/rzp/UBwl9mt1`,
@@ -686,7 +685,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "19",
     title: "Python in Oil & Gas",
-    brochure: "https://your-brochure-link.com/file.pdf",
+    brochure: "https://drive.google.com/file/d/1ulKfYO9M-3dt77SsMDo9U8PbZpIaGSDY/view?usp=drive_link",
     category: "self-paced",
     duration: "35+ Hours",
     format: "Self-Paced",
@@ -712,7 +711,7 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Engineers", "Students", "Data enthusiasts"],
     price: "$200 / ₹15,000",
-    image: "/images/python-in-oil-gas.jpg",
+    image: "/images/Python in Oil & Gas.webp",
     payment: {
       stripe: `https://buy.stripe.com/9B65kFeQddKVebs9lfaR51m`,
       razorpay: `https://rzp.io/rzp/11RKRVuq`,
@@ -722,8 +721,8 @@ const PROGRAMS_PART_2 = [
   {
     id: "20",
     title: "Well Completion Training",
-    brochure: "https://your-brochure-link.com/file.pdf",
-    category: "instructor-led",
+    brochure: "https://drive.google.com/file/d/1MfeqXE_CkSnx1A-dT49MGDuVbr4Gju0-/view?usp=drive_link",
+    category: "self-paced",
     duration: "20+ Hours",
     format: "Live Online",
     level: "Beginner to Intermediate",
@@ -748,17 +747,17 @@ const PROGRAMS_PART_2 = [
     ],
     targetAudience: ["Petroleum engineers", "Completions engineers", "Students"],
     price: "$100 / ₹8,500",
-    image: "/images/well-completion-training.jpg",
+    image: "/images/Well Completion.jpg",
     payment: {
       stripe: `https://buy.stripe.com/fZu28t5fD36hebs1SNaR51n`,
       razorpay: `https://rzp.io/rzp/a2nOPMUc`,
     },
   },
-
-  {
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+ {
   id: "21",
   title: "Advanced Drilling Operations & Risk Mitigation",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1BLrUYOHU6hV4C53Ll2mGwexc1yIzd0XV/view?usp=drive_link",
   category: "self-paced",
   duration: "5+ Hours",
   format: "Self-Paced",
@@ -775,16 +774,32 @@ const PROGRAMS_PART_2 = [
     "Apply decision-making tools for complex scenarios"
   ],
   curriculum: [
-    "Drilling Risk Fundamentals",
-    "Well Control & Pressure Management",
-    "Stuck Pipe Prevention",
-    "NPT Analysis & Reduction Techniques",
-    "Operational Troubleshooting",
-    "Decision Making in Critical Situations"
-  ],
-  targetAudience: ["Drilling engineers", "Field supervisors", "Students"],
+  "Introduction to Advanced Drilling Operations",
+  "Stuck Pipe Prevention & Real-Time Indicators",
+  "Well Control Fundamentals & Unconventional Scenarios",
+  "Wellbore Instability: Causes, Indicators & Mitigation",
+  "Lost Circulation: Mechanisms, Field Indicators & Prevention",
+  "Vertical Drilling Deviation: Detection, Consequences & Correction",
+  "Hole Cleaning Essentials & Immediate Corrective Actions",
+  "BHA Failure Analysis & Fatigue Prevention",
+  "Mud and Cement Contamination: Identification & Countermeasures",
+  "Human Factors, Crew Communication & Operational Discipline",
+  "Risk Mitigation Strategies for Reducing NPT",
+  "Case Studies, Group Exercises & Scenario-Based Problem Solving"
+],
+targetAudience: [
+  "Final-year petroleum engineering students",
+  "Final-year mechanical engineering students",
+  "Junior drilling engineers",
+  "Assistant drilling engineers",
+  "Rig supervisors",
+  "Drilling operations staff",
+  "Wellsite engineers",
+  "Field engineers seeking drilling troubleshooting skills",
+  "Professionals transitioning into drilling & well operations"
+],
   price: "$150 / ₹11,000",
-  image: "/images/Advanced Drilling Operations & Risk Mitigation.png",
+  image: "/images/Advanced Drilling Operations & Risk Mitigation.webp",
   payment: {
     stripe: `https://buy.stripe.com/9B63cx6jH9uF5EW40VaR50I`,
     razorpay: `https://rzp.io/rzp/eOv5Ggb`,
@@ -794,7 +809,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "22",
   title: "Well Test Analysis & Reservoir Modelling using MS Excel",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1h1b8aF4yDPkPYjshxCBMxSrTVQJMThwv/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -809,16 +824,33 @@ const PROGRAMS_PART_2 = [
     "Evaluate reservoir performance and productivity",
     "Strengthen analytical and engineering decision skills"
   ],
-  curriculum: [
-    "Reservoir Fundamentals",
-    "Material Balance Basics",
-    "Pressure Transient Analysis",
-    "Excel Modelling for Reservoirs",
-    "Production Forecasting"
-  ],
-  targetAudience: ["Reservoir engineers", "Analysts", "Students"],
+ curriculum: [
+  "Introduction to Reservoir Engineering & Fluid Properties",
+  "PVT Analysis & Excel-Based Data Interpretation",
+  "Material Balance Principles & Reservoir Performance Evaluation",
+  "Material Balance Calculations for Oil Reservoirs",
+  "Production Data Analysis & Decline Curve Modeling in Excel",
+  "Forecasting Reservoir Performance Using Decline Models",
+  "Pressure Transient Analysis & Well Test Interpretation",
+  "Excel-Based Calculation of Permeability, Skin & Drainage Radius",
+  "Reservoir Characterization & Surveillance Methods",
+  "Production Optimization Fundamentals",
+  "Excel-Based Nodal Analysis & System Bottleneck Identification",
+  "Real-World Case Studies & Hands-On Excel Exercises"
+],
+
+  targetAudience: [
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Production engineers",
+  "Petroleum engineering students",
+  "Geoscience students and professionals",
+  "Early-career upstream engineers seeking practical reservoir skills",
+  "Oil & gas professionals wanting to improve well test analysis abilities",
+  "Engineers looking to strengthen Excel-based reservoir modeling skills"
+],
   price: "$130 / ₹10,000",
-  image: "/images/Well Test Analysis & Reservoir Modelling.png",
+  image: "/images/Well Test Analysis & Reservoir Modeling Using MS Excel.jpeg",
   payment: {
     stripe: `https://buy.stripe.com/00waEZ23r6it2sK0OJaR50P`,
     razorpay: `https://rzp.io/rzp/7nmMx0a`,
@@ -828,7 +860,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "23",
   title: "Data Science and Its Application for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1aiB2wHKnSxsZXHgiLhY5wwkn0FTdpULF/view?usp=drive_link",
   category: "self-paced",
   duration: "80+ Hours",
   format: "Self-Paced",
@@ -844,15 +876,66 @@ const PROGRAMS_PART_2 = [
     "Create BI dashboards for asset optimization"
   ],
   curriculum: [
-    "Data Handling & Python Basics",
-    "Machine Learning Foundations",
-    "Reservoir & Production Data Workflows",
-    "Operational Forecasting",
-    "Real-World Analytics Projects"
-  ],
-  targetAudience: ["Data analysts", "Energy engineers", "Students"],
+  // ------------------ MODULE 1: Statistics ------------------
+  "Sample vs Population Data",   // :contentReference[oaicite:0]{index=0}
+  "Descriptive Statistics: Measures of central tendency, asymmetry & variability",  // :contentReference[oaicite:1]{index=1}
+  
+
+  // ------------------ MODULE 2: Python Fundamentals ------------------
+  "Introduction to Python & programming basics",  // :contentReference[oaicite:4]{index=4}
+  "Data types, variables, I/O operations, operators",  // :contentReference[oaicite:5]{index=5}
+  
+
+  // ------------------ MODULE 3: SQL & Database Management ------------------
+  "Introduction to SQL, syntax, commands & queries",  // :contentReference[oaicite:9]{index=9}
+  "Data types, operators, expressions & comments",  // :contentReference[oaicite:10]{index=10}
+  
+
+  // ------------------ MODULE 4: Data Analytics ------------------
+  "Power BI introduction for analytics",  // :contentReference[oaicite:12]{index=12}
+  "AI & ML introduction",  // :contentReference[oaicite:13]{index=13}
+  
+  
+
+  // ------------------ MODULE 5: Data Mining ------------------
+  "CRISP-DM workflow & modelling steps",  // :contentReference[oaicite:20]{index=20}
+  "SPSS for data modelling, testing & assessment",  // :contentReference[oaicite:21]{index=21}
+  
+  
+
+  // ------------------ MODULE 6: Deep Learning (TensorFlow & Keras) ------------------
+  "Introduction to AI & Deep Learning",  // :contentReference[oaicite:26]{index=26}
+  "Convolutional Neural Networks (CNN)",  // :contentReference[oaicite:27]{index=27}
+  
+
+  // ------------------ MODULE 7: Applied Oil & Gas ML Projects ------------------
+  "Geoscience: Facies classification, well log prediction",  // :contentReference[oaicite:31]{index=31}
+  "Reservoir: PVT estimation",  // :contentReference[oaicite:32]{index=32}
+  
+
+  // ------------------ MODULE 8: Reservoir Engineering in Python ------------------
+  "Well test analysis: Drawdown & buildup",  // :contentReference[oaicite:36]{index=36}
+  "1D reservoir simulation using Klinkenberg effects",  // :contentReference[oaicite:37]{index=37}
+  
+ 
+
+  // ------------------ FINAL PROJECTS ------------------
+  "AI & ML research project (Oil & Gas use-case)",  // :contentReference[oaicite:43]{index=43}
+  "Data science capstone project with real datasets",  // :contentReference[oaicite:44]{index=44}
+],
+
+   targetAudience: [
+  "Undergraduate petroleum engineering students",
+  "Graduate students in petroleum, geology, or mechanical engineering",
+  "Working professionals in the energy sector",
+  "Petroleum engineers seeking data science upskilling",
+  "Geoscientists and reservoir engineers exploring ML/AI applications",
+  "Mechanical engineers transitioning into oil & gas data roles",
+  "Fresh graduates looking to enter energy analytics",
+  "Professionals wanting certified application-based data science training for oil & gas"
+],
   price: "$300 / ₹22,500",
-  image: "/images/Data Science for Oil & Gas.png",
+  image: "/images/Data Science & Its Application for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/8x28wReQd36hd7o40VaR50Q`,
     razorpay: `https://rzp.io/rzp/Nl6YWPi`,
@@ -862,7 +945,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "24",
   title: "Machine Learning with Time Series Application for Energy Industry",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1XCT0jO3gFF9-Mivt0_2l4HAvTlevU53j/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -877,15 +960,33 @@ const PROGRAMS_PART_2 = [
     "Support real-time monitoring and decision intelligence"
   ],
   curriculum: [
-    "ML & Time Series Fundamentals",
-    "Data Preparation & Feature Engineering",
-    "Forecasting Models (ARIMA/LSTM)",
-    "Field Case Studies",
-    "Deployment Techniques"
-  ],
-  targetAudience: ["Data analysts", "Energy engineers", "Students"],
+  "Introduction to Time Series Data & Real-Life Forecasting Concepts",
+  "Basics of Mathematics & Statistics for Time Series (Lag Features, Outliers, Calculus)",
+  "Time Series Terminology (Trend, Seasonality, Periodicity, White Noise, Unit Root, Smoothing)",
+  "Signal Analysis Fundamentals (Fourier Transform, Recurrence Plots, Anomaly Spikes)",
+  "Core Time Series Techniques (Differencing, ACF, PACF, Hypothesis Testing)",
+  "Time Series Data Analysis using Pandas & Datetime Objects",
+  "Statistical Forecasting Models: AR, MA, ARIMA",
+  "Machine Learning & Deep Learning for Time Series (RNN, LSTM)",
+  "Regression Perspective for Time Series Problems",
+  "Anomaly Detection Methods (Autoencoders, Isolation Forest) — Optional Advanced",
+  "Hands-on Forecasting for Energy Consumption, Production & Pricing",
+  "Case Studies & Real-World Applications in Energy Industry"
+],
+
+  targetAudience: [
+  "Energy sector professionals",
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Production engineers",
+  "Data analysts working in energy domain",
+  "Students in petroleum, energy, or data science fields",
+  "Researchers working on forecasting and time series modeling",
+  "Professionals transitioning into energy data science roles",
+  "Beginners looking to learn ML + time series from scratch"
+],
   price: "$200 / ₹14,000",
-  image: "/images/Machine Learning Time Series for Energy Industry.png",
+  image: "/images/Machine Learning with Time Series Applications for Energy Industry.webp",
   payment: {
     stripe: `https://buy.stripe.com/5kQ28teQd6it9Vc7d7aR50R`,
     razorpay: `https://rzp.io/rzp/xViy6Nla`,
@@ -895,7 +996,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "25",
   title: "Power BI Analytics for Drilling Engineer",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1b4GGGjrwD91rpp8JZ2Ts0eL9o0cD7fTx/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -910,15 +1011,36 @@ const PROGRAMS_PART_2 = [
     "Support drilling optimization workflows"
   ],
   curriculum: [
-    "Power BI Basics",
-    "Drilling Data Transformation",
-    "Performance Dashboards",
-    "KPI Visualization",
-    "Case Studies"
-  ],
-  targetAudience: ["Drilling engineers", "Data analysts", "Students"],
+  "Introduction to Power BI for Drilling Engineering",
+  "Understanding Power BI Interface & Building First Dashboard",
+  "Drilling Data Preparation & Cleaning using Power Query",
+  "Connecting to Drilling Data Sources (Excel, SQL, APIs)",
+  "Advanced Power Query for Formation-Based Analysis",
+  "Dashboard Design: Slicers, Filters & Well Trajectory Visualizations",
+  "Data Modeling in Power BI (Power Pivot & Relationships)",
+  "Introduction to DAX for Drilling KPIs (ROP, NPT, Cost/ft)",
+  "Advanced DAX Functions for Operational Analytics",
+  "Time Intelligence & Progress Tracking for Drilling Operations",
+  "Case Study: Daily Drilling Performance & Downtime Dashboard",
+  "Case Study: Well Production Monitoring & Optimization",
+  "Forecasting Drilling Costs using DAX & Dashboard Insights",
+  "End-to-End Project: Drilling Performance Analysis Dashboard",
+  "End-to-End Project: Well Production Monitoring Dashboard",
+  "Exporting & Sharing Dashboards through Power BI Service"
+],
+
+ targetAudience: [
+  "Drilling engineers",
+  "Petroleum engineers",
+  "Wellsite drilling engineers",
+  "Drilling data analysts",
+  "Operations engineers involved in drilling performance monitoring",
+  "Field engineers seeking data visualization skills",
+  "Energy professionals transitioning into data-driven drilling roles",
+  "Students aiming to build analytics skills for drilling engineering"
+],
   price: "$150 / ₹9,000",
-  image: "/images/Power BI for Drilling Engineers.png",
+  image: "/images/Power BI Analytics For Drilling Engineer.jpg",
   payment: {
     stripe: `https://buy.stripe.com/28E4gBgYlfT36J0fJDaR50S`,
     razorpay: `https://rzp.io/rzp/DTl79Ij`,
@@ -928,7 +1050,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "26",
   title: "AI-Powered Excel Automation for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1rfCMIA2-yCnXDBzB6YHeetA3u3yDZKhc/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -943,15 +1065,41 @@ const PROGRAMS_PART_2 = [
     "Enhance field reporting efficiency"
   ],
   curriculum: [
-    "Excel Automation Essentials",
-    "AI Tools & Macros",
-    "Predictive Modelling",
-    "Real-Time Dashboards",
-    "Case Workflows"
-  ],
-  targetAudience: ["Engineers", "Excel analysts", "Students"],
+  "Introduction to AI-Powered Excel for Oil & Gas",
+  "Data Cleaning for Oilfield Datasets (Well Logs, History Data, Core & Test Reports)",
+  "One-Shot Structuring of Unstructured & Messy Petroleum Data",
+  "Automated Data Extraction from PDFs, Images & Scanned Reports",
+  "OCR-Based Extraction for Daily Drilling Reports, EOWR & Geological Reports",
+  "AI-Driven Pattern Recognition & Categorization (HSE, Assets, Inventory, PO Logs)",
+  "Auto-Summarization of Maintenance Logs & Vendor Reports",
+  "Extracting Technical Specifications from Well Data Sheets & Equipment Docs",
+  "Natural Language–Driven Analysis of Production & Well Performance Data",
+  "Automated Pivot Tables, Smart Lookups & Insight Generation",
+  "AI-Based Root Cause Investigation & Recommendation Systems",
+  "Auto-Generating Daily/Weekly/Monthly Production Summaries",
+  "Building Field Performance Dashboards with Natural Language Commands",
+  "AI-Assisted Formula Generation & Simplification",
+  "Automating Dynamic Production Allocation & Reconciliation",
+  "AI-Driven Decline Curve Calculations & Trend Analysis",
+  "Cross-Sheet Well Test Data Aggregation & Analysis",
+  "Automation of Repetitive Tasks Using AI, Macros & Custom Scripts",
+  "End-to-End Oilfield Reporting Workflow Automation Project"
+],
+
+  targetAudience: [
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Production engineers",
+  "Drilling and completion engineers",
+  "Field engineers and operations staff",
+  "Data analysts working in oil & gas",
+  "HSE and maintenance reporting teams",
+  "Fresh graduates seeking digital oilfield skills",
+  "Professionals wanting to automate Excel workflows using AI",
+  "Anyone handling large volumes of oilfield data, logs, or reports"
+],
   price: "$150 / ₹11,000",
-  image: "/images/AI Excel Automation Oil & Gas.png",
+  image: "/images/AI Powered Excel Automation for  Oil & Gas.webp",
   payment: {
     stripe: `https://buy.stripe.com/5kQ00l23r8qBebs2WRaR50T`,
     razorpay: `https://rzp.io/rzp/VUuZhIl`,
@@ -961,7 +1109,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "27",
   title: "Spotfire Analytics for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1ET4sHRQKD_e1ivWEx06ibHXf4PqHzuTU/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -976,14 +1124,41 @@ const PROGRAMS_PART_2 = [
     "Integrate data sources for monitoring"
   ],
   curriculum: [
-    "Spotfire Fundamentals",
-    "Data Integration & Cleaning",
-    "Dashboarding & Visual Analytics",
-    "Operational Case Studies"
-  ],
-  targetAudience: ["Analysts", "Production teams", "Students"],
+  "Introduction to AI-Powered Excel for Oil & Gas",
+  "Data Cleaning for Oilfield Datasets (Well Logs, History Data, Core & Test Reports)",
+  "One-Shot Structuring of Unstructured & Messy Petroleum Data",
+  "Automated Data Extraction from PDFs, Images & Scanned Reports",
+  "OCR-Based Extraction for Daily Drilling Reports, EOWR & Geological Reports",
+  "AI-Driven Pattern Recognition & Categorization (HSE, Assets, Inventory, PO Logs)",
+  "Auto-Summarization of Maintenance Logs & Vendor Reports",
+  "Extracting Technical Specifications from Well Data Sheets & Equipment Docs",
+  "Natural Language–Driven Analysis of Production & Well Performance Data",
+  "Automated Pivot Tables, Smart Lookups & Insight Generation",
+  "AI-Based Root Cause Investigation & Recommendation Systems",
+  "Auto-Generating Daily/Weekly/Monthly Production Summaries",
+  "Building Field Performance Dashboards with Natural Language Commands",
+  "AI-Assisted Formula Generation & Simplification",
+  "Automating Dynamic Production Allocation & Reconciliation",
+  "AI-Driven Decline Curve Calculations & Trend Analysis",
+  "Cross-Sheet Well Test Data Aggregation & Analysis",
+  "Automation of Repetitive Tasks Using AI, Macros & Custom Scripts",
+  "End-to-End Oilfield Reporting Workflow Automation Project"
+],
+
+  targetAudience: [
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Production engineers",
+  "Drilling and completion engineers",
+  "Field engineers and operations staff",
+  "Data analysts working in oil & gas",
+  "HSE and maintenance reporting teams",
+  "Fresh graduates seeking digital oilfield skills",
+  "Professionals wanting to automate Excel workflows using AI",
+  "Anyone handling large volumes of oilfield data, logs, or reports"
+],
   price: "$150 / ₹11,000",
-  image: "/images/Spotfire Analytics Oil & Gas.png",
+  image: "/images/Spotfire Analytics for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/cNiaEZbE1cGR4AS7d7aR50U`,
     razorpay: `https://rzp.io/rzp/tP1DNcu`,
@@ -993,7 +1168,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "28",
   title: "Petroleum Geomechanics & CCUS",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1mZV9smy7_Ay5-ILaHFXnXgDrl_3D7_2H/view?usp=drive_link",
   category: "self-paced",
   duration: "5+ Hours",
   format: "Self-Paced",
@@ -1008,15 +1183,33 @@ const PROGRAMS_PART_2 = [
     "Use geomechanical software and diagnostics"
   ],
   curriculum: [
-    "Geomechanics Principles",
-    "Stress Analysis",
-    "Wellbore Stability",
-    "CCUS Fundamentals",
-    "Field Applications"
-  ],
-  targetAudience: ["Geoscientists", "Drilling engineers", "Students"],
+  "Introduction to Petroleum Geomechanics & Subsurface Stress Concepts",
+  "Earth Stress Regimes, Pore Pressure Origins & Petroleum System Geomechanics",
+  "Rock Mechanics Fundamentals: Elasticity, Plasticity & Failure Criteria",
+  "Wireline Log Interpretation & Borehole Imaging from a Geomechanics Perspective",
+  "Core Testing & Laboratory Measurement of Rock Mechanical Properties",
+  "1D Mechanical Earth Model (MEM) Development from Well Logs",
+  "Introduction to 2D & 3D MEMs and Their Applications in Drilling & Completions",
+  "In-Situ Stress Measurements & Stress Plotting Techniques",
+  "Wellbore Stability Analysis: Collapse, Breakouts, Fracturing & Stress Path Modeling",
+  "Sand Production Mechanisms, Prediction & Mitigation Strategies",
+  "Reservoir Geomechanics: Deformation, Compaction & Stress Changes During Production",
+  "Geomechanical Modeling Approaches (Analytical & Numerical / FEM Overview)",
+  "Geomechanical Hazards: Lost Circulation, Fracture Reactivation, Wellbore Failures",
+  "CCUS Geomechanics: Storage Integrity, Caprock Behavior & Induced Seismicity",
+  "Case Studies & Hands-On MEM Construction Workflow"
+],
+
+  targetAudience: [
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Drilling & completion engineers",
+  "Geologists and geophysicists",
+  "CCUS and energy-transition professionals",
+  "Students entering subsurface engineering roles"
+],
   price: "$100 / ₹8,000",
-  image: "/images/Petroleum Geomechanics CCUS.png",
+  image: "/images/Petroleum Geomechanics & CCUS.png",
   payment: {
     stripe: `https://buy.stripe.com/4gM4gBazX6itffwapjaR50V`,
     razorpay: `https://rzp.io/rzp/dM7Hkm2e`,
@@ -1026,7 +1219,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "29",
   title: "Python for Geophysics Data Processing",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/10UmJRxPTKc7x_3pjZRhdQbFWphUQURUG/view?usp=drive_link",
   category: "self-paced",
   duration: "3+ Hours",
   format: "Self-Paced",
@@ -1041,14 +1234,33 @@ const PROGRAMS_PART_2 = [
     "Build ML-assisted interpretation projects"
   ],
   curriculum: [
-    "Python for Geophysics Basics",
-    "Seismic Data Processing",
-    "Visualization Techniques",
-    "Structural Interpretation"
-  ],
-  targetAudience: ["Geophysicists", "Python learners", "Students"],
+  "Introduction to Python Programming for Geoscience",
+  "Working with Arrays, Matrices & DataFrames for Geophysical Data",
+  "Scientific Visualization with Matplotlib & Gravity Mapping Techniques",
+  "Statistical Analysis of Geophysical Datasets using Pandas & Seaborn",
+  "Numerical Methods: Regression, Interpolation & Extrapolation",
+  "Processing Bouguer Gravity Anomalies & Gravity Data Interpretation",
+  "Regional–Residual Separation using FFT & Second Vertical Derivative (SVD)",
+  "Seismic Data Handling with segyio & Trace Header Analysis",
+  "Seismic Wavelet, Frequency Analysis & Deconvolution Techniques",
+  "Seismic Survey Visualization & Mapping Workflows",
+  "Introduction to Inverse Modeling in Python",
+  "Seismic Multi-Attribute Extraction & Analysis",
+  "Post-Stack Inversion & Fluid Factor Interpretation",
+  "Fundamentals of AVO Modeling & Practical Applications",
+  "Hands-on Gravity & Seismic Case Studies using Real Datasets"
+],
+
+  targetAudience: [
+  "Geophysicists",
+  "Geologists & exploration engineers",
+  "Earth science M.Sc/PhD students & researchers",
+  "Oil & gas & mining professionals",
+  "Geotech & CCS project analysts",
+  "Data scientists entering geoscience/energy domain"
+],
   price: "$150 / ₹11,000",
-  image: "/images/Python Geophysics Data Processing.png",
+  image: "/images/Python for Geophysics Data Processing.webp",
   payment: {
     stripe: `https://buy.stripe.com/4gMdRbcI5eOZc3k0OJaR50W`,
     razorpay: `https://rzp.io/rzp/aYcbqrkq`,
@@ -1058,7 +1270,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "30",
   title: "Oil & Gas Forecasting & Predictions using Python",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1JIcyun75L7o0gc1rl1uh8dzMGiLRuc0K/view?usp=drive_link",
   category: "self-paced",
   duration: "35+ Hours",
   format: "Self-Paced",
@@ -1073,14 +1285,32 @@ const PROGRAMS_PART_2 = [
     "Strengthen industry-ready analytical skills"
   ],
   curriculum: [
-    "Time Series Fundamentals",
-    "Python Forecasting Models",
-    "Operational Prediction",
-    "Production Trend Analysis"
-  ],
-  targetAudience: ["Students", "Engineers", "Data analysts"],
+  "Introduction to Oil & Gas Forecasting: Scope, Data & Use-Cases",
+  "Time Series Fundamentals for Energy Data (Trend, Seasonality, Stationarity)",
+  "Data Preparation & Feature Engineering for Energy Time Series",
+  "Exploratory Data Analysis & Visualization with Python (Pandas, Matplotlib)",
+  "Statistical Forecasting Models: AR, MA, ARIMA & SARIMA",
+  "Advanced Statistical Tools: ACF, PACF, Differencing & Unit-Root Tests",
+  "Machine Learning for Time Series: Regression, Tree-Based Models & Ensembles",
+  "Deep Learning Approaches: RNNs, LSTM, GRU Architectures for Forecasting",
+  "Evaluation Metrics, Backtesting & Cross-Validation Strategies for Time Series",
+  "Anomaly Detection & Event Identification (Autoencoders, Isolation Forest)",
+  "Signal Processing & Frequency Domain Analysis (FFT) for Energy Signals",
+  "Forecasting Energy Prices, Production & Consumption Case Studies",
+  "Model Deployment Basics: Pipelines, Scheduling & Simple APIs",
+  "Model Explainability & Uncertainty Quantification for Decision Support",
+  "End-to-End Capstone Project: Build, Validate & Present an Oil & Gas Forecasting Model"
+],
+
+  targetAudience: [
+  "Petroleum & energy sector students",
+  "Oil & gas professionals",
+  "Data analysts & data enthusiasts",
+  "Engineers wanting forecasting skills",
+  "Beginners in Python-based time series analysis"
+],
   price: "$200 / ₹14,000",
-  image: "/images/Oil & Gas Forecasting Python.png",
+  image: "/images/Oil and Gas Software Development Using Python.jpg",
   payment: {
     stripe: `https://buy.stripe.com/28EbJ3fUhbCN4AS54ZaR50X`,
     razorpay: `https://rzp.io/rzp/1uLWuXP`,
@@ -1090,7 +1320,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "31",
   title: "Production & Nodal Analysis with Python and ML",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1tUKOFlM-iArYjr5NXbQ4cI_ypbaZhSSU/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -1105,14 +1335,24 @@ const PROGRAMS_PART_2 = [
     "Apply ML models for production forecasting"
   ],
   curriculum: [
-    "Nodal Analysis Basics",
-    "Python for Well Performance",
-    "Artificial Lift Workflows",
-    "ML-Based Production Optimization"
-  ],
-  targetAudience: ["Production engineers", "Analysts", "Students"],
+  "Python basics for oil & gas: variables, loops, functions, file handling",
+  "Data handling with Pandas, NumPy & visualization with Matplotlib",
+  "Intro to ML: training/testing, regression, clustering, MSE",
+  "ML workflows applied to production datasets",
+  "Inflow & outflow performance concepts for wells (IPR & VLP)",
+  "Nodal analysis workflow and production system optimization",
+  "Flow assurance basics: hydrate & wax formation predictions",
+  "Hands-on exercises using real oilfield production data"
+],
+targetAudience: [
+  "Petroleum and production engineers",
+  "Reservoir engineers",
+  "Oil & gas data analysts",
+  "Students entering the energy sector",
+  "Professionals wanting Python + ML skills for production workflows"
+],
   price: "$250 / ₹20,000",
-  image: "/images/Production Nodal Analysis Python ML.png",
+  image: "/images/Production and Nodal Analysis with Python & ML.webp",
   payment: {
     stripe: `https://buy.stripe.com/4gM6oJ37v4algjA40VaR50Y`,
     razorpay: `https://rzp.io/rzp/1HyI5k5`,
@@ -1122,10 +1362,10 @@ const PROGRAMS_PART_2 = [
 {
   id: "32",
   title: "Diploma for HSE in Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
-  category: "self-paced",
+  brochure: "https://drive.google.com/file/d/1c0L2gU99uqQii07oHYBb2zGh_-J6ANjj/view?usp=drive_link",
+  category: "diploma",
   duration: "80+ Hours",
-  format: "Self-Paced",
+  format: "Diploma",
   level: "Intermediate",
   certificate: "Yes",
   overview:
@@ -1137,14 +1377,36 @@ const PROGRAMS_PART_2 = [
     "Implement safe field operations"
   ],
   curriculum: [
-    "HSE Standards & Regulations",
-    "Risk Assessment & Mitigation",
-    "Emergency Response Planning",
-    "Occupational Safety Systems"
-  ],
-  targetAudience: ["HSE engineers", "Supervisors", "Students"],
+  "Introduction to Oil & Gas Industry (History, Operations, Stakeholders, Facilities)",
+  "Fundamentals of Health, Safety & Environment (HSE Principles, Regulations, Hazard Identification)",
+  "Oil & Gas Processes & Hazards (Exploration, Drilling, Production, Refining, Transport Risks)",
+  "Occupational Health & Industrial Hygiene (Exposure Control, Health Risks, Incident Response)",
+  "Safety Management Systems (Policies, Procedures, Incident Investigation, Continuous Improvement)",
+  "Environmental Management in Oil & Gas (EIA, Pollution Control, Sustainability Practices)",
+  "Emergency Response & Crisis Management (Planning, Communication, Drills & Lessons Learned)",
+  "HSE Auditing & Inspections (Techniques, Compliance Checks, Corrective Actions)",
+  "Human Factors in HSE (Behavioral Safety, Error Prevention, Competency Development)",
+  "International HSE Standards & Best Practices (ISO Standards, Global Frameworks, Benchmarking)",
+  "International Regulations & Compliance (Global Laws, Cross-Cultural HSE Requirements)",
+  "Technology in HSE (Sensors, Drones, AI, Digital Safety Systems, Predictive Analytics)",
+  "Capstone Project: Developing a Comprehensive HSE Plan for a Field Scenario",
+  "Sustainable Practices in Oil & Gas (Carbon Reduction, Circular Economy, CSR Initiatives)",
+  "Leadership & HSE Culture (Safety Leadership, Workforce Engagement, Change Management)",
+  "Advanced Emergency Response Simulation (Hands-on Crisis Scenarios & Evaluation)",
+  "Legal Aspects of HSE (Laws, Roles, Liabilities, Case Studies from Oil & Gas Incidents)",
+  "Stakeholder Engagement & Communication (Internal & External Communication, Crisis PR)",
+  "Professional Development & Networking (Career Pathways, Certifications, Mentorship)"
+],
+
+  targetAudience: [
+  "HSE officers and safety professionals",
+  "Oil & gas engineers and operations staff",
+  "Students entering HSE or petroleum careers",
+  "Supervisors, technicians & field personnel",
+  "Professionals transitioning to HSE roles"
+],
   price: "$300 / ₹24,000",
-  image: "/images/Diploma HSE Oil Gas.png",
+  image: "/images/Diploma for HSE in Oil & Gas.avif",
   payment: {
     stripe: `https://buy.stripe.com/cNidRb8rP6it0kCeFzaR50Z`,
     razorpay: `https://rzp.io/rzp/55gplkKz`,
@@ -1154,7 +1416,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "33",
   title: "Fundamentals to Advance Well Control",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1Y-WI_cz4iIpvltpFkYc7YB5ydE4No2z9/view?usp=drive_link",
   category: "self-paced",
   duration: "15+ Hours",
   format: "Self-Paced",
@@ -1169,14 +1431,38 @@ const PROGRAMS_PART_2 = [
     "Improve emergency decision-making"
   ],
   curriculum: [
-    "Well Pressure Fundamentals",
-    "Kick Detection & Response",
-    "BOP Systems & Operations",
-    "Emergency Handling"
-  ],
-  targetAudience: ["Drilling engineers", "Toolpushers", "Students"],
+  "Introduction to Well Control: Principles, Procedures & Industry Standards",
+  "Basic Well Control Fundamentals – Volume Calculations & Capacities",
+  "Annular Volume, Internal Capacity, Pump Output & Annular Velocity",
+  "Tripping (Dry & Wet), Slug Calculations & Hole Monitoring",
+  "Basic Well Control Fundamentals – Pressure Concepts",
+  "Hydrostatic Pressure, U-Tube Concept & Bottom Hole Pressure (BHP)",
+  "Equivalent Circulating Density (ECD), Leak-Off Test (LOT) & MAASP",
+  "Kick Causes, Early Warning Signs & Positive Kick Indicators",
+  "Well Shut-In Procedures & Line-Up Configurations",
+  "Recording SIDPP/SICP & Calculating Kill Mud Weight",
+  "Formation Pressure, Influx Height & Influx Gradient Calculations",
+  "Gas Migration Behavior (Open & Closed Wellbore) & Trip/Riser Margin",
+  "Slow Circulation Rate (SCR) & Choke Line Friction Losses (CLFL)",
+  "Well Control Methods: Driller’s Method, Wait & Weight Method",
+  "Comparison of Methods, Casing & Shoe Pressure Behavior",
+  "Kick Influx Behavior, Stripping Operations & Volumetric Methods",
+  "Operational Problems in Well Control & Troubleshooting",
+  "Kill Sheet Calculations: Golden Rules, Filled & Gauge Sheets",
+  "Shallow Hazards: Shallow Gas, Hydrates, Procedures & Mitigation",
+  
+],
+
+  targetAudience: [
+  "Drilling engineers",
+  "Well engineers & wellsite supervisors",
+  "Completion & workover engineers",
+  "Rig crews and drilling supervisors",
+  "Petroleum engineering students",
+  "Blowout prevention and well control trainees"
+],
   price: "$150 / ₹10,500",
-  image: "/images/Advanced Well Control Training.png",
+  image: "/images/Fundamental to Advance Well Control.png",
   payment: {
     stripe: `https://buy.stripe.com/3cI14p37vbCN5EW0OJaR510`,
     razorpay: `https://rzp.io/rzp/vuEqzOe2`,
@@ -1186,7 +1472,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "34",
   title: "Extended Reach Drilling (ERD)",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1CRuKgr1GnESBRWO7qG8OAy9_QojyGRbN/view?usp=drive_link",
   category: "self-paced",
   duration: "5+ Hours",
   format: "Self-Paced",
@@ -1201,14 +1487,37 @@ const PROGRAMS_PART_2 = [
     "Perform field-risk assessments"
   ],
   curriculum: [
-    "ERD Principles & Applications",
-    "Directional Techniques",
-    "Hydraulics Optimization",
-    "Case Studies"
-  ],
-  targetAudience: ["Drilling engineers", "Students"],
+  "Introduction to Extended Reach Drilling (ERD) – Principles, Terminology & Applications",
+  "Unique Differences Between ERD Wells & Conventional Wells",
+  "Directional Drilling Fundamentals & Surveying Techniques",
+  "ERD Well Design & Planning Considerations (Geological, Geomechanical, Trajectory)",
+  "Feasibility Studies, Torque & Drag Analysis & ERD Risk Evaluation",
+  "Operational Aspects of Executing ERD Wells",
+  "Wellbore Stability & Geomechanics for Highly Deviated Wells",
+  "Wellbore Hydraulics Optimization for ERD (Hole Cleaning, Fluid Losses, ECD Management)",
+  "Cementing Challenges in ERD Wells & Specialized Cementing Strategies",
+  "Speciality Tools & Technologies for ERD (RSS, Downhole Tools, Advanced BHA Design)",
+  "Completion & Workover Techniques for ERD Wells",
+  "ERD Project Management (Cost Estimation, Scheduling, Team Communication)",
+  "Regulatory & Environmental Compliance in ERD Operations",
+  "Risk Assessment & Mitigation Strategies for ERD Drilling",
+  "Case Studies of Successful ERD Wells from Global Operations",
+  "Best Practices, Lessons Learned & Industry Benchmarks",
+  "Impact of New Technologies on ERD Performance & Future Trends",
+  "Simulation Exercises & Practical Scenarios for ERD Planning & Execution"
+],
+
+  targetAudience: [
+  "Drilling engineers",
+  "Well planning & well engineering professionals",
+  "Directional drillers & MWD/LWD engineers",
+  "Completion & workover engineers",
+  "Geomechanics and subsurface engineers",
+  "Petroleum engineering students & fresh graduates",
+  "Field supervisors and rig operations personnel"
+],
   price: "$150 / ₹10,500",
-  image: "/images/Extended Reach Drilling Training.png",
+  image: "/images/Extended Reach Drilling.jpg",
   payment: {
     stripe: `https://buy.stripe.com/cNicN7bE16itc3kcxraR511`,
     razorpay: `https://rzp.io/rzp/FCgqej5`,
@@ -1218,7 +1527,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "35",
   title: "Analytics for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1yKkUiGPJLaRddg1Lfik1SdBiRDEa8oS8/view?usp=drive_link",
   category: "self-paced",
   duration: "35+ Hours",
   format: "Self-Paced",
@@ -1233,14 +1542,38 @@ const PROGRAMS_PART_2 = [
     "Perform risk mitigation and asset optimization"
   ],
   curriculum: [
-    "Analytics Fundamentals",
-    "Performance Insights",
-    "Forecasting Models",
-    "Asset Optimization Case Work"
-  ],
-  targetAudience: ["Engineers", "Analysts", "Managers"],
+  "Introduction to Python & Programming Concepts for Oil & Gas Applications",
+  "Python Data Types, Variables, Operators & Basic Input–Output Operations",
+  "Control Flow: Conditionals, Loops, Boolean Logic & List Processing",
+  "Functions, Scopes, Tuples, Dictionaries & Data Processing Workflows",
+  "Modules, Packages, String Methods, List Methods & Exception Handling",
+  "NumPy for Oil & Gas: Arrays, Indexing, Slicing, Reshaping & Numerical Computations",
+  "Pandas for Petroleum Data: DataFrames, CSV/Excel Handling & Data Manipulation",
+  "Data Visualization with Matplotlib for Reservoir, Drilling & Production Problems",
+  "Applied Petroleum Calculations: Porosity, Saturation, Shale Evaluation & Crossplots",
+  "Analytics Projects Across Reservoir, Production & Drilling Disciplines",
+  "Introduction to Time Series Analysis in Oil & Gas",
+  "Mathematics & Statistics for Forecasting (Lag Features, Outliers, Algebra, Calculus)",
+  "Time Series Terminology: Seasonality, Periodicity, Trend, White Noise & Smoothing",
+  "Fourier Transform, Recurrence Plots & Anomaly Detection in Time Series",
+  "Statistical Forecasting Models: AR, MA, ARIMA",
+  "Oil & Gas Time Series Case Studies: Pressure, Rate, IPR & MBAL Forecasting",
+  "Advanced Reservoir & Production Analytics (Klinkenberg, Spinner Log, Well Test Basics)",
+  "Numerical Modeling: 1D Pressure Diffusion Solution",
+  "Gas Material Balance & Decline Curve Comparative Analytics",
+  "Custom Trainee Projects: End-to-End Analytics Implementation"
+],
+
+  targetAudience: [
+  "Petroleum engineering students & graduates",
+  "Reservoir, drilling & production engineers",
+  "Energy-sector professionals transitioning into data analytics",
+  "Aspiring petroleum data scientists",
+  "Geoscience professionals wanting Python skills",
+  "Freshers seeking oil & gas analytics exposure"
+],
   price: "$200 / ₹15,000",
-  image: "/images/Oil & Gas Analytics Course.png",
+  image: "/images/Analytics for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/fZu00l23r7mx6J02WRaR512`,
     razorpay: `https://rzp.io/rzp/Bmf3HWN`,
@@ -1250,7 +1583,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "36",
   title: "Artificial Lift Modelling, Reservoir Deliverability & Well Performance",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1_buWD-kGdg8CxiyotEuRJVatz5eJ9dlh/view?usp=drive_link",
   category: "self-paced",
   duration: "7+ Hours",
   format: "Self-Paced",
@@ -1265,14 +1598,34 @@ const PROGRAMS_PART_2 = [
     "Optimize well performance"
   ],
   curriculum: [
-    "Inflow Performance",
-    "Artificial Lift Modelling",
-    "Economic Evaluation",
-    "Optimization Strategies"
-  ],
-  targetAudience: ["Production engineers", "Students"],
+  "Introduction to Petroleum Production Systems",
+  "Fundamentals of Oil & Gas Properties",
+  "Reservoir Deliverability & Well Performance Concepts",
+  "Flow Regimes, Inflow Performance Relationship (IPR) Models & Outflow Performance",
+  "Overview of Artificial Lift Methods (Beam Pumping, ESP, Plunger Lift, Gas Lift)",
+  "Advantages, Limitations & Screening Criteria for Selecting Artificial Lift Systems",
+  "Electrical Submersible Pump (ESP) Components – Downhole & Surface",
+  "ESP Mechanism, Performance Evaluation & Design Calculations in Excel",
+  "Sucker Rod Pump (SRP) Components, Functionality & Dynamometer Card Interpretation",
+  "SRP Design Calculations, Troubleshooting & Optimization",
+  "Gas Lift System – Components, Mechanism & Valve Functionality",
+  "Gas Lift Performance Analysis & Design Calculations with Excel",
+  "Plunger Lift Components, Mechanism & Operational Principles",
+  "Plunger Lift Design Calculations & Performance Evaluation",
+  "Basics of Economics for Artificial Lift Systems",
+  "Case Study: Selecting Optimal Artificial Lift Based on Technical & Economic Criteria"
+],
+
+  targetAudience: [
+  "Petroleum engineering students & fresh graduates",
+  "Production & reservoir engineers",
+  "Well performance and artificial lift engineers",
+  "Field engineers seeking design & optimization skills",
+  "Professionals transitioning into production engineering",
+  "Anyone wanting hands-on artificial lift and well performance modelling using Excel"
+],
   price: "$45 / ₹4,000",
-  image: "/images/Artificial Lift Deliverability Performance.png",
+  image: "/images/Artificial Lift Modeling, Reservoir Deliverability & Well performance.jpg",
   payment: {
     stripe: `https://buy.stripe.com/dRm4gB6jH22d0kC54ZaR513`,
     razorpay: `https://rzp.io/rzp/vDKmPtL`,
@@ -1282,7 +1635,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "37",
   title: "Reservoir Engineering Modelling & Flow Simulation",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1NeKkOyAy7wG_Qlbb93k8MjCXLBKenZZs/view?usp=drive_link",
   category: "self-paced",
   duration: "7+ Hours",
   format: "Self-Paced",
@@ -1297,14 +1650,36 @@ const PROGRAMS_PART_2 = [
     "Plan real-world field development actions"
   ],
   curriculum: [
-    "Reservoir Modelling Basics",
-    "Simulation Concepts",
-    "Model Initialization",
-    "Flow Simulation Techniques"
-  ],
-  targetAudience: ["Reservoir engineers", "Students"],
+  "Introduction to Reservoir Engineering (RE) & Its Role in the Oil & Gas Industry",
+  "Types of Reservoir Engineers & Overview of RE Tools and Applications",
+  "Material Balance Equation (MBE) Fundamentals & Practical Applications",
+  "Pressure Transient Analysis (PTA) & Rate Transient Analysis (RTA)",
+  "Decline Curve Analysis (DCA) Techniques & Interpretation",
+  "3D Dynamic Reservoir Simulation – Concepts & Workflow",
+  "Simulation Input Data Requirements & Quality Control",
+  "Reservoir Simulation Tools & Software Overview",
+  "Model Preparation, Grid Design & Property Assignment",
+  "Model Initialization & Running Base Simulation Cases",
+  "History Matching Fundamentals & Practical Adjustments",
+  "Forecasting & Predicting Reservoir Performance Using Simulation Models",
+  "Uncertainty Analysis & Optimization Techniques",
+  "Automated History Matching Approaches",
+  "3D Slim Simulation Concepts & Applications",
+  "Course Summary, Integration of RE Tools & Real-World Field Applications"
+],
+
+  targetAudience: [
+  "Graduate engineers transitioning into petroleum engineering",
+  "Petroleum engineers seeking advanced reservoir engineering skills",
+  "Reservoir engineers",
+  "Asset development engineers",
+  "Energy industry professionals involved in planning & field development",
+  "Students pursuing petroleum engineering or related fields",
+  "Managers looking to understand RE modelling & simulation workflows"
+],
+
   price: "$40 / ₹2,500",
-  image: "/images/Reservoir Modelling Flow Simulation.png",
+  image: "/images/Reservoir Engineering, Modeling & flow Simulation.webp",
   payment: {
     stripe: `https://buy.stripe.com/7sY7sNdM9dKV0kCfJDaR514`,
     razorpay: `https://rzp.io/rzp/0XdSJcp`,
@@ -1314,7 +1689,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "38",
   title: "Power BI Essentials for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1JDiSLvKjjez0kOR2IgVaJtHCbNR0Xi-S/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -1329,14 +1704,39 @@ const PROGRAMS_PART_2 = [
     "Integrate multiple data sources"
   ],
   curriculum: [
-    "Power BI Fundamentals",
-    "Drilling & Production Data Analysis",
-    "DAX & Performance Insights",
-    "Operational Dashboards"
-  ],
-  targetAudience: ["Data analysts", "Engineers", "Students"],
+  "Introduction to Power BI Tools & Interfaces (Desktop, Service, Mobile)",
+  "Connecting to Oil & Gas Data Sources (Excel, SQL, APIs) & Exploring Power BI Environment",
+  "Data Importing Techniques & Power Query Data Transformation",
+  "Building Efficient Data Models & Creating Table Relationships for Oilfield Workflows",
+  "Drilling Performance Metrics & Drilling Optimization Dashboard Design",
+  "Visualizing Drilling KPIs: ROP, NPT, Wellbore Trajectory & Time-Series Progress",
+  "Hands-on: Building a Complete Drilling Optimization Dashboard",
+  "Reservoir & Production Metrics Visualization (Pressure, Rate, Well Status)",
+  "Developing Production Monitoring Dashboards for Onshore/Offshore Fields",
+  "Production Forecasting Using Power BI’s Forecasting Tools",
+  "Subsurface Data Visualization (Seismic, Well Logs, Petrophysics) in Power BI",
+  "GIS Mapping with ArcGIS & Bing Maps and Spatial Subsurface Analysis",
+  "Hands-on: Building a Subsurface Interpretation Dashboard",
+  "Advanced Visuals & Custom Visual Imports",
+  "Introduction to DAX for Advanced Oil & Gas Calculations & KPIs",
+  "Real-Time Reporting for Field Operations & Live Dashboard Embedding",
+  "Integrating Power BI with IoT & Machine Learning for Predictive Analytics",
+  "Hands-on: Implementing Real-Time Well Monitoring",
+  "Publishing Dashboards to Power BI Service & Setting Up Data Gateways",
+  "Sharing, Collaboration & Mobile Dashboard Deployment"
+],
+
+targetAudience: [
+  "Oil & Gas drilling engineers",
+  "Reservoir engineers",
+  "Production engineers",
+  "Oilfield data analysts",
+  "Energy sector data professionals",
+  "Managers seeking dashboard-driven decision-making",
+  "Beginners interested in Power BI for Oil & Gas analytics"
+],
   price: "$150 / ₹10,000",
-  image: "/images/Power BI Essentials Oil Gas.png",
+  image: "/images/Power BI Essentials for Oil & Gas.png",
   payment: {
     stripe: `https://buy.stripe.com/8x26oJcI5fT3aZg7d7aR515`,
     razorpay: `https://rzp.io/rzp/jNCAZZMX`,
@@ -1346,7 +1746,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "39",
   title: "Geomechanics & Its Application in Drilling and Completion",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1dSaAZ-0cq-m6dCNpF9UjddB9Pm9WR6X7/view?usp=drive_link",
   category: "self-paced",
   duration: "10+ Hours",
   format: "Self-Paced",
@@ -1361,14 +1761,36 @@ const PROGRAMS_PART_2 = [
     "Use case-based troubleshooting"
   ],
   curriculum: [
-    "Rock Mechanics Essentials",
-    "Wellbore Stability Modeling",
-    "Geomechanics in Completions",
-    "Field Troubleshooting Studies"
-  ],
-  targetAudience: ["Drilling engineers", "Geoscientists", "Students"],
+  "Introduction to Rock Mechanics & Petroleum Geomechanics",
+  "Fundamental Terminology: In-situ Stresses, Pore Pressure, Failure Criteria, Constitutive Models",
+  "Wellbore Stress Analysis: Effective Stresses, Hoop Stress, Fracture Closure Pressure",
+  "Minimum & Maximum Horizontal Stress Determination",
+  "Rock Mechanical Properties & Their Role in Well Design",
+  "Drilling Applications: Wellbore Breakouts, Breakdowns & Instability Mechanisms",
+  "Leak-Off Test (LOT), Extended LOT & Mini-Frac Interpretation",
+  "Bit Founder Point Determination & Drilling Risk Indicators",
+  "Drilling Fluid Applications: Mud Window, Stress Effects & NPT Reduction",
+  "Formation Instability, Swelling, Cavings & Stuck Pipe Mechanisms",
+  "Geomechanical Pre-Drill Assessment & Safe Mud Weight Window Design",
+  "Wellbore Strengthening Techniques: Stress Cage, Plugged Zone & Strength Ring Theory",
+  "Cementing Applications: Pressure Containment & Lost Circulation Mitigation",
+  "Fracturing Technology: Stress Regimes, Closure Stress & Pay Zone Behavior",
+  "Acid vs Proppant Fracturing Fundamentals",
+  "Fracturing Simulator Overview, Model Building & Job Sequence Design",
+  "Diagnostic Fluid Injection Test (DFIT) Concepts & Field Interpretation"
+],
+
+targetAudience: [
+  "Drilling engineers",
+  "Completion engineers",
+  "Petroleum engineering students",
+  "Geomechanics enthusiasts",
+  "Reservoir engineers seeking geomechanics exposure",
+  "Well design & operations team members",
+  "Energy sector professionals involved in drilling/completion optimization"
+],
   price: "$100 / ₹7,500",
-  image: "/images/Geomechanics Drilling Completion.png",
+  image: "/images/Geomechanics and its application in Drilling & Completion.webp",
   payment: {
     stripe: `https://buy.stripe.com/8x2cN78rPeOZ5EW0OJaR516`,
     razorpay: `https://rzp.io/rzp/NU8mAzk`,
@@ -1378,7 +1800,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "40",
   title: "Integrated Insights: SQL, Power BI & Tableau for Oil & Gas Analytics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1Tz_ouda5XEAk80PpMkstV6nv9mloOXus/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -1392,15 +1814,40 @@ const PROGRAMS_PART_2 = [
     "Perform advanced filtering & transformations",
     "Strengthen data-driven decision skills"
   ],
-  curriculum: [
-    "SQL for Energy Data",
-    "Power BI Fundamentals",
-    "Tableau Visualization",
-    "Integrated Analytics Workflows"
-  ],
-  targetAudience: ["Analysts", "Students", "Managers"],
+
+    curriculum: [
+  "Introduction to Rock Mechanics & Petroleum Geomechanics",
+  "Fundamental Terminology: In-situ Stresses, Pore Pressure, Failure Criteria, Constitutive Models",
+  "Wellbore Stress Analysis: Effective Stresses, Hoop Stress, Fracture Closure Pressure",
+  "Minimum & Maximum Horizontal Stress Determination",
+  "Rock Mechanical Properties & Their Role in Well Design",
+  "Drilling Applications: Wellbore Breakouts, Breakdowns & Instability Mechanisms",
+  "Leak-Off Test (LOT), Extended LOT & Mini-Frac Interpretation",
+  "Bit Founder Point Determination & Drilling Risk Indicators",
+  "Drilling Fluid Applications: Mud Window, Stress Effects & NPT Reduction",
+  "Formation Instability, Swelling, Cavings & Stuck Pipe Mechanisms",
+  "Geomechanical Pre-Drill Assessment & Safe Mud Weight Window Design",
+  "Wellbore Strengthening Techniques: Stress Cage, Plugged Zone & Strength Ring Theory",
+  "Cementing Applications: Pressure Containment & Lost Circulation Mitigation",
+  "Fracturing Technology: Stress Regimes, Closure Stress & Pay Zone Behavior",
+  "Acid vs Proppant Fracturing Fundamentals",
+  "Fracturing Simulator Overview, Model Building & Job Sequence Design",
+  "Diagnostic Fluid Injection Test (DFIT) Concepts & Field Interpretation"
+],
+
+targetAudience: [
+  "Drilling engineers",
+  "Completion engineers",
+  "Petroleum engineering students",
+  "Geomechanics enthusiasts",
+  "Reservoir engineers seeking geomechanics exposure",
+  "Well design & operations team members",
+  "Energy sector professionals involved in drilling/completion optimization"
+],
+  
+  
   price: "$150 / ₹12,000",
-  image: "/images/SQL PowerBI Tableau OilGas.png",
+  image: "/images/Integrated Insights SL power BI and Tableau for Oil & Gas analytics.jpg",
   payment: {
     stripe: `https://buy.stripe.com/dRm8wRazX6it7N4eFzaR517`,
     razorpay: `https://rzp.io/rzp/7Sqvi2YU`,
@@ -1410,10 +1857,10 @@ const PROGRAMS_PART_2 = [
 {
   id: "41",
   title: "Diploma in Machine Learning for Oil & Gas",
-  brochure: "https://your-brochure-link.com/file.pdf",
-  category: "self-paced",
+  brochure: "https://drive.google.com/file/d/1inu-OU7XNX_rBfjwmG8vv9wR5bzpx2Cj/view?usp=drive_link",
+  category: "diploma",
   duration: "20+ Hours",
-  format: "Self-Paced",
+  format: "Diploma",
   level: "Beginner to Intermediate",
   certificate: "Yes",
   overview:
@@ -1425,14 +1872,60 @@ const PROGRAMS_PART_2 = [
     "Work on real-world oilfield datasets"
   ],
   curriculum: [
-    "Python & ML Fundamentals",
-    "Reservoir & Production Data ML",
-    "Anomaly Detection Models",
-    "Capstone Project"
-  ],
-  targetAudience: ["Students", "Analysts", "Engineers"],
+  // Python Fundamentals
+  "Why Data Science & ML in Oil & Gas Industry",
+  "Introduction to Python, IDE Setup & Installation",
+  "Writing First Python Program & Understanding Data Types",
+  "Variables, Mathematical Operations & Basic Programming Logic",
+  "Data Structures: Lists, Tuples, Dictionaries",
+  "Control Flow: If-Else, Loops, Iterables",
+  "Functions, Modules & Exception Handling",
+  
+  // Python Intermediate & Advanced
+  "NumPy for Numerical Computing & Synthetic Data Generation",
+  "Pandas for Data Loading, Cleaning & Manipulation",
+  "Data Visualization with Matplotlib",
+  "Mini Python Projects: Pressure Profile, Klinkenberg Effect",
+  "Deploying ML Applications on Web Servers",
+
+  // Statistics & Machine Learning
+  "Introduction to Statistics for ML",
+  "Supervised Learning: Linear Regression, Logistic Regression",
+  "Tree-Based Algorithms & End-to-End ML Project",
+  "Deep Learning: ANNs, RNNs, CNNs with Hands-on Projects",
+  "Computer Vision Applications in Oil & Gas",
+
+  // Power BI Modules
+  "Power BI Data Loading & Field Data Preparation",
+  "Exploratory Data Analysis: Distributions, Outliers, Relationships",
+  "Trend Analysis for Production & Well Performance",
+  "Building Multi-Well & Field-Level Dashboards in Power BI",
+  "Real-Time Reservoir Monitoring Dashboards",
+  "Decomposition Tree & Advanced BI Visualization",
+
+  // Oil & Gas Applications
+  "Machine Learning for Production Forecasting",
+  "ML for Drilling Optimization & Well Performance",
+  "Anomaly Detection in Sensors & Operations",
+  "Feature Engineering for Seismic, Logs, Production Data",
+
+  // Industry-Level Training
+  "Ethics & Best Practices in ML for Oil & Gas",
+  "Model Deployment & Monitoring",
+  "Oilfield Case Studies & Capstone Project Development"
+],
+
+targetAudience: [
+  "Oil & Gas professionals transitioning into Machine Learning",
+  "Petroleum engineering students",
+  "Data analysts aiming to specialize in energy sector",
+  "Reservoir, drilling, production engineers",
+  "Geoscientists interested in ML applications",
+  "Freshers seeking a certified ML diploma for Oil & Gas",
+  "Python learners wanting industry-specific ML applications"
+],
   price: "$300 / ₹22,500",
-  image: "/images/Diploma ML Oil Gas.png",
+  image: "/images/Diploma for Machine Learning in Oil & Gas.webp",
   payment: {
     stripe: `https://buy.stripe.com/fZucN7azXeOZgjA54ZaR518`,
     razorpay: `https://rzp.io/rzp/k0lOLYXh`,
@@ -1442,7 +1935,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "42",
   title: "Integrated Oil & Gas Analytics Using Big Data",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1mDRVv13ZUwlucjmsLu5ODz9qTcjLjTR-/view?usp=drive_link",
   category: "self-paced",
   duration: "50+ Hours",
   format: "Self-Paced",
@@ -1457,14 +1950,56 @@ const PROGRAMS_PART_2 = [
     "Complete lifecycle analytics projects"
   ],
   curriculum: [
-    "Big Data Fundamentals",
-    "Market & Demand Forecasting",
-    "Midstream Operations Analytics",
-    "Full Asset Lifecycle Capstone"
-  ],
-  targetAudience: ["Data scientists", "Energy analysts", "Managers"],
+  // Module 1: Introduction to Data Science in Oil & Gas
+  "Overview of data science applications across upstream, midstream, and downstream sectors",
+  "Python tools and libraries for big data analytics in energy",
+  "Role and importance of big data in oil & gas operations",
+
+  // Module 2: Upstream Analytics
+  "Well log and core data analytics: cleaning, preprocessing, normalization",
+  "Production data visualization and interpretation",
+  "Time-series forecasting for multi-field gas production trends",
+
+  // Module 3: Midstream Analytics
+  "Gas storage analytics: depleted reservoirs, salt caverns, aquifers",
+  "Storage capacity optimization models",
+  "Performance analytics for midstream assets",
+
+  // Module 4: Downstream Analytics
+  "Machine learning and deep learning for gas consumption forecasting",
+  "Case studies: forecasting demand in volatile market environments",
+
+  // Module 5: Market Analytics
+  "Gas price forecasting using statistical, ML, and hybrid models",
+  "Market scenario analysis & actionable pricing insights",
+
+  // Module 6: Capstone Project
+  "Integrated analytics using upstream, midstream, and downstream datasets",
+  "Problem-solving using ML, time-series, and storage analytics",
+  "Industry-style presentation of findings",
+
+  // Module 7: Advanced Topics & Emerging Trends
+  "Advanced ML methods: ensemble learning, neural networks",
+  "Future trends: real-time analytics, predictive maintenance, digital twins",
+  "Big data workflows for full lifecycle oil & gas operations",
+
+  // Resources & Skills
+  "Hands-on experience with real industry datasets",
+  "Practical big data workflows for field, facility, and market analytics",
+  "End-to-end energy analytics pipeline development"
+],
+
+targetAudience: [
+  "Oil & gas professionals (upstream, midstream, downstream)",
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Data scientists entering the energy sector",
+  "Energy analysts and market analysts",
+  "Students aspiring to work in oil & gas data analytics",
+  "Professionals transitioning into digital & big data roles in energy"
+],
   price: "$300 / ₹17,500",
-  image: "/images/Big Data Oil Gas.png",
+  image: "/images/Diploma in Integrated Oil & Gas Analytics Using Big Data A full well Lifecycle Approach.jpg",
   payment: {
     stripe: `https://buy.stripe.com/28E00l37v36h2sKfJDaR519`,
     razorpay: `https://rzp.io/rzp/ZVF76Sai`,
@@ -1474,10 +2009,10 @@ const PROGRAMS_PART_2 = [
 {
   id: "43",
   title: "Diploma in Petroleum Project Management & Field Development Economics",
-  brochure: "https://your-brochure-link.com/file.pdf",
-  category: "self-paced",
+  brochure: "https://drive.google.com/file/d/1xo_-1DH_u-wbpOjQjsRB5WLuKgZrND1B/view?usp=drive_link",
+  category: "diploma",
   duration: "60+ Hours",
-  format: "Self-Paced",
+  format: "Diploma",
   level: "Beginner to Professional",
   certificate: "Yes",
   overview:
@@ -1489,14 +2024,105 @@ const PROGRAMS_PART_2 = [
       "Understand petroleum project lifecycle"
   ],
   curriculum: [
-      "Project Management Principles",
-      "Economic Evaluation & Cash Flow Models",
-      "Risk & Stakeholder Management",
-      "Field Development Planning"
-  ],
-  targetAudience: ["Project engineers", "Analysts", "Students"],
+  // Module 1: Introduction to Project Management in the Petroleum Industry
+  "Project management fundamentals for oil & gas projects",
+  "Importance of structured project management in petroleum operations",
+  "Phases: Initiation, planning, execution, monitoring, closure",
+  "Roles & responsibilities of petroleum project managers",
+  "Case study: Analysis of a real petroleum project",
+
+  // Module 2: Petroleum Industry Operations & Project Lifecycle
+  "Overview of upstream, midstream, and downstream operations",
+  "Exploration & Production (E&P) lifecycle",
+  "Feasibility, engineering, procurement, construction, commissioning",
+  "Project constraints: Scope, time, cost, quality",
+  "Activity: Develop lifecycle chart for a sample oil & gas project",
+
+  // Module 3: Field Development Planning (FDP)
+  "Concept & components of Field Development Planning",
+  "Exploration → Appraisal → Development workflow",
+  "Onshore, offshore, deepwater & shale field types",
+  "Production profiles, recovery factors & development strategy",
+  "Environmental & regulatory considerations",
+  "Activity: Build a simplified FDP with key milestones",
+
+  // Module 4: Project Planning & Scheduling
+  "Developing project scope, deliverables & objectives",
+  "Work Breakdown Structure (WBS) creation",
+  "Critical Path Method (CPM) fundamentals",
+  "Gantt chart development",
+  "Resource allocation & optimization",
+  "Activity: Build WBS + Gantt chart using MS Project / Primavera",
+
+  // Module 5: Petroleum Economics & Financial Modeling
+  "Petroleum economic fundamentals (NPV, IRR, Payback Period)",
+  "Cash flow modeling & forecasting",
+  "CAPEX vs OPEX estimation",
+  "Economic evaluation of oil & gas projects",
+  "Sensitivity & scenario analysis",
+  "Activity: Perform an NPV/IRR evaluation for an FDP",
+
+  // Module 6: Risk Management in Petroleum Projects
+  "Risk identification and classification (operational, financial, environmental, political)",
+  "Risk evaluation & prioritization",
+  "Risk mitigation, avoidance, transfer & acceptance strategies",
+  "Developing risk management plans",
+  "Activity: Prepare a risk management plan for an offshore project",
+
+  // Module 7: Cost Estimation & Budgeting
+  "Cost estimation methods: bottom-up, analogous, parametric",
+  "CAPEX/OPEX structuring in petroleum projects",
+  "Cost control techniques",
+  "Earned Value Management (EVM) for budget tracking",
+  "Activity: Create a budget for a drilling project",
+
+  // Module 8: Procurement & Contract Management
+  "Procurement cycle & vendor selection",
+  "Contract types: Lump sum, cost-plus, T&M",
+  "Contract risk evaluation & performance monitoring",
+  "Activity: Draft procurement plan & basic contract structure",
+
+  // Module 9: Health, Safety, and Environment (HSE)
+  "HSE regulations in petroleum operations",
+  "Risk assessment & mitigation",
+  "Safety audits & emergency planning",
+  "Activity: Create an HSE plan for a field construction project",
+
+  // Module 10: Leadership & Team Management
+  "Leadership styles for project managers",
+  "Communication strategies for multidisciplinary teams",
+  "Conflict resolution & stakeholder management",
+  "Activity: Role-play conflict resolution within a project team",
+
+  // Module 11: Project Execution & Monitoring
+  "Execution strategies for petroleum projects",
+  "KPIs & performance metrics",
+  "Project tracking tools & dashboarding",
+  "Managing scope changes",
+  "Activity: Develop a monitoring dashboard for a refinery project",
+
+  // Module 12: Project Closeout & Lessons Learned
+  "Project handover procedures",
+  "Documentation & final audits",
+  "Lessons learned & continuous improvement",
+  "Activity: Prepare a closeout report for an FDP project",
+
+  // Final Assessment
+  "Complete petroleum project plan presentation",
+  "Integrated assessment across FDP, planning, risk, cost & execution"
+],
+
+targetAudience: [
+  "Petroleum engineers",
+  "Project managers",
+  "Field development planners",
+  "Oil & gas economists",
+  "Engineering graduates",
+  "Energy sector professionals",
+  "Aspiring project management professionals"
+],
   price: "$300 / ₹22,500",
-  image: "/images/Petroleum Project Management Diploma.png",
+  image: "/images/Diploma in Petroleum Project Management & Field Development Economics.jpg",
   payment: {
       stripe: `https://buy.stripe.com/6oUeVf7nL0Y9gjAapjaR51a`,
       razorpay: `https://rzp.io/rzp/2ep8Kki`,
@@ -1506,7 +2132,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "44",
   title: "Machine Learning & Python Applications for Petrophysics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1Q1IV3JUZHF1me91b4jiaaJbbWmXYHlA3/view?usp=drive_link",
   category: "self-paced",
   duration: "28+ Hours",
   format: "Self-Paced",
@@ -1521,14 +2147,104 @@ const PROGRAMS_PART_2 = [
       "Evaluate reservoir heterogeneity"
   ],
   curriculum: [
-      "Petrophysics Data Workflows",
-      "ML for Reservoir Properties",
-      "Facies & Cluster Analysis",
-      "Well Log Interpretation"
-  ],
-  targetAudience: ["Petrophysicists", "Students", "Analysts"],
+  // Module 1: Introduction to Petroleum Project Management
+  "Fundamentals of project management for the petroleum industry",
+  "Importance of structured management across oil & gas projects",
+  "Five phases of petroleum project management: Initiation, Planning, Execution, Monitoring, Closure",
+  "Roles and responsibilities of petroleum project managers",
+  "Case study: Analysis of a real-world petroleum project",
+
+  // Module 2: Petroleum Industry Operations & Project Lifecycle
+  "Overview of upstream, midstream, and downstream operations",
+  "Exploration & Production (E&P) project lifecycle",
+  "Feasibility, engineering, procurement, construction & commissioning stages",
+  "Understanding project constraints: Scope, Time, Cost, Quality",
+  "Activity: Create a lifecycle chart for a sample oil & gas project",
+
+  // Module 3: Field Development Planning (FDP)
+  "Introduction to Field Development Planning and its components",
+  "Exploration → Appraisal → Development workflow",
+  "Onshore, offshore, deepwater & shale field characteristics",
+  "Production profiles, recovery strategies, and economic considerations",
+  "Regulatory and environmental compliance in FDP",
+  "Activity: Build a simplified FDP with key milestones",
+
+  // Module 4: Project Planning & Scheduling
+  "Project scope definition, deliverables & objectives",
+  "Work Breakdown Structure (WBS) creation",
+  "Critical Path Method (CPM) and scheduling fundamentals",
+  "Gantt chart development and timeline optimization",
+  "Activity: Build WBS + Gantt chart using MS Project / Primavera",
+
+  // Module 5: Petroleum Economics & Financial Modeling
+  "Economic principles: NPV, IRR, Payback Period",
+  "Building cash flow models for petroleum projects",
+  "CAPEX vs OPEX evaluation for field developments",
+  "Economic assessment techniques for oil & gas fields",
+  "Sensitivity & scenario analysis for decision making",
+  "Activity: Perform NPV/IRR evaluation for a field development plan",
+
+  // Module 6: Risk Management in Petroleum Projects
+  "Types of risks: operational, financial, environmental, political",
+  "Risk identification, evaluation & prioritization methods",
+  "Mitigation, avoidance, transfer & acceptance strategies",
+  "Developing a full risk management plan",
+  "Activity: Prepare a risk management plan for an offshore project",
+
+  // Module 7: Cost Estimation & Budgeting
+  "Cost estimation methods: Bottom-up, analogous, parametric",
+  "Structuring CAPEX & OPEX for petroleum projects",
+  "Cost monitoring, control systems, and EVM (Earned Value Management)",
+  "Activity: Build cost estimates and budget for a drilling project",
+
+  // Module 8: Procurement & Contract Management
+  "Procurement workflow in oil & gas projects",
+  "Contract types: Lump sum, Time & Material, Cost-plus",
+  "Vendor evaluation and contract performance monitoring",
+  "Activity: Draft procurement plan + basic contract document",
+
+  // Module 9: Health, Safety & Environment (HSE)
+  "Key HSE regulations in petroleum projects",
+  "HSE risk assessment and mitigation planning",
+  "Safety audits, emergency planning & HSE compliance systems",
+  "Activity: Prepare an HSE plan for an oilfield construction project",
+
+  // Module 10: Leadership & Team Management
+  "Leadership styles suited for petroleum project environments",
+  "Effective communication for multidisciplinary teams",
+  "Conflict resolution & stakeholder engagement strategies",
+  "Activity: Conflict resolution role-play for project teams",
+
+  // Module 11: Project Execution & Monitoring
+  "Execution methodologies for petroleum projects",
+  "KPIs & performance-based evaluation systems",
+  "Monitoring tools such as dashboards, EVM metrics, and trackers",
+  "Handling scope changes & change-management workflow",
+  "Activity: Develop a monitoring dashboard for a refinery project",
+
+  // Module 12: Project Closeout & Lessons Learned
+  "Project handover processes and documentation standards",
+  "Final audits, performance review, and quality assurance",
+  "Capturing lessons learned & continuous improvement strategies",
+  "Activity: Prepare a closeout report for a field development project",
+
+  // Final Assessment
+  "Capstone: Complete petroleum project management plan",
+  "Integrated assessment covering FDP, economics, risk, cost & execution"
+],
+
+targetAudience: [
+  "Petroleum engineers",
+  "Project managers",
+  "Field development planners",
+  "Oil & gas economists",
+  "Engineering graduates",
+  "Energy sector professionals",
+  "Aspiring petroleum project managers",
+  "Reservoir and production engineers seeking PM skills"
+],
   price: "$150 / ₹12,000",
-  image: "/images/ML Petrophysics Python.png",
+  image: "/images/Machine Learning & Python Applications for Petrophysics.jpg",
   payment: {
       stripe: `https://buy.stripe.com/8x29AVdM95ep4AS2WRaR51b`,
       razorpay: `https://rzp.io/rzp/BxIDiV8`,
@@ -1538,7 +2254,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "45",
   title: "Mastering Machine Learning for Enhanced Production & Reservoir Forecasting Analytics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1khKRwmRbAhCeJGR2JkI7m2olgyuVIq8h/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -1553,14 +2269,41 @@ const PROGRAMS_PART_2 = [
       "Apply ML for reservoir behavior analysis"
   ],
   curriculum: [
-      "Production Data Analytics",
-      "ML Models for Well Performance",
-      "Lift Method Optimization",
-      "Forecasting Case Studies"
-  ],
-  targetAudience: ["Production engineers", "Analysts"],
+  // Production Forecasting, Analytics & ML Applications for PCP, SRP, ESP
+  "Overview of production forecasting and analytics for the oil & gas industry",
+  "Introduction to PCP, SRP, and ESP production systems",
+  "Components, operation principles, and production challenges for PCP, SRP, ESP",
+  "Production data collection techniques & preprocessing workflows",
+  "Feature engineering methods for production datasets",
+  "Machine Learning models for production forecasting including regression, Random Forest, Gradient Boosting, Neural Networks",
+  "Model evaluation: performance metrics and validation techniques",
+  "Time-series forecasting using ARIMA, SARIMA, Prophet",
+  "ML applications for optimizing PCP, SRP, and ESP systems",
+
+  // Reservoir Analytics
+  "Introduction to reservoir analytics and its importance in reservoir management",
+  "Fundamentals of reservoir engineering and classification of reservoir types",
+  "Reservoir data collection methods and preprocessing techniques",
+  "Feature engineering tailored for reservoir datasets",
+  "ML models for reservoir characterization, forecasting, and optimization",
+  "Evaluation metrics for ML-based reservoir analytics",
+  "Advanced reservoir analytics: uncertainty handling, ensemble learning, Bayesian methods",
+  "Real-world case studies of ML applications in reservoir engineering"
+],
+
+targetAudience: [
+  "Petroleum engineers",
+  "Production engineers",
+  "Reservoir engineers",
+  "Artificial lift engineers",
+  "Oil & gas data analysts",
+  "Machine learning enthusiasts in energy sector",
+  "Engineering students interested in ML applications",
+  "Freshers aiming to enter petroleum analytics",
+  "Professionals seeking ML upskilling for forecasting"
+],
   price: "$150 / ₹12,000",
-  image: "/images/ML Production Reservoir Forecasting.png",
+  image: "/images/Mastering Machine Learning for Enhanced Production and Reservoir Forecasting Analytics.jpg",
   payment: {
       stripe: `https://buy.stripe.com/8x228teQdbCNgjAcxraR51c`,
       razorpay: `https://rzp.io/rzp/zAZ4a5Y`,
@@ -1570,7 +2313,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "46",
   title: "Petroleum Field Development Planning from Concept to Execution",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1pHkU23Au0SNWcnN2bgIQLJA9Ok-uITfs/view?usp=drive_link",
   category: "self-paced",
   duration: "7+ Hours",
   format: "Self-Paced",
@@ -1585,14 +2328,63 @@ const PROGRAMS_PART_2 = [
       "Create economic comparison models"
   ],
   curriculum: [
-      "Field Development Lifecycle",
-      "Reserves Evaluation",
-      "Well Planning & Facilities",
-      "Economics for Project Screening"
-  ],
-  targetAudience: ["Reservoir engineers", "Students", "Planning teams"],
+  // Module 1: Fundamentals of Field Development Planning (FDP)
+  "Upstream lifecycle overview and role of FDP in field maturation",
+  "Stages of field development (DG0–DG3) and decision gates",
+  "Key data types required: G&G, reservoir, production, cost inputs",
+  "Stakeholder roles: subsurface, drilling, facilities, finance, regulatory",
+  "Regulatory workflows, approvals & compliance requirements",
+  "Practical: Interpret block map & lifecycle chart; identify FDP starter dataset",
+
+  // Module 2: Subsurface Characterization & Reserves Estimation
+  "Seismic interpretation basics: structures, faults, traps",
+  "Log analysis: porosity, saturation, reservoir quality assessment",
+  "Drive mechanisms & reservoir behavior fundamentals",
+  "Volumetric reserves estimation (STOIIP / GIIP)",
+  "Decline curve analysis & recovery factor estimation",
+  "Practical: Log interpretation; calculate STOIIP using volumetric methods",
+
+  // Module 3: Development Strategy, Well Planning & Drilling
+  "Development scheme selection: onshore, offshore, greenfield, brownfield",
+  "Well type selection: vertical, deviated, horizontal, multilateral",
+  "Well spacing, pad design & drainage area concepts",
+  "Drilling sequence planning, rig scheduling & cost estimation basics",
+  "Intro to completions & artificial lift strategy",
+  "Practical: Design a basic well placement plan; draft drilling sequence for 3 wells",
+
+  // Module 4: Surface Facilities Planning & Economic Evaluation
+  "Surface production facilities: separators, flowlines, storage, export",
+  "Matching reservoir deliverability with facility throughput",
+  "Infrastructure requirements: utilities, pipelines, layout",
+  "Introduction to petroleum economics: CAPEX, OPEX, NPV, IRR",
+  "Sensitivity analysis & basic uncertainty evaluation",
+  "Practical: Match facilities with forecast; compute simple economics in Excel",
+
+  // Module 5: FDP Integration, Case Study & Presentation
+  "How to structure a professional FDP document",
+  "Integrating subsurface, wells, facilities, and economics",
+  "Risk & uncertainty mapping in FDP decision-making",
+  "Case study walkthrough (onshore/offshore)",
+  "Group presentation of FDP concept",
+  "Practical: Prepare a 5-slide mini-FDP — concept, wells, facilities, economics",
+
+  // Completion Module
+  "Recap session, test, and doubt-clearing workshop",
+  "Hands-on consolidation of FDP workflow from discovery to execution"
+],
+
+targetAudience: [
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Drilling engineers",
+  "Production engineers",
+  "Geoscientists",
+  "Energy sector students",
+  "Upstream analysts & planners",
+  "Professionals transitioning into FDP or development roles"
+],
   price: "$150 / ₹10,000",
-  image: "/images/Petroleum Field Development Planning.png",
+  image: "/images/Petroleum Field Development Planning from Concept to Execution.jpg",
   payment: {
       stripe: `https://buy.stripe.com/fZu4gBfUh5epc3keFzaR51d`,
       razorpay: `https://rzp.io/rzp/NlG3vYz`,
@@ -1602,7 +2394,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "47",
   title: "Production Forecasting & Well Performance Optimization Using Python & Machine Learning",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/1nvljWrdUmN2AOr0368WDKs2tsAh_Nvjl/view?usp=drive_link",
   category: "self-paced",
   duration: "20+ Hours",
   format: "Self-Paced",
@@ -1617,14 +2409,56 @@ const PROGRAMS_PART_2 = [
       "Support field optimization workflows"
   ],
   curriculum: [
-      "Python for Production Data",
-      "ML Forecasting Techniques",
-      "Optimization & Choke Strategy",
-      "Monitoring & Anomaly Alerts"
-  ],
-  targetAudience: ["Students", "Data analysts", "Engineers"],
+  // Module 1: Introduction to Machine Learning & Time Series Data
+  "Overview of ML applications in Oil & Gas production forecasting",
+  "Understanding time series vs. regular datasets",
+  
+  // Module 2: Mathematics & Statistics for Time Series Forecasting
+  "Algebra and calculus essentials for forecasting",
+  "Lag features & differencing techniques",
+  
+
+  // Module 3: Time Series Visualization & Signal Analysis
+  "Time plots & smoothing techniques",
+  "Fourier Transform for frequency domain analysis",
+
+
+  // Module 4: Statistical & ML Forecasting Models
+  "Autoregression (AR) and Moving Average (MA)",
+  "ARIMA and model diagnostics",
+ 
+
+  // Module 5: Production Optimization using ML
+  "ML for well performance optimization",
+  "Sand production prediction models",
+  "Gas lift optimization & choke optimization workflows",
+  
+
+  // Module 6: Advanced ML Techniques & Case Studies
+  "Hydraulic fracture optimization using ML",
+  "Fracture intensity classification",
+  "Re-fracturing feasibility prediction",
+  "Anomaly detection using Autoencoders & Isolation Forest",
+
+
+  // Program Deliverables
+  "Hands-on ML workflows using Python, Pandas, Scikit-learn, and TensorFlow",
+  "Capstone project on real production forecasting dataset",
+  "End-to-end model deployment concepts"
+],
+
+targetAudience: [
+  "Petroleum engineers",
+  "Production engineers",
+  "Reservoir engineers",
+  "Data analysts in Oil & Gas",
+  "Energy-sector ML enthusiasts",
+  "Students in petroleum engineering",
+  "Professionals seeking ML upskilling for forecasting & optimization",
+  "Digital transformation engineers"
+],
   price: "$150 / ₹12,000",
-  image: "/images/Production Forecasting Python ML.png",
+  image: "/images/Production Forecasting & Well Performance Optimization with Python & Machine Learning.png",
   payment: {
       stripe: `https://buy.stripe.com/5kQ14p9vT4alaZgfJDaR51e`,
       razorpay: `https://rzp.io/rzp/0d7ulzd`,
@@ -1634,7 +2468,7 @@ const PROGRAMS_PART_2 = [
 {
   id: "48",
   title: "Advanced Python for Reservoir, Production & Petrophysics",
-  brochure: "https://your-brochure-link.com/file.pdf",
+  brochure: "https://drive.google.com/file/d/12M1hceDY517U94DPEFd6509LAALH2iqY/view?usp=drive_link",
   category: "self-paced",
   duration: "16+ Hours",
   format: "Self-Paced",
@@ -1649,20 +2483,52 @@ const PROGRAMS_PART_2 = [
       "Support decision-driven well placement"
   ],
   curriculum: [
-      "Advanced Python Workflows",
-      "Reservoir Simulation Interfaces",
-      "Well Log Analytics",
-      "Petrophysics ML Models"
-  ],
-  targetAudience: ["Reservoir engineers", "Petrophysicists", "Students"],
+  // Day 1 – Production Data Analytics & ML
+  "Handling multi-well production datasets using Python & Pandas",
+  "Time-series visualization: trends, anomalies, moving averages",
+  
+  
+  // Day 2 – Formation Evaluation & Petrophysics with Python
+  "Importing and processing LAS / DLIS well log files",
+  
+  "Visualizing CT-scan core images & depth-wise interpretation",
+  "Facies classification using ML algorithms (SVM, Random Forest, XGBoost)",
+  
+  // Day 3 – Core Data Analytics & Neural Networks
+  "Processing multi-well Routine Core Analysis (RCA) datasets",
+  "Exploratory Data Analysis (EDA) for permeability correlations",
+  "Feature engineering for geological & petrophysical parameters",
+  
+  
+  // Day 4 – Reservoir Simulation & Optimization with PyMRST
+  "Introduction to PyMRST & setting up Python-based reservoir simulations",
+  "Simulating waterflood scenarios: normal vs inverted injection",
+  "Analyzing saturation maps, pressure fields & production response",
+  
+
+  // Program Deliverables
+  "Hands-on Python notebooks for reservoir, production & petrophysics",
+  "Real-world mini-projects covering all domains",
+  "End-to-end coding workflows using Google Colab (no installation needed)"
+],
+
+targetAudience: [
+  "Petroleum engineers",
+  "Reservoir engineers",
+  "Production engineers",
+  "Petrophysicists",
+  "Data science enthusiasts in the energy sector",
+  "Final-year engineering students",
+  "Researchers working with petroleum datasets",
+  "Faculty members upgrading to Python-based curriculum"
+],
   price: "$150 / ₹11,000",
-  image: "/images/Advanced Python Reservoir Petrophysics.png",
+  image: "/images/Advanced Python for Reservoir, Production and Petrophysics.jpeg",
   payment: {
       stripe: `https://buy.stripe.com/4gM14p0ZnfT3aZg40VaR51f`,
       razorpay: `https://rzp.io/rzp/f1nUjX7V`,
   },
 },
-
 ];
 
 
@@ -1696,9 +2562,10 @@ const CourseDetails = () => {
   const handlePay = (method) => {
     const link = program.payment?.[method];
     if (!link) return alert("Payment link missing.");
+     setRedirectTo(link);
     if (user) return window.open(link, "_blank");
 
-    setRedirectTo(link);
+   
     setAuthOpen(true);
   };
 

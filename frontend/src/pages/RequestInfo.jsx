@@ -40,41 +40,37 @@ export default function RequestInfo() {
     setInfo(null);
   };
 
- const handleSubmit = async (ev) => {
+  const handleSubmit = async (ev) => {
   ev.preventDefault();
   setInfo(null);
 
   if (!validate()) return;
 
   setSending(true);
-  setInfo("Sending...");
+  setInfo('Sending...');
 
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
+    const res = await fetch('http://localhost:5000/api/request-info/submit', {
+      // ⬆⬆⬆ CHANGE URL HERE FOR LOCAL TESTING
+      // for production:
+      // 'https://your-railway-url.up.railway.app/api/request-info/submit'
 
-    const res = await fetch(
-      "https://edvantage-pryf.onrender.com/api/request-info/submit",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-        signal: controller.signal
-      }
-    );
-
-    clearTimeout(timeout);
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
 
     const data = await res.json();
 
     if (res.ok && data.success) {
-      setInfo("Your request has been sent successfully!");
-      setForm({ name: "", phone: "", email: "", message: "" });
+      setInfo('Your request has been sent successfully!');
+      setForm({ name: '', phone: '', email: '', message: '' });
+      setErrors({});
     } else {
-      setInfo(data.message || "Failed to send. Please try again.");
+      setInfo(data.message || 'Failed to send. Please try again.');
     }
   } catch (err) {
-    setInfo("Server not responding. Please try again.");
+    setInfo('Network error! Please try again later.');
   }
 
   setSending(false);

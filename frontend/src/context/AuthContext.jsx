@@ -120,32 +120,10 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // On mount, optionally try to get session from server (if you're using cookie-based session)
-  useEffect(() => {
-    (async () => {
-      try {
-        // attempt to get /api/auth/me to detect server cookie session
-        const res = await fetch("https://edvantage-pryf.onrender.com/api/auth/me", {
-          credentials: "include",
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (data?.user) {
-            setUser(data.user);
-            // if server returns token optionally
-            if (data.token) {
-              setToken(data.token);
-              localStorage.setItem("token", data.token);
-            }
-            localStorage.setItem("user", JSON.stringify(data.user));
-          }
-        }
-      } catch (e) {
-        // ignore
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
+useEffect(() => {
+  setLoading(false);
+}, []);
+
 
   // helper: persist user/token
   useEffect(() => {
@@ -176,14 +154,7 @@ export const AuthProvider = ({ children }) => {
     } else if (data.token) {
       // if only token returned, decode user later or call /me
       setToken(data.token);
-    } else {
-      // if server used cookie only, call /api/auth/me
-      const me = await fetch("/api/auth/me", { credentials: "include" });
-      if (me.ok) {
-        const meData = await me.json();
-        if (meData.user) setUser(meData.user);
-      }
-    }
+    } 
     return { user: data.user ?? null, token: data.token ?? null };
   };
 
@@ -201,16 +172,7 @@ export const AuthProvider = ({ children }) => {
     if (data.user) {
       setUser(data.user);
       if (data.token) setToken(data.token);
-    } else {
-      // attempt to read /me if cookie-based
-      try {
-        const me = await fetch("https://edvantage-pryf.onrender.com/api/auth/me", { credentials: "include" });
-        if (me.ok) {
-          const meData = await me.json();
-          if (meData.user) setUser(meData.user);
-        }
-      } catch {}
-    }
+    } 
     return { user: data.user ?? null, token: data.token ?? null };
   };
 
