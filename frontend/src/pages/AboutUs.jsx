@@ -19,7 +19,7 @@ const AboutUs = () => {
         Our founder saw a challenge that many professionals and students faced: while academic programs offered theoretical knowledge, the fast-paced energy industry demanded <strong>practical skills and cutting-edge expertise</strong>. This disconnect inspired us to create a platform where learning meets innovation, and education translates into real-world impact.
       </p>
       <p>
-        What started as a small initiative has grown into a <strong>global movement over just five years</strong>. Today, we take pride in having trained over 5,000+ professionals, helping them advance their careers and drive change in their organizations. Along the way, we’ve partnered with <strong>20+ leading universities</strong>, designing programs that prepare students and professionals to thrive in an industry shaped by digital transformation and sustainability.
+        What started as a small initiative has grown into a <strong>global movement over just 5+ years</strong>. Today, we take pride in having trained over 5,000+ professionals, helping them advance their careers and drive change in their organizations. Along the way, we’ve partnered with <strong>10+ leading universities</strong>, designing programs that prepare students and professionals to thrive in an industry shaped by digital transformation and sustainability.
       </p>
       <p>
         Our journey is just beginning. With every course we deliver and every career we transform, we move closer to our vision — <strong>a future where knowledge empowers progress and innovation fuels growth.</strong>
@@ -44,7 +44,7 @@ const AboutUs = () => {
     {
       name: "Yogashri Pradhan",
       position: "Petroleum Engineer",
-      experience: "10+ years in Production, Completions & Reservoir Engineering",
+      experience: "Chief Growth Officer | OPX Ai | 10+ years in Production, Completions & Reservoir Engineering",
       image: "/images/Yogashri.png",
       bio: "Focused on optimizing unconventional reservoirs in the Permian Basin using data analytics and technical leadership.",
       credentials: [

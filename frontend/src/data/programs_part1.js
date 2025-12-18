@@ -1,4 +1,3 @@
-
 const DEFAULT_PROGRAMS = [
   {
     id: "1",
@@ -11,7 +10,7 @@ const DEFAULT_PROGRAMS = [
     level: "Intermediate",
     certificate: "Yes",
     overview:
-      "A comprehensive program designed to build strong foundational and advanced skills in directional drilling, covering trajectory planning, BHA design, MWD/LWD tools, and real-world drilling challenges through practical case studies.",
+      "A comprehensive program designed to build strong foundational and advanced skills in directional drilling, covering trajectory planning, BHA design, MWD/LWD tools, and real-world drilling challenges through practical case studies. ",
     outcomes: [
       "Understand fundamental concepts, terminology, and types of directional wells",
       "Learn BHA design, tool selection, and MWD/LWD applications",
@@ -51,7 +50,7 @@ const DEFAULT_PROGRAMS = [
     level: "Advanced",
     certificate: "Yes",
     overview:
-      "A comprehensive program focused on understanding unconventional reservoirs—shale, tight gas, shale oil, and CBM—through reservoir characterization, decline curve modelling, and horizontal well fracturing techniques.",
+      "A comprehensive program focused on understanding unconventional reservoirs—shale, tight gas, shale oil, and CBM—through reservoir characterization, decline curve modelling, and horizontal well fracturing techniques to optimize production and forecast performance. ",
     outcomes: [
       "Understand geology, petrophysical properties, and classification of unconventional reservoirs",
       "Learn TOC evaluation, logging tools, and completion strategies",
@@ -89,7 +88,7 @@ const DEFAULT_PROGRAMS = [
     level: "Intermediate",
     certificate: "Yes",
     overview:
-      "A focused program that builds a strong understanding of petroleum reserves estimation methods and globally recognized classification systems.",
+      "A focused program that builds a strong understanding of petroleum reserves estimation methods and globally recognized classification systems. Learn volumetric, decline curve, and material balance techniques used to evaluate assets and support business decisions. ",
     outcomes: [
       "Understand global standards for reserves and resources classification",
       "Learn volumetric, decline curve, and material-balance methods for reserve estimation",
@@ -125,7 +124,7 @@ const DEFAULT_PROGRAMS = [
     level: "Beginner to Intermediate",
     certificate: "Yes (with Internship Completion Certificate)",
     overview:
-      "A comprehensive training–cum–internship covering sequence stratigraphy, depositional systems, facies modelling, and modern ML–enabled geological interpretation.",
+      "A comprehensive training–cum–internship that builds strong foundations in sequence stratigraphy, depositional systems, facies modelling, and modern ML–enabled geological interpretation. Participants learn through virtual training, practical workshops, and real industry case studies. ",
     outcomes: [
       "Differentiate lithostratigraphy and sequence stratigraphy",
       "Understand depositional systems, facies cycles, unconformities & systems tracts",
@@ -165,7 +164,7 @@ const DEFAULT_PROGRAMS = [
     level: "Beginner to Intermediate",
     certificate: "Yes",
     overview:
-      "A practical, industry-focused program covering essential well intervention techniques, workover operations, fishing and milling practices, stimulation methods, and modern smart completion technologies.",
+      "A practical, industry-focused program covering essential well intervention techniques, workover operations, fishing and milling practices, stimulation methods, and modern smart completion technologies to enhance well performance in complex reservoirs. ",
     outcomes: [
       "Understand well intervention objectives, requirements, and SOPs",
       "Learn workover planning, design, execution, and failure analysis",
@@ -203,14 +202,15 @@ const DEFAULT_PROGRAMS = [
     level: "Intermediate to Advanced",
     certificate: "Yes",
     overview:
-      "An intensive, industry-oriented program designed to develop strong competencies in well design, pore pressure analysis, casing & cementing, drilling challenges, well control assurance, and modern engineering software.",
+      "An intensive, industry-oriented program designed to develop strong competencies in advanced well design, pore pressure analysis, casing & cementing design, drilling challenges, well control assurance, and modern well-engineering software. Ideal for learners aiming to go from foundational knowledge to expert-level well engineering skills. ",
     outcomes: [
       "Gain strong fundamentals in pore pressure, fracture pressure & kick tolerance",
       "Learn casing design, load calculations & API/NORSOK/ISO-based standards",
       "Master cementing functions, slurry design, additives, hardware & testing",
       "Understand drilling fluids, SCE, rig hydraulics & rheology",
       "Learn drill string, BHA design, bit selection & IADC dull grading",
-      "Explore wellbore stability, stuck pipe mechanisms & mitigations",
+      "Build directional drilling skills using trajectory planning & software demos",
+      "Explore wellbore stability, stuck pipe mechanisms & operational mitigations",
       "Perform well cost estimation, AFE calculations & planning workflows",
       "Understand BOP components, selection, accumulator sizing & well control basics",
       "Apply knowledge through simulations, case studies & a well-design project",
@@ -245,7 +245,7 @@ const DEFAULT_PROGRAMS = [
     level: "Beginner to Intermediate",
     certificate: "Yes",
     overview:
-      "A comprehensive program designed to build strong competencies in reservoir surveillance principles, tight reservoir characterization, dynamic modelling, and uncertainty-driven decision-making.",
+      "A comprehensive program designed to build strong competencies in reservoir surveillance principles, tight reservoir characterization, dynamic modelling, and uncertainty-driven decision-making. Participants learn how to gather, analyze, and use subsurface data to optimize asset performance in unconventional fields. ",
     outcomes: [
       "Understand fundamentals of subsurface engineering & reservoir surveillance",
       "Develop effective surveillance plans aligned with asset objectives",
@@ -281,7 +281,7 @@ const DEFAULT_PROGRAMS = [
     level: "Beginner (No Coding Required)",
     certificate: "Yes",
     overview:
-      "A practical program designed to help energy professionals master statistics, Python, ML, Power BI, SQL, and real oil & gas data workflows.",
+      "A practical, application-oriented program designed for energy professionals to master statistics, Python, data analytics, machine learning, and real oil & gas data workflows. Blending fundamentals with hands-on reservoir, drilling, and production datasets, the course prepares learners for data-driven roles in the energy sector. ",
     outcomes: [
       "Understand statistics, hypothesis testing & regression for energy datasets",
       "Learn Python fundamentals, data types, loops, functions & error handling",
@@ -289,8 +289,8 @@ const DEFAULT_PROGRAMS = [
       "Perform data analytics using Python, SQL & Power BI",
       "Build dashboards and visualizations for reservoir & production data",
       "Apply ML techniques for porosity, saturation, facies & reservoir forecasting",
-      "Use supervised, unsupervised & time-series models",
-      "Complete end-to-end O&G data science projects",
+      "Use supervised, unsupervised & time-series models for real OG case studies",
+      "Complete end-to-end data science projects relevant to oil & gas workflows",
     ],
     curriculum: [
       "Python Fundamentals",
@@ -320,7 +320,7 @@ const DEFAULT_PROGRAMS = [
     level: "Beginner to Intermediate",
     certificate: "Yes",
     overview:
-      "A specialized program designed to equip learners with essential skills in deepwater well planning, subsea engineering, real-time data integration, and risk management.",
+      "A specialized program designed to equip learners with essential skills in deepwater well planning, subsea engineering, real-time data integration, and risk management. This practical, industry-oriented course blends engineering fundamentals with real offshore case studies to prepare professionals for complex deepwater operations. ",
     outcomes: [
       "Master deepwater well design principles and planning workflows",
       "Analyze and apply real-time industry data for informed decision-making",
@@ -328,7 +328,10 @@ const DEFAULT_PROGRAMS = [
       "Identify and mitigate deepwater drilling risks and shallow hazards",
       "Apply casing design, cementing, MPD basics & hydraulic analysis",
       "Gain proficiency in subsea operations, well abandonment & relief well planning",
-      "Learn regulatory requirements & offshore best practices",
+      "Strengthen communication with multidisciplinary offshore teams",
+      "Learn regulatory requirements, environmental guidelines & industry best practices",
+      "Use essential deepwater engineering tools and software",
+      "Apply concepts through exercises, simulations & case studies",
     ],
     curriculum: [
       "Deepwater Well Planning",
@@ -358,15 +361,15 @@ const DEFAULT_PROGRAMS = [
     level: "Beginner to Intermediate",
     certificate: "Yes",
     overview:
-      "A practical program introducing real-time drilling data analytics, ML workflows, vibration analysis, and time-series interpretation for drilling optimization.",
+      "A practical, 20+ hour training program that introduces real-time drilling data analytics, machine learning workflows, vibration analysis, and time-series interpretation. Designed to help professionals detect drilling anomalies, reduce NPT, and optimize performance using data-driven decision-making. ",
     outcomes: [
       "Perform real-time drilling analytics and anomaly detection",
-      "Visualize drilling parameters using heatmaps, 3D trajectories & radar charts",
+      "Visualize drilling parameters using heatmaps, 3D trajectories, radar charts & spectrograms",
       "Apply ML models for optimizing ROP, WOB & detecting tool failures",
       "Analyze drilling time-series data for borehole cleaning, instability & formation changes",
-      "Conduct stuck pipe analysis & NPT evaluation",
-      "Interpret drill string dynamics through vibration & frequency analysis",
-      "Build workflows to reduce drilling risks and increase efficiency",
+      "Conduct stuck pipe analysis, cluster-based NPT evaluation & performance qualifiers",
+      "Interpret drill string dynamics through vibration, wavelet & frequency analysis",
+      "Build workflows to enhance operational efficiency & reduce drilling risks",
     ],
     curriculum: [
       "Real-Time Drilling Analytics",
@@ -387,7 +390,3 @@ const DEFAULT_PROGRAMS = [
 ];
 
 export default DEFAULT_PROGRAMS;
-
-
-
-

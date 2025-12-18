@@ -388,7 +388,7 @@ const CombinedPartnersSection = () => {
  const experts = [
   {
     name: "Yogashri Pradhan",
-    designation: "Chief Growth Officer | POX Ai",
+    designation: "Chief Growth Officer | OPX Ai",
     experience: "10+ years in Production, Completions & Reservoir Engineering",
     points: [
       "Optimizing unconventional reservoirs using data-driven insights",
