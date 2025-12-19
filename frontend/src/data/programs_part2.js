@@ -1892,6 +1892,53 @@ const PROGRAMS_PART_2 = [
     "razorpay": "https://rzp.io/rzp/f1nUjX7V"
   }
 },
+  {
+  id: "49",
+  title: "Digital Oil & Gas Career Accelerator",
+  brochure: "https://edvantage.org.in/registeraogca",
+  category: "upcoming",
+  duration: "90+ Hours",
+  format: "Live Weekend Sessions + Recordings",
+  level: "Beginner to Intermediate",
+  certificate: "Yes",
+  overview:
+    "This immersive certification program is designed to build end-to-end oil & gas domain expertise combined with modern digital skills. It bridges upstream field operations, data analytics, machine learning, Power BI, and business strategy, preparing learners for real-world energy roles with strong technical and digital fluency.",
+  outcomes: [
+    "Build a strong foundation in upstream oil & gas operations including drilling, production, and field workflows",
+    "Understand end-to-end oil & gas value chain and digital oilfield concepts",
+    "Develop hands-on skills in Python, data analytics, and machine learning for energy applications",
+    "Create interactive Power BI dashboards for operational and business insights",
+    "Gain exposure to business strategy, ESG concepts, and sustainability practices",
+    "Achieve industry readiness through real-world projects and structured career preparation"
+  ],
+  price: "₹25,000 / $400",
+  registrationLink: "https://edvantage.org.in/registeraogca",
+  image: "/images/Oil & Gas career Accelerator.jpg"
+},
+{
+  id: "50",
+  title: "Python, Machine Learning & GenAI for Oil & Gas Professionals",
+  brochure: "https://edvantage.org.in/registeraogca",
+  category: "upcoming",
+  duration: "50+ Hours",
+  format: "Live Weekend Sessions + Recordings",
+  level: "Beginner to Intermediate",
+  certificate: "Yes",
+  overview:
+    "This intensive digital upskilling program is designed to help oil & gas professionals master Python, machine learning, time-series analytics, Power BI, and GenAI applications using real drilling and production datasets. The program focuses on practical, job-oriented skills required to build, analyze, and automate modern digital oilfield workflows.",
+  outcomes: [
+    "Develop strong Python programming and data analytics skills for oil & gas datasets",
+    "Analyze real drilling and production data using industry-relevant workflows",
+    "Apply machine learning and time-series techniques for forecasting and optimization",
+    "Leverage GenAI for automation, insights generation, and failure prediction",
+    "Build interactive Power BI dashboards for digital oilfield monitoring",
+    "Deliver job-ready end-to-end capstone projects aligned with industry use cases"
+  ],
+  price: "₹18,000 / $300",
+  registrationLink: "https://edvantage.org.in/registeraogca",
+  image: "/images/Python gen ai.png"
+}
+
 ];
 
 export default PROGRAMS_PART_2;

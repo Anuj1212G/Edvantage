@@ -37,14 +37,14 @@ const AboutUs = () => {
     { number: "5000+", label: "Professionals Trained Globally", icon: Users },
     { number: "10+", label: "University Collaborations", icon: BookOpen },
     { number: "20+", label: "Corporate Partners", icon: Target },
-    { number: "10+", label: "Presence in Countries", icon: Globe },
+    { number: "45+", label: "Presence in Countries", icon: Globe },
   ];
 
   const mentors = [
     {
       name: "Yogashri Pradhan",
       position: "Petroleum Engineer",
-      experience: "Chief Growth Officer | OPX Ai | 10+ years in Production, Completions & Reservoir Engineering",
+      experience:"Chief Executive Officer (CEO) | Edvantage | 10+ years of leadership experience in Oil & Gas digital transformation, production optimization, completions, and reservoir engineering",
       image: "/images/Yogashri.png",
       bio: "Focused on optimizing unconventional reservoirs in the Permian Basin using data analytics and technical leadership.",
       credentials: [

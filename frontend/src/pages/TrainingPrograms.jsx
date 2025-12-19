@@ -60,7 +60,8 @@ const TrainingPrograms = ({ programs }) => {
         p.format?.toLowerCase().includes("diploma")
       );
     if (selectedCategory === "upcoming")
-      return allPrograms.filter((p) => p.upcoming === true);
+      return allPrograms.filter((p) => p.category === "upcoming");
+
 
     return allPrograms.filter(
       (p) => normalizeDomain(p.domain) === selectedCategory
@@ -128,11 +129,10 @@ const TrainingPrograms = ({ programs }) => {
                 e.stopPropagation();
                 handleSetCategory("all"); // RESET
               }}
-              className={`px-6 py-3 rounded-full font-semibold transition ${
-                selectedCategory === "all"
+              className={`px-6 py-3 rounded-full font-semibold transition ${selectedCategory === "all"
                   ? "bg-blue-600 text-white"
                   : "bg-white hover:bg-blue-50"
-              }`}
+                }`}
             >
               All Programs
             </button>
@@ -180,11 +180,10 @@ const TrainingPrograms = ({ programs }) => {
             <button
               key={c.id}
               onClick={() => handleSetCategory(c.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition ${
-                selectedCategory === c.id
+              className={`px-6 py-3 rounded-full font-semibold transition ${selectedCategory === c.id
                   ? "bg-blue-600 text-white"
                   : "bg-white hover:bg-blue-50"
-              }`}
+                }`}
             >
               {c.name}
             </button>
@@ -247,14 +246,24 @@ const TrainingPrograms = ({ programs }) => {
                       onClick={() => handleViewDetails(program)}
                       className="px-4 py-2 border rounded-lg hover:bg-gray-100"
                     >
-                      View
+                      View Details
                     </button>
-                    <button
-                      onClick={() => handlePayClick(program)}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                    >
-                      Enroll
-                    </button>
+                    {program.category === "upcoming" && program.registrationLink ? (
+                      <button
+                        onClick={() => window.open(program.registrationLink, "_blank")}
+                        className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-blue-700"
+                      >
+                        Register Now
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handlePayClick(program)}
+                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                      >
+                        Enroll
+                      </button>
+                    )}
+
                   </div>
                 </div>
               </div>

@@ -385,68 +385,68 @@ const CombinedPartnersSection = () => {
     { name: "TechWysh", src: "/images/techwysh.png" },
   ];
 
- const experts = [
-  {
-    name: "Yogashri Pradhan",
-    designation: "Chief Growth Officer | OPX Ai",
-    experience: "10+ years in Production, Completions & Reservoir Engineering",
-    points: [
-      "Optimizing unconventional reservoirs using data-driven insights",
-      "Technical leadership across Permian Basin assets"
-    ],
-    img: "/images/Yogashri.png",
-  },
-  {
-    name: "Vinod Kumar Madem",
-    designation: "Reservoir Engineering Expert",
-    experience: "MTech – IIT(ISM) Dhanbad",
-    points: [
-      "Specializes in modelling, simulation & surveillance",
-      "Expertise in CCUS and hydrogen storage projects"
-    ],
-    img: "/images/Vinod.png",
-  },
-  {
-    name: "Yohanes Nuwara",
-    designation: "Software Engineer at Whitson",
-    experience: "5+ years in Data Science, CV & LLMs",
-    points: [
-      "AI/ML solutions for subsurface engineering",
-      "Experience across oil & gas, pulp & paper and tech"
-    ],
-    img: "/images/Yohanes.png",
-  },
-  {
-    name: "Mr. SivaKumar Babu",
-    designation: "Petroleum Engineer | Digital Transformation Leader",
-    experience: "32+ years in Global E&P (ONGC, BAPCO, PETRONAS)",
-    points: [
-      "Expert in production technology & reservoir surveillance",
-      "Led digital transformation in major global energy companies"
-    ],
-    img: "/images/SivaKumar.png",
-  },
-  {
-    name: "Sanjay Joshi",
-    designation: "Drilling & Well Engineering Expert",
-    experience: "30+ years Industry Experience",
-    points: [
-      "Trained 200+ global organizations on drilling & safety",
-      "Strong expertise in HSE and operational compliance"
-    ],
-    img: "/images/Sanjay.png",
-  },
-  {
-    name: "Samir Kale",
-    designation: "Completion and Well Intervention Expert",
-    experience: "30+ years in Well Intervention & Stimulation",
-    points: [
-      "Lift optimization & cost-efficient intervention planning",
-      "HSSE leadership + strong project/contract management"
-    ],
-    img: "/images/SamirKale.png",
-  },
-];
+  const experts = [
+    {
+      name: "Yogashri Pradhan",
+      designation: "Chief Executive Officer (CEO) | Edvantage",
+      experience: "10+ years in Production, Completions & Reservoir Engineering",
+      points: [
+        "Optimizing unconventional reservoirs using data-driven insights",
+        "Technical leadership across Permian Basin assets"
+      ],
+      img: "/images/Yogashri.png",
+    },
+    {
+      name: "Vinod Kumar Madem",
+      designation: "Reservoir Engineering Expert",
+      experience: "MTech – IIT(ISM) Dhanbad",
+      points: [
+        "Specializes in modelling, simulation & surveillance",
+        "Expertise in CCUS and hydrogen storage projects"
+      ],
+      img: "/images/Vinod.png",
+    },
+    {
+      name: "Yohanes Nuwara",
+      designation: "Software Engineer at Whitson",
+      experience: "5+ years in Data Science,CV&LLMs",
+      points: [
+        "AI/ML solutions for subsurface engineering",
+        "Experience across oil & gas, pulp & paper and tech"
+      ],
+      img: "/images/Yohanes.png",
+    },
+    {
+      name: "Mr. SivaKumar Babu",
+      designation: "Petroleum Engineer | Digital Transformation Leader",
+      experience: "32+ years in Global E&P(ONGC,BAPCO,PETRONAS)",
+      points: [
+        "Expert in production technology & reservoir surveillance",
+        "Led digital transformation in major global energy companies"
+      ],
+      img: "/images/SivaKumar.png",
+    },
+    {
+      name: "Sanjay Joshi",
+      designation: "Drilling & Well Engineering Expert",
+      experience: "30+ years Industry Experience",
+      points: [
+        "Trained 200+ global organizations on drilling & safety",
+        "Strong expertise in HSE and operational compliance"
+      ],
+      img: "/images/Sanjay.png",
+    },
+    {
+      name: "Samir Kale",
+      designation: "Completion and Well Intervention Expert",
+      experience: "30+ years in Well Intervention & Stimulation",
+      points: [
+        "Lift optimization & cost-efficient intervention planning",
+        "HSSE leadership + strong project/contract management"
+      ],
+      img: "/images/SamirKale.png",
+    },
+  ];
 
 
 
@@ -454,10 +454,10 @@ const CombinedPartnersSection = () => {
   const bottomRowLogos = corporateLogos.slice(corporateLogos.length / 2);
 
   return (
-  <div className="bg-white font-sans">
+    <div className="bg-white font-sans">
 
-    {/* === Learn From Industry Experts === */}
-{/* === Learn From Industry Experts === */}
+      {/* === Learn From Industry Experts === */}
+      {/* === Learn From Industry Experts === */}
       <section className="bg-gray-50 py-10">
         <div className="max-w-7xl mx-auto px-4 text-center">
 
@@ -475,7 +475,7 @@ const CombinedPartnersSection = () => {
                 <div
                   key={i}
                   className="bg-white shadow-md rounded-xl p-4 w-64 flex-shrink-0 
-                  border border-gray-200 hover:shadow-xl transition h-[380px] flex flex-col"
+border border-gray-200 hover:shadow-xl transition flex flex-col"
                 >
                   <img
                     src={expert.img}
@@ -486,13 +486,14 @@ const CombinedPartnersSection = () => {
                   <p className="font-semibold text-black text-lg text-center">
                     {expert.name}
                   </p>
-                  <p className="text-gray-600 text-sm text-center line-clamp-1">
+                  <p className="text-gray-700 text-sm text-center whitespace-normal break-words">
                     {expert.designation}
                   </p>
 
-                  <p className="text-gray-500 text-sm text-center mt-1 line-clamp-1">
+                  <p className="text-gray-500 text-sm text-center mt-1 whitespace-normal break-words">
                     {expert.experience}
                   </p>
+
 
                   {/* Two bullet points */}
                   <ul className="mt-2 text-left text-gray-700 text-xs space-y-1 px-2">
@@ -503,160 +504,160 @@ const CombinedPartnersSection = () => {
 
                 </div>
               ))}
+            </div>
           </div>
-        </div>
 
-        {/* VIEW ALL Button */}
-        <div className="mt-8">
-          <button
-            onClick={() => {
-              navigate("/about");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold 
+          {/* VIEW ALL Button */}
+          <div className="mt-8">
+            <button
+              onClick={() => {
+                navigate("/about");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold 
             px-12 py-5 rounded-full shadow-xl transition-all duration-300 
             transform hover:scale-105"
-          >
-            VIEW ALL
-          </button>
+            >
+              VIEW ALL
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
       {/* === Stats Section === */}
-       <section className="bg-gray-50 py-10 sm:py-14">
-  <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
-    <BigStackedBox />
+      <section className="bg-gray-50 py-10 sm:py-14">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+          <BigStackedBox />
 
-    <div className="bg-white p-10 sm:p-14 rounded-2xl shadow-2xl border border-gray-100 flex-1 overflow-hidden h-[635px]">
-      <div className="mb-10 text-center">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-          Our Global Reach in Numbers
-        </h2>
-        <p className="mt-5 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          <strong>10,000+ Professionals Empowered Worldwide</strong> <br />
-          Trusted by learners across <strong>40+ countries</strong>, our programs
-          have been shaping global talent for over <strong>5 years</strong> of
-          excellence.
-        </p>
-      </div>
-
-      <div className="relative overflow-hidden">
-        <div className="flex w-max animate-scroll-left space-x-10">
-          {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
-            <div
-              key={i}
-              className="text-center p-10 border-4 border-blue-300 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:border-blue-500 hover:-translate-y-2 flex-shrink-0 w-72"
-            >
-              <Icon className="w-16 h-16 text-blue-600 mx-auto mb-5" />
-              <p className="text-5xl font-extrabold text-gray-900">{number}</p>
-              <p className="text-lg text-gray-600 mt-2 font-medium">{label}</p>
+          <div className="bg-white p-10 sm:p-14 rounded-2xl shadow-2xl border border-gray-100 flex-1 overflow-hidden h-[635px]">
+            <div className="mb-10 text-center">
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+                Our Global Reach in Numbers
+              </h2>
+              <p className="mt-5 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                <strong>10,000+ Professionals Empowered Worldwide</strong> <br />
+                Trusted by learners across <strong>40+ countries</strong>, our programs
+                have been shaping global talent for over <strong>5 years</strong> of
+                excellence.
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-    {/* === University Section === */}
-    <section className="py-10 sm:py-14 bg-white">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center space-y-10">
-        
-        <div>
-          <p className="text-2xl sm:text-3xl font-semibold text-black tracking-wide uppercase">
-            EARN CERTIFICATES FROM
-          </p>
-          <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold text-gray-900">
-            Prestigious Universities
-          </h2>
-          <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
-            We collaborate with globally renowned universities to help you earn certificates recognized across industries worldwide.
-          </p>
+            <div className="relative overflow-hidden">
+              <div className="flex w-max animate-scroll-left space-x-10">
+                {[...statsData, ...statsData].map(({ number, label, Icon }, i) => (
+                  <div
+                    key={i}
+                    className="text-center p-10 border-4 border-blue-300 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:border-blue-500 hover:-translate-y-2 flex-shrink-0 w-72"
+                  >
+                    <Icon className="w-16 h-16 text-blue-600 mx-auto mb-5" />
+                    <p className="text-5xl font-extrabold text-gray-900">{number}</p>
+                    <p className="text-lg text-gray-600 mt-2 font-medium">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="relative overflow-hidden w-full">
-          <div className="flex w-max animate-scroll-left space-x-14">
-            {[...universityLogos, ...universityLogos].map((uni, i) => (
-              <div
-                key={`${uni.name}-${i}`}
-                className="flex flex-col justify-start items-center flex-shrink-0 w-72 text-center"
-              >
-                <div className="h-40 flex items-center justify-center">
+      {/* === University Section === */}
+      <section className="py-10 sm:py-14 bg-white">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center space-y-10">
+
+          <div>
+            <p className="text-2xl sm:text-3xl font-semibold text-black tracking-wide uppercase">
+              EARN CERTIFICATES FROM
+            </p>
+            <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold text-gray-900">
+              Prestigious Universities
+            </h2>
+            <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+              We collaborate with globally renowned universities to help you earn certificates recognized across industries worldwide.
+            </p>
+          </div>
+
+          <div className="relative overflow-hidden w-full">
+            <div className="flex w-max animate-scroll-left space-x-14">
+              {[...universityLogos, ...universityLogos].map((uni, i) => (
+                <div
+                  key={`${uni.name}-${i}`}
+                  className="flex flex-col justify-start items-center flex-shrink-0 w-72 text-center"
+                >
+                  <div className="h-40 flex items-center justify-center">
+                    <img
+                      src={uni.src}
+                      alt={uni.name}
+                      className="max-h-32 w-auto object-contain transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
+                  <p className="mt-4 text-lg font-medium text-gray-800 h-6 flex items-center justify-center">
+                    {uni.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* === Corporate Partners === */}
+      <section className="bg-white py-16 sm:py-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center mb-10">
+            <h2 className="text-5xl sm:text-6xl font-semibold text-black">
+              Our Corporate Partners
+            </h2>
+            <p className="text-black mt-3 text-xl font-medium">
+              Trusted by leading global companies and institutions
+            </p>
+          </div>
+
+          {/* Top Row */}
+          <div className="relative overflow-hidden mb-10">
+            <div className="flex w-max animate-scroll-left">
+              {[...topRowLogos, ...topRowLogos].map((logo, i) => (
+                <div
+                  key={`${logo.name}-top-${i}`}
+                  className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
+                >
                   <img
-                    src={uni.src}
-                    alt={uni.name}
-                    className="max-h-32 w-auto object-contain transition-transform duration-300 hover:scale-110"
+                    src={logo.src}
+                    alt={logo.name}
+                    className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
                   />
                 </div>
-                <p className="mt-4 text-lg font-medium text-gray-800 h-6 flex items-center justify-center">
-                  {uni.name}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-      </div>
-    </section>
-
-
-    {/* === Corporate Partners === */}
-    <section className="bg-white py-16 sm:py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-10">
-          <h2 className="text-5xl sm:text-6xl font-semibold text-black">
-            Our Corporate Partners
-          </h2>
-          <p className="text-black mt-3 text-xl font-medium">
-            Trusted by leading global companies and institutions
-          </p>
-        </div>
-
-        {/* Top Row */}
-        <div className="relative overflow-hidden mb-10">
-          <div className="flex w-max animate-scroll-left">
-            {[...topRowLogos, ...topRowLogos].map((logo, i) => (
-              <div
-                key={`${logo.name}-top-${i}`}
-                className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
-                />
-              </div>
-            ))}
+          {/* Bottom Row */}
+          <div className="relative overflow-hidden">
+            <div className="flex w-max animate-scroll-right">
+              {[...bottomRowLogos, ...bottomRowLogos].map((logo, i) => (
+                <div
+                  key={`${logo.name}-bottom-${i}`}
+                  className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
-
-        {/* Bottom Row */}
-        <div className="relative overflow-hidden">
-          <div className="flex w-max animate-scroll-right">
-            {[...bottomRowLogos, ...bottomRowLogos].map((logo, i) => (
-              <div
-                key={`${logo.name}-bottom-${i}`}
-                className="flex-shrink-0 w-72 flex justify-center items-center px-8 py-6"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="h-24 sm:h-28 w-auto object-contain transition-all duration-300 hover:scale-110 drop-shadow-md"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-      </div>
-    </section>
+      </section>
 
 
-    {/* === Animations CSS === */}
-    <style>{`
+      {/* === Animations CSS === */}
+      <style>{`
       @keyframes scroll-left {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); }
@@ -671,7 +672,7 @@ const CombinedPartnersSection = () => {
       .animate-scroll-right:hover { animation-play-state: paused; }
     `}</style>
 
-  </div>
-);
+    </div>
+  );
 };
 export default CombinedPartnersSection;

@@ -15,6 +15,29 @@ const WebinarsEvents = () => {
   const [formStatus, setFormStatus] = useState('idle');
   const [selectedWebinar, setSelectedWebinar] = useState(null);
   const [activeCalendar, setActiveCalendar] = useState(null); // Tracks which calendar dropdown is open
+const testimonials = [
+  {
+    name: "Tushar Sirohi",
+    handle: "Placed at Cairn Oil & Gas",
+    text: "Trainings on Well Planning, Engineering and Directional Drilling from Edvantage gave me strong core knowledge. Almost 30–40% of my interview questions were based on directional drilling covered in the workshop.",
+    rating: 5,
+    image: "/images/TusharSirohi.png",
+  },
+  {
+    name: "Jyotirmoyi Gorai",
+    handle: "Intern at Rezlytix",
+    text: "The Sequence Stratigraphy in the Era of Digitalization program built my knowledge in exploration and simulation. It helped me earn an internship opportunity with RezLytix.",
+    rating: 5,
+    image: "/images/JyotirmoyiGorai.png",
+  },
+  {
+    name: "Imtiaz Ahmed",
+    handle: "MS Petroleum Engineering, Khazar University",
+    text: "The training on Python, machine learning and deep learning for the petroleum industry was well structured and very relevant. It created a clear path for me towards petroleum data science.",
+    rating: 5,
+    image: "/images/ImtiazAhmed.png",
+  },
+];
 
   // Upcoming webinars (kept from original code)
   const webinars = [
@@ -516,53 +539,61 @@ const WebinarsEvents = () => {
         </div>
       </main>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-slate-50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-              <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">Trusted by Industry Leaders</h2>
-                  <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Hear from professionals who have gained a competitive edge with our events.</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
-                  {/* Example testimonials — you can replace these with real ones later */}
-                  <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-500 transform-style-3d hover:rotate-y-3 hover:-translate-y-2" style={{ animation: `fadeInUp 0.5s 0s ease-out forwards`, opacity: 1 }}>
-                      <Quote className="h-12 w-12 text-blue-100 mb-4" />
-                      <p className="text-slate-700 italic mb-6">"The insights were not just theoretical but immediately actionable. Truly exceptional!"</p>
-                      <div className="flex items-center">
-                          <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400" alt="David Chen" className="w-12 h-12 rounded-full object-cover mr-4"/>
-                          <div>
-                              <p className="font-bold text-slate-900">David Chen</p>
-                              <p className="text-sm text-blue-600">Operations Director, Apex Energy</p>
-                          </div>
-                      </div>
-                  </div>
+     {/* Testimonials */}
+<section className="py-20 bg-slate-50">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+        Trusted by Industry Professionals
+      </h2>
+      <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+        Hear from learners who advanced their careers with Edvantage.
+      </p>
+    </div>
 
-                  <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-500 transform-style-3d hover:rotate-y-3 hover:-translate-y-2" style={{ animation: `fadeInUp 0.5s 0.1s ease-out forwards`, opacity: 1 }}>
-                      <Quote className="h-12 w-12 text-blue-100 mb-4" />
-                      <p className="text-slate-700 italic mb-6">"I've never attended a virtual event with such high-caliber speakers and seamless production."</p>
-                      <div className="flex items-center">
-                          <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Aisha Khan" className="w-12 h-12 rounded-full object-cover mr-4"/>
-                          <div>
-                              <p className="font-bold text-slate-900">Aisha Khan</p>
-                              <p className="text-sm text-blue-600">Lead Safety Engineer, Trident Offshore</p>
-                          </div>
-                      </div>
-                  </div>
+    <div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      style={{ perspective: "1000px" }}
+    >
+      {testimonials.map((t, index) => (
+        <div
+          key={t.name}
+          className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-500 transform-style-3d hover:rotate-y-3 hover:-translate-y-2"
+          style={{
+            animation: `fadeInUp 0.5s ${index * 0.1}s ease-out forwards`,
+            opacity: 1,
+          }}
+        >
+          <Quote className="h-12 w-12 text-blue-100 mb-4" />
 
-                  <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-500 transform-style-3d hover:rotate-y-3 hover:-translate-y-2" style={{ animation: `fadeInUp 0.5s 0.2s ease-out forwards`, opacity: 1 }}>
-                      <Quote className="h-12 w-12 text-blue-100 mb-4" />
-                      <p className="text-slate-700 italic mb-6">"This is the single most valuable resource for staying current in the fast-evolving energy landscape."</p>
-                      <div className="flex items-center">
-                          <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Ben Carter" className="w-12 h-12 rounded-full object-cover mr-4"/>
-                          <div>
-                              <p className="font-bold text-slate-900">Ben Carter</p>
-                              <p className="text-sm text-blue-600">Senior Reservoir Engineer, GeoDynamics</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+          <p className="text-slate-700 italic mb-6">
+            “{t.text}”
+          </p>
+
+          <div className="flex items-center">
+            <img
+              src={t.image}
+              alt={t.name}
+              className="w-12 h-12 rounded-full object-cover mr-4"
+            />
+            <div>
+              <p className="font-bold text-slate-900">{t.name}</p>
+              <p className="text-sm text-blue-600">{t.handle}</p>
+            </div>
           </div>
-      </section>
+
+          {/* ⭐ Rating */}
+          <div className="flex mt-4">
+            {Array.from({ length: t.rating }).map((_, i) => (
+              <span key={i} className="text-yellow-400 text-lg">★</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Reminder Modal */}
       {isModalOpen && (

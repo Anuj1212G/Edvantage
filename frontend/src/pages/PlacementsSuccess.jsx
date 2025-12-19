@@ -94,7 +94,7 @@ const stats = [
   { value: "5000+", label: "Professionals Trained" },
   { value: "10+", label: "University Collaborations" },
   { value: "20+", label: "Corporate Partners" },
-  { value: "10+", label: "Countries Reached" },
+  { value: "45+", label: "Countries Reached" },
 ];
 
 /* ---------- COUNT-UP COMPONENT (for stats) ---------- */
