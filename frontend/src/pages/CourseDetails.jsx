@@ -2306,7 +2306,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "49",
     title: "Digital Oil & Gas Career Accelerator",
-    brochure: "https://edvantage.org.in/registeraogca",
+    brochure: "https://drive.google.com/file/d/1xKhak8NK_H5h3fNCnjNHqKr0qPW-k9kV/view?usp=drivesdk",
     category: "upcoming",
     duration: "90+ Hours",
     format: "Live Weekend Sessions + Recordings",
@@ -2352,7 +2352,7 @@ const PROGRAMS_PART_2 = [
   {
     id: "50",
     title: "Python, Machine Learning & GenAI for Oil & Gas Professionals",
-    brochure: "https://edvantage.org.in/registeraogca",
+    brochure: "https://drive.google.com/file/d/18_nDTbpGfuM_opnSZ-hgLRLqDqedSaNc/view?usp=drivesdk",
     category: "upcoming",
     duration: "50+ Hours",
     format: "Live Weekend Sessions + Recordings",
