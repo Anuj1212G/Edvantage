@@ -81,7 +81,7 @@ const successStories = [
 /* ---------- HIRING PARTNERS ---------- */
 const hiringPartners = [
   { name: "Shell", logoUrl: "/images/opxai.png" },
-  { name: "Chevron", logoUrl: "/images/persian.png" },
+  // { name: "Chevron", logoUrl: "/images/persian.png" },
   { name: "Baker Hughes", logoUrl: "/images/petrodrill.png" },
   { name: "Schlumberger", logoUrl: "/images/kiwi.png" },
   { name: "ExxonMobil", logoUrl: "/images/gein.png" },
