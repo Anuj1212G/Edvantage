@@ -56,9 +56,12 @@ app.use(cookieParser());
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
-  message: "Too many requests from this IP, please try again after 15 minutes.",
+  skip: (req) => req.method === "OPTIONS", // 🔥 THIS LINE FIXES IT
+  message: "Too many requests, please try again later.",
 });
+
 app.use(limiter);
+
 
 /* ===========================================================
    ROOT ROUTE — FIXES Render 404 and Health Checks
