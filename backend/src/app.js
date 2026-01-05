@@ -19,22 +19,33 @@ import subscribeRoutes from "./routes/subscribeRoutes.js";
 const app = express();
 
 // --- Security and Middleware ---
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://edvantage-psi.vercel.app",
+  "https://www.edvantage.org.in",
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://www.edvantage.org.in/"
-    ],
-    credentials: true,
+    origin: function (origin, callback) {
+      // allow non-browser tools like Postman
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
+// VERY IMPORTANT for preflight
+app.options("*", cors());
+
+
 
 app.use(helmet());
 app.use(morgan("dev"));
