@@ -25,6 +25,7 @@ const allowedOrigins = [
   "https://www.edvantage.org.in",
 ];
 
+
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -37,13 +38,14 @@ app.use(
         callback(new Error("Not allowed by CORS"));
       }
     },
+    credentials: true, // 🔥 REQUIRED
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
 // VERY IMPORTANT for preflight
-app.options("*", cors());
+// app.options("*", cors());
 
 
 
@@ -106,9 +108,14 @@ app.use("/api/subscribe", subscribeRoutes);
 /* ===========================================================
    GLOBAL ERROR HANDLER
 =========================================================== */
+
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: "Something broke!" });
+  console.error("🔥 Global Error:", err.message);
+
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || "Server error",
+  });
 });
 
 export default app;
