@@ -22,31 +22,46 @@ const AuthModal = ({ open, onClose, redirectTo = '/courses' }) => {
     setError(null);
     try {
       // your context.login(email, password) is expected to return user/token or throw
-      await login(loginData.email, loginData.password);
-      setLoading(false);
-      onClose?.();
-      navigate(redirectTo || '/courses', { replace: true });
+     await login(loginData.email, loginData.password);
+setLoading(false);
+onClose?.();
+
+// 🔥 HANDLE STRIPE / EXTERNAL REDIRECT
+if (redirectTo && redirectTo.startsWith("http")) {
+  window.location.href = redirectTo; // SAME TAB (recommended for Stripe)
+} else {
+  navigate(redirectTo || "/courses", { replace: true });
+}
+
     } catch (err) {
       setLoading(false);
       setError(err?.message || 'Login failed');
     }
   };
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    try {
-      // your context.signup(name, email, password)
-      await signup(signupData.name, signupData.email, signupData.password);
-      setLoading(false);
-      onClose?.();
-      navigate(redirectTo || '/courses', { replace: true });
-    } catch (err) {
-      setLoading(false);
-      setError(err?.message || 'Signup failed');
+const handleSignup = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setError(null);
+
+  try {
+    await signup(signupData.name, signupData.email, signupData.password);
+    setLoading(false);
+    onClose?.();
+
+    // 🔥 SAME REDIRECT LOGIC AS LOGIN
+    if (redirectTo && redirectTo.startsWith("http")) {
+      window.location.href = redirectTo;
+    } else {
+      navigate(redirectTo || "/courses", { replace: true });
     }
-  };
+
+  } catch (err) {
+    setLoading(false);
+    setError(err?.message || "Signup failed");
+  }
+};
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
