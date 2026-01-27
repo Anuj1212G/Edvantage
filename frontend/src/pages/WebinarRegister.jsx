@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-const API_BASE = "http://localhost:5000"; // 🔥 change this
+const API_BASE = "https://edvantage-pryf.onrender.com"; // 🔥 change this
 
 const WebinarRegister = () => {
   const { webinarId } = useParams();
