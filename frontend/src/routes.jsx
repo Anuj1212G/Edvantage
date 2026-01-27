@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import WebinarRegister from "./pages/WebinarRegister";
+
+
 
 // Website Pages
 import Home from "./pages/Home"; 
@@ -46,7 +49,7 @@ function AppRoutes() {
           <Route path="/book-demo" element={<BookDemo />} />
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
-
+<Route path="/register/:webinarId" element={<WebinarRegister />} />
           {/* Training Program Detail Page */}
           <Route path="/course/:id" element={<CourseDetails />} />   {/* ✅ FIXED */}
           <Route path="/request-info" element={<RequestInfo />} />

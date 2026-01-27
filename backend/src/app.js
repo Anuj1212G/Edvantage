@@ -15,6 +15,8 @@ import orderRoutes from "./routes/orderRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import requestInfoRoutes from "./routes/requestInfoRoutes.js";
 import subscribeRoutes from "./routes/subscribeRoutes.js";
+import webinarRegistrationRoutes from "./routes/webinarRegistrationRoutes.js";
+
 
 const app = express();
 
@@ -104,6 +106,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/request-info", requestInfoRoutes);
 app.use("/api/subscribe", subscribeRoutes);
+app.use("/api/webinars", webinarRegistrationRoutes);
 
 /* ===========================================================
    GLOBAL ERROR HANDLER

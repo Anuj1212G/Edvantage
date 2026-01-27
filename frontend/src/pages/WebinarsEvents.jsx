@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Calendar, Clock, User, Play, Download, ExternalLink, Bell, X, CheckCircle, Quote, ChevronDown } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 /**
  * NOTE: Archive data below was taken from the user's uploaded Word file.
@@ -70,7 +71,23 @@ const testimonials = [
       duration: '60 minutes',
       description: 'Practical steps professionals can adopt for the energy transition.',
       recordingLink: "https://drive.google.com/file/d/zzzzzzz/view",
-    }
+    },
+ {
+  id: '2026-01-30-linkedin-offer',
+  title: 'LinkedIn to Offer Letter',
+  speaker: {
+    name: 'Nathan Platter',
+    image: '/images/webinar/LinkedIn-to-Offer-Letter.jpg', // use your poster image path
+  },
+  designation: 'Career Coach | Helped 10K+ Professionals Get Hired',
+  date: '2026-01-30',          // ✅ 30th Jan
+  time: '9:00 PM IST',        // ✅ as per poster
+  duration: '90 minutes',
+  description:
+    'Learn how to fix LinkedIn profile mistakes, attract top recruiters, and convert profile views into interviews. A complete roadmap from LinkedIn optimization to landing offer letters.',
+  meetingLink: 'https://meet.google.com/fpp-jwnf-yqc', // ✅ Google Meet link
+}
+
   ];
 
   // Archive webinars — replaced with content sourced from the uploaded Word file.
@@ -321,6 +338,7 @@ const archiveWebinars = [
     description: 'Day 1 introduces the fundamentals of GIS and remote sensing with real-world applications.',
     recordingLink:"https://drive.google.com/file/d/1U5iQPF5NtZKI-ChoCpeJ2y-wUEWkdz8v/view?usp=drive_link",
   },
+  
 ];
 
 
@@ -461,25 +479,21 @@ const archiveWebinars = [
 
               {/* Card */}
               <div className="lg:col-span-10 relative rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2">
-                <div className="absolute top-4 right-4 z-10">
-                    {isUpcoming(webinar) && (
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
-                          Upcoming
-                        </span>
-                    )}
-                </div>
+               
                <div className="flex flex-col md:flex-row items-center">
 
   {/* ⭐ UPDATED IMAGE WRAPPER — NO CROPPING, PERFECT ALIGN ⭐ */}
-  <div className="w-full md:w-1/3 max-h-[260px] flex items-center justify-center bg-slate-100 
-                  rounded-t-2xl md:rounded-l-2xl md:rounded-r-none p-3">
+  <div className="w-full md:w-1/3 h-[260px] flex items-center justify-center bg-slate-100 
+                rounded-t-2xl md:rounded-l-2xl md:rounded-r-none p-3 overflow-hidden">
+
 
     {webinar.speaker.image ? (
-      <img
-        src={webinar.speaker.image}
-        alt={webinar.speaker.name}
-        className="w-full h-full object-contain bg-white rounded-lg"
-      />
+     <img
+  src={webinar.speaker.image}
+  alt={webinar.speaker.name}
+  className="max-w-full max-h-full object-contain rounded-lg"
+/>
+
     ) : (
       <div className="text-sm text-slate-500 px-4 text-center">
         <div className="font-semibold">{webinar.speaker.name}</div>
@@ -491,7 +505,19 @@ const archiveWebinars = [
   {/* ⭐ END UPDATED IMAGE WRAPPER ⭐ */}
 
                   <div className="p-8 flex-1">
-                    <p className="font-semibold text-blue-600">{webinar.speaker.name}{webinar.designation ? ` — ${webinar.designation}` : ''}</p>
+                 <div className="flex flex-wrap items-center gap-2 mb-1">
+  <p className="font-semibold text-blue-600">
+    {webinar.speaker.name}
+    {webinar.designation ? ` — ${webinar.designation}` : ''}
+  </p>
+
+  {isUpcoming(webinar) && (
+    <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+      Upcoming
+    </span>
+  )}
+</div>
+
                     <h3 className="text-2xl font-bold text-slate-900 mt-1 mb-3">{webinar.title}</h3>
                     <div className="flex items-center gap-4 text-slate-500 text-sm mb-6">
                       <span className="flex items-center gap-2"><Clock size={16} /> {webinar.time}</span>
@@ -500,9 +526,25 @@ const archiveWebinars = [
 
                     {isUpcoming(webinar) ? (
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <a href="#" className="flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transform hover:scale-105 transition-all">
-                          <ExternalLink size={16} /> Register Now
-                        </a>
+                      {localStorage.getItem(`webinar_registered_${webinar.id}`) ? (
+  <a
+    href={webinar.meetingLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-green-600 hover:bg-green-500 shadow-lg"
+  >
+    <Play size={16} /> Join Meeting
+  </a>
+) : (
+  <Link
+    to={`/register/${webinar.id}`}
+    className="flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg"
+  >
+    <ExternalLink size={16} /> Register Now
+  </Link>
+)}
+
+
                         <div className="relative">
                           <button onClick={() => setActiveCalendar(activeCalendar === webinar.id ? null : webinar.id)} className="flex w-full items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 transition-all">
                             <Calendar size={16} /> Add to Calendar <ChevronDown size={16} className={`transition-transform ${activeCalendar === webinar.id ? 'rotate-180' : ''}`} />
