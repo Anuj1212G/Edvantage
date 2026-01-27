@@ -481,7 +481,7 @@ const AboutUs = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <button
+            {/* <button
               onClick={() => {
                 navigate("/book-demo");
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -489,7 +489,7 @@ const AboutUs = () => {
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition"
             >
               Book a Demo
-            </button>
+            </button> */}
           </div>
         </div>
       </section>

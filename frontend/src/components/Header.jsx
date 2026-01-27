@@ -90,7 +90,7 @@ const WebsiteLinks = () => {
   to="/programs?category=upcoming"
   className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
 >
-  Uplcoming Programs 
+  Upcoming Programs 
 </Link>
             <Link
               to="/webinars"

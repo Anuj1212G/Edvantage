@@ -2529,12 +2529,13 @@ const CourseDetails = () => {
           <div className="flex gap-3 mt-4 md:mt-0">
             {program.category === "upcoming" ? (
               /* ✅ UPCOMING → REGISTER */
-              <button
-                onClick={() => window.open(program.registrationLink, "_blank")}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition"
-              >
-                Register Now
-              </button>
+              // <button
+              //   onClick={() => window.open(program.registrationLink, "_blank")}
+              //   className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition"
+              // >
+              //   Register Now
+              // </button>
+              <div></div>
             ) : (
               /* ✅ OTHERS → PAYMENT */
               <>
